@@ -16,6 +16,7 @@
 		969604A02BFF0A6E00BBFC6C /* ChessOpeningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696049F2BFF0A6E00BBFC6C /* ChessOpeningUITests.swift */; };
 		969604A22BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */; };
 		969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */; };
+		969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604B02BFF1D7400BBFC6C /* Engine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9696049F2BFF0A6E00BBFC6C /* ChessOpeningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningUITests.swift; sourceTree = "<group>"; };
 		969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardView.swift; sourceTree = "<group>"; };
+		969604B02BFF1D7400BBFC6C /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */,
+				969604B02BFF1D7400BBFC6C /* Engine.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
 				969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */,
 				9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */,
