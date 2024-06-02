@@ -16,19 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="ChessBoardView" translatesAutoresizingMaskIntoConstraints="NO" id="uew-Gd-0sd" customClass="ChessBoardView" customModule="ChessOpening" customModuleProvider="target">
+                            <view contentMode="scaleToFill" restorationIdentifier="ChessBoardView" translatesAutoresizingMaskIntoConstraints="NO" id="Us2-64-CJl" customClass="ChessBoardView" customModule="ChessOpening" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="430" height="430"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uew-Gd-0sd" secondAttribute="height" multiplier="1:1" id="7DE-Nu-rbn"/>
+                                    <constraint firstAttribute="width" secondItem="Us2-64-CJl" secondAttribute="height" multiplier="1:1" id="BV3-MS-M7b"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uew-Gd-0sd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OsI-hu-E2s"/>
-                            <constraint firstItem="uew-Gd-0sd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rfo-wj-1hp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uew-Gd-0sd" secondAttribute="trailing" id="wIP-iH-tND"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Us2-64-CJl" secondAttribute="trailing" id="TUo-dd-80S"/>
+                            <constraint firstItem="Us2-64-CJl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f3l-A3-odC"/>
+                            <constraint firstItem="Us2-64-CJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iV1-ed-4Zc"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -9,9 +9,14 @@ import UIKit
 import AVFoundation
 
 class ChessBoardView: UIView {
+    
+    private let engine: Engine = Engine()
+    
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
     private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
     private var cellSize: CGFloat = 0
+    
+    private let imgBKing: UIImage = UIImage(named: "bking")!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +47,24 @@ class ChessBoardView: UIView {
                     darkBrown.setFill()
                 }
                 path.fill()
+                
+                
+                
             }
+        }
+        drawPiece(piece: King(engine: engine, color: engine.BLACK), x: 2, y: 3)
+    }
+    
+    private func drawPiece(piece: Piece, x: Int, y: Int) {
+        switch piece {
+        case is King :
+            if piece.color == engine.BLACK {
+                imgBKing.draw(in: CGRect(x: CGFloat(x)*cellSize, y: CGFloat(y)*cellSize, width: cellSize, height: cellSize))
+            } else if piece.color == engine.BLACK {
+                
+            }
+        default:
+            break
         }
     }
 }

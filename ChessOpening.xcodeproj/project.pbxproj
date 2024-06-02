@@ -117,6 +117,7 @@
 		9696047D2BFF0A6D00BBFC6C /* ChessOpening */ = {
 			isa = PBXGroup;
 			children = (
+				96BDF9172C0972620032523E /* Game */,
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
 				969604822BFF0A6D00BBFC6C /* MainViewController.swift */,
 				969604842BFF0A6D00BBFC6C /* Main.storyboard */,
@@ -124,15 +125,6 @@
 				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */,
-				969604B02BFF1D7400BBFC6C /* Engine.swift */,
-				96BDF9072C0968220032523E /* King.swift */,
-				96BDF9092C096B310032523E /* Piece.swift */,
-				96BDF90B2C096B5D0032523E /* Empty.swift */,
-				96BDF90D2C096B730032523E /* Queen.swift */,
-				96BDF90F2C096B7C0032523E /* Bishop.swift */,
-				96BDF9112C096B850032523E /* Knight.swift */,
-				96BDF9132C096BDD0032523E /* Rook.swift */,
-				96BDF9152C096C0C0032523E /* Pawn.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -152,6 +144,22 @@
 				969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */,
 			);
 			path = ChessOpeningUITests;
+			sourceTree = "<group>";
+		};
+		96BDF9172C0972620032523E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				969604B02BFF1D7400BBFC6C /* Engine.swift */,
+				96BDF9092C096B310032523E /* Piece.swift */,
+				96BDF9072C0968220032523E /* King.swift */,
+				96BDF90D2C096B730032523E /* Queen.swift */,
+				96BDF9132C096BDD0032523E /* Rook.swift */,
+				96BDF90F2C096B7C0032523E /* Bishop.swift */,
+				96BDF9112C096B850032523E /* Knight.swift */,
+				96BDF9152C096C0C0032523E /* Pawn.swift */,
+				96BDF90B2C096B5D0032523E /* Empty.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

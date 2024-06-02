@@ -1,5 +1,5 @@
 //
-//  Bishop.swift
+//  Rook.swift
 //  ChessOpening
 //
 //  Created by 김호성 on 2024.05.31.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bishop: Piece {
+class Rook: Piece {
     let engine: Engine
     let color: Int
     
@@ -19,7 +19,7 @@ class Bishop: Piece {
     func getMove(x: Int, y: Int) -> [(Int, Int)] {
         var moves: [(Int, Int)] = []
         let allDirections: [(Int, Int)] = [
-            (1, 1), (1, -1), (-1, -1), (-1, 1)
+            (0, 1), (1, 0), (0, -1), (-1, 0)
         ]
         for direction in allDirections {
             var step = 1
@@ -39,5 +39,6 @@ class Bishop: Piece {
                 step += 1
             }
         }
+        return moves
     }
 }

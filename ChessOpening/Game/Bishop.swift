@@ -1,5 +1,5 @@
 //
-//  Queen.swift
+//  Bishop.swift
 //  ChessOpening
 //
 //  Created by 김호성 on 2024.05.31.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Queen: Piece {
+class Bishop: Piece {
     let engine: Engine
     let color: Int
     
@@ -19,7 +19,7 @@ class Queen: Piece {
     func getMove(x: Int, y: Int) -> [(Int, Int)] {
         var moves: [(Int, Int)] = []
         let allDirections: [(Int, Int)] = [
-            (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)
+            (1, 1), (1, -1), (-1, -1), (-1, 1)
         ]
         for direction in allDirections {
             var step = 1
@@ -39,5 +39,6 @@ class Queen: Piece {
                 step += 1
             }
         }
+        return moves
     }
 }

@@ -520,10 +520,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NSLog("Build : 2024.06.01 21:32")
+        
     }
 
 

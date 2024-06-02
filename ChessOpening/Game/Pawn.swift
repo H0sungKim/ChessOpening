@@ -17,7 +17,7 @@ class Pawn: Piece {
     }
     
     func getMove(x: Int, y: Int) -> [(Int, Int)] {
-        <#code#>
+        return []
     }
     
     
