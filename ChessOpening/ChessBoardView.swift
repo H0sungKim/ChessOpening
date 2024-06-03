@@ -12,9 +12,11 @@ class ChessBoardView: UIView {
     
     private let engine: Engine = Engine()
     
+    private var nowSelected: (Int, Int)?
+    
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
     private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
-    private var cellSize: CGFloat = 0
+    private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
     private let imgBKing: UIImage = UIImage(named: "bking")!
     private let imgBQueen: UIImage = UIImage(named: "bqueen")!
@@ -43,12 +45,24 @@ class ChessBoardView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        // 현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
         drawChessBoard()
     }
     
     private func initialize() {
-        cellSize = UIScreen.main.bounds.width/8
+//        cellSize = UIScreen.main.bounds.width/8
     }
+    
+    private func startAnimation() {
+        let gameTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updatePosition), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updatePosition() {
+        
+        
+        setNeedsDisplay()
+    }
+    
     private func drawChessBoard() {
         for i in 0..<8 {
             for j in 0..<8 {

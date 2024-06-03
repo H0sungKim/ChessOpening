@@ -521,6 +521,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbSubTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

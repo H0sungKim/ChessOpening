@@ -23,15 +23,56 @@
                                     <constraint firstAttribute="width" secondItem="Us2-64-CJl" secondAttribute="height" multiplier="1:1" id="BV3-MS-M7b"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fav-bz-ffa">
+                                <rect key="frame" x="0.0" y="489" width="430" height="1"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="e2g-ut-yIJ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queen's Gambit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fug-PQ-0y1">
+                                <rect key="frame" x="16" y="498" width="398" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. d4 d5 2. c4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFg-xv-r6O">
+                                <rect key="frame" x="20" y="531" width="394" height="14.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-mo-hBh">
+                                <rect key="frame" x="0.0" y="553.33333333333337" width="430" height="344.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="sFg-xv-r6O" firstAttribute="top" secondItem="fug-PQ-0y1" secondAttribute="bottom" constant="4" id="6eP-cq-o36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EY0-mo-hBh" secondAttribute="trailing" id="Kou-p3-yim"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EY0-mo-hBh" secondAttribute="bottom" id="M5v-HU-wb5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fug-PQ-0y1" secondAttribute="trailing" constant="16" id="Rpz-0c-Ioq"/>
+                            <constraint firstItem="fug-PQ-0y1" firstAttribute="top" secondItem="fav-bz-ffa" secondAttribute="bottom" constant="8" id="SKK-Hy-P90"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Us2-64-CJl" secondAttribute="trailing" id="TUo-dd-80S"/>
                             <constraint firstItem="Us2-64-CJl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f3l-A3-odC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fav-bz-ffa" secondAttribute="trailing" id="g3s-0H-fNm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sFg-xv-r6O" secondAttribute="trailing" constant="16" id="hEk-Y2-HZD"/>
                             <constraint firstItem="Us2-64-CJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iV1-ed-4Zc"/>
+                            <constraint firstItem="EY0-mo-hBh" firstAttribute="top" secondItem="sFg-xv-r6O" secondAttribute="bottom" constant="8" id="jBC-JK-w5J"/>
+                            <constraint firstItem="fav-bz-ffa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o8W-WL-EYA"/>
+                            <constraint firstItem="EY0-mo-hBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sAm-US-snK"/>
+                            <constraint firstItem="sFg-xv-r6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="so5-rW-p71"/>
+                            <constraint firstItem="fug-PQ-0y1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uC6-OA-9EW"/>
+                            <constraint firstItem="fav-bz-ffa" firstAttribute="top" secondItem="Us2-64-CJl" secondAttribute="bottom" id="wMs-69-gd7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbSubTitle" destination="sFg-xv-r6O" id="774-FM-LLB"/>
+                        <outlet property="lbTitle" destination="fug-PQ-0y1" id="L3l-mU-hBX"/>
+                        <outlet property="tableView" destination="EY0-mo-hBh" id="EPX-ft-Wn9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +80,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
