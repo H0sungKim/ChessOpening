@@ -10,18 +10,26 @@ import AVFoundation
 
 class ChessBoardView: UIView {
     
-    // 애니메이션 때만 잠시 이미지뷰 생성하고 끝나면 지우기 ?
+//    Touch
+//    Began 좌표 기억
+//    Moved 피스랑 좌표 리턴
+//    Ended 드래그가 됐으면 piece move 드래그 아니면 선택/해제
+//
+//    Draw
+//    현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
+    
     
     private let engine: Engine = Engine()
     
     private var isTouched: Bool = false
     private var isDragged: Bool = false
-    private var nowSelected: (Int, Int)?
-    private var destinationNowSelected: (Int, Int)?
+    private var selectedCell: (Int, Int)?
+    private var draggedPiece: (CGFloat, CGFloat)?
     
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
     private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
     private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
+    private let selectedGray: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
     private let imgBKing: UIImage = UIImage(named: "bking")!
@@ -40,16 +48,36 @@ class ChessBoardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialize()
         setNeedsDisplay()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initialize()
         setNeedsDisplay()
-        startAnimation(image: imgWKing, from: (1,1), to: (2,3))
     }
+    
+    func startAnimation(move: ((Int, Int), (Int, Int))) {
+        let shapeLayer = CAShapeLayer()
+        
+        let startPoint = CGPoint(x: CGFloat(move.0.1)*cellSize + cellSize/2, y: CGFloat(move.0.0)*cellSize + cellSize/2)
+        let endPoint = CGPoint(x: CGFloat(move.1.1)*cellSize + cellSize/2, y: CGFloat(move.1.0)*cellSize + cellSize/2)
+        
+        shapeLayer.frame = CGRect(x: 0, y: 0, width: cellSize, height: cellSize)
+        
+        let image = getImage(coordinate: move.0)
+        shapeLayer.contents = image.cgImage
+        layer.addSublayer(shapeLayer)
+        
+        shapeLayer.position = startPoint
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.fromValue = NSValue(cgPoint: startPoint)
+        animation.toValue = NSValue(cgPoint: endPoint)
+        animation.duration = TimeInterval(0.2)
+        shapeLayer.add(animation, forKey: "position")
+        shapeLayer.position = endPoint
+    }
+    
     
     override func draw(_ rect: CGRect) {
         // 현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
@@ -57,11 +85,6 @@ class ChessBoardView: UIView {
         drawChessBoard()
         drawNowSelectedCell()
         drawNowSelectedPiece()
-    }
-    
-    private func initialize() {
-//        cellSize = UIScreen.main.bounds.width/8
-        
     }
     
     private func drawChessBoard() {
@@ -74,36 +97,14 @@ class ChessBoardView: UIView {
                     darkBrown.setFill()
                 }
                 path.fill()
-                drawPiece(piece: engine.board[r][c], x: c, y: r)
+                drawPiece(piece: getImage(coordinate: (r, c)), x: c, y: r)
             }
         }
     }
-    func startAnimation(image: UIImage, from: (Int, Int), to: (Int, Int)) {
-        let shapeLayer = CAShapeLayer()
-        
-        let startPoint = CGPoint(x: CGFloat(from.1)*cellSize + cellSize/2, y: CGFloat(from.0)*cellSize + cellSize/2)
-        let endPoint = CGPoint(x: CGFloat(to.1)*cellSize + cellSize/2, y: CGFloat(to.0)*cellSize + cellSize/2)
-        
-        shapeLayer.frame = CGRect(x: 0, y: 0, width: cellSize, height: cellSize)
-        
-        
-        // 3. CAShapeLayer에 UIImage 추가
-        shapeLayer.contents = imgBKing.cgImage
-        layer.addSublayer(shapeLayer)
-        
-        shapeLayer.position = startPoint
-        
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.fromValue = NSValue(cgPoint: startPoint)
-        animation.toValue = NSValue(cgPoint: endPoint)
-        animation.duration = TimeInterval(0.2)
-        shapeLayer.add(animation, forKey: "position")
-        shapeLayer.position = endPoint
-    }
     private func drawNowSelectedCell() {
         if isTouched {
-            if let nowSelected = nowSelected {
-                let path = UIBezierPath(rect: CGRect(x: CGFloat(nowSelected.1)*cellSize, y: CGFloat(nowSelected.0)*cellSize, width: cellSize, height: cellSize))
+            if let selectedCell = selectedCell {
+                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.1)*cellSize, y: CGFloat(selectedCell.0)*cellSize, width: cellSize, height: cellSize))
                 selectedGreen.setFill()
                 path.fill()
             }
@@ -114,7 +115,14 @@ class ChessBoardView: UIView {
     
     private func drawNowSelectedPiece() {
         if isDragged {
-            
+            if let selectedCell = selectedCell, let draggedPiece = draggedPiece {
+                let nowDraggedCell: (CGFloat, CGFloat) = (CGFloat(Int(draggedPiece.0/cellSize)), CGFloat(Int(draggedPiece.1/cellSize)))
+                let path = UIBezierPath(arcCenter: CGPoint(x: nowDraggedCell.0*cellSize + cellSize/2, y: nowDraggedCell.1*cellSize + cellSize/2), radius: cellSize, startAngle: 0, endAngle: Double.pi*2, clockwise: true)
+                selectedGray.setFill()
+                path.fill()
+                
+                drawPiece(piece: engine.board[selectedCell.0][selectedCell.1], x: 0, y: 0, dx: draggedPiece.0-cellSize/2, dy: draggedPiece.1-cellSize/2)
+            }
         }
     }
     
@@ -132,80 +140,104 @@ class ChessBoardView: UIView {
         }
     }
     
-    private func drawPiece(piece: Piece, x: Int, y: Int, dx: CGFloat = 0, dy: CGFloat = 0) {
+    private func getImage(coordinate: (Int, Int)) -> UIImage {
+        let piece = engine.board[coordinate.0][coordinate.1]
         switch piece {
         case is King :
             if piece.color == engine.BLACK {
-                imgBKing.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBKing
             } else if piece.color == engine.WHITE {
-                imgWKing.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWKing
             }
         case is Queen :
             if piece.color == engine.BLACK {
-                imgBQueen.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBQueen
             } else if piece.color == engine.WHITE {
-                imgWQueen.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWQueen
             }
         case is Rook :
             if piece.color == engine.BLACK {
-                imgBRook.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBRook
             } else if piece.color == engine.WHITE {
-                imgWRook.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWRook
             }
         case is Bishop :
             if piece.color == engine.BLACK {
-                imgBBishop.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBBishop
             } else if piece.color == engine.WHITE {
-                imgWBishop.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWBishop
             }
         case is Knight :
             if piece.color == engine.BLACK {
-                imgBKnight.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBKnight
             } else if piece.color == engine.WHITE {
-                imgWKnight.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWKnight
             }
         case is Pawn :
             if piece.color == engine.BLACK {
-                imgBPawn.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgBPawn
             } else if piece.color == engine.WHITE {
-                imgWPawn.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+                return imgWPawn
             }
         default:
             break
         }
     }
     
+    private func drawPiece(piece: UIImage, x: Int, y: Int, dx: CGFloat = 0, dy: CGFloat = 0) {
+        piece.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let point = touches.first?.location(in: self) {
-            nowSelected = (Int(point.y/cellSize), Int(point.x/cellSize))
-            isTouched = !isTouched
-            if let nowSelected = nowSelected {
-                print("BBBBBBBBBB : \(nowSelected.0)\(nowSelected.1)")
+            let coordinate = (Int(point.y/cellSize), Int(point.x/cellSize))
+            if engine.board[coordinate.0][coordinate.1] is Empty {
+                selectedCell = nil
+            } else {
+                selectedCell = (Int(point.y/cellSize), Int(point.x/cellSize))
             }
-            
-            // 초록색 칸 & 점 그리기
-            
         }
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let point = touches.first?.location(in: self) {
-            print("MMMM : \(Int(point.x/cellSize))\(Int(point.y/cellSize))")
+        if let point = touches.first?.location(in: self), let selectedCell = selectedCell {
             
-            // TODO 선택된 기물 그리기
             isDragged = true
-             = CGPoint(x: CGFloat(to.1)*cellSize + cellSize/2, y: CGFloat(to.0)*cellSize + cellSize/2)
+            draggedPiece = (point.x, point.y)
             setNeedsDisplay()
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("EE \(isDragged)")
-        
-        isDragged = false
-        setNeedsDisplay()
+        if let point = touches.first?.location(in: self), let selectedCell = selectedCell {
+            let move = (selectedCell,(Int(point.y/cellSize), Int(point.x/cellSize)))
+            
+//            isDragged isTouched
+//            t t 드래그
+//            t f 드래그
+//            f t 움직임 클릭
+//            f f 기물 클릭
+            if isDragged {
+                if engine.isLegalMove(move: move) {
+                    engine.movePiece(move: move)
+                }
+                isTouched = false
+                isDragged = false
+                self.selectedCell = nil
+                draggedPiece = nil
+            } else {
+                if isTouched {
+                    
+                } else {
+                    
+                }
+            }
+            
+            
+            isDragged = false
+            setNeedsDisplay()
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

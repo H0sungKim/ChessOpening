@@ -47,6 +47,10 @@ class Engine {
         
     }
     
+    func movePiece(move: ((Int, Int), (Int, Int))) {
+        
+    }
+    
     func isLegalMove(move: ((Int, Int), (Int, Int))) -> Bool {
         var movedBoard = board
         movedBoard[move.1.0][move.1.1] = board[move.0.0][move.0.1]
