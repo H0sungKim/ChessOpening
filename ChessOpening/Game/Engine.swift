@@ -18,8 +18,8 @@ class Engine {
     
     // (White King Side, White Queen Side, Black King Side, Black Queen Side)
     var castling: (Bool, Bool, Bool, Bool) = (true, true, true, true)
-    
     var enpassant: Int = -1
+    
     
     var board: [[Piece]] = []
     
@@ -41,6 +41,9 @@ class Engine {
     }
     
     init(fen: String) {
+        // 체스판 턴 캐슬링 앙파상 50수 몇턴째
+        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
+        
         
     }
     
@@ -82,6 +85,5 @@ class Engine {
     func getColor(x: Int, y: Int) -> Int {
         return board[x][y].color
     }
-    
     
 }

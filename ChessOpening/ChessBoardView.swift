@@ -14,16 +14,14 @@ class ChessBoardView: UIView {
     
     private let engine: Engine = Engine()
     
-    private var gameTimer: Timer?
-    
+    private var isTouched: Bool = false
+    private var isDragged: Bool = false
     private var nowSelected: (Int, Int)?
-    private var difNowSelected: (CGFloat, CGFloat)?
-    private var destinationNowSelecter: (Int, Int)?
-    private let shapeLayer = CAShapeLayer()
+    private var destinationNowSelected: (Int, Int)?
     
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
     private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
-//    private let selectedGreen: UIColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+    private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
     private let imgBKing: UIImage = UIImage(named: "bking")!
@@ -50,22 +48,21 @@ class ChessBoardView: UIView {
         super.init(coder: coder)
         initialize()
         setNeedsDisplay()
-        startAnimation(image: imgWKing, from: (1,1), to: (2,3), duration: TimeInterval(0.5))
+        startAnimation(image: imgWKing, from: (1,1), to: (2,3))
     }
     
     override func draw(_ rect: CGRect) {
         // 현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
+        
         drawChessBoard()
+        drawNowSelectedCell()
+        drawNowSelectedPiece()
     }
     
     private func initialize() {
 //        cellSize = UIScreen.main.bounds.width/8
         
     }
-    
-//    private func startAnimation() {
-//        
-//    }
     
     private func drawChessBoard() {
         for r in 0..<8 {
@@ -81,7 +78,9 @@ class ChessBoardView: UIView {
             }
         }
     }
-    func startAnimation(image: UIImage, from: (Int, Int), to: (Int, Int), duration: TimeInterval) {
+    func startAnimation(image: UIImage, from: (Int, Int), to: (Int, Int)) {
+        let shapeLayer = CAShapeLayer()
+        
         let startPoint = CGPoint(x: CGFloat(from.1)*cellSize + cellSize/2, y: CGFloat(from.0)*cellSize + cellSize/2)
         let endPoint = CGPoint(x: CGFloat(to.1)*cellSize + cellSize/2, y: CGFloat(to.0)*cellSize + cellSize/2)
         
@@ -97,17 +96,25 @@ class ChessBoardView: UIView {
         let animation = CABasicAnimation(keyPath: "position")
         animation.fromValue = NSValue(cgPoint: startPoint)
         animation.toValue = NSValue(cgPoint: endPoint)
-        animation.duration = duration
+        animation.duration = TimeInterval(0.2)
         shapeLayer.add(animation, forKey: "position")
         shapeLayer.position = endPoint
     }
     private func drawNowSelectedCell() {
-        if let nowSelected = nowSelected, let difNowSelected = difNowSelected {
-            let path = UIBezierPath(rect: CGRect(x: CGFloat(nowSelected.1)*cellSize, y: CGFloat(nowSelected.0)*cellSize, width: cellSize, height: cellSize))
-//            selectedGreen.setFill()
-            path.fill()
-            // 점 찍기
-            drawPiece(piece: engine.board[nowSelected.0][nowSelected.1], x: nowSelected.1, y: nowSelected.0, dx: difNowSelected.0, dy: difNowSelected.1)
+        if isTouched {
+            if let nowSelected = nowSelected {
+                let path = UIBezierPath(rect: CGRect(x: CGFloat(nowSelected.1)*cellSize, y: CGFloat(nowSelected.0)*cellSize, width: cellSize, height: cellSize))
+                selectedGreen.setFill()
+                path.fill()
+            }
+            // TODO점 찍기
+            
+        }
+    }
+    
+    private func drawNowSelectedPiece() {
+        if isDragged {
+            
         }
     }
     
@@ -166,5 +173,45 @@ class ChessBoardView: UIView {
         default:
             break
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let point = touches.first?.location(in: self) {
+            nowSelected = (Int(point.y/cellSize), Int(point.x/cellSize))
+            isTouched = !isTouched
+            if let nowSelected = nowSelected {
+                print("BBBBBBBBBB : \(nowSelected.0)\(nowSelected.1)")
+            }
+            
+            // 초록색 칸 & 점 그리기
+            
+        }
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let point = touches.first?.location(in: self) {
+            print("MMMM : \(Int(point.x/cellSize))\(Int(point.y/cellSize))")
+            
+            // TODO 선택된 기물 그리기
+            isDragged = true
+             = CGPoint(x: CGFloat(to.1)*cellSize + cellSize/2, y: CGFloat(to.0)*cellSize + cellSize/2)
+            setNeedsDisplay()
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("EE \(isDragged)")
+        
+        isDragged = false
+        setNeedsDisplay()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("C")
+        
+        isDragged = false
+        setNeedsDisplay()
     }
 }
