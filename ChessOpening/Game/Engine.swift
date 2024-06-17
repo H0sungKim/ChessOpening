@@ -10,18 +10,18 @@ import Foundation
 class Engine {
     var pgn: String = ""
     
-    let EMPTY: Int = 0
-    let WHITE: Int = 1
-    let BLACK: Int = 2
+    let WHITE: Int = 0
+    let BLACK: Int = 1
     
     var turn: Int = 0
     
-    // (White King Side, White Queen Side, Black King Side, Black Queen Side)
-    var castling: (Bool, Bool, Bool, Bool) = (true, true, true, true)
+    var castling: (whiteKingSide: Bool, whiteQueenSide: Bool, blackKingSide: Bool, blackQueenSide: Bool) = (true, true, true, true)
     var enpassant: Int = -1
     
     
     var board: [[Piece]] = []
+    
+    var legalMoves: [(from: (row: Int, column: Int), to: (row: Int, column: Int))] = []
     
     init() {
         board = [
@@ -68,26 +68,36 @@ class Engine {
         return true
     }
     
-    func isValidCoordinate(x: Int, y: Int) -> Bool {
-        if x < 0 || x > 7 || y < 0 || y > 7 {
+    func getLegalMoves() {
+        for r in 0..<8 {
+            for c in 0..<8 {
+                if board[r][c].color == turn%2 {
+                    
+                }
+            }
+        }
+    }
+    
+    func isValidCoordinate(row: Int, column: Int) -> Bool {
+        if row < 0 || row > 7 || column < 0 || column > 7 {
             return false
         }
         return true
     }
-    func isValidCoordinate(coordinate: (Int, Int)) -> Bool {
-        let x = coordinate.0
-        let y = coordinate.1
-        if x < 0 || x > 7 || y < 0 || y > 7 {
+    func isValidCoordinate(coordinate: (row: Int, column: Int)) -> Bool {
+        let row = coordinate.row
+        let column = coordinate.column
+        if row < 0 || row > 7 || column < 0 || column > 7 {
             return false
         }
         return true
     }
     
-    func getColor(coordinate: (Int, Int)) -> Int {
-        return board[coordinate.0][coordinate.1].color
+    func getColor(coordinate: (row: Int, column: Int)) -> Int {
+        return board[coordinate.row][coordinate.column].color
     }
-    func getColor(x: Int, y: Int) -> Int {
-        return board[x][y].color
+    func getColor(row: Int, column: Int) -> Int {
+        return board[row][column].color
     }
     
 }

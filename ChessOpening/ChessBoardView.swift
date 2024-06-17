@@ -121,7 +121,7 @@ class ChessBoardView: UIView {
                 selectedGray.setFill()
                 path.fill()
                 
-                drawPiece(piece: engine.board[selectedCell.0][selectedCell.1], x: 0, y: 0, dx: draggedPiece.0-cellSize/2, dy: draggedPiece.1-cellSize/2)
+                drawPiece(piece: getImage(coordinate: selectedCell), x: 0, y: 0, dx: draggedPiece.0-cellSize/2, dy: draggedPiece.1-cellSize/2)
             }
         }
     }
@@ -182,6 +182,7 @@ class ChessBoardView: UIView {
         default:
             break
         }
+        return UIImage()
     }
     
     private func drawPiece(piece: UIImage, x: Int, y: Int, dx: CGFloat = 0, dy: CGFloat = 0) {
@@ -218,6 +219,8 @@ class ChessBoardView: UIView {
 //            t f 드래그
 //            f t 움직임 클릭
 //            f f 기물 클릭
+            
+//            빈곳 찍은
             if isDragged {
                 if engine.isLegalMove(move: move) {
                     engine.movePiece(move: move)

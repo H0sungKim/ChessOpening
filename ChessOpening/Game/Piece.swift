@@ -11,5 +11,5 @@ protocol Piece {
     var engine: Engine { get }
     var color: Int { get }
     
-    func getMove(x: Int, y: Int) -> [(Int, Int)]
+    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)]
 }

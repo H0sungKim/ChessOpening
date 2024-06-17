@@ -16,22 +16,22 @@ class Queen: Piece {
         self.color = color
     }
     
-    func getMove(x: Int, y: Int) -> [(Int, Int)] {
-        var moves: [(Int, Int)] = []
-        let allDirections: [(Int, Int)] = [
+    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
+        var moves: [(row: Int, column: Int)] = []
+        let allDirections: [(row: Int, column: Int)] = [
             (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)
         ]
         for direction in allDirections {
             var step = 1
             while true {
-                let moveCoordinate = (x+direction.0*step, y+direction.1*step)
+                let moveCoordinate = (row: row+direction.row*step, column: column+direction.column*step)
                 if !(engine.isValidCoordinate(coordinate: moveCoordinate)) {
                     break
                 }
-                if engine.getColor(coordinate: moveCoordinate) == engine.EMPTY {
+                if engine.board[moveCoordinate.row][moveCoordinate.column] is Empty {
                     moves.append(moveCoordinate)
                 } else {
-                    if engine.getColor(coordinate: moveCoordinate) != engine.getColor(x: x, y: y) {
+                    if self.color != engine.getColor(coordinate: moveCoordinate) {
                         moves.append(moveCoordinate)
                     }
                     break

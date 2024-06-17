@@ -17,13 +17,13 @@ class King: Piece {
         self.color = color
     }
     
-    func getMove(x: Int, y: Int) -> [(Int, Int)] {
-        var moves: [(Int, Int)] = []
-        let allMoves: [(Int, Int)] = [
+    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
+        var moves: [(row: Int, column: Int)] = []
+        let allMoves: [(row: Int, column: Int)] = [
             (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)
         ]
         for move in allMoves {
-            let moveCoordinate = (x+move.0, y+move.1)
+            let moveCoordinate = (row: row+move.row, column: column+move.column)
             if engine.isValidCoordinate(coordinate: moveCoordinate) {
                 if self.color != engine.getColor(coordinate: moveCoordinate) {
                     moves.append(moveCoordinate)
