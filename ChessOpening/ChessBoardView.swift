@@ -49,16 +49,15 @@ class ChessBoardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setNeedsDisplay()
-        startAnimation(move: ((7, 1), (5,0)))
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setNeedsDisplay()
-        startAnimation(move: ((7, 1), (5,0)))
     }
     
     func startAnimation(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) {
+        print("startanimation")
         let shapeLayer = CAShapeLayer()
         
         let startPoint = CGPoint(x: CGFloat(move.from.column)*cellSize + cellSize/2, y: CGFloat(move.from.row)*cellSize + cellSize/2)
@@ -196,8 +195,9 @@ class ChessBoardView: UIView {
             let coordinate = (row: Int(point.y/cellSize), column: Int(point.x/cellSize))
             if isTouched, let selectedCell = selectedCell {
                 let move = (from: selectedCell, to: coordinate)
-                if engine.movePiece(move: move) {
+                if engine.legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to }) {
                     startAnimation(move: move)
+                    engine.movePiece(move: move)
                 }
                 self.selectedCell = nil
                 isTouched = false
@@ -211,7 +211,9 @@ class ChessBoardView: UIView {
                 }
             }
         }
-        setNeedsDisplay()
+        delayExecute(0.2) { [weak self] in
+            self?.setNeedsDisplay()
+        }
         
     }
     
@@ -228,6 +230,7 @@ class ChessBoardView: UIView {
         if let point = touches.first?.location(in: self), let selectedCell = selectedCell {
             let move = (selectedCell,(Int(point.y/cellSize), Int(point.x/cellSize)))
             if isDragged {
+                // check legal move
                 engine.movePiece(move: move)
                 isTouched = false
                 self.selectedCell = nil

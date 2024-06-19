@@ -49,18 +49,11 @@ class Engine {
         
     }
     
-    func movePiece(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) -> Bool {
-        if !(legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to })) {
-            return false
-        }
-        
-        
-        
+    func movePiece(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) {
         // 캐슬링 앙파상 등
         // pgn
         board[move.to.row][move.to.column] = board[move.from.row][move.from.column]
         board[move.from.row][move.from.column] = Empty(engine: self)
-        return true
     }
     
     func isLegalMove(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) -> Bool {
