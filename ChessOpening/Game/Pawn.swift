@@ -16,7 +16,7 @@ class Pawn: Piece {
         self.color = color
     }
     
-    func getMove(x: Int, y: Int) -> [(Int, Int)] {
+    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
         return []
     }
     

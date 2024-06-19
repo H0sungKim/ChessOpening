@@ -15,7 +15,7 @@ class Empty: Piece {
         self.engine = engine
     }
     
-    func getMove(x: Int, y: Int) -> [(Int, Int)] {
+    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
         return []
     }
 }

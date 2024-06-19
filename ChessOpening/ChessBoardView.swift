@@ -23,7 +23,7 @@ class ChessBoardView: UIView {
     
     private var isTouched: Bool = false
     private var isDragged: Bool = false
-    private var selectedCell: (Int, Int)?
+    private var selectedCell: (row: Int, column: Int)?
     private var draggedPiece: (CGFloat, CGFloat)?
     
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
@@ -49,22 +49,24 @@ class ChessBoardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setNeedsDisplay()
+        startAnimation(move: ((7, 1), (5,0)))
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setNeedsDisplay()
+        startAnimation(move: ((7, 1), (5,0)))
     }
     
-    func startAnimation(move: ((Int, Int), (Int, Int))) {
+    func startAnimation(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) {
         let shapeLayer = CAShapeLayer()
         
-        let startPoint = CGPoint(x: CGFloat(move.0.1)*cellSize + cellSize/2, y: CGFloat(move.0.0)*cellSize + cellSize/2)
-        let endPoint = CGPoint(x: CGFloat(move.1.1)*cellSize + cellSize/2, y: CGFloat(move.1.0)*cellSize + cellSize/2)
+        let startPoint = CGPoint(x: CGFloat(move.from.column)*cellSize + cellSize/2, y: CGFloat(move.from.row)*cellSize + cellSize/2)
+        let endPoint = CGPoint(x: CGFloat(move.to.column)*cellSize + cellSize/2, y: CGFloat(move.to.row)*cellSize + cellSize/2)
         
         shapeLayer.frame = CGRect(x: 0, y: 0, width: cellSize, height: cellSize)
         
-        let image = getImage(coordinate: move.0)
+        let image = getImage(coordinate: move.from)
         shapeLayer.contents = image.cgImage
         layer.addSublayer(shapeLayer)
         
@@ -104,7 +106,7 @@ class ChessBoardView: UIView {
     private func drawNowSelectedCell() {
         if isTouched {
             if let selectedCell = selectedCell {
-                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.1)*cellSize, y: CGFloat(selectedCell.0)*cellSize, width: cellSize, height: cellSize))
+                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.column)*cellSize, y: CGFloat(selectedCell.row)*cellSize, width: cellSize, height: cellSize))
                 selectedGreen.setFill()
                 path.fill()
             }
@@ -190,19 +192,31 @@ class ChessBoardView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if let point = touches.first?.location(in: self) {
-            let coordinate = (Int(point.y/cellSize), Int(point.x/cellSize))
-            if engine.board[coordinate.0][coordinate.1] is Empty {
-                selectedCell = nil
+            let coordinate = (row: Int(point.y/cellSize), column: Int(point.x/cellSize))
+            if isTouched, let selectedCell = selectedCell {
+                let move = (from: selectedCell, to: coordinate)
+                if engine.movePiece(move: move) {
+                    startAnimation(move: move)
+                }
+                self.selectedCell = nil
+                isTouched = false
             } else {
-                selectedCell = (Int(point.y/cellSize), Int(point.x/cellSize))
+                if engine.board[coordinate.row][coordinate.column] is Empty {
+                    selectedCell = nil
+                    isTouched = false
+                } else {
+                    selectedCell = (Int(point.y/cellSize), Int(point.x/cellSize))
+                    isTouched = true
+                }
             }
         }
+        setNeedsDisplay()
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let point = touches.first?.location(in: self), let selectedCell = selectedCell {
+        if let point = touches.first?.location(in: self) {
             
             isDragged = true
             draggedPiece = (point.x, point.y)
@@ -213,31 +227,12 @@ class ChessBoardView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self), let selectedCell = selectedCell {
             let move = (selectedCell,(Int(point.y/cellSize), Int(point.x/cellSize)))
-            
-//            isDragged isTouched
-//            t t 드래그
-//            t f 드래그
-//            f t 움직임 클릭
-//            f f 기물 클릭
-            
-//            빈곳 찍은
             if isDragged {
-                if engine.isLegalMove(move: move) {
-                    engine.movePiece(move: move)
-                }
+                engine.movePiece(move: move)
                 isTouched = false
-                isDragged = false
                 self.selectedCell = nil
                 draggedPiece = nil
-            } else {
-                if isTouched {
-                    
-                } else {
-                    
-                }
             }
-            
-            
             isDragged = false
             setNeedsDisplay()
         }

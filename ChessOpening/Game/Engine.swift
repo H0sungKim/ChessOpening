@@ -34,6 +34,8 @@ class Engine {
             [Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE)],
             [Rook(engine: self, color: WHITE), Knight(engine: self, color: WHITE), Bishop(engine: self, color: WHITE), Queen(engine: self, color: WHITE), King(engine: self, color: WHITE), Bishop(engine: self, color: WHITE), Knight(engine: self, color: WHITE), Rook(engine: self, color: WHITE)]
         ]
+        getLegalMoves()
+        print(legalMoves)
     }
     
     init(pgn: String) {
@@ -47,20 +49,33 @@ class Engine {
         
     }
     
-    func movePiece(move: ((Int, Int), (Int, Int))) {
+    func movePiece(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) -> Bool {
+        if !(legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to })) {
+            return false
+        }
         
+        
+        
+        // 캐슬링 앙파상 등
+        // pgn
+        board[move.to.row][move.to.column] = board[move.from.row][move.from.column]
+        board[move.from.row][move.from.column] = Empty(engine: self)
+        return true
     }
     
-    func isLegalMove(move: ((Int, Int), (Int, Int))) -> Bool {
+    func isLegalMove(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) -> Bool {
         var movedBoard = board
-        movedBoard[move.1.0][move.1.1] = board[move.0.0][move.0.1]
-        movedBoard[move.0.0][move.0.1] = Empty(engine: self)
+        let pieceColor = board[move.from.row][move.from.column].color
+        movedBoard[move.to.row][move.to.column] = board[move.from.row][move.from.column]
+        movedBoard[move.from.row][move.from.column] = Empty(engine: self)
         
-        for i in 0..<8 {
-            for j in 0..<8 {
-                for move in movedBoard[i][j].getMove(x: i, y: j) {
-                    if movedBoard[move.0][move.1] is King && movedBoard[move.0][move.1].color == turn {
-                        return false
+        for r in 0..<8 {
+            for c in 0..<8 {
+                if board[r][c].color != pieceColor {
+                    for attack in movedBoard[r][c].getMove(row: r, column: c) {
+                        if movedBoard[attack.row][attack.column] is King && movedBoard[attack.row][attack.column].color == pieceColor {
+                            return false
+                        }
                     }
                 }
             }
@@ -72,6 +87,11 @@ class Engine {
         for r in 0..<8 {
             for c in 0..<8 {
                 if board[r][c].color == turn%2 {
+                    for move in board[r][c].getMove(row: r, column: c) {
+                        if isLegalMove(move: (from: (r, c), to: move)) {
+                            legalMoves.append((from: (r, c), to: move))
+                        }
+                    }
                     
                 }
             }
