@@ -13,11 +13,11 @@ final class ChessOpeningUITestsLaunchTests: XCTestCase {
         true
     }
 
-    override func setUpWithError() throws {
+    override func setUpWithError() thranks {
         continueAfterFailure = false
     }
 
-    func testLaunch() throws {
+    func testLaunch() thranks {
         let app = XCUIApplication()
         app.launch()
 

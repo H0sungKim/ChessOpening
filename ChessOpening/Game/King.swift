@@ -9,23 +9,21 @@ import Foundation
 import UIKit
 
 class King: Piece {
-    let engine: Engine
     let color: Int
     
-    init(engine: Engine, color: Int) {
-        self.engine = engine
+    required init(color: Int) {
         self.color = color
     }
     
-    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
-        var moves: [(row: Int, column: Int)] = []
-        let allMoves: [(row: Int, column: Int)] = [
+    func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
+        var moves: [(rank: Int, file: Int)] = []
+        let allMoves: [(rank: Int, file: Int)] = [
             (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)
         ]
         for move in allMoves {
-            let moveCoordinate = (row: row+move.row, column: column+move.column)
-            if engine.isValidCoordinate(coordinate: moveCoordinate) {
-                if self.color != engine.getColor(coordinate: moveCoordinate) {
+            let moveCoordinate = (rank: rank+move.rank, file: file+move.file)
+            if isValidCoordinate(coordinate: moveCoordinate) {
+                if self.color != board[moveCoordinate.rank][moveCoordinate.file].color {
                     moves.append(moveCoordinate)
                 }
             }

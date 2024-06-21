@@ -10,32 +10,33 @@ import Foundation
 class Engine {
     var pgn: String = ""
     
+    let EMPTY: Int = -1
     let WHITE: Int = 0
     let BLACK: Int = 1
     
     var turn: Int = 0
     
-    var castling: (whiteKingSide: Bool, whiteQueenSide: Bool, blackKingSide: Bool, blackQueenSide: Bool) = (true, true, true, true)
+    var castling: (white: (kingSide: Bool, queenSide: Bool), black: (kingSide: Bool, queenSide: Bool)) = ((true, true), (true, true))
     var enpassant: Int = -1
     
     
     var board: [[Piece]] = []
     
-    var legalMoves: [(from: (row: Int, column: Int), to: (row: Int, column: Int))] = []
+    var legalMoves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
     
     init() {
+        print("hihi")
         board = [
-            [Rook(engine: self, color: BLACK), Knight(engine: self, color: BLACK), Bishop(engine: self, color: BLACK), Queen(engine: self, color: BLACK), King(engine: self, color: BLACK), Bishop(engine: self, color: BLACK), Knight(engine: self, color: BLACK), Rook(engine: self, color: BLACK)],
-            [Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK), Pawn(engine: self, color: BLACK)],
-            [Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self)],
-            [Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self)],
-            [Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self)],
-            [Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self), Empty(engine: self)],
-            [Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE), Pawn(engine: self, color: WHITE)],
-            [Rook(engine: self, color: WHITE), Knight(engine: self, color: WHITE), Bishop(engine: self, color: WHITE), Queen(engine: self, color: WHITE), King(engine: self, color: WHITE), Bishop(engine: self, color: WHITE), Knight(engine: self, color: WHITE), Rook(engine: self, color: WHITE)]
+            [Rook(color: BLACK), Knight(color: BLACK), Bishop(color: BLACK), Queen(color: BLACK), King(color: BLACK), Bishop(color: BLACK), Knight(color: BLACK), Rook(color: BLACK)],
+            [Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK)],
+            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
+            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
+            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
+            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
+            [Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE)],
+            [Rook(color: WHITE), Knight(color: WHITE), Bishop(color: WHITE), Queen(color: WHITE), King(color: WHITE), Bishop(color: WHITE), Knight(color: WHITE), Rook(color: WHITE)]
         ]
         getLegalMoves()
-        print(legalMoves)
     }
     
     init(pgn: String) {
@@ -49,24 +50,25 @@ class Engine {
         
     }
     
-    func movePiece(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) {
+    func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         // 캐슬링 앙파상 등
+        turn += 1
+        board[move.from.rank][move.from.file]
         // pgn
-        board[move.to.row][move.to.column] = board[move.from.row][move.from.column]
-        board[move.from.row][move.from.column] = Empty(engine: self)
+        board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
+        board[move.from.rank][move.from.file] = Empty(color: EMPTY)
     }
     
-    func isLegalMove(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) -> Bool {
-        var movedBoard = board
-        let pieceColor = board[move.from.row][move.from.column].color
-        movedBoard[move.to.row][move.to.column] = board[move.from.row][move.from.column]
-        movedBoard[move.from.row][move.from.column] = Empty(engine: self)
-        
+    func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
+        return legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to })
+    }
+    
+    func isAttacked(board: [[Piece]], coordinate: (rank: Int, file: Int), turn: Int) -> Bool {
         for r in 0..<8 {
-            for c in 0..<8 {
-                if board[r][c].color != pieceColor {
-                    for attack in movedBoard[r][c].getMove(row: r, column: c) {
-                        if movedBoard[attack.row][attack.column] is King && movedBoard[attack.row][attack.column].color == pieceColor {
+            for f in 0..<8 {
+                if board[r][f].color == turn {
+                    for attack in board[r][f].getMove(rank: r, file: f) {
+                        if movedBoard[attack.rank][attack.file] is King && movedBoard[attack.rank][attack.file].color == pieceColor {
                             return false
                         }
                     }
@@ -78,39 +80,20 @@ class Engine {
     
     func getLegalMoves() {
         for r in 0..<8 {
-            for c in 0..<8 {
-                if board[r][c].color == turn%2 {
-                    for move in board[r][c].getMove(row: r, column: c) {
-                        if isLegalMove(move: (from: (r, c), to: move)) {
-                            legalMoves.append((from: (r, c), to: move))
+            for f in 0..<8 {
+                if board[r][f].color == turn%2 {
+                    for move in board[r][f].getMove(rank: r, file: f) {
+                        if checkMove(move: (from: (r, f), to: move)) {
+                            legalMoves.append((from: (r, f), to: move))
                         }
                     }
                     
                 }
             }
         }
+        // castling
+        // 바꾸기 전 킹 룩 사이 비어있는지 공격당하는지, 체크인지
     }
     
-    func isValidCoordinate(row: Int, column: Int) -> Bool {
-        if row < 0 || row > 7 || column < 0 || column > 7 {
-            return false
-        }
-        return true
-    }
-    func isValidCoordinate(coordinate: (row: Int, column: Int)) -> Bool {
-        let row = coordinate.row
-        let column = coordinate.column
-        if row < 0 || row > 7 || column < 0 || column > 7 {
-            return false
-        }
-        return true
-    }
-    
-    func getColor(coordinate: (row: Int, column: Int)) -> Int {
-        return board[coordinate.row][coordinate.column].color
-    }
-    func getColor(row: Int, column: Int) -> Int {
-        return board[row][column].color
-    }
     
 }

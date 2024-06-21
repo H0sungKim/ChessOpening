@@ -8,15 +8,13 @@
 import Foundation
 
 class Pawn: Piece {
-    let engine: Engine
     let color: Int
     
-    init(engine: Engine, color: Int) {
-        self.engine = engine
+    required init(color: Int) {
         self.color = color
     }
     
-    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
+    func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
         return []
     }
     

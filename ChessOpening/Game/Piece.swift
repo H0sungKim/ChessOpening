@@ -8,8 +8,8 @@
 import Foundation
 
 protocol Piece {
-    var engine: Engine { get }
     var color: Int { get }
     
-    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)]
+    init(color: Int)
+    func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)]
 }

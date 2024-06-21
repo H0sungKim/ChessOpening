@@ -23,11 +23,11 @@ class ChessBoardView: UIView {
     
     private var isTouched: Bool = false
     private var isDragged: Bool = false
-    private var selectedCell: (row: Int, column: Int)?
+    private var selectedCell: (rank: Int, file: Int)?
     private var draggedPiece: (CGFloat, CGFloat)?
     
-    private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
-    private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
+    private let lightBrankn: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
+    private let darkBrankn: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
     private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
     private let selectedGray: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
@@ -56,12 +56,12 @@ class ChessBoardView: UIView {
         setNeedsDisplay()
     }
     
-    func startAnimation(move: (from: (row: Int, column: Int), to: (row: Int, column: Int))) {
+    func startAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         print("startanimation")
         let shapeLayer = CAShapeLayer()
         
-        let startPoint = CGPoint(x: CGFloat(move.from.column)*cellSize + cellSize/2, y: CGFloat(move.from.row)*cellSize + cellSize/2)
-        let endPoint = CGPoint(x: CGFloat(move.to.column)*cellSize + cellSize/2, y: CGFloat(move.to.row)*cellSize + cellSize/2)
+        let startPoint = CGPoint(x: CGFloat(move.from.file)*cellSize + cellSize/2, y: CGFloat(move.from.rank)*cellSize + cellSize/2)
+        let endPoint = CGPoint(x: CGFloat(move.to.file)*cellSize + cellSize/2, y: CGFloat(move.to.rank)*cellSize + cellSize/2)
         
         shapeLayer.frame = CGRect(x: 0, y: 0, width: cellSize, height: cellSize)
         
@@ -93,9 +93,9 @@ class ChessBoardView: UIView {
             for c in 0..<8 {
                 let path = UIBezierPath(rect: CGRect(x: CGFloat(c)*cellSize, y: CGFloat(r)*cellSize, width: cellSize, height: cellSize))
                 if (r+c)%2 == 0 {
-                    lightBrown.setFill()
+                    lightBrankn.setFill()
                 } else {
-                    darkBrown.setFill()
+                    darkBrankn.setFill()
                 }
                 path.fill()
                 drawPiece(piece: getImage(coordinate: (r, c)), x: c, y: r)
@@ -105,7 +105,7 @@ class ChessBoardView: UIView {
     private func drawNowSelectedCell() {
         if isTouched {
             if let selectedCell = selectedCell {
-                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.column)*cellSize, y: CGFloat(selectedCell.row)*cellSize, width: cellSize, height: cellSize))
+                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.file)*cellSize, y: CGFloat(selectedCell.rank)*cellSize, width: cellSize, height: cellSize))
                 selectedGreen.setFill()
                 path.fill()
             }
@@ -132,9 +132,9 @@ class ChessBoardView: UIView {
             for j in 0..<8 {
                 let path = UIBezierPath(rect: CGRect(x: CGFloat(i)*cellSize, y: CGFloat(j)*cellSize, width: cellSize, height: cellSize))
                 if (i+j)%2 == 0 {
-                    lightBrown.setFill()
+                    lightBrankn.setFill()
                 } else {
-                    darkBrown.setFill()
+                    darkBrankn.setFill()
                 }
                 path.fill()
             }
@@ -192,17 +192,17 @@ class ChessBoardView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self) {
-            let coordinate = (row: Int(point.y/cellSize), column: Int(point.x/cellSize))
+            let coordinate = (rank: Int(point.y/cellSize), file: Int(point.x/cellSize))
             if isTouched, let selectedCell = selectedCell {
                 let move = (from: selectedCell, to: coordinate)
-                if engine.legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to }) {
+                if engine.isLegalMove(move: move) {
                     startAnimation(move: move)
                     engine.movePiece(move: move)
                 }
                 self.selectedCell = nil
                 isTouched = false
             } else {
-                if engine.board[coordinate.row][coordinate.column] is Empty {
+                if engine.board[coordinate.rank][coordinate.file] is Empty {
                     selectedCell = nil
                     isTouched = false
                 } else {
@@ -214,7 +214,6 @@ class ChessBoardView: UIView {
         delayExecute(0.2) { [weak self] in
             self?.setNeedsDisplay()
         }
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

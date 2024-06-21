@@ -14,3 +14,10 @@ public func delayExecute(_ seconds: Double, completion:@escaping ()->()) {
         completion()
     }
 }
+
+public func isValidCoordinate(coordinate: (rank: Int, file: Int)) -> Bool {
+    if coordinate.rank < 0 || coordinate.rank > 7 || coordinate.file < 0 || coordinate.file > 7 {
+        return false
+    }
+    return true
+}

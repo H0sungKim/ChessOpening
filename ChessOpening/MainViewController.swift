@@ -86,8 +86,8 @@
 //                  +---+---+---+---+---+---+---+---+
 //                    a   b   c   d   e   f   g   h
 // 
-//    2.4     The eight vertical columns of squares are called ‘files’.
-//            The eight horizontal rows of squares are called ‘ranks’.
+//    2.4     The eight vertical files of squares are called ‘files’.
+//            The eight horizontal ranks of squares are called ‘ranks’.
 //            A straight line of squares of the same colour, running from one edge
 //            of the board to an adjacent edge, is called a ‘diagonal’.
 // 

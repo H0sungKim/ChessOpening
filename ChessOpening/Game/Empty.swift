@@ -8,14 +8,13 @@
 import Foundation
 
 class Empty: Piece {
-    let engine: Engine
+    
     let color: Int = -1
     
-    init(engine: Engine) {
-        self.engine = engine
+    required init(color: Int) {
     }
     
-    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
+    func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
         return []
     }
 }

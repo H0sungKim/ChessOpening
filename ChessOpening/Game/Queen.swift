@@ -8,30 +8,28 @@
 import Foundation
 
 class Queen: Piece {
-    let engine: Engine
     let color: Int
     
-    init(engine: Engine, color: Int) {
-        self.engine = engine
+    required init(color: Int) {
         self.color = color
     }
     
-    func getMove(row: Int, column: Int) -> [(row: Int, column: Int)] {
-        var moves: [(row: Int, column: Int)] = []
-        let allDirections: [(row: Int, column: Int)] = [
+    func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
+        var moves: [(rank: Int, file: Int)] = []
+        let allDirections: [(rank: Int, file: Int)] = [
             (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)
         ]
         for direction in allDirections {
             var step = 1
             while true {
-                let moveCoordinate = (row: row+direction.row*step, column: column+direction.column*step)
-                if !(engine.isValidCoordinate(coordinate: moveCoordinate)) {
+                let moveCoordinate = (rank: rank+direction.rank*step, file: file+direction.file*step)
+                if !(isValidCoordinate(coordinate: moveCoordinate)) {
                     break
                 }
-                if engine.board[moveCoordinate.row][moveCoordinate.column] is Empty {
+                if board[moveCoordinate.rank][moveCoordinate.file] is Empty {
                     moves.append(moveCoordinate)
                 } else {
-                    if self.color != engine.getColor(coordinate: moveCoordinate) {
+                    if self.color != board[moveCoordinate.rank][moveCoordinate.file].color {
                         moves.append(moveCoordinate)
                     }
                     break
