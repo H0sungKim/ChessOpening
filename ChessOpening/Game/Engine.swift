@@ -10,9 +10,9 @@ import Foundation
 class Engine {
     var pgn: String = ""
     
-    let EMPTY: Int = -1
-    let WHITE: Int = 0
-    let BLACK: Int = 1
+    static let EMPTY: Int = -1
+    static let WHITE: Int = 0
+    static let BLACK: Int = 1
     
     var turn: Int = 0
     
@@ -27,14 +27,14 @@ class Engine {
     init() {
         print("hihi")
         board = [
-            [Rook(color: BLACK), Knight(color: BLACK), Bishop(color: BLACK), Queen(color: BLACK), King(color: BLACK), Bishop(color: BLACK), Knight(color: BLACK), Rook(color: BLACK)],
-            [Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK), Pawn(color: BLACK)],
-            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
-            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
-            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
-            [Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY), Empty(color: EMPTY)],
-            [Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE), Pawn(color: WHITE)],
-            [Rook(color: WHITE), Knight(color: WHITE), Bishop(color: WHITE), Queen(color: WHITE), King(color: WHITE), Bishop(color: WHITE), Knight(color: WHITE), Rook(color: WHITE)]
+            [Rook(color: Engine.BLACK), Knight(color: Engine.BLACK), Bishop(color: Engine.BLACK), Queen(color: Engine.BLACK), King(color: Engine.BLACK), Bishop(color: Engine.BLACK), Knight(color: Engine.BLACK), Rook(color: Engine.BLACK)],
+            [Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK)],
+            [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
+            [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
+            [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
+            [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
+            [Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE)],
+            [Rook(color: Engine.WHITE), Knight(color: Engine.WHITE), Bishop(color: Engine.WHITE), Queen(color: Engine.WHITE), King(color: Engine.WHITE), Bishop(color: Engine.WHITE), Knight(color: Engine.WHITE), Rook(color: Engine.WHITE)]
         ]
         getLegalMoves()
     }
@@ -50,13 +50,24 @@ class Engine {
         
     }
     
+    func getKingCoordinate(board: [[Piece]], color: Int) -> (rank: Int, file: Int)? {
+        for r in 0..<8 {
+            for f in 0..<8 {
+                if board[r][f] is King && board[r][f].color == color {
+                    return (r, f)
+                }
+            }
+        }
+        return nil
+    }
+    
     func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         // 캐슬링 앙파상 등
         turn += 1
         board[move.from.rank][move.from.file]
         // pgn
         board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
-        board[move.from.rank][move.from.file] = Empty(color: EMPTY)
+        board[move.from.rank][move.from.file] = Empty()
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
@@ -67,23 +78,29 @@ class Engine {
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f].color == turn {
-                    for attack in board[r][f].getMove(rank: r, file: f) {
-                        if movedBoard[attack.rank][attack.file] is King && movedBoard[attack.rank][attack.file].color == pieceColor {
-                            return false
+                    for attack in board[r][f].getMove(board: board, rank: r, file: f) {
+                        if attack == coordinate {
+                            return true
                         }
                     }
                 }
             }
         }
-        return true
+        return false
     }
     
     func getLegalMoves() {
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f].color == turn%2 {
-                    for move in board[r][f].getMove(rank: r, file: f) {
-                        if checkMove(move: (from: (r, f), to: move)) {
+                    for move in board[r][f].getMove(board: board, rank: r, file: f) {
+                        var testBoard = board
+                        testBoard[move.rank][move.file] = testBoard[r][f]
+                        testBoard[r][f] = Empty()
+                        guard let kingCoordinate = getKingCoordinate(board: testBoard, color: turn%2) else {
+                            continue
+                        }
+                        if !isAttacked(board: testBoard, coordinate: kingCoordinate, turn: (turn+1)%2) {
                             legalMoves.append((from: (r, f), to: move))
                         }
                     }
@@ -94,6 +111,4 @@ class Engine {
         // castling
         // 바꾸기 전 킹 룩 사이 비어있는지 공격당하는지, 체크인지
     }
-    
-    
 }
