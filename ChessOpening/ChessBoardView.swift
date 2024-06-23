@@ -104,13 +104,20 @@ class ChessBoardView: UIView {
     }
     private func drawNowSelectedCell() {
         if isTouched {
-            if let selectedCell = selectedCell {
-                let path = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.file)*cellSize, y: CGFloat(selectedCell.rank)*cellSize, width: cellSize, height: cellSize))
-                selectedGreen.setFill()
-                path.fill()
+            guard let selectedCell = selectedCell else {
+                return
             }
-            // TODO점 찍기
-            
+            let selectedCellPath = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.file)*cellSize, y: CGFloat(selectedCell.rank)*cellSize, width: cellSize, height: cellSize))
+            selectedGreen.setFill()
+            selectedCellPath.fill()
+            for legalMove in engine.legalMoves {
+                if legalMove.from == selectedCell {
+                    print(legalMove.to)
+                    let circlePath = UIBezierPath(arcCenter: CGPoint(x: cellSize*CGFloat(legalMove.to.file) + cellSize/2, y: cellSize*CGFloat(legalMove.to.rank) + cellSize/2), radius: cellSize/6, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+                    selectedGreen.setFill()
+                    circlePath.fill()
+                }
+            }
         }
     }
     
@@ -122,7 +129,7 @@ class ChessBoardView: UIView {
                 selectedGray.setFill()
                 path.fill()
                 
-                drawPiece(piece: getImage(coordinate: selectedCell), x: 0, y: 0, dx: draggedPiece.0-cellSize/2, dy: draggedPiece.1-cellSize/2)
+                drawPiece(piece: getImage(coordinate: selectedCell), x: 0, y: 0, dx: draggedPiece.0-cellSize/2, dy: draggedPiece.1-cellSize/2, rate: 2)
             }
         }
     }
@@ -145,39 +152,39 @@ class ChessBoardView: UIView {
         let piece = engine.board[coordinate.0][coordinate.1]
         switch piece {
         case is King :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBKing
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWKing
             }
         case is Queen :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBQueen
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWQueen
             }
         case is Rook :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBRook
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWRook
             }
         case is Bishop :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBBishop
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWBishop
             }
         case is Knight :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBKnight
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWKnight
             }
         case is Pawn :
-            if piece.color == engine.BLACK {
+            if piece.color == Engine.BLACK {
                 return imgBPawn
-            } else if piece.color == engine.WHITE {
+            } else if piece.color == Engine.WHITE {
                 return imgWPawn
             }
         default:
@@ -186,8 +193,8 @@ class ChessBoardView: UIView {
         return UIImage()
     }
     
-    private func drawPiece(piece: UIImage, x: Int, y: Int, dx: CGFloat = 0, dy: CGFloat = 0) {
-        piece.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize, height: cellSize))
+    private func drawPiece(piece: UIImage, x: Int, y: Int, dx: CGFloat = 0, dy: CGFloat = 0, rate: CGFloat = 1) {
+        piece.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize*rate, height: cellSize*rate))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
