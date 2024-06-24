@@ -64,10 +64,12 @@ class Engine {
     func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         // 캐슬링 앙파상 등
         turn += 1
-        board[move.from.rank][move.from.file]
+//        board[move.from.rank][move.from.file]
         // pgn
         board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
         board[move.from.rank][move.from.file] = Empty()
+        
+        getLegalMoves()
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
@@ -90,6 +92,7 @@ class Engine {
     }
     
     func getLegalMoves() {
+        legalMoves.removeAll()
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f].color == turn%2 {
