@@ -125,7 +125,6 @@ class ChessBoardView: UIView {
                 cornerPath.fill()
             }
         }
-        
     }
     
     private func drawChessBoard() {

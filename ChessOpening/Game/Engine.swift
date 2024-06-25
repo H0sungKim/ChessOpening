@@ -25,7 +25,6 @@ class Engine {
     var legalMoves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
     
     init() {
-        print("hihi")
         board = [
             [Rook(color: Engine.BLACK), Knight(color: Engine.BLACK), Bishop(color: Engine.BLACK), Queen(color: Engine.BLACK), King(color: Engine.BLACK), Bishop(color: Engine.BLACK), Knight(color: Engine.BLACK), Rook(color: Engine.BLACK)],
             [Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK)],
@@ -70,6 +69,7 @@ class Engine {
         board[move.from.rank][move.from.file] = Empty()
         
         getLegalMoves()
+        // 메이트 확인
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
@@ -113,5 +113,6 @@ class Engine {
         }
         // castling
         // 바꾸기 전 킹 룩 사이 비어있는지 공격당하는지, 체크인지
+        // 앙파상
     }
 }

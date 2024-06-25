@@ -22,10 +22,8 @@ class King: Piece {
         ]
         for move in allMoves {
             let moveCoordinate = (rank: rank+move.rank, file: file+move.file)
-            if isValidCoordinate(coordinate: moveCoordinate) {
-                if self.color != board[moveCoordinate.rank][moveCoordinate.file].color {
-                    moves.append(moveCoordinate)
-                }
+            if isValidCoordinate(coordinate: moveCoordinate) && color != board[moveCoordinate.rank][moveCoordinate.file].color {
+                moves.append(moveCoordinate)
             }
         }
         return moves
