@@ -17,7 +17,7 @@ class Engine {
     var turn: Int = 0
     
     var castling: (white: (kingSide: Bool, queenSide: Bool), black: (kingSide: Bool, queenSide: Bool)) = ((true, true), (true, true))
-    var enpassant: Int = -1
+    var enpassant: Int?
     
     
     var board: [[Piece]] = []
@@ -35,7 +35,7 @@ class Engine {
             [Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE)],
             [Rook(color: Engine.WHITE), Knight(color: Engine.WHITE), Bishop(color: Engine.WHITE), Queen(color: Engine.WHITE), King(color: Engine.WHITE), Bishop(color: Engine.WHITE), Knight(color: Engine.WHITE), Rook(color: Engine.WHITE)]
         ]
-        getLegalMoves()
+        legalMoves = getLegalMoves()
     }
     
     init(pgn: String) {
@@ -61,14 +61,33 @@ class Engine {
     }
     
     func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
-        // 캐슬링 앙파상 등
-        turn += 1
-//        board[move.from.rank][move.from.file]
+        if let enpassant = enpassant {
+            if board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
+                board[move.from.rank][enpassant] = Empty()
+            }
+        }
+        enpassant = nil
+        // enpassant
+        if board[move.from.rank][move.from.file] is Pawn && abs(move.to.rank-move.from.rank) == 2 && ((board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2)) {
+            enpassant = move.from.file
+        }
+        // castling
+        if board[move.from.rank][move.from.file] is King {
+            if turn%2 == Engine.WHITE {
+                castling.white = (false, false)
+            } else {
+                castling.black = (false, false)
+            }
+        }
+        if board[move.from.rank][move.from.file] is Rook {
+            
+        }
         // pgn
+        turn += 1
         board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
         board[move.from.rank][move.from.file] = Empty()
         
-        getLegalMoves()
+        legalMoves = getLegalMoves()
         // 메이트 확인
     }
     
@@ -91,8 +110,8 @@ class Engine {
         return false
     }
     
-    func getLegalMoves() {
-        legalMoves.removeAll()
+    func getLegalMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
+        var moves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f].color == turn%2 {
@@ -104,7 +123,7 @@ class Engine {
                             continue
                         }
                         if !isAttacked(board: testBoard, coordinate: kingCoordinate, turn: (turn+1)%2) {
-                            legalMoves.append((from: (r, f), to: move))
+                            moves.append((from: (r, f), to: move))
                         }
                     }
                     
@@ -114,5 +133,20 @@ class Engine {
         // castling
         // 바꾸기 전 킹 룩 사이 비어있는지 공격당하는지, 체크인지
         // 앙파상
+        if let enpassant = enpassant {
+            let direction = 2 * (turn%2) - 1
+            let coordinate = (rank: 3+turn%2,file: enpassant)
+            if isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
+                moves.append((from: (coordinate.rank, coordinate.file-1), to: (coordinate.rank+direction, coordinate.file)))
+            }
+            if isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
+                moves.append((from: (coordinate.rank, coordinate.file+1), to: (coordinate.rank+direction, coordinate.file)))
+            }
+        }
+        return moves
+    }
+    
+    func getEnpassantMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
+        return []
     }
 }

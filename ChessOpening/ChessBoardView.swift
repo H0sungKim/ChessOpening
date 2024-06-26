@@ -244,6 +244,8 @@ class ChessBoardView: UIView {
         piece.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize*rate, height: cellSize*rate))
     }
     
+    
+    // TODO : istouched 상태에서 drag bug
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: self) else {
             return
