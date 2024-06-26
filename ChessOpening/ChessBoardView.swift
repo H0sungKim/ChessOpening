@@ -105,19 +105,18 @@ class ChessBoardView: UIView {
         drawChessBoard()
         drawNowSelectedCell()
         drawNowSelectedPiece()
+        drawArrow(arrow: ((0, 0), (2, 3)))
     }
     
     private func drawCorner(coordinate: (rank: Int, file: Int)) {
         let cornerX = cellSize * CGFloat(coordinate.file)
         let cornerY = cellSize * CGFloat(coordinate.rank)
         
-        
         for i in 0...1 {
             for j in 0...1 {
                 let i = CGFloat(i)
                 let j = CGFloat(j)
                 let cornerPath = UIBezierPath()
-                
                 cornerPath.move(to: CGPoint(x: cornerX + cellSize*i, y: cornerY + cellSize*j))
                 cornerPath.addLine(to: CGPoint(x: cornerX + cellSize/4 + cellSize/2*i, y: cornerY + cellSize*j))
                 cornerPath.addLine(to: CGPoint(x: cornerX + cellSize*i, y: cornerY + cellSize/4 + cellSize/2*j))
@@ -195,6 +194,36 @@ class ChessBoardView: UIView {
         }
     }
     
+    private func drawArrow(arrow: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
+        let dx: CGFloat = CGFloat((arrow.to.file - arrow.from.file)) * cellSize
+        let dy: CGFloat = CGFloat((arrow.to.rank - arrow.from.rank)) * cellSize
+        let r: CGFloat = sqrt(dx * dx + dy * dy)
+        
+        let sin: CGFloat = dy / r
+        let cos: CGFloat = dx / r
+        
+        let pointHead: (x: CGFloat, y: CGFloat) = (CGFloat(arrow.to.file) * cellSize + cellSize/2, CGFloat(arrow.to.rank) * cellSize + cellSize/2)
+        let shaftHead: (x: CGFloat, y: CGFloat) = (CGFloat(arrow.from.file) * cellSize + cellSize/2, CGFloat(arrow.from.rank) * cellSize + cellSize/2)
+        let leftPoint: (x: CGFloat, y: CGFloat) = (pointHead.x - cellSize * (sqrt(3)*cos+sin) / 4, pointHead.y + cellSize * (cos-sqrt(3)*sin) / 4)
+        let rightPoint: (x: CGFloat, y: CGFloat) = (pointHead.x + cellSize * (sin-sqrt(3)*cos) / 4, pointHead.y - cellSize * (sqrt(3)*sin+cos) / 4)
+        let middlePoint: (x: CGFloat, y: CGFloat) = ((leftPoint.x+rightPoint.x)/2, (leftPoint.y+rightPoint.y)/2)
+        
+        let pointPath = UIBezierPath()
+        pointPath.move(to: CGPoint(x: pointHead.x, y: pointHead.y))
+        pointPath.addLine(to: CGPoint(x: leftPoint.x, y: leftPoint.y))
+        pointPath.addLine(to: CGPoint(x: rightPoint.x, y: rightPoint.y))
+        pointPath.close()
+        selectedGreen.setFill()
+        pointPath.fill()
+        
+        let shaftPath = UIBezierPath()
+        shaftPath.move(to: CGPoint(x: shaftHead.x, y: shaftHead.y))
+        shaftPath.addLine(to: CGPoint(x: middlePoint.x, y: middlePoint.y))
+        shaftPath.lineWidth = 8
+        selectedGreen.setStroke()
+        shaftPath.stroke()
+    }
+    
     private func getImage(coordinate: (Int, Int)) -> UIImage {
         let piece = engine.board[coordinate.0][coordinate.1]
         switch piece {
@@ -244,8 +273,6 @@ class ChessBoardView: UIView {
         piece.draw(in: CGRect(x: CGFloat(x)*cellSize+dx, y: CGFloat(y)*cellSize+dy, width: cellSize*rate, height: cellSize*rate))
     }
     
-    
-    // TODO : istouched 상태에서 drag bug
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: self) else {
             return
@@ -262,7 +289,6 @@ class ChessBoardView: UIView {
             } else {
                 setNeedsDisplay()
             }
-            
         } else {
             if engine.board[coordinate.rank][coordinate.file] is Empty || engine.board[coordinate.rank][coordinate.file].color != engine.turn%2 {
                 selectedCell = nil
@@ -277,6 +303,9 @@ class ChessBoardView: UIView {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: self) else {
+            return
+        }
+        if !isTouched {
             return
         }
         isDragged = true
