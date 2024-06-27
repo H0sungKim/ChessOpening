@@ -60,6 +60,13 @@ class Engine {
         return nil
     }
     
+    func isCheck(board: [[Piece]], kingColor: Int) -> Bool {
+        guard let kingCoordinate = getKingCoordinate(board: board, color: kingColor) else {
+            return false
+        }
+        return isAttacked(board: board, coordinate: kingCoordinate, turn: abs(kingColor-1))
+    }
+    
     func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         if let enpassant = enpassant {
             if board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
@@ -73,6 +80,13 @@ class Engine {
         }
         // castling
         if board[move.from.rank][move.from.file] is King {
+            if move.to.file-move.from.file == 2 {
+                board[7-turn%2*7][5] = board[7-turn%2*7][7]
+                board[7-turn%2*7][7] = Empty()
+            } else if move.to.file-move.from.file == -2 {
+                board[7-turn%2*7][3] = board[7-turn%2*7][0]
+                board[7-turn%2*7][0] = Empty()
+            }
             if turn%2 == Engine.WHITE {
                 castling.white = (false, false)
             } else {
@@ -80,9 +94,22 @@ class Engine {
             }
         }
         if board[move.from.rank][move.from.file] is Rook {
-            
+            if move.from.rank == 7-turn%2*7 {
+                if move.from.file == 0 {
+                    if turn%2 == Engine.WHITE {
+                        castling.white.queenSide = false
+                    } else {
+                        castling.black.queenSide = false
+                    }
+                } else if move.from.file == 7 {
+                    if turn%2 == Engine.WHITE {
+                        castling.white.kingSide = false
+                    } else {
+                        castling.black.kingSide = false
+                    }
+                }
+            }
         }
-        // pgn
         turn += 1
         board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
         board[move.from.rank][move.from.file] = Empty()
@@ -126,13 +153,16 @@ class Engine {
                             moves.append((from: (r, f), to: move))
                         }
                     }
-                    
                 }
             }
         }
-        // castling
-        // 바꾸기 전 킹 룩 사이 비어있는지 공격당하는지, 체크인지
-        // 앙파상
+        moves.append(contentsOf: getCastlingMoves())
+        moves.append(contentsOf: getEnpassantMoves())
+        return moves
+    }
+    
+    func getEnpassantMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
+        var moves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
         if let enpassant = enpassant {
             let direction = 2 * (turn%2) - 1
             let coordinate = (rank: 3+turn%2,file: enpassant)
@@ -146,7 +176,24 @@ class Engine {
         return moves
     }
     
-    func getEnpassantMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
-        return []
+    func getCastlingMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
+        var moves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
+        var castling: (kingSide: Bool, queenSide: Bool)
+        if turn%2 == Engine.WHITE {
+            castling = self.castling.white
+        } else {
+            castling = self.castling.black
+        }
+        if castling.kingSide {
+            if board[7-turn%2*7][5] is Empty && board[7-turn%2*7][6] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 5), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 6), turn: abs(turn%2-1))) {
+                moves.append(((7-turn%2*7, 4), (7-turn%2*7, 6)))
+            }
+        }
+        if castling.queenSide {
+            if board[7-turn%2*7][1] is Empty && board[7-turn%2*7][2] is Empty && board[7-turn%2*7][3] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 3), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 2), turn: abs(turn%2-1))) {
+                moves.append(((7-turn%2*7, 4), (7-turn%2*7, 2)))
+            }
+        }
+        return moves
     }
 }

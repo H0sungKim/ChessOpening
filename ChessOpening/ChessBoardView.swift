@@ -105,7 +105,7 @@ class ChessBoardView: UIView {
         drawChessBoard()
         drawNowSelectedCell()
         drawNowSelectedPiece()
-        drawArrow(arrow: ((0, 0), (2, 3)))
+        drawArrow(arrow: ((0, 0), (2, 3)), color: selectedGreen)
     }
     
     private func drawCorner(coordinate: (rank: Int, file: Int)) {
@@ -194,7 +194,7 @@ class ChessBoardView: UIView {
         }
     }
     
-    private func drawArrow(arrow: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
+    private func drawArrow(arrow: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), color: UIColor) {
         let dx: CGFloat = CGFloat((arrow.to.file - arrow.from.file)) * cellSize
         let dy: CGFloat = CGFloat((arrow.to.rank - arrow.from.rank)) * cellSize
         let r: CGFloat = sqrt(dx * dx + dy * dy)
@@ -213,14 +213,14 @@ class ChessBoardView: UIView {
         pointPath.addLine(to: CGPoint(x: leftPoint.x, y: leftPoint.y))
         pointPath.addLine(to: CGPoint(x: rightPoint.x, y: rightPoint.y))
         pointPath.close()
-        selectedGreen.setFill()
+        color.setFill()
         pointPath.fill()
         
         let shaftPath = UIBezierPath()
         shaftPath.move(to: CGPoint(x: shaftHead.x, y: shaftHead.y))
         shaftPath.addLine(to: CGPoint(x: middlePoint.x, y: middlePoint.y))
         shaftPath.lineWidth = 8
-        selectedGreen.setStroke()
+        color.setStroke()
         shaftPath.stroke()
     }
     
@@ -277,7 +277,6 @@ class ChessBoardView: UIView {
         guard let point = touches.first?.location(in: self) else {
             return
         }
-        
         let coordinate = (rank: Int(point.y/cellSize), file: Int(point.x/cellSize))
         if isTouched, let selectedCell = selectedCell {
             let move = (from: selectedCell, to: coordinate)
@@ -329,7 +328,6 @@ class ChessBoardView: UIView {
         draggedPiece = nil
         isDragged = false
         setNeedsDisplay()
-    
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
