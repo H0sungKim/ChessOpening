@@ -67,7 +67,7 @@ class Engine {
         return isAttacked(board: board, coordinate: kingCoordinate, turn: abs(kingColor-1))
     }
     
-    func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
+    func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         if let enpassant = enpassant {
             if board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
                 board[move.from.rank][enpassant] = Empty()
@@ -110,12 +110,15 @@ class Engine {
                 }
             }
         }
-        turn += 1
-        board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
-        board[move.from.rank][move.from.file] = Empty()
         
+        if let promotionPiece = promotionPiece {
+            board[move.to.rank][move.to.file] = promotionPiece.init(color: turn%2)
+        } else {
+            board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
+        }
+        board[move.from.rank][move.from.file] = Empty()
+        turn += 1
         legalMoves = getLegalMoves()
-        // 메이트 확인
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
