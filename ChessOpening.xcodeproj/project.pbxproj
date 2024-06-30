@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961A11262C319AF2005E903C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A11252C319AF2005E903C /* TabBar.storyboard */; };
+		961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A11292C319DB3005E903C /* TabBarViewController.swift */; };
+		961A112E2C31A119005E903C /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A112D2C31A119005E903C /* Info.storyboard */; };
+		961A11302C31A12B005E903C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A112F2C31A12B005E903C /* InfoViewController.swift */; };
+		966356A22C2FC8B900158265 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A12C2FC8B900158265 /* InfoTableViewCell.xib */; };
+		966356A42C2FCA9300158265 /* InfoEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A32C2FCA9300158265 /* InfoEditTableViewCell.xib */; };
+		966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A52C2FCAA700158265 /* MoveTableViewCell.xib */; };
+		966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */; };
 		9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */; };
 		969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604822BFF0A6D00BBFC6C /* MainViewController.swift */; };
 		969604862BFF0A6D00BBFC6C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 969604852BFF0A6D00BBFC6C /* Base */; };
@@ -17,6 +25,8 @@
 		969604A22BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */; };
 		969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */; };
 		969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604B02BFF1D7400BBFC6C /* Engine.swift */; };
+		96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD86C62C31AC0100465C31 /* HistoryViewController.swift */; };
+		96BD86C92C31AC0E00465C31 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BD86C82C31AC0E00465C31 /* History.storyboard */; };
 		96BDF9082C0968220032523E /* King.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9072C0968220032523E /* King.swift */; };
 		96BDF90A2C096B310032523E /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9092C096B310032523E /* Piece.swift */; };
 		96BDF90C2C096B5D0032523E /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF90B2C096B5D0032523E /* Empty.swift */; };
@@ -25,7 +35,6 @@
 		96BDF9122C096B850032523E /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9112C096B850032523E /* Knight.swift */; };
 		96BDF9142C096BDD0032523E /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9132C096BDD0032523E /* Rook.swift */; };
 		96BDF9162C096C0C0032523E /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9152C096C0C0032523E /* Pawn.swift */; };
-		96BDF91F2C0D73050032523E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96BDF91E2C0D73050032523E /* CustomTableViewCell.xib */; };
 		96BDF9212C22DB4D0032523E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9202C22DB4D0032523E /* Global.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +56,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961A11252C319AF2005E903C /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		961A11292C319DB3005E903C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		961A112D2C31A119005E903C /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
+		961A112F2C31A12B005E903C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		966356A12C2FC8B900158265 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		966356A32C2FCA9300158265 /* InfoEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoEditTableViewCell.xib; sourceTree = "<group>"; };
+		966356A52C2FCAA700158265 /* MoveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveTableViewCell.xib; sourceTree = "<group>"; };
+		966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditTableViewCell.xib; sourceTree = "<group>"; };
 		9696047B2BFF0A6D00BBFC6C /* ChessOpening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessOpening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969604822BFF0A6D00BBFC6C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +78,8 @@
 		969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardView.swift; sourceTree = "<group>"; };
 		969604B02BFF1D7400BBFC6C /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		96BD86C62C31AC0100465C31 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		96BD86C82C31AC0E00465C31 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		96BDF9072C0968220032523E /* King.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King.swift; sourceTree = "<group>"; };
 		96BDF9092C096B310032523E /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		96BDF90B2C096B5D0032523E /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
@@ -69,7 +88,6 @@
 		96BDF9112C096B850032523E /* Knight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
 		96BDF9132C096BDD0032523E /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
 		96BDF9152C096C0C0032523E /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
-		96BDF91E2C0D73050032523E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		96BDF9202C22DB4D0032523E /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +147,17 @@
 				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */,
-				96BDF91E2C0D73050032523E /* CustomTableViewCell.xib */,
 				96BDF9202C22DB4D0032523E /* Global.swift */,
+				966356A12C2FC8B900158265 /* InfoTableViewCell.xib */,
+				966356A32C2FCA9300158265 /* InfoEditTableViewCell.xib */,
+				966356A52C2FCAA700158265 /* MoveTableViewCell.xib */,
+				966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */,
+				961A11252C319AF2005E903C /* TabBar.storyboard */,
+				961A11292C319DB3005E903C /* TabBarViewController.swift */,
+				961A112D2C31A119005E903C /* Info.storyboard */,
+				961A112F2C31A12B005E903C /* InfoViewController.swift */,
+				96BD86C62C31AC0100465C31 /* HistoryViewController.swift */,
+				96BD86C82C31AC0E00465C31 /* History.storyboard */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -272,9 +299,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961A112E2C31A119005E903C /* Info.storyboard in Resources */,
+				966356A22C2FC8B900158265 /* InfoTableViewCell.xib in Resources */,
+				966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */,
+				96BD86C92C31AC0E00465C31 /* History.storyboard in Resources */,
+				966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */,
+				966356A42C2FCA9300158265 /* InfoEditTableViewCell.xib in Resources */,
+				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
 				9696048B2BFF0A6E00BBFC6C /* Base in Resources */,
-				96BDF91F2C0D73050032523E /* CustomTableViewCell.xib in Resources */,
 				969604862BFF0A6D00BBFC6C /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +337,10 @@
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
 				96BDF90A2C096B310032523E /* Piece.swift in Sources */,
 				969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */,
+				961A11302C31A12B005E903C /* InfoViewController.swift in Sources */,
+				961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */,
 				96BDF9122C096B850032523E /* Knight.swift in Sources */,
+				96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */,
 				96BDF90E2C096B730032523E /* Queen.swift in Sources */,
 				96BDF9102C096B7C0032523E /* Bishop.swift in Sources */,
 				96BDF9162C096C0C0032523E /* Pawn.swift in Sources */,

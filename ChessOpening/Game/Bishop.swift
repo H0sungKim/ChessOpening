@@ -39,4 +39,8 @@ class Bishop: Piece {
         }
         return moves
     }
+    
+    func getString() -> String {
+        return color == Engine.WHITE ? "B" : "b"
+    }
 }

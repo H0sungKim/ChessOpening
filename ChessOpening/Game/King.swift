@@ -28,4 +28,8 @@ class King: Piece {
         }
         return moves
     }
+    
+    func getString() -> String {
+        return color == Engine.WHITE ? "K" : "k"
+    }
 }

@@ -8,7 +8,11 @@
 import Foundation
 
 class Engine {
-    var pgn: String = ""
+    
+        // 체스판 턴 캐슬링 앙파상 50수 몇턴째
+        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
+    
+    var pgn: [String] = []
     
     static let EMPTY: Int = -1
     static let WHITE: Int = 0
@@ -36,17 +40,6 @@ class Engine {
             [Rook(color: Engine.WHITE), Knight(color: Engine.WHITE), Bishop(color: Engine.WHITE), Queen(color: Engine.WHITE), King(color: Engine.WHITE), Bishop(color: Engine.WHITE), Knight(color: Engine.WHITE), Rook(color: Engine.WHITE)]
         ]
         legalMoves = getLegalMoves()
-    }
-    
-    init(pgn: String) {
-        
-    }
-    
-    init(fen: String) {
-        // 체스판 턴 캐슬링 앙파상 50수 몇턴째
-        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
-        
-        
     }
     
     func getKingCoordinate(board: [[Piece]], color: Int) -> (rank: Int, file: Int)? {

@@ -27,4 +27,8 @@ class Knight: Piece {
         }
         return moves
     }
+    
+    func getString() -> String {
+        return color == Engine.WHITE ? "N" : "n"
+    }
 }

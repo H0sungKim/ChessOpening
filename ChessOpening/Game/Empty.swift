@@ -16,4 +16,8 @@ class Empty: Piece {
     func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
         return []
     }
+    
+    func getString() -> String {
+        return ""
+    }
 }

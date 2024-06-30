@@ -516,22 +516,56 @@
 //                 the game, provided both players have made at least one move.
 //                 This immediately ends the game.
 
+// TODO: turn back
+// TODO: landscape portrait
+// TODO: audio
+// TODO: piece diff
+
 
 import UIKit
 
 class MainViewController: UIViewController {
+    func testDelegate() {
+        lbTitle.text = "delegate"
+    }
+    
     
     @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbSubTitle: UILabel!
+    @IBOutlet weak var chessBoardView: ChessBoardView!
     @IBOutlet weak var tableView: UITableView!
+    
+    private var isEditInfo: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NSLog("Build : 2024.06.01 21:32")
+        chessBoardView.delegate = self
         
     }
-
-
 }
 
+extension MainViewController: ChessBoardViewDelegate {
+    
+}
+//extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 0
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        
+//        let cell: IndexTableViewCell
+//        
+//        let objectArray = Bundle.main.loadNibNamed(String(describing: IndexTableViewCell.self), owner: nil, options: nil)
+//        cell = objectArray![0] as! IndexTableViewCell
+//        
+//        return cell
+//    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        let vc = UIViewController.getViewController(catalogueEnum: catalogues[indexPath.row])
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+//    
+//}

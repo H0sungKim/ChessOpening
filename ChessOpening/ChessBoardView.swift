@@ -21,6 +21,8 @@ class ChessBoardView: UIView {
     
     private let engine: Engine = Engine()
     
+    weak var delegate: ChessBoardViewDelegate?
+    
     private var selectedCell: (rank: Int, file: Int)? // select flag
     private var draggedPiece: (CGFloat, CGFloat)? // drag flag
     private var promotionMove: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))? = nil // promotion flag
@@ -28,7 +30,8 @@ class ChessBoardView: UIView {
     private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
     private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
     private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
-    private let selectedGray: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+    private let selectedBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    private let promotionBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
     private let imgBKing: UIImage = UIImage(named: "bking")!
@@ -123,7 +126,7 @@ class ChessBoardView: UIView {
             return
         }
         let path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: cellSize*8, height: cellSize*8))
-        selectedGray.setFill()
+        promotionBlack.setFill()
         path.fill()
         
         let direction = 1 - engine.turn%2*2
@@ -199,7 +202,7 @@ class ChessBoardView: UIView {
         }
         let nowDraggedCell: (CGFloat, CGFloat) = (CGFloat(Int(draggedPiece.0/cellSize)), CGFloat(Int(draggedPiece.1/cellSize)))
         let path = UIBezierPath(arcCenter: CGPoint(x: nowDraggedCell.0*cellSize + cellSize/2, y: nowDraggedCell.1*cellSize + cellSize/2), radius: cellSize, startAngle: 0, endAngle: Double.pi*2, clockwise: true)
-        selectedGray.setFill()
+        selectedBlack.setFill()
         path.fill()
         
         drawPiece(piece: getImage(pieceType: type(of: engine.board[selectedCell.rank][selectedCell.file]), color: engine.board[selectedCell.rank][selectedCell.file].color), rank: 0, file: 0, dx: draggedPiece.0-cellSize, dy: draggedPiece.1-cellSize, rate: 2)
@@ -373,4 +376,9 @@ class ChessBoardView: UIView {
         self.draggedPiece = nil
         setNeedsDisplay()
     }
+}
+
+
+protocol ChessBoardViewDelegate: AnyObject {
+    
 }

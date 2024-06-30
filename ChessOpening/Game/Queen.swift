@@ -39,4 +39,8 @@ class Queen: Piece {
         }
         return moves
     }
+    
+    func getString() -> String {
+        return color == Engine.WHITE ? "Q" : "q"
+    }
 }
