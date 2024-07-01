@@ -525,47 +525,27 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    func testDelegate() {
-        lbTitle.text = "delegate"
-    }
     
-    
-    @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var chessBoardView: ChessBoardView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var containerView: UIView!
     
     private var isEditInfo: Bool = false
+    private var tabBarViewController: TabBarViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("Build : 2024.06.01 21:32")
         chessBoardView.delegate = self
         
+        let containerChildViewController = UIViewController.getViewController(viewControllerEnum: .tabbar)
+        addChild(containerChildViewController)
+        containerChildViewController.view.frame = containerView.bounds
+        containerView.addSubview(containerChildViewController.view)
+        containerChildViewController.didMove(toParent: self)
+        self.tabBarViewController = containerChildViewController as? TabBarViewController
     }
 }
 
 extension MainViewController: ChessBoardViewDelegate {
     
 }
-//extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        
-//        let cell: IndexTableViewCell
-//        
-//        let objectArray = Bundle.main.loadNibNamed(String(describing: IndexTableViewCell.self), owner: nil, options: nil)
-//        cell = objectArray![0] as! IndexTableViewCell
-//        
-//        return cell
-//    }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let vc = UIViewController.getViewController(catalogueEnum: catalogues[indexPath.row])
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//    
-//}

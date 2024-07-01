@@ -25,9 +25,6 @@
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kU-Ta-5E0">
                                 <rect key="frame" x="0.0" y="489" width="430" height="409"/>
-                                <connections>
-                                    <segue destination="0E4-wB-Ktm" kind="embed" id="Zea-X4-8JO"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -44,19 +41,12 @@
                     </view>
                     <connections>
                         <outlet property="chessBoardView" destination="Us2-64-CJl" id="AT6-cX-yfE"/>
+                        <outlet property="containerView" destination="7kU-Ta-5E0" id="JIH-jA-ch4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="48" y="-2"/>
-        </scene>
-        <!--TabBarViewController-->
-        <scene sceneID="CmF-Ia-GhL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabBar" referencedIdentifier="TabBarViewController" id="0E4-wB-Ktm" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HLX-au-jGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-438" y="514"/>
         </scene>
     </scenes>
     <resources>
