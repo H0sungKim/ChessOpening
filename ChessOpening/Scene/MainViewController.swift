@@ -547,5 +547,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: ChessBoardViewDelegate {
+    func chessBoardDidUpdate(fen: String) {
+        
+        
+    }
+    
     
 }

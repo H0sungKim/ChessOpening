@@ -9,20 +9,28 @@ import Foundation
 
 class Engine {
     
-        // 체스판 턴 캐슬링 앙파상 50수 몇턴째
-        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
-    
+    let file: [Int: String] = [
+        0: "a",
+        1: "b",
+        2: "c",
+        3: "d",
+        4: "e",
+        5: "f",
+        6: "g",
+        7: "h",
+    ]
     var pgn: [String] = []
+    var fen: [String] = []
     
     static let EMPTY: Int = -1
     static let WHITE: Int = 0
     static let BLACK: Int = 1
     
     var turn: Int = 0
+    var moveCount50: Int = 0
     
     var castling: (white: (kingSide: Bool, queenSide: Bool), black: (kingSide: Bool, queenSide: Bool)) = ((true, true), (true, true))
     var enpassant: Int?
-    
     
     var board: [[Piece]] = []
     
@@ -39,6 +47,7 @@ class Engine {
             [Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE)],
             [Rook(color: Engine.WHITE), Knight(color: Engine.WHITE), Bishop(color: Engine.WHITE), Queen(color: Engine.WHITE), King(color: Engine.WHITE), Bishop(color: Engine.WHITE), Knight(color: Engine.WHITE), Rook(color: Engine.WHITE)]
         ]
+        fen.append(getFEN())
         legalMoves = getLegalMoves()
     }
     
@@ -191,5 +200,55 @@ class Engine {
             }
         }
         return moves
+    }
+    
+    func getFEN() -> String {
+        // 체스판 턴 캐슬링 앙파상 50수 몇턴째
+        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
+        var fen = ""
+        var emptyCount = 0
+        for r in 0..<8 {
+            for f in 0..<8 {
+                if board[r][f] is Empty {
+                    emptyCount += 1
+                } else {
+                    if emptyCount != 0 {
+                        fen.append("\(emptyCount)")
+                        emptyCount = 0
+                    }
+                    fen.append(board[r][f].getString())
+                }
+            }
+            if emptyCount != 0 {
+                fen.append("\(emptyCount)")
+                emptyCount = 0
+            }
+            fen.append("/")
+        }
+        fen.removeLast()
+        fen.append(turn%2==0 ? " w " : " b ")
+        if castling.white.kingSide {
+            fen.append("K")
+        }
+        if castling.white.queenSide {
+            fen.append("Q")
+        }
+        if castling.black.kingSide {
+            fen.append("k")
+        }
+        if castling.black.queenSide {
+            fen.append("q")
+        }
+        if !(castling.white.kingSide || castling.white.queenSide || castling.black.kingSide || castling.black.queenSide) {
+            fen.append("-")
+        }
+        if let enpassant = enpassant {
+            fen.append("\(file[enpassant]!)\(6-turn%2*3)")
+        } else {
+            fen.append(" - ")
+        }
+        fen.append("\(moveCount50) \(turn/2+1)")
+        
+        return fen
     }
 }

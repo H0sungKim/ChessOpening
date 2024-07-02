@@ -1,0 +1,6 @@
+framework module Pods_ChessOpeningTests {
+  umbrella header "Pods-ChessOpeningTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

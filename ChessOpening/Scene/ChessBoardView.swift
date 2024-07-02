@@ -10,15 +10,6 @@ import AVFoundation
 
 class ChessBoardView: UIView {
     
-    //    Touch
-    //    Began 좌표 기억
-    //    Moved 피스랑 좌표 리턴
-    //    Ended 드래그가 됐으면 piece move 드래그 아니면 선택/해제
-    //
-    //    Draw
-    //    현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
-    
-    
     private let engine: Engine = Engine()
     
     weak var delegate: ChessBoardViewDelegate?
@@ -51,11 +42,13 @@ class ChessBoardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setNeedsDisplay()
+        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setNeedsDisplay()
+        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
     }
     
     private func startAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
@@ -293,20 +286,22 @@ class ChessBoardView: UIView {
                 return
             }
             let direction = 1 - engine.turn%2*2
-            switch coordinate.rank {
-            case promotionMove.to.rank :
-                engine.movePiece(move: promotionMove, promotionPiece: Queen.self)
-            case promotionMove.to.rank+direction :
-                engine.movePiece(move: promotionMove, promotionPiece: Knight.self)
-            case promotionMove.to.rank+2*direction :
-                engine.movePiece(move: promotionMove, promotionPiece: Rook.self)
-            case promotionMove.to.rank+3*direction :
-                engine.movePiece(move: promotionMove, promotionPiece: Bishop.self)
-            default :
-                return
+            let dictPromotion: [Int: Piece.Type] = [
+                promotionMove.to.rank: Queen.self,
+                promotionMove.to.rank+direction: Knight.self,
+                promotionMove.to.rank+2*direction: Rook.self,
+                promotionMove.to.rank+3*direction: Bishop.self,
+            ]
+            if let promotionPiece = dictPromotion[coordinate.rank] {
+                self.promotionMove = nil
+                setNeedsDisplay()
+
+                CATransaction.begin()
+                CATransaction.setCompletionBlock {
+                    self.movePieceWithAnimation(move: promotionMove, promotionPiece: promotionPiece)
+                }
+                CATransaction.commit()
             }
-            self.promotionMove = nil
-            setNeedsDisplay()
             return
         }
         if let selectedCell = selectedCell {
@@ -318,8 +313,7 @@ class ChessBoardView: UIView {
                     setNeedsDisplay()
                     return
                 }
-                moveAnimation(move: move)
-                engine.movePiece(move: move)
+                movePieceWithAnimation(move: move)
                 return
             }
             setNeedsDisplay()
@@ -366,7 +360,7 @@ class ChessBoardView: UIView {
                 setNeedsDisplay()
                 return
             }
-            engine.movePiece(move: move)
+            movePiece(move: move)
         }
         setNeedsDisplay()
     }
@@ -376,9 +370,20 @@ class ChessBoardView: UIView {
         self.draggedPiece = nil
         setNeedsDisplay()
     }
+    
+    private func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+        engine.movePiece(move: move, promotionPiece: promotionPiece)
+        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+        setNeedsDisplay()
+    }
+    private func movePieceWithAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+        moveAnimation(move: move)
+        engine.movePiece(move: move, promotionPiece: promotionPiece)
+        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+    }
 }
 
 
 protocol ChessBoardViewDelegate: AnyObject {
-    
+    func chessBoardDidUpdate(fen: String)
 }

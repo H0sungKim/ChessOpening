@@ -8,11 +8,16 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    var infoViewController: InfoViewController?
+    var historyViewController: HistoryViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let infoViewController = UIViewController.getViewController(viewControllerEnum: .info)
-        let historyViewController = UIViewController.getViewController(viewControllerEnum: .history)
-        setViewControllers([infoViewController, historyViewController], animated: true)
+        let tabInfoViewController = UIViewController.getViewController(viewControllerEnum: .info)
+        let tabHistoryViewController = UIViewController.getViewController(viewControllerEnum: .history)
+        setViewControllers([tabInfoViewController, tabHistoryViewController], animated: true)
         
+        infoViewController = tabInfoViewController as! InfoViewController
+        historyViewController = tabHistoryViewController as! HistoryViewController
     }
+    
 }

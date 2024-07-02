@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelegate {
@@ -43,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelega
                 print("Error : \(error), \(error.userInfo)")
             }
         }
-        
+        FirebaseApp.configure()
         return true
     }
     
