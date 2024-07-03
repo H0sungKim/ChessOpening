@@ -124,13 +124,13 @@ class ChessBoardView: UIView {
         
         let direction = 1 - engine.turn%2*2
         
-        drawCellBackGround(rank: promotionMove.to.rank, file: promotionMove.to.file)
+        drawCircleCellBackGround(rank: promotionMove.to.rank, file: promotionMove.to.file)
         drawPiece(piece: getImage(pieceType: Queen.self, color: engine.turn%2), rank: promotionMove.to.rank, file: promotionMove.to.file)
-        drawCellBackGround(rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
+        drawCircleCellBackGround(rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
         drawPiece(piece: getImage(pieceType: Knight.self, color: engine.turn%2), rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
-        drawCellBackGround(rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
+        drawCircleCellBackGround(rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
         drawPiece(piece: getImage(pieceType: Rook.self, color: engine.turn%2), rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
-        drawCellBackGround(rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
+        drawCircleCellBackGround(rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
         drawPiece(piece: getImage(pieceType: Bishop.self, color: engine.turn%2), rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
     }
     
@@ -211,6 +211,16 @@ class ChessBoardView: UIView {
     
     private func drawCellBackGround(rank: Int, file: Int) {
         let path = UIBezierPath(rect: CGRect(x: CGFloat(file)*cellSize, y: CGFloat(rank)*cellSize, width: cellSize, height: cellSize))
+        if (rank+file)%2 == 0 {
+            lightBrown.setFill()
+        } else {
+            darkBrown.setFill()
+        }
+        path.fill()
+    }
+    
+    private func drawCircleCellBackGround(rank: Int, file: Int) {
+        let path = UIBezierPath(arcCenter: CGPoint(x: CGFloat(file)*cellSize + cellSize/2, y: CGFloat(rank)*cellSize + cellSize/2), radius: cellSize/2, startAngle: 0, endAngle: Double.pi*2, clockwise: true)
         if (rank+file)%2 == 0 {
             lightBrown.setFill()
         } else {

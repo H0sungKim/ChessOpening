@@ -523,6 +523,7 @@
 
 
 import UIKit
+import FirebaseRemoteConfig
 
 class MainViewController: UIViewController {
     
@@ -531,6 +532,7 @@ class MainViewController: UIViewController {
     
     private var isEditInfo: Bool = false
     private var tabBarViewController: TabBarViewController?
+    private var remoteConfig: RemoteConfig!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -543,6 +545,22 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
+        
+        remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        
+        
+    }
+    
+    func fetchConfig() {
+        remoteConfig.fetch { (status, error) -> Void in
+            if status == .success {
+                print("Config fetched!")
+                remoteConfig["readonly"]
+            }
+        }
     }
 }
 
