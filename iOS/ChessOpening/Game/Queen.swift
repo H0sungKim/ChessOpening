@@ -40,7 +40,10 @@ class Queen: Piece {
         return moves
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return color == Engine.WHITE ? "Q" : "q"
+    }
+    func getString() -> String {
+        return Queen.getString(color: self.color)
     }
 }

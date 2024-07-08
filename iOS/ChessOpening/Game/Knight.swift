@@ -28,7 +28,10 @@ class Knight: Piece {
         return moves
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return color == Engine.WHITE ? "N" : "n"
+    }
+    func getString() -> String {
+        return Knight.getString(color: self.color)
     }
 }

@@ -17,7 +17,10 @@ class Empty: Piece {
         return []
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return ""
+    }
+    func getString() -> String {
+        return Empty.getString(color: self.color)
     }
 }

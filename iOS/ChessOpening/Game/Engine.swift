@@ -9,7 +9,7 @@ import Foundation
 
 class Engine {
     
-    let file: [Int: String] = [
+    static let file: [Int: String] = [
         0: "a",
         1: "b",
         2: "c",
@@ -69,7 +69,39 @@ class Engine {
         return isAttacked(board: board, coordinate: kingCoordinate, turn: abs(kingColor-1))
     }
     
-    func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+    func getPGNWithoutCheck(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) -> String {
+        var pgn = ""
+        switch type(of: board[move.from.rank][move.from.file]) {
+        case is Empty.Type:
+            return ""
+        case is Pawn.Type:
+            if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) || !(board[move.to.rank][move.to.file] is Empty) {
+                pgn.append("\(Engine.file[move.from.file]!)x")
+            }
+        case is King.Type:
+            if move.to.file-move.from.file == 2 {
+                return "0-0"
+            } else if move.to.file-move.from.file == -2 {
+                return "0-0-0"
+            }
+        default:
+            pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: Engine.WHITE))
+            if legalMoves.contains(where: { $0.to == move.to && type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) && $0.from != move.from }) {
+                pgn.append(Engine.file[move.from.file] ?? "")
+            }
+            if !(board[move.to.rank][move.to.file] is Empty) {
+                pgn.append("x")
+            }
+        }
+        pgn.append("\(Engine.file[move.to.file]!)\(8-move.to.rank)")
+        if let promotionPiece = promotionPiece {
+            pgn.append("=\(promotionPiece.getString(color: Engine.WHITE))")
+        }
+        return pgn
+    }
+    
+    func applyMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+        var pgn = getPGNWithoutCheck(move: move, promotionPiece: promotionPiece)
         if let enpassant = enpassant {
             if board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
                 board[move.from.rank][enpassant] = Empty()
@@ -82,34 +114,26 @@ class Engine {
         }
         // castling
         if board[move.from.rank][move.from.file] is King {
-            if move.to.file-move.from.file == 2 {
-                board[7-turn%2*7][5] = board[7-turn%2*7][7]
-                board[7-turn%2*7][7] = Empty()
-            } else if move.to.file-move.from.file == -2 {
+            switch move.to.file-move.from.file {
+            case -2:
                 board[7-turn%2*7][3] = board[7-turn%2*7][0]
                 board[7-turn%2*7][0] = Empty()
+            case 2:
+                board[7-turn%2*7][5] = board[7-turn%2*7][7]
+                board[7-turn%2*7][7] = Empty()
+            default:
+                break
             }
-            if turn%2 == Engine.WHITE {
-                castling.white = (false, false)
-            } else {
-                castling.black = (false, false)
-            }
+            turn%2 == Engine.WHITE ? (castling.white = (false, false)) : (castling.black = (false, false))
         }
-        if board[move.from.rank][move.from.file] is Rook {
-            if move.from.rank == 7-turn%2*7 {
-                if move.from.file == 0 {
-                    if turn%2 == Engine.WHITE {
-                        castling.white.queenSide = false
-                    } else {
-                        castling.black.queenSide = false
-                    }
-                } else if move.from.file == 7 {
-                    if turn%2 == Engine.WHITE {
-                        castling.white.kingSide = false
-                    } else {
-                        castling.black.kingSide = false
-                    }
-                }
+        if board[move.from.rank][move.from.file] is Rook && move.from.rank == 7 - turn % 2 * 7 {
+            switch move.from.file {
+            case 0:
+                turn % 2 == Engine.WHITE ? (castling.white.queenSide = false) : (castling.black.queenSide = false)
+            case 7:
+                turn % 2 == Engine.WHITE ? (castling.white.kingSide = false) : (castling.black.kingSide = false)
+            default:
+                break
             }
         }
         
@@ -121,6 +145,15 @@ class Engine {
         board[move.from.rank][move.from.file] = Empty()
         turn += 1
         legalMoves = getLegalMoves()
+        if isCheck(board: board, kingColor: turn%2) {
+            legalMoves.isEmpty ? pgn.append("#") : pgn.append("+")
+        }
+        self.pgn = Array(self.pgn.prefix(turn))
+        self.pgn.append(pgn)
+        fen = Array(fen.prefix(turn+1))
+        fen.append(getFEN())
+        print(self.pgn)
+        print(fen)
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
@@ -204,7 +237,10 @@ class Engine {
     
     func getFEN() -> String {
         // 체스판 턴 캐슬링 앙파상 50수 몇턴째
+        // FEN
         // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
+        // SFEN
+        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6
         var fen = ""
         var emptyCount = 0
         for r in 0..<8 {
@@ -243,7 +279,7 @@ class Engine {
             fen.append("-")
         }
         if let enpassant = enpassant {
-            fen.append("\(file[enpassant]!)\(6-turn%2*3)")
+            fen.append("\(Engine.file[enpassant]!)\(6-turn%2*3)")
         } else {
             fen.append(" - ")
         }

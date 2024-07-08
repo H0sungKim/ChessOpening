@@ -40,7 +40,10 @@ class Rook: Piece {
         return moves
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return color == Engine.WHITE ? "R" : "r"
+    }
+    func getString() -> String {
+        return Rook.getString(color: self.color)
     }
 }

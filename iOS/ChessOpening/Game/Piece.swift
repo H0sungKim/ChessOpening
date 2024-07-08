@@ -12,5 +12,6 @@ protocol Piece {
     
     init(color: Int)
     func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)]
+    static func getString(color: Int) -> String
     func getString() -> String
 }

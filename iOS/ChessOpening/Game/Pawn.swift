@@ -32,7 +32,10 @@ class Pawn: Piece {
         return moves
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return color == Engine.WHITE ? "P" : "p"
+    }
+    func getString() -> String {
+        return Pawn.getString(color: self.color)
     }
 }

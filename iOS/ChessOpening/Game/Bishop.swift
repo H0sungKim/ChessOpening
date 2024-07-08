@@ -40,7 +40,10 @@ class Bishop: Piece {
         return moves
     }
     
-    func getString() -> String {
+    static func getString(color: Int) -> String {
         return color == Engine.WHITE ? "B" : "b"
+    }
+    func getString() -> String {
+        return Bishop.getString(color: self.color)
     }
 }

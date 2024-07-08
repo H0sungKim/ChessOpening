@@ -305,7 +305,6 @@ class ChessBoardView: UIView {
             if let promotionPiece = dictPromotion[coordinate.rank] {
                 self.promotionMove = nil
                 setNeedsDisplay()
-
                 CATransaction.begin()
                 CATransaction.setCompletionBlock {
                     self.movePieceWithAnimation(move: promotionMove, promotionPiece: promotionPiece)
@@ -382,13 +381,13 @@ class ChessBoardView: UIView {
     }
     
     private func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
-        engine.movePiece(move: move, promotionPiece: promotionPiece)
+        engine.applyMove(move: move, promotionPiece: promotionPiece)
         delegate?.chessBoardDidUpdate(fen: engine.getFEN())
         setNeedsDisplay()
     }
     private func movePieceWithAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         moveAnimation(move: move)
-        engine.movePiece(move: move, promotionPiece: promotionPiece)
+        engine.applyMove(move: move, promotionPiece: promotionPiece)
         delegate?.chessBoardDidUpdate(fen: engine.getFEN())
     }
 }
