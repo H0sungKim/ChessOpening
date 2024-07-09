@@ -8,17 +8,6 @@
 import Foundation
 
 class Engine {
-    
-    static let file: [Int: String] = [
-        0: "a",
-        1: "b",
-        2: "c",
-        3: "d",
-        4: "e",
-        5: "f",
-        6: "g",
-        7: "h",
-    ]
     var pgn: [String] = []
     var fen: [String] = []
     
@@ -76,7 +65,7 @@ class Engine {
             return ""
         case is Pawn.Type:
             if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) || !(board[move.to.rank][move.to.file] is Empty) {
-                pgn.append("\(Engine.file[move.from.file]!)x")
+                pgn.append("\(convertFileIntToString(file: move.from.file))x")
             }
         case is King.Type:
             if move.to.file-move.from.file == 2 {
@@ -87,13 +76,13 @@ class Engine {
         default:
             pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: Engine.WHITE))
             if legalMoves.contains(where: { $0.to == move.to && type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) && $0.from != move.from }) {
-                pgn.append(Engine.file[move.from.file] ?? "")
+                pgn.append(convertFileIntToString(file: move.from.file))
             }
             if !(board[move.to.rank][move.to.file] is Empty) {
                 pgn.append("x")
             }
         }
-        pgn.append("\(Engine.file[move.to.file]!)\(8-move.to.rank)")
+        pgn.append("\(convertFileIntToString(file: move.to.file))\(8-move.to.rank)")
         if let promotionPiece = promotionPiece {
             pgn.append("=\(promotionPiece.getString(color: Engine.WHITE))")
         }
@@ -102,10 +91,13 @@ class Engine {
     
     func applyMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         var pgn = getPGNWithoutCheck(move: move, promotionPiece: promotionPiece)
-        if let enpassant = enpassant {
-            if board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
-                board[move.from.rank][enpassant] = Empty()
-            }
+        if board[move.from.rank][move.from.file] is Pawn || pgn.contains("x") {
+            moveCount50 = 0
+        } else {
+            moveCount50 += 1
+        }
+        if let enpassant = enpassant, board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
+            board[move.from.rank][enpassant] = Empty()
         }
         enpassant = nil
         // enpassant
@@ -204,10 +196,10 @@ class Engine {
         if let enpassant = enpassant {
             let direction = 2 * (turn%2) - 1
             let coordinate = (rank: 3+turn%2,file: enpassant)
-            if isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
+            if Util.common.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file-1), to: (coordinate.rank+direction, coordinate.file)))
             }
-            if isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
+            if Util.common.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file+1), to: (coordinate.rank+direction, coordinate.file)))
             }
         }
@@ -239,8 +231,6 @@ class Engine {
         // 체스판 턴 캐슬링 앙파상 50수 몇턴째
         // FEN
         // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
-        // SFEN
-        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6
         var fen = ""
         var emptyCount = 0
         for r in 0..<8 {
@@ -279,7 +269,7 @@ class Engine {
             fen.append("-")
         }
         if let enpassant = enpassant {
-            fen.append("\(Engine.file[enpassant]!)\(6-turn%2*3)")
+            fen.append("\(convertFileIntToString(file: enpassant))\(6-turn%2*3)")
         } else {
             fen.append(" - ")
         }
@@ -287,4 +277,124 @@ class Engine {
         
         return fen
     }
+    
+    func getSimpleFEN(fen: String) -> String {
+        var parts = fen.split(separator: " ")
+        parts.removeLast()
+        parts.removeLast()
+        return parts.joined(separator: " ")
+    }
+    func applyFEN(fen: String) {
+        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
+        let fenArray = fen.split(separator: " ")
+        let fenBoard = fenArray[0].split(separator: "/")
+        for r in 0..<8 {
+            var rank: [Piece] = []
+            for f in fenBoard[r] {
+                if let emptyCount = f.wholeNumberValue {
+                    for _ in 0..<emptyCount {
+                        rank.append(Empty())
+                    }
+                } else {
+                    rank.append(charToPiece(char: f))
+                }
+            }
+            board[r] = rank
+        }
+        if fenArray[2].contains("K") {
+            castling.white.kingSide = true
+        }
+        if fenArray[2].contains("Q") {
+            castling.white.queenSide = true
+        }
+        if fenArray[2].contains("k") {
+            castling.black.kingSide = true
+        }
+        if fenArray[2].contains("q") {
+            castling.black.queenSide = true
+        }
+        enpassant = convertFileStringToInt(file: String(fenArray[3].prefix(1)))
+        moveCount50 = Int(fenArray[4])!
+        turn = (fenArray[1] == "w" ? Int(fenArray[5])!*2-2 : Int(fenArray[5])!*2-1)
+        
+        legalMoves = getLegalMoves()
+    }
+    
+    func charToPiece(char: Character) -> Piece {
+        switch char {
+        case "K" :
+            return King(color: Engine.WHITE)
+        case "k" :
+            return King(color: Engine.BLACK)
+        case "Q" :
+            return Queen(color: Engine.WHITE)
+        case "q" :
+            return Queen(color: Engine.BLACK)
+        case "R" :
+            return Rook(color: Engine.WHITE)
+        case "r" :
+            return Rook(color: Engine.BLACK)
+        case "B" :
+            return Bishop(color: Engine.WHITE)
+        case "b" :
+            return Bishop(color: Engine.BLACK)
+        case "N" :
+            return Knight(color: Engine.WHITE)
+        case "n" :
+            return Knight(color: Engine.BLACK)
+        case "P" :
+            return Pawn(color: Engine.WHITE)
+        case "p" :
+            return Pawn(color: Engine.BLACK)
+        default :
+            return Empty()
+        }
+    }
+    
+    func convertFileIntToString(file: Int) -> String {
+        switch file {
+        case 0 :
+            return "a"
+        case 1 :
+            return "b"
+        case 2 :
+            return "c"
+        case 3 :
+            return "d"
+        case 4 :
+            return "e"
+        case 5 :
+            return "f"
+        case 6 :
+            return "g"
+        case 7 :
+            return "h"
+        default :
+            return ""
+        }
+    }
+    func convertFileStringToInt(file: String) -> Int? {
+        switch file {
+        case "a" :
+            return 0
+        case "b" :
+            return 1
+        case "c" :
+            return 2
+        case "d" :
+            return 3
+        case "e" :
+            return 4
+        case "f" :
+            return 5
+        case "g" :
+            return 6
+        case "h" :
+            return 7
+        default :
+            return nil
+        }
+    }
+    
+    
 }

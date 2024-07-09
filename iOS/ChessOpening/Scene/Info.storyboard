@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afK-QG-3Ug">
-                                <rect key="frame" x="0.0" y="59" width="393" height="81"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLx-nm-AM9">
-                                        <rect key="frame" x="16" y="16" width="198" height="49"/>
+                                        <rect key="frame" x="16" y="8" width="198" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvh-cz-vMh">
-                                        <rect key="frame" x="328" y="16" width="49" height="49"/>
+                                        <rect key="frame" x="328" y="8" width="49" height="49"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system"/>
@@ -35,21 +35,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpz-OE-cm4">
-                                        <rect key="frame" x="214" y="16" width="49" height="49"/>
+                                        <rect key="frame" x="214" y="8" width="49" height="49"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
                                         <connections>
-                                            <action selector="beforeOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8O0-aJ-eyt"/>
+                                            <action selector="previousOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8O0-aJ-eyt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctJ-tG-k2V">
-                                        <rect key="frame" x="263" y="16" width="49" height="49"/>
+                                        <rect key="frame" x="263" y="8" width="49" height="49"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                         <connections>
-                                            <action selector="afterOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kKb-lW-sNr"/>
+                                            <action selector="nextOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kKb-lW-sNr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,17 +65,17 @@
                                     <constraint firstItem="BLx-nm-AM9" firstAttribute="leading" secondItem="afK-QG-3Ug" secondAttribute="leading" constant="16" id="Os5-s4-GEK"/>
                                     <constraint firstItem="Qpz-OE-cm4" firstAttribute="centerY" secondItem="afK-QG-3Ug" secondAttribute="centerY" id="RGm-38-yAd"/>
                                     <constraint firstItem="Qpz-OE-cm4" firstAttribute="leading" secondItem="BLx-nm-AM9" secondAttribute="trailing" id="SFt-Ss-Qam"/>
-                                    <constraint firstAttribute="bottom" secondItem="BLx-nm-AM9" secondAttribute="bottom" constant="16" id="T5k-bY-noc"/>
+                                    <constraint firstAttribute="bottom" secondItem="BLx-nm-AM9" secondAttribute="bottom" constant="8" id="T5k-bY-noc"/>
                                     <constraint firstItem="yvh-cz-vMh" firstAttribute="width" secondItem="BLx-nm-AM9" secondAttribute="height" id="UB3-Uw-zjL"/>
                                     <constraint firstItem="ctJ-tG-k2V" firstAttribute="height" secondItem="BLx-nm-AM9" secondAttribute="height" id="aB6-R4-UeC"/>
                                     <constraint firstItem="yvh-cz-vMh" firstAttribute="height" secondItem="BLx-nm-AM9" secondAttribute="height" id="k7n-08-3k8"/>
                                     <constraint firstItem="BLx-nm-AM9" firstAttribute="centerY" secondItem="afK-QG-3Ug" secondAttribute="centerY" id="pfT-se-6rX"/>
-                                    <constraint firstItem="BLx-nm-AM9" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="top" constant="16" id="um0-LN-5GL"/>
+                                    <constraint firstItem="BLx-nm-AM9" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="top" constant="8" id="um0-LN-5GL"/>
                                     <constraint firstItem="yvh-cz-vMh" firstAttribute="leading" secondItem="ctJ-tG-k2V" secondAttribute="trailing" constant="16" id="v7t-ua-Noc"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-kL-yaN">
-                                <rect key="frame" x="0.0" y="140" width="393" height="629"/>
+                                <rect key="frame" x="0.0" y="124" width="393" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>

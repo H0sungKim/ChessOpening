@@ -10,7 +10,7 @@ import AVFoundation
 
 class ChessBoardView: UIView {
     
-    private let engine: Engine = Engine()
+    let engine: Engine = Engine()
     
     weak var delegate: ChessBoardViewDelegate?
     

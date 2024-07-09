@@ -58,6 +58,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="clock" catalog="system" selectedImage="clock.fill" id="EWd-so-cdm"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Tje-I5-eRS" id="yJI-jW-tiw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

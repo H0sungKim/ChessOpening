@@ -16,8 +16,8 @@ class TabBarViewController: UITabBarController {
         let tabHistoryViewController = UIViewController.getViewController(viewControllerEnum: .history)
         setViewControllers([tabInfoViewController, tabHistoryViewController], animated: true)
         
-        infoViewController = tabInfoViewController as! InfoViewController
-        historyViewController = tabHistoryViewController as! HistoryViewController
+        infoViewController = tabInfoViewController as? InfoViewController
+        historyViewController = tabHistoryViewController as? HistoryViewController
     }
     
 }

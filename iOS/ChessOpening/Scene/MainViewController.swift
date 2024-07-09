@@ -543,9 +543,12 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
-        
-        
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tabBarViewController?.infoViewController?.sheetHeight = containerView.bounds.height
+        tabBarViewController?.infoViewController?.delegate = self
     }
 }
 
@@ -556,4 +559,24 @@ extension MainViewController: ChessBoardViewDelegate {
     }
     
     
+}
+
+extension MainViewController: InfoDelegate {
+    func setPreviousTurn() {
+        if chessBoardView.engine.turn-1 < 0 {
+            return
+        }
+        chessBoardView.engine.turn = chessBoardView.engine.turn-1
+        print("\(chessBoardView.engine.turn) : \(chessBoardView.engine.fen[chessBoardView.engine.turn])")
+        chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
+        chessBoardView.setNeedsDisplay()
+    }
+    func setNextTurn() {
+        if chessBoardView.engine.turn+1 > chessBoardView.engine.pgn.count {
+            return
+        }
+        chessBoardView.engine.turn = chessBoardView.engine.turn+1
+        chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
+        chessBoardView.setNeedsDisplay()
+    }
 }

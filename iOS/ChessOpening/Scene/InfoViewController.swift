@@ -9,6 +9,9 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    var sheetHeight: CGFloat!
+    weak var delegate: InfoDelegate?
+    
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,15 +20,20 @@ class InfoViewController: UIViewController {
 //        tableView.delegate = self
 //        tableView.dataSource = self
     }
-    @IBAction func beforeOnClick(_ sender: Any) {
+    @IBAction func previousOnClick(_ sender: Any) {
+        delegate?.setPreviousTurn()
     }
-    @IBAction func afterOnClick(_ sender: Any) {
+    @IBAction func nextOnClick(_ sender: Any) {
+        delegate?.setNextTurn()
     }
     @IBAction func postOnClick(_ sender: Any) {
         let vc = UIViewController.getViewController(viewControllerEnum: .infoedit)
-        
+                
         if let sheet = vc.sheetPresentationController {
-            sheet.detents = [.medium()]
+            sheet.detents = [.custom { context in
+                return self.sheetHeight
+            }]
+            sheet.prefersGrabberVisible = true
         }
         present(vc, animated: true)
     }
@@ -43,3 +51,8 @@ class InfoViewController: UIViewController {
 //    
 //    
 //}
+
+protocol InfoDelegate: AnyObject {
+    func setPreviousTurn()
+    func setNextTurn()
+}

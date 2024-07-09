@@ -17,27 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-bg-iKz">
-                                <rect key="frame" x="0.0" y="59" width="393" height="35"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EW-rD-YEJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                        <rect key="frame" x="7.9999999999999964" y="8" width="53.666666666666657" height="35"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="취소"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-Cd-dMD">
-                                        <rect key="frame" x="318" y="0.0" width="75" height="35"/>
+                                        <rect key="frame" x="331.33333333333331" y="8" width="53.666666666666686" height="35"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="제출"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="8bg-Cd-dMD" secondAttribute="bottom" id="B19-2i-n7f"/>
-                                    <constraint firstAttribute="trailing" secondItem="8bg-Cd-dMD" secondAttribute="trailing" id="HTb-LF-tBu"/>
+                                    <constraint firstAttribute="trailing" secondItem="8bg-Cd-dMD" secondAttribute="trailing" constant="8" id="HTb-LF-tBu"/>
                                     <constraint firstAttribute="bottom" secondItem="1EW-rD-YEJ" secondAttribute="bottom" id="OA0-cO-0LC"/>
-                                    <constraint firstItem="1EW-rD-YEJ" firstAttribute="leading" secondItem="pkn-bg-iKz" secondAttribute="leading" id="iX2-sO-6Kb"/>
-                                    <constraint firstItem="8bg-Cd-dMD" firstAttribute="top" secondItem="pkn-bg-iKz" secondAttribute="top" id="peL-GN-46f"/>
-                                    <constraint firstItem="1EW-rD-YEJ" firstAttribute="top" secondItem="pkn-bg-iKz" secondAttribute="top" id="tTk-QS-bj2"/>
+                                    <constraint firstItem="1EW-rD-YEJ" firstAttribute="leading" secondItem="pkn-bg-iKz" secondAttribute="leading" constant="8" id="iX2-sO-6Kb"/>
+                                    <constraint firstItem="8bg-Cd-dMD" firstAttribute="top" secondItem="pkn-bg-iKz" secondAttribute="top" constant="8" id="peL-GN-46f"/>
+                                    <constraint firstItem="1EW-rD-YEJ" firstAttribute="top" secondItem="pkn-bg-iKz" secondAttribute="top" constant="8" id="tTk-QS-bj2"/>
                                 </constraints>
                             </view>
                         </subviews>

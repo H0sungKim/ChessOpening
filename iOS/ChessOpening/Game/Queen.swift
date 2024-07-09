@@ -23,7 +23,7 @@ class Queen: Piece {
             var step = 1
             while true {
                 let moveCoordinate = (rank: rank+direction.rank*step, file: file+direction.file*step)
-                if !(isValidCoordinate(coordinate: moveCoordinate)) {
+                if !(Util.common.isValidCoordinate(coordinate: moveCoordinate)) {
                     break
                 }
                 if board[moveCoordinate.rank][moveCoordinate.file] is Empty {
