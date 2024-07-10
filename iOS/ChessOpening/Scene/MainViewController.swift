@@ -554,8 +554,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(fen: String) {
-        
-        
+        tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
+        tabBarViewController?.historyViewController?.collectionView?.reloadData()
     }
     
     

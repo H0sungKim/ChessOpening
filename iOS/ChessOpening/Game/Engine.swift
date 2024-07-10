@@ -140,9 +140,9 @@ class Engine {
         if isCheck(board: board, kingColor: turn%2) {
             legalMoves.isEmpty ? pgn.append("#") : pgn.append("+")
         }
-        self.pgn = Array(self.pgn.prefix(turn))
+        self.pgn = Array(self.pgn.prefix(turn-1))
         self.pgn.append(pgn)
-        fen = Array(fen.prefix(turn+1))
+        fen = Array(fen.prefix(turn))
         fen.append(getFEN())
         print(self.pgn)
         print(fen)
