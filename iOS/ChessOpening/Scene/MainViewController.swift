@@ -516,10 +516,10 @@
 //                 the game, provided both players have made at least one move.
 //                 This immediately ends the game.
 
-// TODO: turn back
 // TODO: landscape portrait
 // TODO: audio
 // TODO: piece diff
+// TODO: Check, Stalemate, Checkmate
 
 
 import UIKit
@@ -535,7 +535,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("Build : 2024.06.01 21:32")
-        chessBoardView.delegate = self
         
         let containerChildViewController = UIViewController.getViewController(viewControllerEnum: .tabbar)
         addChild(containerChildViewController)
@@ -543,6 +542,9 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
+        
+        chessBoardView.delegate = self
+        tabBarViewController?.historyViewController?.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -577,6 +579,13 @@ extension MainViewController: InfoDelegate {
         }
         chessBoardView.engine.turn = chessBoardView.engine.turn+1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
+        chessBoardView.setNeedsDisplay()
+    }
+}
+
+extension MainViewController: HistoryDelegate {
+    func pgnOnClick(turn: Int) {
+        chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[turn+1])
         chessBoardView.setNeedsDisplay()
     }
 }

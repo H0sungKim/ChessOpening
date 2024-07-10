@@ -10,6 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     var history: [String] = []
+    weak var delegate: HistoryDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -67,7 +68,11 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row%3 != 0 {
-            print("\(history[indexPath.row/3*2 + indexPath.row%3-1])")
+            delegate?.pgnOnClick(turn: indexPath.row/3*2 + indexPath.row%3-1)
         }
     }
+}
+
+protocol HistoryDelegate: AnyObject {
+    func pgnOnClick(turn: Int)
 }
