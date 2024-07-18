@@ -42,13 +42,13 @@ class ChessBoardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setNeedsDisplay()
-        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+        delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setNeedsDisplay()
-        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+        delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
     }
     
     private func startAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
@@ -382,17 +382,17 @@ class ChessBoardView: UIView {
     
     private func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         engine.applyMove(move: move, promotionPiece: promotionPiece)
-        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+        delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
         setNeedsDisplay()
     }
     private func movePieceWithAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         moveAnimation(move: move)
         engine.applyMove(move: move, promotionPiece: promotionPiece)
-        delegate?.chessBoardDidUpdate(fen: engine.getFEN())
+        delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
     }
 }
 
 
 protocol ChessBoardViewDelegate: AnyObject {
-    func chessBoardDidUpdate(fen: String)
+    func chessBoardDidUpdate(simpleFen: String)
 }

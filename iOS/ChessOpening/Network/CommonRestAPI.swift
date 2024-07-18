@@ -71,6 +71,4 @@ extension CommonRestAPI: TargetType {
         ]
         return headerDic
     }
-    
-    
 }

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afK-QG-3Ug">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afK-QG-3Ug" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="59" width="393" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLx-nm-AM9">
@@ -74,8 +74,26 @@
                                     <constraint firstItem="yvh-cz-vMh" firstAttribute="leading" secondItem="ctJ-tG-k2V" secondAttribute="trailing" constant="16" id="v7t-ua-Noc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-pH-KKZ">
+                                <rect key="frame" x="0.0" y="124" width="393" height="37"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpt-8t-Gt8">
+                                        <rect key="frame" x="16" y="8" width="361" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="fpt-8t-Gt8" firstAttribute="top" secondItem="N5l-pH-KKZ" secondAttribute="top" constant="8" id="FIT-Sa-zZr"/>
+                                    <constraint firstAttribute="trailing" secondItem="fpt-8t-Gt8" secondAttribute="trailing" constant="16" id="R2D-EC-OH5"/>
+                                    <constraint firstAttribute="bottom" secondItem="fpt-8t-Gt8" secondAttribute="bottom" constant="8" id="SEp-90-Keh"/>
+                                    <constraint firstItem="fpt-8t-Gt8" firstAttribute="leading" secondItem="N5l-pH-KKZ" secondAttribute="leading" constant="16" id="yks-AR-Hfo"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-kL-yaN">
-                                <rect key="frame" x="0.0" y="124" width="393" height="645"/>
+                                <rect key="frame" x="0.0" y="161" width="393" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -83,19 +101,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9gN-kL-yaN" secondAttribute="bottom" id="1we-FI-GDP"/>
-                            <constraint firstItem="9gN-kL-yaN" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="bottom" id="MVY-iM-wDY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="N5l-pH-KKZ" secondAttribute="trailing" id="Eop-4Y-ZfG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="afK-QG-3Ug" secondAttribute="trailing" id="PRI-C3-j3e"/>
                             <constraint firstItem="afK-QG-3Ug" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="UMI-4q-kPM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9gN-kL-yaN" secondAttribute="trailing" id="Xfz-0k-ea0"/>
                             <constraint firstItem="afK-QG-3Ug" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dwe-vs-tEH"/>
                             <constraint firstItem="9gN-kL-yaN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gWr-ae-zV8"/>
+                            <constraint firstItem="N5l-pH-KKZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mOw-hR-LXE"/>
+                            <constraint firstItem="N5l-pH-KKZ" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="bottom" id="pG7-Xz-zl9"/>
+                            <constraint firstItem="9gN-kL-yaN" firstAttribute="top" secondItem="N5l-pH-KKZ" secondAttribute="bottom" id="rrl-5l-rSl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Opening Book" image="book" catalog="system" selectedImage="book.fill" id="Y5D-gE-Pzq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="lbInfo" destination="fpt-8t-Gt8" id="hPr-No-QHJ"/>
                         <outlet property="lbTitle" destination="BLx-nm-AM9" id="kHc-s3-J83"/>
-                        <outlet property="tableView" destination="9gN-kL-yaN" id="Nkr-nK-Qzt"/>
+                        <outlet property="tbvMoves" destination="9gN-kL-yaN" id="Nkr-nK-Qzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

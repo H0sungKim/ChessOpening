@@ -417,5 +417,7 @@ class Engine {
         }
     }
     
-    
+    func getTurn() -> String {
+        return turn%2 == 0 ? "\(turn/2+1)." : "\(turn/2+1)..."
+    }
 }

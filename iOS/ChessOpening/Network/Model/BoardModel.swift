@@ -43,4 +43,10 @@ struct BoardModel {
         self.info = boardEntity.info ?? ""
         self.moves = boardEntity.moves?.map { MoveModel(moveEntity: $0) } ?? []
     }
+    
+    init() {
+        self.title = ""
+        self.info = ""
+        self.moves = []
+    }
 }

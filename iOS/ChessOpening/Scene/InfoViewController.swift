@@ -9,16 +9,22 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    var boardModel: BoardModel = BoardModel()
+    var turn: String = ""
     var sheetHeight: CGFloat!
     weak var delegate: InfoDelegate?
     
     @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbInfo: UILabel!
+    @IBOutlet weak var tbvMoves: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tbvMoves.delegate = self
+        tbvMoves.dataSource = self
+        tbvMoves.rowHeight = 70
+        tbvMoves.register(UINib(nibName: String(describing: MoveTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveTableViewCell.self))
+        initializeView()
     }
     @IBAction func previousOnClick(_ sender: Any) {
         delegate?.setPreviousTurn()
@@ -38,19 +44,35 @@ class InfoViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    func initializeView() {
+        print("HAHAHAHAHA")
+        print(boardModel)
+        
+        lbTitle.text = boardModel.title
+        lbInfo.text = boardModel.info
+        tbvMoves.reloadData()
+    }
 }
 
-//extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return
-//    }
-//    
-//    
-//}
+extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return boardModel.moves.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: MoveTableViewCell
+        
+        if let reusableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: MoveTableViewCell.self), for: indexPath) as? MoveTableViewCell {
+            cell = reusableCell
+        } else {
+            let objectArray = Bundle.main.loadNibNamed(String(describing: MoveTableViewCell.self), owner: nil, options: nil)
+            cell = objectArray![0] as! MoveTableViewCell
+        }
+        cell.initializeCell(moveModel: boardModel.moves[indexPath.row], turn: turn)
+        
+        return cell
+    }
+}
 
 protocol InfoDelegate: AnyObject {
     func setPreviousTurn()

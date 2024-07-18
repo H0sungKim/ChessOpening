@@ -537,7 +537,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("Build : 2024.06.01 21:32")
+        
+        NSLog("Build : 2024.07.18 22:05")
+        
+        chessBoardView.delegate = self
         
         let containerChildViewController = UIViewController.getViewController(viewControllerEnum: .tabbar)
         addChild(containerChildViewController)
@@ -545,34 +548,31 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
-        
-        chessBoardView.delegate = self
-        tabBarViewController?.historyViewController?.delegate = self
-        
-        CommonRepository.shared.getFiltered(key: "BBBBB")
-            .subscribe(onSuccess: { [weak self] boardModel in
-                print(boardModel)
-                self?.tabBarViewController?.infoViewController?.lbTitle.text = "\(boardModel.title)"
-            }, onFailure: { error in
-                print("a: \(error)")
-            })
-            .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tabBarViewController?.infoViewController?.sheetHeight = containerView.bounds.height
         tabBarViewController?.infoViewController?.delegate = self
+        tabBarViewController?.historyViewController?.delegate = self
+        
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
 }
 
 extension MainViewController: ChessBoardViewDelegate {
-    func chessBoardDidUpdate(fen: String) {
+    func chessBoardDidUpdate(simpleFen: String) {
+        CommonRepository.shared.getFiltered(key: simpleFen)
+            .subscribe(onSuccess: { [weak self] boardModel in
+                self?.tabBarViewController?.infoViewController?.boardModel = boardModel
+                self?.tabBarViewController?.infoViewController?.initializeView()
+            })
+            .disposed(by: disposeBag)
+        
+        tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
     }
-    
-    
 }
 
 extension MainViewController: InfoDelegate {
@@ -581,9 +581,9 @@ extension MainViewController: InfoDelegate {
             return
         }
         chessBoardView.engine.turn = chessBoardView.engine.turn-1
-        print("\(chessBoardView.engine.turn) : \(chessBoardView.engine.fen[chessBoardView.engine.turn])")
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
         chessBoardView.setNeedsDisplay()
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     func setNextTurn() {
         if chessBoardView.engine.turn+1 > chessBoardView.engine.pgn.count {
@@ -592,6 +592,7 @@ extension MainViewController: InfoDelegate {
         chessBoardView.engine.turn = chessBoardView.engine.turn+1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
         chessBoardView.setNeedsDisplay()
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
 }
 

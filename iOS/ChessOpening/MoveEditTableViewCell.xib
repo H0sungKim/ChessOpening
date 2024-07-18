@@ -2,34 +2,37 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="145" id="1cw-qK-Aeb">
-            <rect key="frame" x="0.0" y="0.0" width="594" height="145"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="1cw-qK-Aeb">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1cw-qK-Aeb" id="DkB-nK-t39">
-                <rect key="frame" x="0.0" y="0.0" width="594" height="145"/>
+                <rect key="frame" x="0.0" y="0.0" width="383" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-93-O7A">
-                        <rect key="frame" x="16" y="16" width="18" height="113"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-93-O7A">
+                        <rect key="frame" x="16" y="16" width="62" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="RVh-93-O7A" secondAttribute="height" multiplier="1:1" id="xKT-8K-9VI"/>
+                        </constraints>
                     </imageView>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-hl-DsP">
-                        <rect key="frame" x="529" y="57" width="51" height="31"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-hl-DsP">
+                        <rect key="frame" x="318" y="31.666666666666671" width="51" height="31"/>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-cx-i2V">
-                        <rect key="frame" x="50" y="62" width="42" height="21"/>
+                        <rect key="frame" x="94" y="4" width="224" height="20.333333333333332"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZTh-OK-FMS">
-                        <rect key="frame" x="108" y="16" width="405" height="113"/>
+                        <rect key="frame" x="94" y="28.333333333333332" width="208" height="61.666666666666671"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,24 +40,24 @@
                     </textView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ZTh-OK-FMS" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="trailing" constant="16" id="EQ4-BI-lFt"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="top" secondItem="DkB-nK-t39" secondAttribute="top" constant="16" id="GfV-Uj-k2N"/>
-                    <constraint firstAttribute="bottom" secondItem="ZTh-OK-FMS" secondAttribute="bottom" constant="16" id="IQC-Ch-wGX"/>
+                    <constraint firstItem="ZTh-OK-FMS" firstAttribute="top" secondItem="t3Z-cx-i2V" secondAttribute="bottom" constant="4" id="Jm4-te-qbB"/>
                     <constraint firstItem="t3Z-cx-i2V" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="trailing" constant="16" id="Tnd-ov-qpr"/>
-                    <constraint firstItem="ZTh-OK-FMS" firstAttribute="leading" secondItem="t3Z-cx-i2V" secondAttribute="trailing" constant="16" id="Vmp-pE-E5E"/>
                     <constraint firstAttribute="trailing" secondItem="RBO-hl-DsP" secondAttribute="trailing" constant="16" id="Wwr-xR-QKi"/>
                     <constraint firstAttribute="bottom" secondItem="RVh-93-O7A" secondAttribute="bottom" constant="16" id="X7O-OM-hyf"/>
-                    <constraint firstItem="t3Z-cx-i2V" firstAttribute="centerY" secondItem="DkB-nK-t39" secondAttribute="centerY" id="dd9-lt-nL6"/>
                     <constraint firstItem="RBO-hl-DsP" firstAttribute="centerY" secondItem="DkB-nK-t39" secondAttribute="centerY" id="fBb-4M-Okb"/>
-                    <constraint firstItem="ZTh-OK-FMS" firstAttribute="top" secondItem="DkB-nK-t39" secondAttribute="top" constant="16" id="skG-b2-bQ0"/>
+                    <constraint firstAttribute="bottom" secondItem="ZTh-OK-FMS" secondAttribute="bottom" constant="4" id="fGt-2h-SsY"/>
+                    <constraint firstItem="t3Z-cx-i2V" firstAttribute="top" secondItem="DkB-nK-t39" secondAttribute="top" constant="4" id="i21-mL-xpi"/>
+                    <constraint firstItem="RBO-hl-DsP" firstAttribute="leading" secondItem="t3Z-cx-i2V" secondAttribute="trailing" id="iiE-4N-dao"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="leading" secondItem="DkB-nK-t39" secondAttribute="leading" constant="16" id="wBH-9B-Cfd"/>
                     <constraint firstItem="RBO-hl-DsP" firstAttribute="leading" secondItem="ZTh-OK-FMS" secondAttribute="trailing" constant="16" id="xE3-hJ-eau"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="441.2213740458015" y="78.521126760563391"/>
+            <point key="canvasLocation" x="280.15267175572518" y="60.563380281690144"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="book" width="18" height="19"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
