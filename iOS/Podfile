@@ -6,8 +6,7 @@ target 'ChessOpening' do
   use_frameworks!
 
 
-  pod 'Alamofire'
-
+  pod 'Moya/RxSwift'
 
   # Pods for ChessOpening
   # Add the Firebase pod for Google Analytics

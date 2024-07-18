@@ -523,8 +523,11 @@
 
 
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController {
+    
+    private var disposeBag = DisposeBag()
     
     @IBOutlet weak var chessBoardView: ChessBoardView!
     @IBOutlet weak var containerView: UIView!
@@ -545,6 +548,15 @@ class MainViewController: UIViewController {
         
         chessBoardView.delegate = self
         tabBarViewController?.historyViewController?.delegate = self
+        
+        CommonRepository.shared.getFiltered(key: "BBBBB")
+            .subscribe(onSuccess: { [weak self] boardModel in
+                print(boardModel)
+                self?.tabBarViewController?.infoViewController?.lbTitle.text = "\(boardModel.title)"
+            }, onFailure: { error in
+                print("a: \(error)")
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {

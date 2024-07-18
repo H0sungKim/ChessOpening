@@ -6,7 +6,7 @@
 //
 
 class Util {
-    static let common: Util = Util()
+    static let shared: Util = Util()
     
     private init() {
         

@@ -21,7 +21,7 @@ class Knight: Piece {
         ]
         for move in allMoves {
             let moveCoordinate = (rank: rank+move.rank, file: file+move.file)
-            if Util.common.isValidCoordinate(coordinate: moveCoordinate) && color != board[moveCoordinate.rank][moveCoordinate.file].color {
+            if Util.shared.isValidCoordinate(coordinate: moveCoordinate) && color != board[moveCoordinate.rank][moveCoordinate.file].color {
                 moves.append(moveCoordinate)
             }
         }

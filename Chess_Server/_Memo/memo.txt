@@ -7,13 +7,13 @@ create user constant6816@'localhost' IDENTIFIED BY 'const231115';
 GRANT ALL PRIVILEGES ON chess_pr.* TO 'constant6816'@'localhost';
 SELECT HOST, USER, PASSWORD from USER;
 
+DROP TABLE IF EXISTS `global`;
 CREATE TABLE `global` (
   `GLOBAL_ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `_key` varchar(255) DEFAULT NULL,
-  `value` varchar(255) DEFAULT NULL,
+  `value` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`GLOBAL_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 scp build/libs/chess-1.00.00.jar const-server@218.148.101.148:/data/chess_pr/
 

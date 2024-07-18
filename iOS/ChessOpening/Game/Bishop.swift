@@ -23,7 +23,7 @@ class Bishop: Piece {
             var step = 1
             while true {
                 let moveCoordinate = (rank: rank+direction.rank*step, file: file+direction.file*step)
-                if !(Util.common.isValidCoordinate(coordinate: moveCoordinate)) {
+                if !(Util.shared.isValidCoordinate(coordinate: moveCoordinate)) {
                     break
                 }
                 if board[moveCoordinate.rank][moveCoordinate.file] is Empty {

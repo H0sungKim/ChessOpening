@@ -64,7 +64,9 @@ class Engine {
         case is Empty.Type:
             return ""
         case is Pawn.Type:
-            if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) || !(board[move.to.rank][move.to.file] is Empty) {
+            if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) ||
+                !(board[move.to.rank][move.to.file] is Empty)
+            {
                 pgn.append("\(convertFileIntToString(file: move.from.file))x")
             }
         case is King.Type:
@@ -75,7 +77,11 @@ class Engine {
             }
         default:
             pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: Engine.WHITE))
-            if legalMoves.contains(where: { $0.to == move.to && type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) && $0.from != move.from }) {
+            if legalMoves.contains(where: {
+                $0.to == move.to &&
+                type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) &&
+                $0.from != move.from
+            }) {
                 pgn.append(convertFileIntToString(file: move.from.file))
             }
             if !(board[move.to.rank][move.to.file] is Empty) {
@@ -96,12 +102,19 @@ class Engine {
         } else {
             moveCount50 += 1
         }
-        if let enpassant = enpassant, board[move.from.rank][move.from.file] is Pawn && move.to.rank == 2+3*(turn%2) && move.to.file == enpassant {
+        if let enpassant = enpassant,
+           board[move.from.rank][move.from.file] is Pawn &&
+            move.to.rank == 2+3*(turn%2) &&
+            move.to.file == enpassant
+        {
             board[move.from.rank][enpassant] = Empty()
         }
         enpassant = nil
         // enpassant
-        if board[move.from.rank][move.from.file] is Pawn && abs(move.to.rank-move.from.rank) == 2 && ((board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2)) {
+        if board[move.from.rank][move.from.file] is Pawn &&
+            abs(move.to.rank-move.from.rank) == 2 &&
+            ((board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2))
+        {
             enpassant = move.from.file
         }
         // castling
@@ -196,10 +209,10 @@ class Engine {
         if let enpassant = enpassant {
             let direction = 2 * (turn%2) - 1
             let coordinate = (rank: 3+turn%2,file: enpassant)
-            if Util.common.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
+            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file-1), to: (coordinate.rank+direction, coordinate.file)))
             }
-            if Util.common.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
+            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file+1), to: (coordinate.rank+direction, coordinate.file)))
             }
         }
@@ -279,6 +292,14 @@ class Engine {
     }
     
     func getSimpleFEN(fen: String) -> String {
+        var parts = fen.split(separator: " ")
+        parts.removeLast()
+        parts.removeLast()
+        return parts.joined(separator: " ")
+    }
+    
+    func getSimpleFEN() -> String {
+        let fen = getFEN()
         var parts = fen.split(separator: " ")
         parts.removeLast()
         parts.removeLast()

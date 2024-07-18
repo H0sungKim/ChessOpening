@@ -19,6 +19,12 @@
 		961A11302C31A12B005E903C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A112F2C31A12B005E903C /* InfoViewController.swift */; };
 		96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D602C3E66B300DD8A1D /* HistoryCollectionViewCell.swift */; };
 		96524D632C3E670300DD8A1D /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96524D622C3E670300DD8A1D /* HistoryCollectionViewCell.xib */; };
+		96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */; };
+		96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D752C410F5B00DD8A1D /* CommonRepository.swift */; };
+		96524D782C4651C400DD8A1D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D772C4651C400DD8A1D /* Configuration.swift */; };
+		96524D7A2C46742800DD8A1D /* check.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96524D792C46742800DD8A1D /* check.svg */; };
+		96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */; };
+		96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* BoardModel.swift */; };
 		966356A22C2FC8B900158265 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A12C2FC8B900158265 /* InfoTableViewCell.xib */; };
 		966356A42C2FCA9300158265 /* InfoEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A32C2FCA9300158265 /* InfoEditTableViewCell.xib */; };
 		966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A52C2FCAA700158265 /* MoveTableViewCell.xib */; };
@@ -78,6 +84,12 @@
 		961A112F2C31A12B005E903C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		96524D602C3E66B300DD8A1D /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		96524D622C3E670300DD8A1D /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRestAPI.swift; sourceTree = "<group>"; };
+		96524D752C410F5B00DD8A1D /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
+		96524D772C4651C400DD8A1D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		96524D792C46742800DD8A1D /* check.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = check.svg; path = ../../images/check.svg; sourceTree = "<group>"; };
+		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
+		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		966356A12C2FC8B900158265 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		966356A32C2FCA9300158265 /* InfoEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoEditTableViewCell.xib; sourceTree = "<group>"; };
 		966356A52C2FCAA700158265 /* MoveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,6 +183,34 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		96524D702C40DCCC00DD8A1D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				96524D7B2C47939800DD8A1D /* Entity */,
+				96524D7C2C4793A200DD8A1D /* Model */,
+				96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */,
+				96524D752C410F5B00DD8A1D /* CommonRepository.swift */,
+				96524D772C4651C400DD8A1D /* Configuration.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		96524D7B2C47939800DD8A1D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		96524D7C2C4793A200DD8A1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96524D7F2C4798EE00DD8A1D /* BoardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		969604722BFF0A6D00BBFC6C = {
 			isa = PBXGroup;
 			children = (
@@ -196,9 +236,11 @@
 		9696047D2BFF0A6D00BBFC6C /* ChessOpening */ = {
 			isa = PBXGroup;
 			children = (
+				96524D702C40DCCC00DD8A1D /* Network */,
 				96073D912C325E6100DDF159 /* Scene */,
 				96BDF9172C0972620032523E /* Game */,
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
+				96524D792C46742800DD8A1D /* check.svg */,
 				969604872BFF0A6E00BBFC6C /* Assets.xcassets */,
 				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
@@ -373,6 +415,7 @@
 				966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */,
 				96073D972C32A13F00DDF159 /* InfoEdit.storyboard in Resources */,
 				96BD86C92C31AC0E00465C31 /* History.storyboard in Resources */,
+				96524D7A2C46742800DD8A1D /* check.svg in Resources */,
 				966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */,
 				966356A42C2FCA9300158265 /* InfoEditTableViewCell.xib in Resources */,
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
@@ -510,19 +553,24 @@
 				96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
 				96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */,
+				96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */,
 				96073D932C32A0FD00DDF159 /* UIViewController+Ext.swift in Sources */,
 				96BDF90A2C096B310032523E /* Piece.swift in Sources */,
 				969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */,
 				961A11302C31A12B005E903C /* InfoViewController.swift in Sources */,
+				96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */,
 				961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */,
 				96BDF9122C096B850032523E /* Knight.swift in Sources */,
 				96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */,
+				96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */,
+				96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */,
 				96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */,
 				96BDF90E2C096B730032523E /* Queen.swift in Sources */,
 				96BDF9102C096B7C0032523E /* Bishop.swift in Sources */,
 				96BDF9162C096C0C0032523E /* Pawn.swift in Sources */,
 				9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */,
 				96BDF9142C096BDD0032523E /* Rook.swift in Sources */,
+				96524D782C4651C400DD8A1D /* Configuration.swift in Sources */,
 				96BDF90C2C096B5D0032523E /* Empty.swift in Sources */,
 				96BDF9082C0968220032523E /* King.swift in Sources */,
 			);
