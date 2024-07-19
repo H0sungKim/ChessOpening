@@ -67,7 +67,7 @@ class Engine {
             if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) ||
                 !(board[move.to.rank][move.to.file] is Empty)
             {
-                pgn.append("\(convertFileIntToString(file: move.from.file))x")
+                pgn.append("\(Engine.convertFileIntToString(file: move.from.file))x")
             }
         case is King.Type:
             if move.to.file-move.from.file == 2 {
@@ -82,13 +82,13 @@ class Engine {
                 type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) &&
                 $0.from != move.from
             }) {
-                pgn.append(convertFileIntToString(file: move.from.file))
+                pgn.append(Engine.convertFileIntToString(file: move.from.file))
             }
             if !(board[move.to.rank][move.to.file] is Empty) {
                 pgn.append("x")
             }
         }
-        pgn.append("\(convertFileIntToString(file: move.to.file))\(8-move.to.rank)")
+        pgn.append("\(Engine.convertFileIntToString(file: move.to.file))\(8-move.to.rank)")
         if let promotionPiece = promotionPiece {
             pgn.append("=\(promotionPiece.getString(color: Engine.WHITE))")
         }
@@ -280,7 +280,7 @@ class Engine {
             fen.append("-")
         }
         if let enpassant = enpassant {
-            fen.append("\(convertFileIntToString(file: enpassant))\(6-turn%2*3)")
+            fen.append("\(Engine.convertFileIntToString(file: enpassant))\(6-turn%2*3)")
         } else {
             fen.append(" - ")
         }
@@ -315,7 +315,7 @@ class Engine {
                         rank.append(Empty())
                     }
                 } else {
-                    rank.append(charToPiece(char: f))
+                    rank.append(Engine.charToPiece(char: f))
                 }
             }
             board[r] = rank
@@ -332,14 +332,14 @@ class Engine {
         if fenArray[2].contains("q") {
             castling.black.queenSide = true
         }
-        enpassant = convertFileStringToInt(file: String(fenArray[3].prefix(1)))
+        enpassant = Engine.convertFileStringToInt(file: String(fenArray[3].prefix(1)))
         moveCount50 = Int(fenArray[4])!
         turn = (fenArray[1] == "w" ? Int(fenArray[5])!*2-2 : Int(fenArray[5])!*2-1)
         
         legalMoves = getLegalMoves()
     }
     
-    func charToPiece(char: Character) -> Piece {
+    static func charToPiece(char: Character) -> Piece {
         switch char {
         case "K" :
             return King(color: Engine.WHITE)
@@ -370,7 +370,7 @@ class Engine {
         }
     }
     
-    func convertFileIntToString(file: Int) -> String {
+    static func convertFileIntToString(file: Int) -> String {
         switch file {
         case 0 :
             return "a"
@@ -392,7 +392,7 @@ class Engine {
             return ""
         }
     }
-    func convertFileStringToInt(file: String) -> Int? {
+    static func convertFileStringToInt(file: String) -> Int? {
         switch file {
         case "a" :
             return 0
@@ -429,13 +429,13 @@ class Engine {
         let (matchPGN, matchPiece, matchPieceFile, matchTake, matchFile, matchRank, matchPromotion, matchPromotionPiece, matchCheck) = match.output
         let piece: Piece.Type
         if let matchPiece = matchPiece {
-            piece = type(of: charToPiece(char: matchPiece.first!))
+            piece = type(of: Engine.charToPiece(char: matchPiece.first!))
         } else {
             piece = Pawn.self
         }
         let promotionPiece: Piece.Type?
         if let _ = matchPromotion, let matchPromotionPiece = matchPromotionPiece {
-            promotionPiece = type(of: charToPiece(char: matchPromotionPiece.first!))
+            promotionPiece = type(of: Engine.charToPiece(char: matchPromotionPiece.first!))
         } else {
             promotionPiece = nil
         }
@@ -443,7 +443,7 @@ class Engine {
         guard let matchRank = Int(String(matchRank)) else {
             return nil
         }
-        guard let matchFile = convertFileStringToInt(file: String(matchFile)) else {
+        guard let matchFile = Engine.convertFileStringToInt(file: String(matchFile)) else {
             return nil
         }
         let to: (rank: Int, file: Int) = (rank: matchRank, file: matchFile)
@@ -451,7 +451,7 @@ class Engine {
         for legalMove in legalMoves {
             if legalMove.to == to
                 && type(of: board[legalMove.from.rank][legalMove.from.file]) == piece {
-                guard let matchPieceFile = convertFileStringToInt(file: String(matchPieceFile ?? "")) else {
+                guard let matchPieceFile = Engine.convertFileStringToInt(file: String(matchPieceFile ?? "")) else {
                     return (move: (from: legalMove.from, to: legalMove.to), promotion: promotionPiece)
                 }
                 if matchPieceFile == legalMove.from.file {

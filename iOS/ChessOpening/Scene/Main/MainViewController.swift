@@ -568,7 +568,6 @@ extension MainViewController: ChessBoardViewDelegate {
                 self?.chessBoardView.setNeedsDisplay()
                 self?.tabBarViewController?.infoViewController?.boardModel = boardModel
                 self?.tabBarViewController?.infoViewController?.initializeView()
-                
             })
             .disposed(by: disposeBag)
         
@@ -601,6 +600,9 @@ extension MainViewController: InfoDelegate {
         if let (move, promotionPiece) = chessBoardView.engine.convertPGNtoCoordinate(pgn: pgn) {
             chessBoardView.movePieceWithAnimation(move: move, promotionPiece: promotionPiece)
         }
+    }
+    func getLegalMovePGN() -> [String] {
+        return chessBoardView.engine.legalMoves.map { chessBoardView.engine.getPGNWithoutCheck(move: $0) }
     }
 }
 

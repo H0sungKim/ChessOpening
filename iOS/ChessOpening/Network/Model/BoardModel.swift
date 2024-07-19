@@ -36,6 +36,12 @@ struct BoardModel {
             self.title = moveEntity.title ?? ""
             self.info = moveEntity.info ?? ""
         }
+        init(pgn: String) {
+            self.pgn = pgn
+            self.type = 0
+            self.title = ""
+            self.info = ""
+        }
     }
     
     init(boardEntity: BoardEntity.BoardResponseDataEntity) {
