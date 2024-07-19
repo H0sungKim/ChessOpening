@@ -14,6 +14,8 @@ class ChessBoardView: UIView {
     
     weak var delegate: ChessBoardViewDelegate?
     
+    var moves: [BoardModel.MoveModel] = []
+    
     private var selectedCell: (rank: Int, file: Int)? // select flag
     private var draggedPiece: (CGFloat, CGFloat)? // drag flag
     private var promotionMove: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))? = nil // promotion flag
@@ -23,6 +25,11 @@ class ChessBoardView: UIView {
     private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
     private let selectedBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     private let promotionBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+    private let bookGreen: UIColor = UIColor(red: 125/255, green: 184/255, blue: 115/255, alpha: 0.5)
+    private let gambitYellow: UIColor = UIColor(red: 202/255, green: 172/255, blue: 17/255, alpha: 0.5)
+    private let brilliantMint: UIColor = UIColor(red: 53/255, green: 192/255, blue: 201/255, alpha: 0.5)
+    private let blunderRed: UIColor = UIColor(red: 192/255, green: 49/255, blue: 49/255, alpha: 0.5)
+    
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
     private let imgBKing: UIImage = UIImage(named: "bking")!
@@ -110,7 +117,7 @@ class ChessBoardView: UIView {
         drawChessBoard()
         drawNowSelectedCell()
         drawNowSelectedPiece()
-//        drawArrow(arrow: ((0, 0), (2, 3)), color: selectedGreen)
+        drawAllArrows()
         drawSelectPromotion()
     }
     
@@ -227,6 +234,26 @@ class ChessBoardView: UIView {
             darkBrown.setFill()
         }
         path.fill()
+    }
+    
+    private func drawAllArrows() {
+        for move in moves {
+            guard let coordinate = engine.convertPGNtoCoordinate(pgn: move.pgn)?.move else {
+                continue
+            }
+            switch move.type {
+            case GlobalConstant.shared.BOOK:
+                drawArrow(arrow: coordinate, color: bookGreen)
+            case GlobalConstant.shared.GAMBIT:
+                drawArrow(arrow: coordinate, color: gambitYellow)
+            case GlobalConstant.shared.BRILLIANT:
+                drawArrow(arrow: coordinate, color: brilliantMint)
+            case GlobalConstant.shared.BLUNDER:
+                drawArrow(arrow: coordinate, color: blunderRed)
+            default:
+                drawArrow(arrow: coordinate, color: bookGreen)
+            }
+        }
     }
     
     private func drawArrow(arrow: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), color: UIColor) {
@@ -380,12 +407,12 @@ class ChessBoardView: UIView {
         setNeedsDisplay()
     }
     
-    private func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+    func movePiece(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         engine.applyMove(move: move, promotionPiece: promotionPiece)
         delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
         setNeedsDisplay()
     }
-    private func movePieceWithAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
+    func movePieceWithAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
         moveAnimation(move: move)
         engine.applyMove(move: move, promotionPiece: promotionPiece)
         delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())

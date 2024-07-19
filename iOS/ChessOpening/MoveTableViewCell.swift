@@ -20,14 +20,14 @@ class MoveTableViewCell: UITableViewCell {
     
     func initializeCell(moveModel: BoardModel.MoveModel, turn: String) {
         switch moveModel.type {
-        case 0:
+        case GlobalConstant.shared.BOOK:
             ivType.image = UIImage(named: "book")
-        case 1:
-            ivType.image = UIImage(named: "book")
-        case 2:
-            ivType.image = UIImage(named: "book")
-        case 3:
-            ivType.image = UIImage(named: "book")
+        case GlobalConstant.shared.GAMBIT:
+            ivType.image = UIImage(named: "gambit")
+        case GlobalConstant.shared.BRILLIANT:
+            ivType.image = UIImage(named: "brilliant")
+        case GlobalConstant.shared.BLUNDER:
+            ivType.image = UIImage(named: "blunder")
         default:
             ivType.image = UIImage(named: "book")
         }

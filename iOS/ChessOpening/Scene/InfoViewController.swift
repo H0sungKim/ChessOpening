@@ -45,9 +45,6 @@ class InfoViewController: UIViewController {
     }
     
     func initializeView() {
-        print("HAHAHAHAHA")
-        print(boardModel)
-        
         lbTitle.text = boardModel.title
         lbInfo.text = boardModel.info
         tbvMoves.reloadData()
@@ -72,9 +69,15 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.applyMove(pgn: boardModel.moves[indexPath.row].pgn)
+    }
 }
 
 protocol InfoDelegate: AnyObject {
     func setPreviousTurn()
     func setNextTurn()
+    func applyMove(pgn: String)
 }

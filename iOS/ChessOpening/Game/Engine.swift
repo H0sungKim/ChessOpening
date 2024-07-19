@@ -157,8 +157,6 @@ class Engine {
         self.pgn.append(pgn)
         fen = Array(fen.prefix(turn))
         fen.append(getFEN())
-        print(self.pgn)
-        print(fen)
     }
     
     func isLegalMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) -> Bool {
@@ -420,4 +418,48 @@ class Engine {
     func getTurn() -> String {
         return turn%2 == 0 ? "\(turn/2+1)." : "\(turn/2+1)..."
     }
+    
+    func convertPGNtoCoordinate(pgn: String) -> (move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotion: Piece.Type?)? {
+//        e4 Re4 Rxe4 Rhe4 0-0-0 e8=Q
+        let pgnRegex = /^([KQRBN])?([a-h])?(x)?([a-h])([1-8])(=)?([QRBN])?([+#])?$/
+        
+        guard let match = pgn.wholeMatch(of: pgnRegex) else {
+            return nil
+        }
+        let (matchPGN, matchPiece, matchPieceFile, matchTake, matchFile, matchRank, matchPromotion, matchPromotionPiece, matchCheck) = match.output
+        let piece: Piece.Type
+        if let matchPiece = matchPiece {
+            piece = type(of: charToPiece(char: matchPiece.first!))
+        } else {
+            piece = Pawn.self
+        }
+        let promotionPiece: Piece.Type?
+        if let _ = matchPromotion, let matchPromotionPiece = matchPromotionPiece {
+            promotionPiece = type(of: charToPiece(char: matchPromotionPiece.first!))
+        } else {
+            promotionPiece = nil
+        }
+        
+        guard let matchRank = Int(String(matchRank)) else {
+            return nil
+        }
+        guard let matchFile = convertFileStringToInt(file: String(matchFile)) else {
+            return nil
+        }
+        let to: (rank: Int, file: Int) = (rank: matchRank, file: matchFile)
+        
+        for legalMove in legalMoves {
+            if legalMove.to == to
+                && type(of: board[legalMove.from.rank][legalMove.from.file]) == piece {
+                guard let matchPieceFile = convertFileStringToInt(file: String(matchPieceFile ?? "")) else {
+                    return (move: (from: legalMove.from, to: legalMove.to), promotion: promotionPiece)
+                }
+                if matchPieceFile == legalMove.from.file {
+                    return (move: (from: legalMove.from, to: legalMove.to), promotion: promotionPiece)
+                }
+            }
+        }
+        return nil
+    }
 }
+

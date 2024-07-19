@@ -26,6 +26,7 @@
 		96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */; };
 		96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* BoardModel.swift */; };
 		96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */; };
+		96524D882C49518100DD8A1D /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D872C49518100DD8A1D /* GlobalConstant.swift */; };
 		966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A52C2FCAA700158265 /* MoveTableViewCell.xib */; };
 		966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */; };
 		9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */; };
@@ -90,6 +91,7 @@
 		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
 		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTableViewCell.swift; sourceTree = "<group>"; };
+		96524D872C49518100DD8A1D /* GlobalConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		966356A52C2FCAA700158265 /* MoveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveTableViewCell.xib; sourceTree = "<group>"; };
 		966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditTableViewCell.xib; sourceTree = "<group>"; };
 		9696047B2BFF0A6D00BBFC6C /* ChessOpening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessOpening.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +248,7 @@
 				966356A52C2FCAA700158265 /* MoveTableViewCell.xib */,
 				966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */,
 				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
+				96524D872C49518100DD8A1D /* GlobalConstant.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */,
 				96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */,
 				96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */,
+				96524D882C49518100DD8A1D /* GlobalConstant.swift in Sources */,
 				96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */,
 				96BDF90E2C096B730032523E /* Queen.swift in Sources */,
 				96BDF9102C096B7C0032523E /* Bishop.swift in Sources */,

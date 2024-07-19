@@ -564,8 +564,11 @@ extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
         CommonRepository.shared.getFiltered(key: simpleFen)
             .subscribe(onSuccess: { [weak self] boardModel in
+                self?.chessBoardView.moves = boardModel.moves
+                self?.chessBoardView.setNeedsDisplay()
                 self?.tabBarViewController?.infoViewController?.boardModel = boardModel
                 self?.tabBarViewController?.infoViewController?.initializeView()
+                
             })
             .disposed(by: disposeBag)
         
@@ -593,6 +596,11 @@ extension MainViewController: InfoDelegate {
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
         chessBoardView.setNeedsDisplay()
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
+    }
+    func applyMove(pgn: String) {
+        if let (move, promotionPiece) = chessBoardView.engine.convertPGNtoCoordinate(pgn: pgn) {
+            chessBoardView.movePieceWithAnimation(move: move, promotionPiece: promotionPiece)
+        }
     }
 }
 
