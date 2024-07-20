@@ -42,4 +42,12 @@ class CommonRepository {
             .observe(on: MainScheduler.instance)
     }
     
+    func setRaw(key: String, value: BoardModel) -> Single<Void> {
+        return request(CommonRestAPI.setRaw(key: key, value: value))
+            .map(VoidEntity.self)
+            .map { _ -> Void in
+                return Void()
+            }
+    }
+    
 }

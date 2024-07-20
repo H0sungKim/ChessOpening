@@ -446,8 +446,7 @@ class Engine {
         guard let matchFile = Engine.convertFileStringToInt(file: String(matchFile)) else {
             return nil
         }
-        let to: (rank: Int, file: Int) = (rank: matchRank, file: matchFile)
-        
+        let to: (rank: Int, file: Int) = (rank: 8-matchRank, file: matchFile)
         for legalMove in legalMoves {
             if legalMove.to == to
                 && type(of: board[legalMove.from.rank][legalMove.from.file]) == piece {

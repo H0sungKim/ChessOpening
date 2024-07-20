@@ -15,6 +15,7 @@ class ChessBoardView: UIView {
     weak var delegate: ChessBoardViewDelegate?
     
     var moves: [BoardModel.MoveModel] = []
+    var animationDrawFlag: Bool = false
     
     private var selectedCell: (rank: Int, file: Int)? // select flag
     private var draggedPiece: (CGFloat, CGFloat)? // drag flag
@@ -26,7 +27,8 @@ class ChessBoardView: UIView {
     private let selectedBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     private let promotionBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     private let bookGreen: UIColor = UIColor(red: 125/255, green: 184/255, blue: 115/255, alpha: 0.5)
-    private let gambitYellow: UIColor = UIColor(red: 202/255, green: 172/255, blue: 17/255, alpha: 0.5)
+    private let bookYellow: UIColor = UIColor(red: 202/255, green: 172/255, blue: 17/255, alpha: 0.5)
+    private let gambitOrange: UIColor = UIColor(red: 240/255, green: 146/255, blue: 94/255, alpha: 0.5)
     private let brilliantMint: UIColor = UIColor(red: 53/255, green: 192/255, blue: 201/255, alpha: 0.5)
     private let blunderRed: UIColor = UIColor(red: 192/255, green: 49/255, blue: 49/255, alpha: 0.5)
     
@@ -59,6 +61,7 @@ class ChessBoardView: UIView {
     }
     
     private func startAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
+        animationDrawFlag = true
         let hideLayer: CALayer = CALayer()
         hideLayer.frame = .init(x: CGFloat(move.from.file)*cellSize, y: CGFloat(move.from.rank)*cellSize, width: cellSize, height: cellSize)
         if (move.from.rank + move.from.file) % 2 == 0 {
@@ -86,12 +89,12 @@ class ChessBoardView: UIView {
         animation.toValue = NSValue(cgPoint: endPoint)
         animation.duration = TimeInterval(0.2)
         
-        
         CATransaction.begin()
-        CATransaction.setCompletionBlock {
+        CATransaction.setCompletionBlock { [weak self] in
             shapeLayer.removeFromSuperlayer()
             hideLayer.removeFromSuperlayer()
-            self.setNeedsDisplay()
+            self?.setNeedsDisplay()
+            self?.animationDrawFlag = false
         }
         
         shapeLayer.add(animation, forKey: "position")
@@ -242,16 +245,16 @@ class ChessBoardView: UIView {
                 continue
             }
             switch move.type {
-            case GlobalConstant.shared.BOOK:
+            case .mainbook:
                 drawArrow(arrow: coordinate, color: bookGreen)
-            case GlobalConstant.shared.GAMBIT:
-                drawArrow(arrow: coordinate, color: gambitYellow)
-            case GlobalConstant.shared.BRILLIANT:
+            case .sidebook:
+                drawArrow(arrow: coordinate, color: bookYellow)
+            case .gambit:
+                drawArrow(arrow: coordinate, color: gambitOrange)
+            case .brilliant:
                 drawArrow(arrow: coordinate, color: brilliantMint)
-            case GlobalConstant.shared.BLUNDER:
+            case .blunder:
                 drawArrow(arrow: coordinate, color: blunderRed)
-            default:
-                drawArrow(arrow: coordinate, color: bookGreen)
             }
         }
     }
@@ -333,8 +336,8 @@ class ChessBoardView: UIView {
                 self.promotionMove = nil
                 setNeedsDisplay()
                 CATransaction.begin()
-                CATransaction.setCompletionBlock {
-                    self.movePieceWithAnimation(move: promotionMove, promotionPiece: promotionPiece)
+                CATransaction.setCompletionBlock { [weak self] in
+                    self?.movePieceWithAnimation(move: promotionMove, promotionPiece: promotionPiece)
                 }
                 CATransaction.commit()
             }

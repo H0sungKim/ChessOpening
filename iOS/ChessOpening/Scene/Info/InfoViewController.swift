@@ -11,6 +11,7 @@ class InfoViewController: UIViewController {
 
     var boardModel: BoardModel = BoardModel()
     var turn: String = ""
+    var key: String = ""
     var sheetHeight: CGFloat!
     weak var delegate: InfoDelegate?
     
@@ -47,6 +48,7 @@ class InfoViewController: UIViewController {
             infoEditViewController.boardModel = boardModel
             infoEditViewController.moveModelsForEdit = moveModelsForEdit
             infoEditViewController.turn = turn
+            infoEditViewController.key = key
         }
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom { context in
@@ -118,26 +120,4 @@ protocol InfoDelegate: AnyObject {
     func setNextTurn()
     func applyMove(pgn: String)
     func getLegalMovePGN() -> [String]
-}
-
-struct MoveModelForEdit {
-    var pgn: String
-    var type: Int
-    var title: String
-    var info: String
-    var valid: Bool
-    init(moveModel: BoardModel.MoveModel) {
-        self.pgn = moveModel.pgn
-        self.type = moveModel.type
-        self.title = moveModel.title
-        self.info = moveModel.info
-        self.valid = true
-    }
-    init(pgn: String) {
-        self.pgn = pgn
-        self.type = 0
-        self.title = ""
-        self.info = ""
-        self.valid = false
-    }
 }

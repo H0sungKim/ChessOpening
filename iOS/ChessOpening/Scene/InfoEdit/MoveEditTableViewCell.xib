@@ -24,6 +24,9 @@
                     </imageView>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-hl-DsP">
                         <rect key="frame" x="304" y="37.666666666666664" width="51" height="30.999999999999993"/>
+                        <connections>
+                            <action selector="valueChangedSwitch:" destination="1cw-qK-Aeb" eventType="valueChanged" id="tJ1-NE-q3D"/>
+                        </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-cx-i2V">
                         <rect key="frame" x="106" y="10.999999999999998" width="41.333333333333343" height="20.333333333333329"/>
@@ -42,9 +45,6 @@
                         <rect key="frame" x="16" y="16" width="74" height="74"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
-                        <connections>
-                            <action selector="onClickImage:" destination="1cw-qK-Aeb" eventType="touchUpInside" id="eVI-2r-EFG"/>
-                        </connections>
                     </button>
                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxE-bO-ssj">
                         <rect key="frame" x="151.33333333333337" y="4" width="136.66666666666663" height="34"/>
@@ -74,6 +74,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnImage" destination="aeB-dC-oYf" id="L40-kZ-EMA"/>
                 <outlet property="ivType" destination="RVh-93-O7A" id="1ht-xT-prZ"/>
                 <outlet property="lbPGN" destination="t3Z-cx-i2V" id="3VA-Sy-Igh"/>
                 <outlet property="swValid" destination="RBO-hl-DsP" id="Xas-4N-HAD"/>

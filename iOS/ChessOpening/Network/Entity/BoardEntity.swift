@@ -22,6 +22,20 @@ struct BoardEntity: Codable {
             var type: Int?
             var title: String?
             var info: String?
+            init(moveModel: BoardModel.MoveModel) {
+                self.pgn = moveModel.pgn
+                self.type = moveModel.type.rawValue
+                self.title = moveModel.title
+                self.info = moveModel.info
+            }
+        }
+        init(boardModel: BoardModel) {
+            self.title = boardModel.title
+            self.info = boardModel.info
+            self.moves = boardModel.moves.map { MoveEntity(moveModel: $0) } 
+        }
+        init() {
+            
         }
     }
     

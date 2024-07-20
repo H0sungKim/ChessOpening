@@ -564,14 +564,22 @@ extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
         CommonRepository.shared.getFiltered(key: simpleFen)
             .subscribe(onSuccess: { [weak self] boardModel in
-                self?.chessBoardView.moves = boardModel.moves
-                self?.chessBoardView.setNeedsDisplay()
-                self?.tabBarViewController?.infoViewController?.boardModel = boardModel
-                self?.tabBarViewController?.infoViewController?.initializeView()
+                guard let self = self else {
+                    return
+                }
+                
+                self.chessBoardView.moves = boardModel.moves
+                if !self.chessBoardView.animationDrawFlag {
+                    self.chessBoardView.setNeedsDisplay()
+                }
+                
+                self.tabBarViewController?.infoViewController?.boardModel = boardModel
+                self.tabBarViewController?.infoViewController?.initializeView()
             })
             .disposed(by: disposeBag)
         
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
+        tabBarViewController?.infoViewController?.key = simpleFen
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
     }

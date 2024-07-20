@@ -26,7 +26,6 @@
 		96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */; };
 		96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* BoardModel.swift */; };
 		96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */; };
-		96524D882C49518100DD8A1D /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D872C49518100DD8A1D /* GlobalConstant.swift */; };
 		96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D8F2C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift */; };
 		966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A52C2FCAA700158265 /* MoveTableViewCell.xib */; };
 		966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */; };
@@ -52,6 +51,9 @@
 		96BDF9162C096C0C0032523E /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9152C096C0C0032523E /* Pawn.swift */; };
 		96FAD3602C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD35F2C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift */; };
 		96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3612C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib */; };
+		96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */; };
+		96FAD3662C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3652C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift */; };
+		96FAD3682C4B99CD00470BE7 /* VoidEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +96,6 @@
 		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
 		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTableViewCell.swift; sourceTree = "<group>"; };
-		96524D872C49518100DD8A1D /* GlobalConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		96524D8F2C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEditTableViewCell.swift; sourceTree = "<group>"; };
 		966356A52C2FCAA700158265 /* MoveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveTableViewCell.xib; sourceTree = "<group>"; };
 		966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditTableViewCell.xib; sourceTree = "<group>"; };
@@ -124,6 +125,9 @@
 		96BDF9152C096C0C0032523E /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
 		96FAD35F2C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		96FAD3612C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		96FAD3652C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEditHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidEntity.swift; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */,
+				96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -267,6 +272,8 @@
 				96073D962C32A13F00DDF159 /* InfoEdit.storyboard */,
 				96524D8F2C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift */,
 				966356A72C2FCAB600158265 /* MoveEditTableViewCell.xib */,
+				96FAD3652C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift */,
+				96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */,
 			);
 			path = InfoEdit;
 			sourceTree = "<group>";
@@ -305,7 +312,6 @@
 				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
-				96524D872C49518100DD8A1D /* GlobalConstant.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
+				96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */,
 				9696048B2BFF0A6E00BBFC6C /* Base in Resources */,
 				969604862BFF0A6D00BBFC6C /* Base in Resources */,
 			);
@@ -607,6 +614,7 @@
 			files = (
 				969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */,
 				96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */,
+				96FAD3682C4B99CD00470BE7 /* VoidEntity.swift in Sources */,
 				96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
 				96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */,
@@ -622,7 +630,6 @@
 				96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */,
 				96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */,
 				96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */,
-				96524D882C49518100DD8A1D /* GlobalConstant.swift in Sources */,
 				96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */,
 				96BDF90E2C096B730032523E /* Queen.swift in Sources */,
 				96BDF9102C096B7C0032523E /* Bishop.swift in Sources */,
@@ -633,6 +640,7 @@
 				96524D782C4651C400DD8A1D /* Configuration.swift in Sources */,
 				96BDF90C2C096B5D0032523E /* Empty.swift in Sources */,
 				96BDF9082C0968220032523E /* King.swift in Sources */,
+				96FAD3662C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,7 +48,7 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width/10
+        let width = (collectionView.frame.width-1)/10
         if indexPath.row%3 == 0 {
             return CGSize(width: width, height: width)
         } else {
