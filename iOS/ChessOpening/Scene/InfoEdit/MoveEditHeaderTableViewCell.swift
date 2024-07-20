@@ -20,10 +20,11 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
         
         tfTitle.delegate = self
         tvInfo.delegate = self
+        tvInfo.isEditable = true
         
         tvInfo.layer.cornerRadius = 5
-        tvInfo.layer.borderWidth = 1
-        tvInfo.layer.borderColor = UIColor.systemGray6.cgColor
+        tvInfo.layer.borderWidth = 0.5
+        tvInfo.layer.borderColor = UIColor.separator.cgColor
     }
     
     func initializeCell(boardModel: BoardModel) {

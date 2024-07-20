@@ -54,6 +54,9 @@
 		96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */; };
 		96FAD3662C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3652C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift */; };
 		96FAD3682C4B99CD00470BE7 /* VoidEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */; };
+		96FAD3702C4BF14F00470BE7 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD36C2C4BF14F00470BE7 /* icon.svg */; };
+		96FAD3712C4BF14F00470BE7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD36D2C4BF14F00470BE7 /* icon.png */; };
+		96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD37B2C4BF53C00470BE7 /* launch.png */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +95,7 @@
 		96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRestAPI.swift; sourceTree = "<group>"; };
 		96524D752C410F5B00DD8A1D /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
 		96524D772C4651C400DD8A1D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		96524D792C46742800DD8A1D /* check.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = check.svg; path = ../../images/check.svg; sourceTree = "<group>"; };
+		96524D792C46742800DD8A1D /* check.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = check.svg; sourceTree = "<group>"; };
 		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
 		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +131,9 @@
 		96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		96FAD3652C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEditHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidEntity.swift; sourceTree = "<group>"; };
+		96FAD36C2C4BF14F00470BE7 /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
+		96FAD36D2C4BF14F00470BE7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		96FAD37B2C4BF53C00470BE7 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 		96073D912C325E6100DDF159 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				96524D892C4A54CA00DD8A1D /* Main */,
 				96524D8A2C4A54E500DD8A1D /* ChessBoardView */,
 				96524D8B2C4A550200DD8A1D /* TabBar */,
@@ -303,15 +310,13 @@
 		9696047D2BFF0A6D00BBFC6C /* ChessOpening */ = {
 			isa = PBXGroup;
 			children = (
+				96FAD37F2C4BFE9300470BE7 /* Extension */,
 				96524D702C40DCCC00DD8A1D /* Network */,
 				96073D912C325E6100DDF159 /* Scene */,
 				96BDF9172C0972620032523E /* Game */,
+				96FAD37D2C4BFE5300470BE7 /* res */,
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
-				96524D792C46742800DD8A1D /* check.svg */,
-				969604872BFF0A6E00BBFC6C /* Assets.xcassets */,
-				969604892BFF0A6E00BBFC6C /* LaunchScreen.storyboard */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
-				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -348,6 +353,26 @@
 				96073DA22C3D4CEA00DDF159 /* Util.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		96FAD37D2C4BFE5300470BE7 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				969604872BFF0A6E00BBFC6C /* Assets.xcassets */,
+				96FAD37B2C4BF53C00470BE7 /* launch.png */,
+				96FAD36D2C4BF14F00470BE7 /* icon.png */,
+				96FAD36C2C4BF14F00470BE7 /* icon.svg */,
+				96524D792C46742800DD8A1D /* check.svg */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		96FAD37F2C4BFE9300470BE7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EF73DA65CC95B09E091A42C5 /* Pods */ = {
@@ -481,8 +506,11 @@
 				966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */,
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */,
+				96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
+				96FAD3712C4BF14F00470BE7 /* icon.png in Resources */,
 				96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */,
+				96FAD3702C4BF14F00470BE7 /* icon.svg in Resources */,
 				9696048B2BFF0A6E00BBFC6C /* Base in Resources */,
 				969604862BFF0A6D00BBFC6C /* Base in Resources */,
 			);
@@ -829,8 +857,7 @@
 				INFOPLIST_FILE = ChessOpening/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -858,8 +885,7 @@
 				INFOPLIST_FILE = ChessOpening/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

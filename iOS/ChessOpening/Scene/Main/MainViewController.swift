@@ -516,10 +516,10 @@
 //                 the game, provided both players have made at least one move.
 //                 This immediately ends the game.
 
-// TODO: landscape portrait
 // TODO: audio
 // TODO: piece diff
 // TODO: Check, Stalemate, Checkmate
+// TODO: Engine Refactoring
 
 
 import UIKit
@@ -538,9 +538,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog("Build : 2024.07.18 22:05")
+        NSLog("Build : 2024.07.20 22:36")
         
         chessBoardView.delegate = self
+        self.hideKeyboardWhenTappedAround()
         
         let containerChildViewController = UIViewController.getViewController(viewControllerEnum: .tabbar)
         addChild(containerChildViewController)
@@ -592,7 +593,6 @@ extension MainViewController: InfoDelegate {
         }
         chessBoardView.engine.turn = chessBoardView.engine.turn-1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
-        chessBoardView.setNeedsDisplay()
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     func setNextTurn() {
@@ -601,7 +601,6 @@ extension MainViewController: InfoDelegate {
         }
         chessBoardView.engine.turn = chessBoardView.engine.turn+1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
-        chessBoardView.setNeedsDisplay()
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     func applyMove(pgn: String) {
@@ -617,6 +616,6 @@ extension MainViewController: InfoDelegate {
 extension MainViewController: HistoryDelegate {
     func pgnOnClick(turn: Int) {
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[turn+1])
-        chessBoardView.setNeedsDisplay()
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
 }

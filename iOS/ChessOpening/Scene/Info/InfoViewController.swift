@@ -14,6 +14,7 @@ class InfoViewController: UIViewController {
     var key: String = ""
     var sheetHeight: CGFloat!
     weak var delegate: InfoDelegate?
+    private var infoEditViewController: UIViewController?
     
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var tbvMoves: UITableView!
@@ -34,8 +35,8 @@ class InfoViewController: UIViewController {
         delegate?.setNextTurn()
     }
     @IBAction func postOnClick(_ sender: Any) {
-        let vc = UIViewController.getViewController(viewControllerEnum: .infoedit)
-        vc.isModalInPresentation = true
+        infoEditViewController = UIViewController.getViewController(viewControllerEnum: .infoedit)
+//        vc.isModalInPresentation = true
         var moveModelsForEdit: [MoveModelForEdit] = boardModel.moves.map { MoveModelForEdit(moveModel: $0) }
         if let legalMovesPGN = delegate?.getLegalMovePGN() {
             for legalMovePGN in legalMovesPGN {
@@ -44,20 +45,21 @@ class InfoViewController: UIViewController {
                 }
             }
         }
-        if let infoEditViewController = vc as? InfoEditViewController {
+        if let infoEditViewController = infoEditViewController as? InfoEditViewController {
             infoEditViewController.boardModel = boardModel
             infoEditViewController.moveModelsForEdit = moveModelsForEdit
             infoEditViewController.turn = turn
             infoEditViewController.key = key
         }
-        if let sheet = vc.sheetPresentationController {
+        if let sheet = infoEditViewController?.sheetPresentationController {
             sheet.detents = [.custom { context in
                 return self.sheetHeight
             }]
             sheet.prefersGrabberVisible = false
             sheet.preferredCornerRadius = 0
+            sheet.delegate = self
         }
-        present(vc, animated: true)
+        present(infoEditViewController!, animated: true)
     }
     
     func initializeView() {
@@ -112,6 +114,13 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         }
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.applyMove(pgn: boardModel.moves[indexPath.row-1].pgn)
+    }
+}
+
+extension InfoViewController: UISheetPresentationControllerDelegate {
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        infoEditViewController?.view.endEditing(true)
+        return false
     }
 }
 

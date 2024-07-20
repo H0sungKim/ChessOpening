@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,13 +31,56 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7kU-Ta-5E0" firstAttribute="top" secondItem="Us2-64-CJl" secondAttribute="bottom" id="0hu-Yr-oiR"/>
+                            <constraint firstItem="Us2-64-CJl" firstAttribute="trailing" secondItem="7kU-Ta-5E0" secondAttribute="leading" id="Fc2-dE-yge"/>
                             <constraint firstItem="7kU-Ta-5E0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rus-P5-tQJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Us2-64-CJl" secondAttribute="trailing" id="TUo-dd-80S"/>
                             <constraint firstItem="Us2-64-CJl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f3l-A3-odC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7kU-Ta-5E0" secondAttribute="trailing" id="gUV-CD-oMo"/>
                             <constraint firstItem="Us2-64-CJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iV1-ed-4Zc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7kU-Ta-5E0" secondAttribute="bottom" id="iaN-8E-otW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="7kU-Ta-5E0" secondAttribute="top" id="q1Y-8U-AGl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Us2-64-CJl" secondAttribute="bottom" id="zm9-Kg-noH"/>
                         </constraints>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="TUo-dd-80S"/>
+                                <include reference="zm9-Kg-noH"/>
+                                <include reference="Fc2-dE-yge"/>
+                                <exclude reference="Rus-P5-tQJ"/>
+                                <exclude reference="0hu-Yr-oiR"/>
+                                <include reference="q1Y-8U-AGl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="TUo-dd-80S"/>
+                                <include reference="zm9-Kg-noH"/>
+                                <include reference="Fc2-dE-yge"/>
+                                <exclude reference="Rus-P5-tQJ"/>
+                                <exclude reference="0hu-Yr-oiR"/>
+                                <include reference="q1Y-8U-AGl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="TUo-dd-80S"/>
+                                <exclude reference="zm9-Kg-noH"/>
+                                <exclude reference="Fc2-dE-yge"/>
+                                <include reference="Rus-P5-tQJ"/>
+                                <include reference="0hu-Yr-oiR"/>
+                                <exclude reference="q1Y-8U-AGl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="TUo-dd-80S"/>
+                                <exclude reference="zm9-Kg-noH"/>
+                                <exclude reference="Fc2-dE-yge"/>
+                                <include reference="Rus-P5-tQJ"/>
+                                <include reference="0hu-Yr-oiR"/>
+                                <exclude reference="q1Y-8U-AGl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="chessBoardView" destination="Us2-64-CJl" id="AT6-cX-yfE"/>
