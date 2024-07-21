@@ -57,6 +57,9 @@
 		96FAD3702C4BF14F00470BE7 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD36C2C4BF14F00470BE7 /* icon.svg */; };
 		96FAD3712C4BF14F00470BE7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD36D2C4BF14F00470BE7 /* icon.png */; };
 		96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD37B2C4BF53C00470BE7 /* launch.png */; };
+		96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3802C4CF65400470BE7 /* capture.mp3 */; };
+		96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3812C4CF65400470BE7 /* move.mp3 */; };
+		96FAD3852C4CF72000470BE7 /* license.txt in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3842C4CF71F00470BE7 /* license.txt */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		96FAD36C2C4BF14F00470BE7 /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
 		96FAD36D2C4BF14F00470BE7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96FAD37B2C4BF53C00470BE7 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		96FAD3802C4CF65400470BE7 /* capture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = capture.mp3; sourceTree = "<group>"; };
+		96FAD3812C4CF65400470BE7 /* move.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = move.mp3; sourceTree = "<group>"; };
+		96FAD3842C4CF71F00470BE7 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 				96FAD37D2C4BFE5300470BE7 /* res */,
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
+				96FAD3842C4CF71F00470BE7 /* license.txt */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -359,6 +366,8 @@
 			isa = PBXGroup;
 			children = (
 				969604872BFF0A6E00BBFC6C /* Assets.xcassets */,
+				96FAD3802C4CF65400470BE7 /* capture.mp3 */,
+				96FAD3812C4CF65400470BE7 /* move.mp3 */,
 				96FAD37B2C4BF53C00470BE7 /* launch.png */,
 				96FAD36D2C4BF14F00470BE7 /* icon.png */,
 				96FAD36C2C4BF14F00470BE7 /* icon.svg */,
@@ -507,6 +516,8 @@
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */,
 				96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */,
+				96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */,
+				96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
 				96FAD3712C4BF14F00470BE7 /* icon.png in Resources */,
 				96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */,
@@ -665,6 +676,7 @@
 				96BDF9162C096C0C0032523E /* Pawn.swift in Sources */,
 				9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */,
 				96BDF9142C096BDD0032523E /* Rook.swift in Sources */,
+				96FAD3852C4CF72000470BE7 /* license.txt in Sources */,
 				96524D782C4651C400DD8A1D /* Configuration.swift in Sources */,
 				96BDF90C2C096B5D0032523E /* Empty.swift in Sources */,
 				96BDF9082C0968220032523E /* King.swift in Sources */,

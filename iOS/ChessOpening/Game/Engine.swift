@@ -113,7 +113,7 @@ class Engine {
         // enpassant
         if board[move.from.rank][move.from.file] is Pawn &&
             abs(move.to.rank-move.from.rank) == 2 &&
-            ((board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2))
+            ((Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file-1)) && board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file+1)) && board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2))
         {
             enpassant = move.from.file
         }

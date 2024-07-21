@@ -69,7 +69,7 @@ class ChessBoardView: UIView {
         } else {
             hideLayer.backgroundColor = darkBrown.cgColor
         }
-        layer.addSublayer(hideLayer)
+        layer.insertSublayer(hideLayer, at: 0)
         
         let shapeLayer = CAShapeLayer()
         
@@ -112,6 +112,29 @@ class ChessBoardView: UIView {
             }
         }
         startAnimation(move: move)
+    }
+    
+    func moveAnimationFromBoard(old: [[Piece]], new: [[Piece]]) {
+        var from: [(rank: Int, file: Int)] = []
+        for r in 0..<8 {
+            for f in 0..<8 {
+                if !(old[r][f] is Empty) && (type(of: old[r][f]) != type(of: new[r][f]) || old[r][f].color != new[r][f].color) {
+                    from.append((r,f))
+                }
+            }
+        }
+        for r in 0..<8 {
+            for f in 0..<8 {
+                if type(of: old[r][f]) != type(of: new[r][f]) || old[r][f].color != new[r][f].color {
+                    for i in from {
+                        if old[i.rank][i.file].color == new[r][f].color
+                            && (type(of: old[i.rank][i.file]) == type(of: new[r][f]) || old[i.rank][i.file] is Pawn || new[r][f] is Pawn) {
+                            startAnimation(move: (i, (r, f)))
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func draw(_ rect: CGRect) {
@@ -310,7 +333,6 @@ class ChessBoardView: UIView {
         
         return images[key] ?? UIImage()
     }
-
     
     private func drawPiece(piece: UIImage, rank: Int, file: Int, dx: CGFloat = 0, dy: CGFloat = 0, rate: CGFloat = 1) {
         piece.draw(in: CGRect(x: CGFloat(file)*cellSize+dx, y: CGFloat(rank)*cellSize+dy, width: cellSize*rate, height: cellSize*rate))

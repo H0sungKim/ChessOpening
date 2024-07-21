@@ -594,6 +594,9 @@ extension MainViewController: InfoDelegate {
         if chessBoardView.engine.turn-1 < 0 {
             return
         }
+        let tempEngine = Engine()
+        tempEngine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn-1])
+        chessBoardView.moveAnimationFromBoard(old: chessBoardView.engine.board, new: tempEngine.board)
         chessBoardView.engine.turn = chessBoardView.engine.turn-1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
@@ -602,6 +605,9 @@ extension MainViewController: InfoDelegate {
         if chessBoardView.engine.turn+1 > chessBoardView.engine.pgn.count {
             return
         }
+        let tempEngine = Engine()
+        tempEngine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn+1])
+        chessBoardView.moveAnimationFromBoard(old: chessBoardView.engine.board, new: tempEngine.board)
         chessBoardView.engine.turn = chessBoardView.engine.turn+1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
