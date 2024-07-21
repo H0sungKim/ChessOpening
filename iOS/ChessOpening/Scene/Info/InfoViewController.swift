@@ -36,7 +36,6 @@ class InfoViewController: UIViewController {
     }
     @IBAction func postOnClick(_ sender: Any) {
         infoEditViewController = UIViewController.getViewController(viewControllerEnum: .infoedit)
-//        vc.isModalInPresentation = true
         var moveModelsForEdit: [MoveModelForEdit] = boardModel.moves.map { MoveModelForEdit(moveModel: $0) }
         if let legalMovesPGN = delegate?.getLegalMovePGN() {
             for legalMovePGN in legalMovesPGN {
@@ -47,6 +46,9 @@ class InfoViewController: UIViewController {
         }
         if let infoEditViewController = infoEditViewController as? InfoEditViewController {
             infoEditViewController.boardModel = boardModel
+            if infoEditViewController.boardModel.title == "정보가 없습니다." {
+                infoEditViewController.boardModel.title = ""
+            }
             infoEditViewController.moveModelsForEdit = moveModelsForEdit
             infoEditViewController.turn = turn
             infoEditViewController.key = key
@@ -102,10 +104,11 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return UITableView.automaticDimension
-        }
-        return 80
+//        if indexPath.row == 0 {
+//            return UITableView.automaticDimension
+//        }
+//        return 80
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

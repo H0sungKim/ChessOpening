@@ -34,6 +34,8 @@ class ChessBoardView: UIView {
     
     private let cellSize: CGFloat = UIScreen.main.bounds.width/8
     
+    private let imgCheck: UIImage = UIImage(named: "check.png")!
+    
     private let imgBKing: UIImage = UIImage(named: "bking")!
     private let imgBQueen: UIImage = UIImage(named: "bqueen")!
     private let imgBRook: UIImage = UIImage(named: "brook")!
@@ -141,6 +143,8 @@ class ChessBoardView: UIView {
         // 현재 보드 -> 선택된 칸에 흐릿한 레이어 덧 -> 선택된 기물
         
         drawChessBoard()
+        drawCheck()
+        drawPieces()
         drawNowSelectedCell()
         drawNowSelectedPiece()
         drawAllArrows()
@@ -187,18 +191,34 @@ class ChessBoardView: UIView {
     
     private func drawChessBoard() {
         for r in 0..<8 {
-            for c in 0..<8 {
-                let path = UIBezierPath(rect: CGRect(x: CGFloat(c)*cellSize, y: CGFloat(r)*cellSize, width: cellSize, height: cellSize))
-                if (r+c)%2 == 0 {
+            for f in 0..<8 {
+                let path = UIBezierPath(rect: CGRect(x: CGFloat(f)*cellSize, y: CGFloat(r)*cellSize, width: cellSize, height: cellSize))
+                if (r+f)%2 == 0 {
                     lightBrown.setFill()
                 } else {
                     darkBrown.setFill()
                 }
                 path.fill()
-                drawPiece(piece: getImage(pieceType: type(of: engine.board[r][c]), color: engine.board[r][c].color), rank: r, file: c)
             }
         }
     }
+    
+    private func drawPieces() {
+        for r in 0..<8 {
+            for f in 0..<8 {
+                drawPiece(piece: getImage(pieceType: type(of: engine.board[r][f]), color: engine.board[r][f].color), rank: r, file: f)
+            }
+        }
+    }
+    
+    private func drawCheck() {
+        if engine.isCheck(board: engine.board, kingColor: Engine.Color.init(rawValue: engine.turn%2)!) {
+            if let (rank, file) = engine.getKingCoordinate(board: engine.board, color: Engine.Color.init(rawValue: engine.turn%2)!) {
+                imgCheck.draw(in: CGRect(x: CGFloat(file)*cellSize, y: CGFloat(rank)*cellSize, width: cellSize, height: cellSize))
+            }
+        }
+    }
+    
     private func drawNowSelectedCell() {
         guard let selectedCell = selectedCell else {
             return

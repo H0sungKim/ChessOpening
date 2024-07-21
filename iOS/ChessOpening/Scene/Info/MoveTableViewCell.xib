@@ -8,41 +8,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoveTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveTableViewCell" rowHeight="80" id="gwA-DU-Tm4" customClass="MoveTableViewCell" customModule="ChessOpening" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="581" height="82"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoveTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveTableViewCell" rowHeight="120" id="gwA-DU-Tm4" customClass="MoveTableViewCell" customModule="ChessOpening" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="581" height="122"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gwA-DU-Tm4" id="90d-S9-97v">
-                <rect key="frame" x="0.0" y="0.0" width="581" height="82"/>
+                <rect key="frame" x="0.0" y="0.0" width="581" height="122"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="67N-8E-ia7">
-                        <rect key="frame" x="16" y="16" width="50" height="50"/>
+                        <rect key="frame" x="16" y="36" width="50" height="50"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="50" id="83m-ox-qjH"/>
                             <constraint firstAttribute="width" secondItem="67N-8E-ia7" secondAttribute="height" multiplier="1:1" id="U1i-lR-xsS"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2. c4 Queen's Gambit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oek-11-nx8">
-                        <rect key="frame" x="82" y="4.0000000000000009" width="483" height="14.333333333333336"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2. c4 Queen's Gambit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oek-11-nx8">
+                        <rect key="frame" x="82" y="4" width="483" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="jDB-gU-wU4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trv-nb-Ewk">
-                        <rect key="frame" x="82" y="22.333333333333332" width="483" height="55.666666666666671"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="483" placeholderIntrinsicHeight="64" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trv-nb-Ewk">
+                        <rect key="frame" x="82" y="24" width="483" height="94"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="67N-8E-ia7" firstAttribute="leading" secondItem="90d-S9-97v" secondAttribute="leading" constant="16" id="2pQ-DJ-KS2"/>
-                    <constraint firstAttribute="bottom" secondItem="67N-8E-ia7" secondAttribute="bottom" constant="16" id="3u4-ad-IoC"/>
                     <constraint firstItem="trv-nb-Ewk" firstAttribute="leading" secondItem="67N-8E-ia7" secondAttribute="trailing" constant="16" id="4f6-ec-VuA"/>
+                    <constraint firstItem="67N-8E-ia7" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" priority="750" constant="16" id="8eH-69-GnM"/>
                     <constraint firstAttribute="trailing" secondItem="oek-11-nx8" secondAttribute="trailing" constant="16" id="8l0-3b-AUJ"/>
                     <constraint firstAttribute="bottom" secondItem="trv-nb-Ewk" secondAttribute="bottom" constant="4" id="Idj-xM-73m"/>
                     <constraint firstItem="trv-nb-Ewk" firstAttribute="top" secondItem="oek-11-nx8" secondAttribute="bottom" constant="4" id="SmR-B7-hLm"/>
                     <constraint firstItem="oek-11-nx8" firstAttribute="leading" secondItem="67N-8E-ia7" secondAttribute="trailing" constant="16" id="TD7-CR-yRD"/>
-                    <constraint firstItem="67N-8E-ia7" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="16" id="ZMZ-ss-SU5"/>
+                    <constraint firstAttribute="bottom" secondItem="67N-8E-ia7" secondAttribute="bottom" priority="750" constant="16" id="av1-HJ-1xD"/>
+                    <constraint firstItem="67N-8E-ia7" firstAttribute="centerY" secondItem="90d-S9-97v" secondAttribute="centerY" id="oEM-iR-uQI"/>
                     <constraint firstAttribute="trailing" secondItem="trv-nb-Ewk" secondAttribute="trailing" constant="16" id="to1-5o-VDk"/>
                     <constraint firstItem="oek-11-nx8" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="4" id="vhs-hL-qK1"/>
                 </constraints>
@@ -52,7 +57,7 @@
                 <outlet property="lbInfo" destination="trv-nb-Ewk" id="SP9-R8-2n8"/>
                 <outlet property="lbTitle" destination="oek-11-nx8" id="9ft-UE-z3s"/>
             </connections>
-            <point key="canvasLocation" x="440.45801526717554" y="80.281690140845072"/>
+            <point key="canvasLocation" x="440.45801526717554" y="94.366197183098592"/>
         </tableViewCell>
     </objects>
 </document>

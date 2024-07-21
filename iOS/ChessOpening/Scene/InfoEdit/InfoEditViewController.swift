@@ -143,6 +143,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             return 200
         }
-        return 100
+        return 120
+//        return UITableView.automaticDimension
     }
 }

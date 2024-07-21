@@ -22,7 +22,6 @@
 		96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */; };
 		96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D752C410F5B00DD8A1D /* CommonRepository.swift */; };
 		96524D782C4651C400DD8A1D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D772C4651C400DD8A1D /* Configuration.swift */; };
-		96524D7A2C46742800DD8A1D /* check.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96524D792C46742800DD8A1D /* check.svg */; };
 		96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */; };
 		96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* BoardModel.swift */; };
 		96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */; };
@@ -60,6 +59,7 @@
 		96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3802C4CF65400470BE7 /* capture.mp3 */; };
 		96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3812C4CF65400470BE7 /* move.mp3 */; };
 		96FAD3852C4CF72000470BE7 /* license.txt in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3842C4CF71F00470BE7 /* license.txt */; };
+		96FAD3872C4D394A00470BE7 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3862C4D394A00470BE7 /* check.png */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +98,6 @@
 		96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRestAPI.swift; sourceTree = "<group>"; };
 		96524D752C410F5B00DD8A1D /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
 		96524D772C4651C400DD8A1D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		96524D792C46742800DD8A1D /* check.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = check.svg; sourceTree = "<group>"; };
 		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
 		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		96FAD3802C4CF65400470BE7 /* capture.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = capture.mp3; sourceTree = "<group>"; };
 		96FAD3812C4CF65400470BE7 /* move.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = move.mp3; sourceTree = "<group>"; };
 		96FAD3842C4CF71F00470BE7 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		96FAD3862C4D394A00470BE7 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -370,8 +370,8 @@
 				96FAD3812C4CF65400470BE7 /* move.mp3 */,
 				96FAD37B2C4BF53C00470BE7 /* launch.png */,
 				96FAD36D2C4BF14F00470BE7 /* icon.png */,
+				96FAD3862C4D394A00470BE7 /* check.png */,
 				96FAD36C2C4BF14F00470BE7 /* icon.svg */,
-				96524D792C46742800DD8A1D /* check.svg */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -511,11 +511,11 @@
 				966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */,
 				96073D972C32A13F00DDF159 /* InfoEdit.storyboard in Resources */,
 				96BD86C92C31AC0E00465C31 /* History.storyboard in Resources */,
-				96524D7A2C46742800DD8A1D /* check.svg in Resources */,
 				966356A82C2FCAB600158265 /* MoveEditTableViewCell.xib in Resources */,
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */,
 				96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */,
+				96FAD3872C4D394A00470BE7 /* check.png in Resources */,
 				96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */,
 				96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
@@ -863,10 +863,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
+				DEVELOPMENT_TEAM = JU27F4BHH8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChessOpening/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "체스 오프닝북";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -875,7 +876,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpening;
+				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopening;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -891,10 +892,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
+				DEVELOPMENT_TEAM = JU27F4BHH8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChessOpening/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "체스 오프닝북";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -903,7 +905,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpening;
+				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopening;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

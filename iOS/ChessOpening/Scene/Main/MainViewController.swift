@@ -517,10 +517,9 @@
 //                 This immediately ends the game.
 
 // TODO: audio
-// TODO: Check, Stalemate, Checkmate
-// TODO: Engine Refactoring
-// TODO: Remote Config
 // TODO: FEN read
+// TODO: InfoEditTable Drag Drop
+// TODO: Remote Config
 
 import UIKit
 import RxSwift
@@ -563,6 +562,24 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
+        tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
+        tabBarViewController?.infoViewController?.key = simpleFen
+        tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
+        tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
+        tabBarViewController?.historyViewController?.collectionView?.reloadData()
+        
+        if chessBoardView.engine.legalMoves.count == 0 {
+            var boardModel = BoardModel()
+            if chessBoardView.engine.isCheck(board: chessBoardView.engine.board, kingColor: Engine.Color(rawValue: chessBoardView.engine.turn%2)!) {
+                boardModel.title = "Checkmate"
+            } else {
+                boardModel.title = "Stalemate"
+            }
+            self.tabBarViewController?.infoViewController?.boardModel = boardModel
+            self.tabBarViewController?.infoViewController?.initializeView()
+            return
+        }
+        
         CommonRepository.shared.getFiltered(key: simpleFen)
             .subscribe(onSuccess: { [weak self] boardModel in
                 guard let self = self else {
@@ -578,12 +595,6 @@ extension MainViewController: ChessBoardViewDelegate {
                 self.tabBarViewController?.infoViewController?.initializeView()
             })
             .disposed(by: disposeBag)
-        
-        tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
-        tabBarViewController?.infoViewController?.key = simpleFen
-        tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
-        tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
-        tabBarViewController?.historyViewController?.collectionView?.reloadData()
     }
 }
 

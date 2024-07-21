@@ -72,6 +72,13 @@ class Engine {
     
     func getPGNWithoutCheck(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) -> String {
         var pgn = ""
+        if board[move.from.rank][move.from.file] is King {
+            if move.to.file-move.from.file == 2 {
+                return "0-0"
+            } else if move.to.file-move.from.file == -2 {
+                return "0-0-0"
+            }
+        }
         switch type(of: board[move.from.rank][move.from.file]) {
         case is Empty.Type:
             return ""
@@ -80,12 +87,6 @@ class Engine {
                 !(board[move.to.rank][move.to.file] is Empty)
             {
                 pgn.append("\(Util.shared.convertFileIntToString(file: move.from.file))x")
-            }
-        case is King.Type:
-            if move.to.file-move.from.file == 2 {
-                return "0-0"
-            } else if move.to.file-move.from.file == -2 {
-                return "0-0-0"
             }
         default:
             pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: .white))
