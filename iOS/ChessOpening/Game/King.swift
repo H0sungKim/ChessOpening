@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class King: Piece {
-    let color: Int
+    var color: Engine.Color
     
-    required init(color: Int) {
+    required init(color: Engine.Color) {
         self.color = color
     }
     
@@ -29,8 +29,8 @@ class King: Piece {
         return moves
     }
     
-    static func getString(color: Int) -> String {
-        return color == Engine.WHITE ? "K" : "k"
+    static func getString(color: Engine.Color) -> String {
+        return color == .white ? "K" : "k"
     }
     func getString() -> String {
         return King.getString(color: self.color)

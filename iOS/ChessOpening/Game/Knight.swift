@@ -8,9 +8,9 @@
 import Foundation
 
 class Knight: Piece {
-    let color: Int
+    let color: Engine.Color
     
-    required init(color: Int) {
+    required init(color: Engine.Color) {
         self.color = color
     }
     
@@ -28,8 +28,8 @@ class Knight: Piece {
         return moves
     }
     
-    static func getString(color: Int) -> String {
-        return color == Engine.WHITE ? "N" : "n"
+    static func getString(color: Engine.Color) -> String {
+        return color == .white ? "N" : "n"
     }
     func getString() -> String {
         return Knight.getString(color: self.color)

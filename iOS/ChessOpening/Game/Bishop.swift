@@ -8,9 +8,9 @@
 import Foundation
 
 class Bishop: Piece {
-    let color: Int
+    let color: Engine.Color
     
-    required init(color: Int) {
+    required init(color: Engine.Color) {
         self.color = color
     }
     
@@ -40,8 +40,8 @@ class Bishop: Piece {
         return moves
     }
     
-    static func getString(color: Int) -> String {
-        return color == Engine.WHITE ? "B" : "b"
+    static func getString(color: Engine.Color) -> String {
+        return color == .white ? "B" : "b"
     }
     func getString() -> String {
         return Bishop.getString(color: self.color)

@@ -1,4 +1,10 @@
 Chess Piece Images | [Colin M.L. Burnett](https://en.wikipedia.org/wiki/User:Cburnett) | [GPLv2+](https://www.gnu.org/licenses/gpl-2.0.txt)
 App Icon Pawn Image | [Chess](https://icons8.com/icon/xWVf8MAboaLV/chess-com) icon by [Icons8](https://icons8.com/) | [GPLv2+](https://www.gnu.org/licenses/gpl-2.0.txt)
 App Icon Book Image | [Google Fonts](https://fonts.google.com/icons) | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
-
+Firebase | [https://firebase.google.com/docs/ios] | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html), January 2004
+Moya | 
+                                     https://github.com/Moya/Moya
+                                     MIT License / Copyright (c) 2014-present Artsy, Ash Furrow
+                                     RxSwift
+                                     https://github.com/ReactiveX/RxSwift
+                                     The MIT License Copyright © 2015 Krunoslav Zaher, Shai Mishali All rights reserved.

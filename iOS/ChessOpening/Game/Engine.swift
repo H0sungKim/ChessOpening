@@ -8,12 +8,24 @@
 import Foundation
 
 class Engine {
+    enum Color: Int {
+        case empty = -1
+        case white = 0
+        case black = 1
+        
+        func getOpposite() -> Color {
+            switch self {
+            case .empty:
+                return .empty
+            case .white:
+                return .black
+            case .black:
+                return .white
+            }
+        }
+    }
     var pgn: [String] = []
     var fen: [String] = []
-    
-    static let EMPTY: Int = -1
-    static let WHITE: Int = 0
-    static let BLACK: Int = 1
     
     var turn: Int = 0
     var moveCount50: Int = 0
@@ -27,20 +39,20 @@ class Engine {
     
     init() {
         board = [
-            [Rook(color: Engine.BLACK), Knight(color: Engine.BLACK), Bishop(color: Engine.BLACK), Queen(color: Engine.BLACK), King(color: Engine.BLACK), Bishop(color: Engine.BLACK), Knight(color: Engine.BLACK), Rook(color: Engine.BLACK)],
-            [Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK), Pawn(color: Engine.BLACK)],
+            [Rook(color: .black), Knight(color: .black), Bishop(color: .black), Queen(color: .black), King(color: .black), Bishop(color: .black), Knight(color: .black), Rook(color: .black)],
+            [Pawn(color: .black), Pawn(color: .black), Pawn(color: .black), Pawn(color: .black), Pawn(color: .black), Pawn(color: .black), Pawn(color: .black), Pawn(color: .black)],
             [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
             [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
             [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
             [Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty(), Empty()],
-            [Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE), Pawn(color: Engine.WHITE)],
-            [Rook(color: Engine.WHITE), Knight(color: Engine.WHITE), Bishop(color: Engine.WHITE), Queen(color: Engine.WHITE), King(color: Engine.WHITE), Bishop(color: Engine.WHITE), Knight(color: Engine.WHITE), Rook(color: Engine.WHITE)]
+            [Pawn(color: .white), Pawn(color: .white), Pawn(color: .white), Pawn(color: .white), Pawn(color: .white), Pawn(color: .white), Pawn(color: .white), Pawn(color: .white)],
+            [Rook(color: .white), Knight(color: .white), Bishop(color: .white), Queen(color: .white), King(color: .white), Bishop(color: .white), Knight(color: .white), Rook(color: .white)]
         ]
         fen.append(getFEN())
         legalMoves = getLegalMoves()
     }
     
-    func getKingCoordinate(board: [[Piece]], color: Int) -> (rank: Int, file: Int)? {
+    func getKingCoordinate(board: [[Piece]], color: Color) -> (rank: Int, file: Int)? {
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f] is King && board[r][f].color == color {
@@ -51,11 +63,11 @@ class Engine {
         return nil
     }
     
-    func isCheck(board: [[Piece]], kingColor: Int) -> Bool {
+    func isCheck(board: [[Piece]], kingColor: Color) -> Bool {
         guard let kingCoordinate = getKingCoordinate(board: board, color: kingColor) else {
             return false
         }
-        return isAttacked(board: board, coordinate: kingCoordinate, turn: abs(kingColor-1))
+        return isAttacked(board: board, coordinate: kingCoordinate, turn: kingColor.getOpposite())
     }
     
     func getPGNWithoutCheck(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) -> String {
@@ -67,7 +79,7 @@ class Engine {
             if (move.to.rank == 2+3*(turn%2) && move.to.file == enpassant) ||
                 !(board[move.to.rank][move.to.file] is Empty)
             {
-                pgn.append("\(Engine.convertFileIntToString(file: move.from.file))x")
+                pgn.append("\(Util.shared.convertFileIntToString(file: move.from.file))x")
             }
         case is King.Type:
             if move.to.file-move.from.file == 2 {
@@ -76,21 +88,21 @@ class Engine {
                 return "0-0-0"
             }
         default:
-            pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: Engine.WHITE))
+            pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: .white))
             if legalMoves.contains(where: {
                 $0.to == move.to &&
                 type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) &&
                 $0.from != move.from
             }) {
-                pgn.append(Engine.convertFileIntToString(file: move.from.file))
+                pgn.append(Util.shared.convertFileIntToString(file: move.from.file))
             }
             if !(board[move.to.rank][move.to.file] is Empty) {
                 pgn.append("x")
             }
         }
-        pgn.append("\(Engine.convertFileIntToString(file: move.to.file))\(8-move.to.rank)")
+        pgn.append("\(Util.shared.convertFileIntToString(file: move.to.file))\(8-move.to.rank)")
         if let promotionPiece = promotionPiece {
-            pgn.append("=\(promotionPiece.getString(color: Engine.WHITE))")
+            pgn.append("=\(promotionPiece.getString(color: .white))")
         }
         return pgn
     }
@@ -113,7 +125,7 @@ class Engine {
         // enpassant
         if board[move.from.rank][move.from.file] is Pawn &&
             abs(move.to.rank-move.from.rank) == 2 &&
-            ((Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file-1)) && board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color != turn%2) || (Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file+1)) && board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color != turn%2))
+            ((Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file-1)) && board[move.to.rank][move.to.file-1] is Pawn && board[move.to.rank][move.to.file-1].color.rawValue != turn%2) || (Util.shared.isValidCoordinate(coordinate: (move.to.rank, move.to.file+1)) && board[move.to.rank][move.to.file+1] is Pawn && board[move.to.rank][move.to.file+1].color.rawValue != turn%2))
         {
             enpassant = move.from.file
         }
@@ -129,28 +141,28 @@ class Engine {
             default:
                 break
             }
-            turn%2 == Engine.WHITE ? (castling.white = (false, false)) : (castling.black = (false, false))
+            turn%2 == Color.white.rawValue ? (castling.white = (false, false)) : (castling.black = (false, false))
         }
         if board[move.from.rank][move.from.file] is Rook && move.from.rank == 7 - turn % 2 * 7 {
             switch move.from.file {
             case 0:
-                turn % 2 == Engine.WHITE ? (castling.white.queenSide = false) : (castling.black.queenSide = false)
+                turn % 2 == Color.white.rawValue ? (castling.white.queenSide = false) : (castling.black.queenSide = false)
             case 7:
-                turn % 2 == Engine.WHITE ? (castling.white.kingSide = false) : (castling.black.kingSide = false)
+                turn % 2 == Color.white.rawValue ? (castling.white.kingSide = false) : (castling.black.kingSide = false)
             default:
                 break
             }
         }
         
         if let promotionPiece = promotionPiece {
-            board[move.to.rank][move.to.file] = promotionPiece.init(color: turn%2)
+            board[move.to.rank][move.to.file] = promotionPiece.init(color: Color(rawValue: turn%2)!)
         } else {
             board[move.to.rank][move.to.file] = board[move.from.rank][move.from.file]
         }
         board[move.from.rank][move.from.file] = Empty()
         turn += 1
         legalMoves = getLegalMoves()
-        if isCheck(board: board, kingColor: turn%2) {
+        if isCheck(board: board, kingColor: Color(rawValue: turn%2)!) {
             legalMoves.isEmpty ? pgn.append("#") : pgn.append("+")
         }
         self.pgn = Array(self.pgn.prefix(turn-1))
@@ -163,7 +175,7 @@ class Engine {
         return legalMoves.contains(where: { return $0.from == move.from && $0.to == move.to })
     }
     
-    func isAttacked(board: [[Piece]], coordinate: (rank: Int, file: Int), turn: Int) -> Bool {
+    func isAttacked(board: [[Piece]], coordinate: (rank: Int, file: Int), turn: Color) -> Bool {
         for r in 0..<8 {
             for f in 0..<8 {
                 if board[r][f].color == turn {
@@ -182,15 +194,15 @@ class Engine {
         var moves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
         for r in 0..<8 {
             for f in 0..<8 {
-                if board[r][f].color == turn%2 {
+                if board[r][f].color.rawValue == turn%2 {
                     for move in board[r][f].getMove(board: board, rank: r, file: f) {
                         var testBoard = board
                         testBoard[move.rank][move.file] = testBoard[r][f]
                         testBoard[r][f] = Empty()
-                        guard let kingCoordinate = getKingCoordinate(board: testBoard, color: turn%2) else {
+                        guard let kingCoordinate = getKingCoordinate(board: testBoard, color: Color(rawValue: turn%2)!) else {
                             continue
                         }
-                        if !isAttacked(board: testBoard, coordinate: kingCoordinate, turn: (turn+1)%2) {
+                        if !isAttacked(board: testBoard, coordinate: kingCoordinate, turn: Color(rawValue: (turn+1)%2)!) {
                             moves.append((from: (r, f), to: move))
                         }
                     }
@@ -207,10 +219,10 @@ class Engine {
         if let enpassant = enpassant {
             let direction = 2 * (turn%2) - 1
             let coordinate = (rank: 3+turn%2,file: enpassant)
-            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color == turn%2 {
+            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file-1)) && board[coordinate.rank][coordinate.file-1] is Pawn && board[coordinate.rank][coordinate.file-1].color.rawValue == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file-1), to: (coordinate.rank+direction, coordinate.file)))
             }
-            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color == turn%2 {
+            if Util.shared.isValidCoordinate(coordinate: (coordinate.rank, coordinate.file+1)) && board[coordinate.rank][coordinate.file+1] is Pawn && board[coordinate.rank][coordinate.file+1].color.rawValue == turn%2 {
                 moves.append((from: (coordinate.rank, coordinate.file+1), to: (coordinate.rank+direction, coordinate.file)))
             }
         }
@@ -220,18 +232,18 @@ class Engine {
     func getCastlingMoves() -> [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] {
         var moves: [(from: (rank: Int, file: Int), to: (rank: Int, file: Int))] = []
         var castling: (kingSide: Bool, queenSide: Bool)
-        if turn%2 == Engine.WHITE {
+        if turn%2 == Color.white.rawValue {
             castling = self.castling.white
         } else {
             castling = self.castling.black
         }
         if castling.kingSide {
-            if board[7-turn%2*7][5] is Empty && board[7-turn%2*7][6] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 5), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 6), turn: abs(turn%2-1))) {
+            if board[7-turn%2*7][5] is Empty && board[7-turn%2*7][6] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: Color.init(rawValue: turn%2)!.getOpposite())) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 5), turn: Color.init(rawValue: turn%2)!.getOpposite())) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 6), turn: Color.init(rawValue: turn%2)!.getOpposite())) {
                 moves.append(((7-turn%2*7, 4), (7-turn%2*7, 6)))
             }
         }
         if castling.queenSide {
-            if board[7-turn%2*7][1] is Empty && board[7-turn%2*7][2] is Empty && board[7-turn%2*7][3] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 3), turn: abs(turn%2-1))) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 2), turn: abs(turn%2-1))) {
+            if board[7-turn%2*7][1] is Empty && board[7-turn%2*7][2] is Empty && board[7-turn%2*7][3] is Empty && !(isAttacked(board: board, coordinate: (7-turn%2*7, 4), turn: Color.init(rawValue: turn%2)!.getOpposite())) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 3), turn: Color.init(rawValue: turn%2)!.getOpposite())) && !(isAttacked(board: board, coordinate: (7-turn%2*7, 2), turn: Color.init(rawValue: turn%2)!.getOpposite())) {
                 moves.append(((7-turn%2*7, 4), (7-turn%2*7, 2)))
             }
         }
@@ -280,7 +292,7 @@ class Engine {
             fen.append("-")
         }
         if let enpassant = enpassant {
-            fen.append("\(Engine.convertFileIntToString(file: enpassant))\(6-turn%2*3)")
+            fen.append("\(Util.shared.convertFileIntToString(file: enpassant))\(6-turn%2*3)")
         } else {
             fen.append(" - ")
         }
@@ -315,7 +327,7 @@ class Engine {
                         rank.append(Empty())
                     }
                 } else {
-                    rank.append(Engine.charToPiece(char: f))
+                    rank.append(Util.shared.charToPiece(char: f))
                 }
             }
             board[r] = rank
@@ -332,87 +344,11 @@ class Engine {
         if fenArray[2].contains("q") {
             castling.black.queenSide = true
         }
-        enpassant = Engine.convertFileStringToInt(file: String(fenArray[3].prefix(1)))
+        enpassant = Util.shared.convertFileStringToInt(file: String(fenArray[3].prefix(1)))
         moveCount50 = Int(fenArray[4])!
         turn = (fenArray[1] == "w" ? Int(fenArray[5])!*2-2 : Int(fenArray[5])!*2-1)
         
         legalMoves = getLegalMoves()
-    }
-    
-    static func charToPiece(char: Character) -> Piece {
-        switch char {
-        case "K" :
-            return King(color: Engine.WHITE)
-        case "k" :
-            return King(color: Engine.BLACK)
-        case "Q" :
-            return Queen(color: Engine.WHITE)
-        case "q" :
-            return Queen(color: Engine.BLACK)
-        case "R" :
-            return Rook(color: Engine.WHITE)
-        case "r" :
-            return Rook(color: Engine.BLACK)
-        case "B" :
-            return Bishop(color: Engine.WHITE)
-        case "b" :
-            return Bishop(color: Engine.BLACK)
-        case "N" :
-            return Knight(color: Engine.WHITE)
-        case "n" :
-            return Knight(color: Engine.BLACK)
-        case "P" :
-            return Pawn(color: Engine.WHITE)
-        case "p" :
-            return Pawn(color: Engine.BLACK)
-        default :
-            return Empty()
-        }
-    }
-    
-    static func convertFileIntToString(file: Int) -> String {
-        switch file {
-        case 0 :
-            return "a"
-        case 1 :
-            return "b"
-        case 2 :
-            return "c"
-        case 3 :
-            return "d"
-        case 4 :
-            return "e"
-        case 5 :
-            return "f"
-        case 6 :
-            return "g"
-        case 7 :
-            return "h"
-        default :
-            return ""
-        }
-    }
-    static func convertFileStringToInt(file: String) -> Int? {
-        switch file {
-        case "a" :
-            return 0
-        case "b" :
-            return 1
-        case "c" :
-            return 2
-        case "d" :
-            return 3
-        case "e" :
-            return 4
-        case "f" :
-            return 5
-        case "g" :
-            return 6
-        case "h" :
-            return 7
-        default :
-            return nil
-        }
     }
     
     func getTurn() -> String {
@@ -429,13 +365,13 @@ class Engine {
         let (matchPGN, matchPiece, matchPieceFile, matchTake, matchFile, matchRank, matchPromotion, matchPromotionPiece, matchCheck) = match.output
         let piece: Piece.Type
         if let matchPiece = matchPiece {
-            piece = type(of: Engine.charToPiece(char: matchPiece.first!))
+            piece = type(of: Util.shared.charToPiece(char: matchPiece.first!))
         } else {
             piece = Pawn.self
         }
         let promotionPiece: Piece.Type?
         if let _ = matchPromotion, let matchPromotionPiece = matchPromotionPiece {
-            promotionPiece = type(of: Engine.charToPiece(char: matchPromotionPiece.first!))
+            promotionPiece = type(of: Util.shared.charToPiece(char: matchPromotionPiece.first!))
         } else {
             promotionPiece = nil
         }
@@ -443,14 +379,14 @@ class Engine {
         guard let matchRank = Int(String(matchRank)) else {
             return nil
         }
-        guard let matchFile = Engine.convertFileStringToInt(file: String(matchFile)) else {
+        guard let matchFile = Util.shared.convertFileStringToInt(file: String(matchFile)) else {
             return nil
         }
         let to: (rank: Int, file: Int) = (rank: 8-matchRank, file: matchFile)
         for legalMove in legalMoves {
             if legalMove.to == to
                 && type(of: board[legalMove.from.rank][legalMove.from.file]) == piece {
-                guard let matchPieceFile = Engine.convertFileStringToInt(file: String(matchPieceFile ?? "")) else {
+                guard let matchPieceFile = Util.shared.convertFileStringToInt(file: String(matchPieceFile ?? "")) else {
                     return (move: (from: legalMove.from, to: legalMove.to), promotion: promotionPiece)
                 }
                 if matchPieceFile == legalMove.from.file {

@@ -8,9 +8,9 @@
 import Foundation
 
 class Queen: Piece {
-    let color: Int
+    let color: Engine.Color
     
-    required init(color: Int) {
+    required init(color: Engine.Color) {
         self.color = color
     }
     
@@ -40,8 +40,8 @@ class Queen: Piece {
         return moves
     }
     
-    static func getString(color: Int) -> String {
-        return color == Engine.WHITE ? "Q" : "q"
+    static func getString(color: Engine.Color) -> String {
+        return color == .white ? "Q" : "q"
     }
     func getString() -> String {
         return Queen.getString(color: self.color)

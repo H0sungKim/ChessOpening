@@ -158,13 +158,13 @@ class ChessBoardView: UIView {
         let direction = 1 - engine.turn%2*2
         
         drawCircleCellBackGround(rank: promotionMove.to.rank, file: promotionMove.to.file)
-        drawPiece(piece: getImage(pieceType: Queen.self, color: engine.turn%2), rank: promotionMove.to.rank, file: promotionMove.to.file)
+        drawPiece(piece: getImage(pieceType: Queen.self, color: Engine.Color.init(rawValue: engine.turn%2)!), rank: promotionMove.to.rank, file: promotionMove.to.file)
         drawCircleCellBackGround(rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
-        drawPiece(piece: getImage(pieceType: Knight.self, color: engine.turn%2), rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
+        drawPiece(piece: getImage(pieceType: Knight.self, color: Engine.Color.init(rawValue: engine.turn%2)!), rank: promotionMove.to.rank+direction, file: promotionMove.to.file)
         drawCircleCellBackGround(rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
-        drawPiece(piece: getImage(pieceType: Rook.self, color: engine.turn%2), rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
+        drawPiece(piece: getImage(pieceType: Rook.self, color: Engine.Color.init(rawValue: engine.turn%2)!), rank: promotionMove.to.rank+2*direction, file: promotionMove.to.file)
         drawCircleCellBackGround(rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
-        drawPiece(piece: getImage(pieceType: Bishop.self, color: engine.turn%2), rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
+        drawPiece(piece: getImage(pieceType: Bishop.self, color: Engine.Color.init(rawValue: engine.turn%2)!), rank: promotionMove.to.rank+3*direction, file: promotionMove.to.file)
     }
     
     private func drawCorner(coordinate: (rank: Int, file: Int)) {
@@ -312,26 +312,31 @@ class ChessBoardView: UIView {
         shaftPath.stroke()
     }
     
-    private func getImage(pieceType: Piece.Type, color: Int) -> UIImage {
-        let images: [String: UIImage] = [
-            "King_BLACK": imgBKing,
-            "King_WHITE": imgWKing,
-            "Queen_BLACK": imgBQueen,
-            "Queen_WHITE": imgWQueen,
-            "Rook_BLACK": imgBRook,
-            "Rook_WHITE": imgWRook,
-            "Bishop_BLACK": imgBBishop,
-            "Bishop_WHITE": imgWBishop,
-            "Knight_BLACK": imgBKnight,
-            "Knight_WHITE": imgWKnight,
-            "Pawn_BLACK": imgBPawn,
-            "Pawn_WHITE": imgWPawn
-        ]
-        
-        let colorString = color == Engine.BLACK ? "BLACK" : "WHITE"
-        let key = "\(pieceType)_\(colorString)"
-        
-        return images[key] ?? UIImage()
+    private func getImage(pieceType: Piece.Type, color: Engine.Color) -> UIImage {
+        switch color {
+        case .empty:
+            return UIImage()
+        case .white:
+            let images: [String: UIImage] = [
+                "King": imgWKing,
+                "Queen": imgWQueen,
+                "Rook": imgWRook,
+                "Bishop": imgWBishop,
+                "Knight": imgWKnight,
+                "Pawn": imgWPawn
+            ]
+            return images[String(describing: pieceType.self)] ?? UIImage()
+        case .black:
+            let images: [String: UIImage] = [
+                "King": imgBKing,
+                "Queen": imgBQueen,
+                "Rook": imgBRook,
+                "Bishop": imgBBishop,
+                "Knight": imgBKnight,
+                "Pawn": imgBPawn
+            ]
+            return images[String(describing: pieceType.self)] ?? UIImage()
+        }
     }
     
     private func drawPiece(piece: UIImage, rank: Int, file: Int, dx: CGFloat = 0, dy: CGFloat = 0, rate: CGFloat = 1) {
@@ -379,7 +384,7 @@ class ChessBoardView: UIView {
             }
             setNeedsDisplay()
         } else {
-            if engine.board[coordinate.rank][coordinate.file] is Empty || engine.board[coordinate.rank][coordinate.file].color != engine.turn%2 {
+            if engine.board[coordinate.rank][coordinate.file] is Empty || engine.board[coordinate.rank][coordinate.file].color.rawValue != engine.turn%2 {
                 selectedCell = nil
             } else {
                 selectedCell = (Int(point.y/cellSize), Int(point.x/cellSize))

@@ -8,16 +8,16 @@
 import Foundation
 
 class Empty: Piece {
-    let color: Int = -1
+    let color: Engine.Color = .empty
     
-    required init(color: Int = Engine.EMPTY) {
+    required init(color: Engine.Color = .empty) {
     }
     
     func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
         return []
     }
     
-    static func getString(color: Int) -> String {
+    static func getString(color: Engine.Color) -> String {
         return ""
     }
     func getString() -> String {

@@ -8,18 +8,18 @@
 import Foundation
 
 class Pawn: Piece {
-    let color: Int
+    let color: Engine.Color
     
-    required init(color: Int) {
+    required init(color: Engine.Color) {
         self.color = color
     }
     
     func getMove(board: [[Piece]], rank: Int, file: Int) -> [(rank: Int, file: Int)] {
         var moves: [(rank: Int, file: Int)] = []
-        let direction = 2*color - 1
+        let direction = 2*color.rawValue - 1
         if Util.shared.isValidCoordinate(coordinate: (rank+direction, file)) && board[rank+direction][file] is Empty {
             moves.append((rank+direction, file))
-            if rank == 6-color*5 && board[rank+2*direction][file] is Empty {
+            if rank == 6-color.rawValue*5 && board[rank+2*direction][file] is Empty {
                 moves.append((rank+2*direction, file))
             }
         }
@@ -32,8 +32,8 @@ class Pawn: Piece {
         return moves
     }
     
-    static func getString(color: Int) -> String {
-        return color == Engine.WHITE ? "P" : "p"
+    static func getString(color: Engine.Color) -> String {
+        return color == .white ? "P" : "p"
     }
     func getString() -> String {
         return Pawn.getString(color: self.color)
