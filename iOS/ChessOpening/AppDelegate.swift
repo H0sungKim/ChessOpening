@@ -47,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelega
     }
     
     // Hold the screen vertically.
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return .portrait
-    }
+//    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//        return .portrait
+//    }
     
     // Prevent the rootviewcontroller from being popped.
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

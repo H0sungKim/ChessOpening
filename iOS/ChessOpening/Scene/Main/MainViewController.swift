@@ -520,7 +520,9 @@
 // TODO: piece diff
 // TODO: Check, Stalemate, Checkmate
 // TODO: Engine Refactoring
-
+// TODO: Remote Config
+// TODO: FEN read
+// TODO: Next Previous Animation
 
 import UIKit
 import RxSwift
@@ -582,6 +584,7 @@ extension MainViewController: ChessBoardViewDelegate {
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
         tabBarViewController?.infoViewController?.key = simpleFen
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
+        tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     var history: [String] = []
+    var turn: Int?
     weak var delegate: HistoryDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -39,10 +40,16 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             let objectArray = Bundle.main.loadNibNamed(String(describing: HistoryCollectionViewCell.self), owner: nil, options: nil)
             cell = objectArray![0] as! HistoryCollectionViewCell
         }
+        cell.backGroundView.backgroundColor = .clear
         if indexPath.row%3 == 0 {
             cell.label.text = "\(indexPath.row/3+1)"
         } else {
             cell.label.text = "\(history[indexPath.row/3*2 + indexPath.row%3-1])"
+            if let turn = turn {
+                if turn == indexPath.row/3*2 + indexPath.row%3 {
+                    cell.backGroundView.backgroundColor = .systemFill
+                }
+            }
         }
         return cell
     }

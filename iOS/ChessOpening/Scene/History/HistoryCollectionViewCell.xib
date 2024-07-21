@@ -16,6 +16,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="130" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSD-b5-fBS">
+                        <rect key="frame" x="28" y="37" width="74" height="37"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfn-7f-5SI">
                         <rect key="frame" x="44" y="45" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -25,11 +28,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Wfn-7f-5SI" firstAttribute="centerX" secondItem="eAN-EE-jUG" secondAttribute="centerX" id="3nu-CZ-VJp"/>
+                    <constraint firstItem="WSD-b5-fBS" firstAttribute="leading" secondItem="Wfn-7f-5SI" secondAttribute="leading" constant="-16" id="IpQ-D1-DVs"/>
                     <constraint firstItem="Wfn-7f-5SI" firstAttribute="centerY" secondItem="eAN-EE-jUG" secondAttribute="centerY" id="J29-0t-VUi"/>
+                    <constraint firstItem="WSD-b5-fBS" firstAttribute="top" secondItem="Wfn-7f-5SI" secondAttribute="top" constant="-8" id="UC7-kH-Vbp"/>
+                    <constraint firstItem="Wfn-7f-5SI" firstAttribute="bottom" secondItem="WSD-b5-fBS" secondAttribute="bottom" constant="-8" id="mUn-3P-Rsc"/>
+                    <constraint firstItem="Wfn-7f-5SI" firstAttribute="trailing" secondItem="WSD-b5-fBS" secondAttribute="trailing" constant="-16" id="qdW-uQ-gg3"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="130" height="111"/>
             <connections>
+                <outlet property="backGroundView" destination="WSD-b5-fBS" id="mRG-LA-E7x"/>
                 <outlet property="label" destination="Wfn-7f-5SI" id="yVl-AG-Odh"/>
             </connections>
             <point key="canvasLocation" x="414" y="20"/>

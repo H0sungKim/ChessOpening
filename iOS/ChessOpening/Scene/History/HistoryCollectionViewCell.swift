@@ -9,5 +9,10 @@ import Foundation
 import UIKit
 
 class HistoryCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var backGroundView: UIView!
     @IBOutlet weak var label: UILabel!
+    
+    override func awakeFromNib() {
+        backGroundView.layer.cornerRadius = 5
+    }
 }
