@@ -19,7 +19,9 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         tfTitle.delegate = self
+        tfTitle.textDropDelegate = self
         tvInfo.delegate = self
+        tvInfo.textDropDelegate = self
         tvInfo.isEditable = true
         
         tvInfo.layer.cornerRadius = 5
@@ -60,5 +62,11 @@ extension MoveEditHeaderTableViewCell: UITextViewDelegate {
             infoValueChanged?(newInfo)
         }
         return true
+    }
+}
+
+extension MoveEditHeaderTableViewCell: UITextDropDelegate {
+    func textDroppableView(_ textDroppableView: any UIView & UITextDroppable, proposalForDrop drop: any UITextDropRequest) -> UITextDropProposal {
+        return UITextDropProposal(operation: .cancel)
     }
 }

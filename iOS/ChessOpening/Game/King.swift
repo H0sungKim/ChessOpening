@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class King: Piece {
-    var color: Engine.Color
+    let color: Engine.Color
     
     required init(color: Engine.Color) {
         self.color = color

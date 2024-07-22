@@ -26,8 +26,12 @@ class InfoEditViewController: UIViewController {
         
         tbvMoves.delegate = self
         tbvMoves.dataSource = self
+        tbvMoves.dragDelegate = self
+        tbvMoves.dropDelegate = self
         tbvMoves.register(UINib(nibName: String(describing: MoveEditTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditTableViewCell.self))
         tbvMoves.register(UINib(nibName: String(describing: MoveEditHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditHeaderTableViewCell.self))
+        tbvMoves.dragInteractionEnabled = true
+        
     }
     @IBAction func onClickBack(_ sender: Any) {
         let alertDismiss: UIAlertController = UIAlertController(title: "창을 닫으시겠습니까?", message: "작성 중이던 내용은 저장되지 않습니다.", preferredStyle: .alert)
@@ -43,12 +47,7 @@ class InfoEditViewController: UIViewController {
         let alertDismiss: UIAlertController = UIAlertController(title: "이대로 게시하시겠습니까?", message: "", preferredStyle: .alert)
         let actionCancel: UIAlertAction = UIAlertAction(title: "아니오", style: .default, handler: nil)
         let actionOk: UIAlertAction = UIAlertAction(title: "예", style: .default, handler: { [weak self] _ in
-            let alertDismiss: UIAlertController = UIAlertController(title: "의견을 보내주셔서 감사합니다.", message: "관리자 검토 후 게시해 드리겠습니다.", preferredStyle: .alert)
-            let actionOk: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
-            })
-            alertDismiss.addAction(actionOk)
-            self?.present(alertDismiss, animated: true, completion: nil)
+            
             
             guard let self = self else {
                 return
@@ -63,7 +62,13 @@ class InfoEditViewController: UIViewController {
             boardModel.moves = moves
             
             CommonRepository.shared.setRaw(key: self.key, value: boardModel)
-                .subscribe(onSuccess: {
+                .subscribe(onSuccess: { [weak self] in
+                    let alertDismiss: UIAlertController = UIAlertController(title: "의견을 보내주셔서 감사합니다.", message: "관리자 검토 후 게시해 드리겠습니다.", preferredStyle: .alert)
+                    let actionOk: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+                        self?.dismiss(animated: true, completion: nil)
+                    })
+                    alertDismiss.addAction(actionOk)
+                    self?.present(alertDismiss, animated: true, completion: nil)
                 })
                 .disposed(by: disposeBag)
         })
@@ -73,8 +78,7 @@ class InfoEditViewController: UIViewController {
     }
 }
 
-
-extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource {
+extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moveModelsForEdit.count+1
     }
@@ -145,5 +149,69 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 120
 //        return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row != 0
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        if destinationIndexPath.row == 0 {
+            return
+        }
+        let movedObject = moveModelsForEdit[sourceIndexPath.row-1]
+        moveModelsForEdit.remove(at: sourceIndexPath.row-1)
+        moveModelsForEdit.insert(movedObject, at: destinationIndexPath.row-1)
+        
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        if indexPath.row == 0 {
+            return []
+        }
+        let item = self.moveModelsForEdit[indexPath.row - 1]
+        let itemProvider = NSItemProvider(object: item.title as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+        return [dragItem]
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: any UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        if destinationIndexPath.row == 0 {
+            return
+        }
+        
+        coordinator.items.forEach { dropItem in
+            if let sourceIndexPath = dropItem.sourceIndexPath {
+                tableView.beginUpdates()
+                let movedObject = moveModelsForEdit[sourceIndexPath.row - 1]
+                moveModelsForEdit.remove(at: sourceIndexPath.row - 1)
+                moveModelsForEdit.insert(movedObject, at: destinationIndexPath.row - 1)
+                tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+                tableView.endUpdates()
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        var dropProposal = UITableViewDropProposal(operation: .cancel)
+        
+        // Accept only one drag item.
+        guard session.items.count == 1 else { return dropProposal }
+        
+        // The .move drag operation is available only for dragging within this app and while in edit mode.
+//        if tableView.hasActiveDrag {
+//            if tableView.isEditing {
+//                dropProposal = UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+//            }
+//        } else {
+//            // Drag is coming from outside the app.
+//            dropProposal = UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+//        }
+        
+        if let destinationIndexPath = destinationIndexPath, destinationIndexPath.row != 0 {
+            dropProposal = UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        
+        return dropProposal
     }
 }

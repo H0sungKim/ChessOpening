@@ -11,7 +11,7 @@ import Moya
 enum CommonRestAPI {
     
     case getFiltered(key: String)
-    case setFiltered(key: String, value: String)
+    case setFiltered(key: String, value: BoardModel)
     case getRaw(key: String)
     case setRaw(key: String, value: BoardModel)
 }
@@ -46,9 +46,14 @@ extension CommonRestAPI: TargetType {
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case let .setFiltered(key, value):
+            let boardEntity: BoardEntity.BoardResponseDataEntity = BoardEntity.BoardResponseDataEntity(boardModel: value)
+            guard let encoded = try? JSONEncoder().encode(boardEntity) else {
+                return .requestParameters(parameters: [:], encoding: JSONEncoding.default)
+            }
+            let encodedStr = String(decoding: encoded, as: UTF8.self)
             let params: [String: Any] = [
                 "key": key,
-                "value": value,
+                "value": encodedStr,
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case let .getRaw(key):
@@ -58,10 +63,13 @@ extension CommonRestAPI: TargetType {
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case let .setRaw(key, value):
             let boardEntity: BoardEntity.BoardResponseDataEntity = BoardEntity.BoardResponseDataEntity(boardModel: value)
+//            print(boardEntity)
             guard let encoded = try? JSONEncoder().encode(boardEntity) else {
+//                print("JSON Encoding Error")
                 return .requestParameters(parameters: [:], encoding: JSONEncoding.default)
             }
             let encodedStr = String(decoding: encoded, as: UTF8.self)
+//            print(encodedStr)
             let params: [String: Any] = [
                 "key": key,
                 "value": encodedStr,
