@@ -32,7 +32,7 @@ class ChessBoardView: UIView {
     private let brilliantMint: UIColor = UIColor(red: 53/255, green: 192/255, blue: 201/255, alpha: 0.5)
     private let blunderRed: UIColor = UIColor(red: 192/255, green: 49/255, blue: 49/255, alpha: 0.5)
     
-    private let cellSize: CGFloat = UIScreen.main.bounds.width/8
+    private var cellSize: CGFloat = 0.0
     
     private let imgCheck: UIImage = UIImage(named: "check.png")!
     
@@ -52,12 +52,14 @@ class ChessBoardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        caculateCellSize()
         setNeedsDisplay()
         delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        caculateCellSize()
         setNeedsDisplay()
         delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
     }
@@ -466,6 +468,10 @@ class ChessBoardView: UIView {
         moveAnimation(move: move)
         engine.applyMove(move: move, promotionPiece: promotionPiece)
         delegate?.chessBoardDidUpdate(simpleFen: engine.getSimpleFEN())
+    }
+    
+    func caculateCellSize() {
+        cellSize = self.frame.width/8
     }
 }
 

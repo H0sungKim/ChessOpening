@@ -60,6 +60,7 @@
 		96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3812C4CF65400470BE7 /* move.mp3 */; };
 		96FAD3852C4CF72000470BE7 /* license.txt in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3842C4CF71F00470BE7 /* license.txt */; };
 		96FAD3872C4D394A00470BE7 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3862C4D394A00470BE7 /* check.png */; };
+		96FAD3892C4E464300470BE7 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3882C4E464300470BE7 /* CustomTabBarItem.swift */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		96FAD3812C4CF65400470BE7 /* move.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = move.mp3; sourceTree = "<group>"; };
 		96FAD3842C4CF71F00470BE7 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		96FAD3862C4D394A00470BE7 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		96FAD3882C4E464300470BE7 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				96FAD3842C4CF71F00470BE7 /* license.txt */,
+				96FAD3882C4E464300470BE7 /* CustomTabBarItem.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
 				96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */,
+				96FAD3892C4E464300470BE7 /* CustomTabBarItem.swift in Sources */,
 				96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */,
 				96073D932C32A0FD00DDF159 /* UIViewController+Ext.swift in Sources */,
 				96BDF90A2C096B310032523E /* Piece.swift in Sources */,
@@ -876,7 +880,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopening;
+				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -905,7 +909,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopening;
+				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

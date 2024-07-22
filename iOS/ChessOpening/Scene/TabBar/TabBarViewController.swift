@@ -18,6 +18,9 @@ class TabBarViewController: UITabBarController {
         
         infoViewController = tabInfoViewController as? InfoViewController
         historyViewController = tabHistoryViewController as? HistoryViewController
+        
+        tabBar.clipsToBounds = true
+        tabBar.tintColor = .label
     }
     
 }

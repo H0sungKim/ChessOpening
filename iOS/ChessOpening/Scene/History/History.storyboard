@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tje-I5-eRS">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WIQ-Aa-eUK">
                                     <size key="itemSize" width="128" height="128"/>
@@ -27,17 +27,29 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSt-PB-g8M">
+                                <rect key="frame" x="0.0" y="768" width="393" height="1"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="pcQ-V3-BWK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZSt-PB-g8M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2ZP-z3-ag4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZSt-PB-g8M" secondAttribute="trailing" id="4Le-yq-jym"/>
                             <constraint firstItem="Tje-I5-eRS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EWA-YJ-LFx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Tje-I5-eRS" secondAttribute="bottom" id="McZ-jP-1YG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZSt-PB-g8M" secondAttribute="bottom" id="GeL-Vh-1oV"/>
                             <constraint firstItem="Tje-I5-eRS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Qtf-1g-LZn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Tje-I5-eRS" secondAttribute="trailing" id="SUW-Ls-qCV"/>
+                            <constraint firstItem="ZSt-PB-g8M" firstAttribute="top" secondItem="Tje-I5-eRS" secondAttribute="bottom" id="ha3-MQ-LjR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="clock" catalog="system" selectedImage="clock.fill" id="EWd-so-cdm"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" selectedImage="history.fill" id="EWd-so-cdm">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Tje-I5-eRS" id="yJI-jW-tiw"/>
@@ -49,10 +61,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clock" catalog="system" width="128" height="123"/>
-        <image name="clock.fill" catalog="system" width="128" height="123"/>
+        <image name="history" width="24" height="24"/>
+        <image name="history.fill" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

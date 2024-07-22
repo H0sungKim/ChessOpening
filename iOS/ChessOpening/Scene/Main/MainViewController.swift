@@ -518,9 +518,8 @@
 
 // TODO: audio
 // TODO: FEN read
-// TODO: InfoEditTable Drag Drop
 // TODO: Remote Config
-// TODO: 윈도우 DB관리툴
+// TODO: TextField Adjustable
 
 import UIKit
 import RxSwift
@@ -553,12 +552,24 @@ class MainViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        chessBoardView.caculateCellSize()
+        
         tabBarViewController?.infoViewController?.sheetHeight = containerView.bounds.height
         tabBarViewController?.infoViewController?.delegate = self
         tabBarViewController?.historyViewController?.delegate = self
         
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.chessBoardView.caculateCellSize()
+        })
+    }
+    
 }
 
 extension MainViewController: ChessBoardViewDelegate {

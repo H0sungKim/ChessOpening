@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aL-KJ-T5G">
+                                <rect key="frame" x="0.0" y="768" width="393" height="1"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="q6Q-Q6-YIv"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afK-QG-3Ug" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="59" width="393" height="65"/>
                                 <subviews>
@@ -75,23 +83,29 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-kL-yaN">
-                                <rect key="frame" x="0.0" y="124" width="393" height="645"/>
+                                <rect key="frame" x="0.0" y="124" width="393" height="644"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kXJ-1i-YSS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kXJ-1i-YSS" firstAttribute="bottom" secondItem="9gN-kL-yaN" secondAttribute="bottom" id="1we-FI-GDP"/>
                             <constraint firstItem="9gN-kL-yaN" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="bottom" id="6U8-yl-vrx"/>
+                            <constraint firstItem="kXJ-1i-YSS" firstAttribute="trailing" secondItem="9aL-KJ-T5G" secondAttribute="trailing" id="H7q-qJ-i0z"/>
                             <constraint firstItem="kXJ-1i-YSS" firstAttribute="trailing" secondItem="afK-QG-3Ug" secondAttribute="trailing" id="PRI-C3-j3e"/>
                             <constraint firstItem="afK-QG-3Ug" firstAttribute="top" secondItem="kXJ-1i-YSS" secondAttribute="top" id="UMI-4q-kPM"/>
                             <constraint firstItem="kXJ-1i-YSS" firstAttribute="trailing" secondItem="9gN-kL-yaN" secondAttribute="trailing" id="Xfz-0k-ea0"/>
+                            <constraint firstItem="9aL-KJ-T5G" firstAttribute="top" secondItem="9gN-kL-yaN" secondAttribute="bottom" id="cIo-XW-dhb"/>
                             <constraint firstItem="afK-QG-3Ug" firstAttribute="leading" secondItem="kXJ-1i-YSS" secondAttribute="leading" id="dwe-vs-tEH"/>
                             <constraint firstItem="9gN-kL-yaN" firstAttribute="leading" secondItem="kXJ-1i-YSS" secondAttribute="leading" id="gWr-ae-zV8"/>
+                            <constraint firstItem="kXJ-1i-YSS" firstAttribute="bottom" secondItem="9aL-KJ-T5G" secondAttribute="bottom" id="wwA-v9-zr7"/>
+                            <constraint firstItem="9aL-KJ-T5G" firstAttribute="leading" secondItem="kXJ-1i-YSS" secondAttribute="leading" id="zcj-aj-ey5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Opening Book" image="book" catalog="system" selectedImage="book.fill" id="Y5D-gE-Pzq"/>
+                    <tabBarItem key="tabBarItem" title="Opening Book" image="menubook" id="Y5D-gE-Pzq">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                        <imageReference key="selectedImage" image="menubook.fill" symbolScale="medium"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lbTitle" destination="BLx-nm-AM9" id="kHc-s3-J83"/>
@@ -104,16 +118,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book" catalog="system" width="128" height="99"/>
-        <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="menubook" width="24" height="24"/>
+        <image name="menubook.fill" width="24" height="24"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
