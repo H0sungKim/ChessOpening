@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History-->
+        <!--History View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="HistoryViewController" id="Y6W-OH-hqX" customClass="HistoryViewController" customModule="ChessOpening" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <constraint firstItem="ZSt-PB-g8M" firstAttribute="top" secondItem="Tje-I5-eRS" secondAttribute="bottom" id="ha3-MQ-LjR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="history" selectedImage="history.fill" id="EWd-so-cdm">
+                    <tabBarItem key="tabBarItem" title="" image="history" selectedImage="history.fill" id="EWd-so-cdm">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

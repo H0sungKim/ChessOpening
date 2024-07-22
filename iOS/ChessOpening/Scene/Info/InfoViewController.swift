@@ -17,14 +17,14 @@ class InfoViewController: UIViewController {
     private var infoEditViewController: UIViewController?
     
     @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var tbvMoves: UITableView!
+    @IBOutlet weak var tbvInfo: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tbvMoves.delegate = self
-        tbvMoves.dataSource = self
-        tbvMoves.register(UINib(nibName: String(describing: MoveTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveTableViewCell.self))
-        tbvMoves.register(UINib(nibName: String(describing: InfoHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: InfoHeaderTableViewCell.self))
+        tbvInfo.delegate = self
+        tbvInfo.dataSource = self
+        tbvInfo.register(UINib(nibName: String(describing: MoveTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveTableViewCell.self))
+        tbvInfo.register(UINib(nibName: String(describing: InfoHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: InfoHeaderTableViewCell.self))
         initializeView()
     }
     
@@ -66,7 +66,7 @@ class InfoViewController: UIViewController {
     
     func initializeView() {
         lbTitle.text = boardModel.title
-        tbvMoves.reloadData()
+        tbvInfo.reloadData()
     }
 }
 

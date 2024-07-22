@@ -17,22 +17,40 @@ class InfoEditViewController: UIViewController {
     var turn: String = ""
     var key: String = ""
     
-    @IBOutlet weak var tbvMoves: UITableView!
+    @IBOutlet weak var tbvInfoEdit: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
         
-        tbvMoves.delegate = self
-        tbvMoves.dataSource = self
-        tbvMoves.dragDelegate = self
-        tbvMoves.dropDelegate = self
-        tbvMoves.register(UINib(nibName: String(describing: MoveEditTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditTableViewCell.self))
-        tbvMoves.register(UINib(nibName: String(describing: MoveEditHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditHeaderTableViewCell.self))
-        tbvMoves.dragInteractionEnabled = true
+        tbvInfoEdit.delegate = self
+        tbvInfoEdit.dataSource = self
+        tbvInfoEdit.dragDelegate = self
+        tbvInfoEdit.dropDelegate = self
+        tbvInfoEdit.register(UINib(nibName: String(describing: MoveEditTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditTableViewCell.self))
+        tbvInfoEdit.register(UINib(nibName: String(describing: MoveEditHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditHeaderTableViewCell.self))
+        tbvInfoEdit.dragInteractionEnabled = true
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification: )), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification: )), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo, let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        tbvInfoEdit.contentInset.bottom = keyboardFrame.height
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        tbvInfoEdit.contentInset.bottom = 0
+    }
+    
     @IBAction func onClickBack(_ sender: Any) {
         let alertDismiss: UIAlertController = UIAlertController(title: "창을 닫으시겠습니까?", message: "작성 중이던 내용은 저장되지 않습니다.", preferredStyle: .alert)
         let actionCancel: UIAlertAction = UIAlertAction(title: "아니오", style: .default, handler: nil)
@@ -121,23 +139,23 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             }
             cell.onClickMainBookMenu = { [weak self] _ in
                 self?.moveModelsForEdit[indexPath.row-1].type = .mainbook
-                self?.tbvMoves.reloadData()
+                self?.tbvInfoEdit.reloadData()
             }
             cell.onClickSideBookMenu = { [weak self] _ in
                 self?.moveModelsForEdit[indexPath.row-1].type = .sidebook
-                self?.tbvMoves.reloadData()
+                self?.tbvInfoEdit.reloadData()
             }
             cell.onClickGambitMenu = { [weak self] _ in
                 self?.moveModelsForEdit[indexPath.row-1].type = .gambit
-                self?.tbvMoves.reloadData()
+                self?.tbvInfoEdit.reloadData()
             }
             cell.onClickBrilliantMenu = { [weak self] _ in
                 self?.moveModelsForEdit[indexPath.row-1].type = .brilliant
-                self?.tbvMoves.reloadData()
+                self?.tbvInfoEdit.reloadData()
             }
             cell.onClickBlunderMenu = { [weak self] _ in
                 self?.moveModelsForEdit[indexPath.row-1].type = .blunder
-                self?.tbvMoves.reloadData()
+                self?.tbvInfoEdit.reloadData()
             }
             cell.initializeCell(moveModelForEdit: moveModelsForEdit[indexPath.row-1], turn: turn)
             return cell

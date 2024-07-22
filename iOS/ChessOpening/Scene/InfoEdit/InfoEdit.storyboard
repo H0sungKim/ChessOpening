@@ -65,7 +65,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tbvMoves" destination="PlT-bt-KLQ" id="U3B-Td-i57"/>
+                        <outlet property="tbvInfoEdit" destination="PlT-bt-KLQ" id="U3B-Td-i57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

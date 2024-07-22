@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Opening Book-->
+        <!--Info View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="InfoViewController" id="Y6W-OH-hqX" customClass="InfoViewController" customModule="ChessOpening" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,14 +102,14 @@
                             <constraint firstItem="9aL-KJ-T5G" firstAttribute="leading" secondItem="kXJ-1i-YSS" secondAttribute="leading" id="zcj-aj-ey5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Opening Book" image="menubook" id="Y5D-gE-Pzq">
+                    <tabBarItem key="tabBarItem" title="" image="menubook" id="Y5D-gE-Pzq">
                         <color key="badgeColor" systemColor="labelColor"/>
                         <imageReference key="selectedImage" image="menubook.fill" symbolScale="medium"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lbTitle" destination="BLx-nm-AM9" id="kHc-s3-J83"/>
-                        <outlet property="tbvMoves" destination="9gN-kL-yaN" id="Nkr-nK-Qzt"/>
+                        <outlet property="tbvInfo" destination="9gN-kL-yaN" id="Nkr-nK-Qzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
