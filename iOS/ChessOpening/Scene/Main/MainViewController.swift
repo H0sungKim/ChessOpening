@@ -520,6 +520,7 @@
 // TODO: FEN read
 // TODO: Remote Config
 // TODO: TextField Adjustable
+// TODO: Keyboard hide textfield
 
 import UIKit
 import RxSwift

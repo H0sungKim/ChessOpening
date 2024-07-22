@@ -96,8 +96,8 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             cell.titleValueChanged = { [weak self] newTitle in
                 self?.boardModel.title = newTitle
             }
-            cell.infoValueChanged = { [weak self] newInfo in
-                self?.boardModel.info = newInfo
+            cell.infoValueChanged = { [weak self] in
+                self?.boardModel.info = cell.tvInfo.text
             }
             cell.initializeCell(boardModel: boardModel)
             return cell
@@ -113,8 +113,8 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             cell.titleValueChanged = { [weak self] newTitle in
                 self?.moveModelsForEdit[indexPath.row-1].title = newTitle
             }
-            cell.infoValueChanged = { [weak self] newInfo in
-                self?.moveModelsForEdit[indexPath.row-1].info = newInfo
+            cell.infoValueChanged = { [weak self] in
+                self?.moveModelsForEdit[indexPath.row-1].info = cell.tvInfo.text
             }
             cell.onClickSwitch = { [weak self] sender in
                 self?.moveModelsForEdit[indexPath.row-1].valid = sender.isOn
@@ -144,11 +144,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 200
-        }
-        return 120
-//        return UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return indexPath.row != 0
@@ -195,18 +191,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
         var dropProposal = UITableViewDropProposal(operation: .cancel)
         
-        // Accept only one drag item.
         guard session.items.count == 1 else { return dropProposal }
-        
-        // The .move drag operation is available only for dragging within this app and while in edit mode.
-//        if tableView.hasActiveDrag {
-//            if tableView.isEditing {
-//                dropProposal = UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-//            }
-//        } else {
-//            // Drag is coming from outside the app.
-//            dropProposal = UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
-//        }
         
         if let destinationIndexPath = destinationIndexPath, destinationIndexPath.row != 0 {
             dropProposal = UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)

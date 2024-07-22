@@ -13,7 +13,7 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var tvInfo: UITextView!
     
     var titleValueChanged: ((_ newTitle: String) -> Void)?
-    var infoValueChanged: ((_ newInfo: String) -> Void)?
+    var infoValueChanged: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,12 +56,9 @@ extension MoveEditHeaderTableViewCell: UITextFieldDelegate {
 }
 
 extension MoveEditHeaderTableViewCell: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if let oldInfo = textView.text {
-            let newInfo = (oldInfo as NSString).replacingCharacters(in: range, with: text)
-            infoValueChanged?(newInfo)
-        }
-        return true
+    func textViewDidChange(_ textView: UITextView) {
+        infoValueChanged?()
+        invalidateIntrinsicContentSize()
     }
 }
 

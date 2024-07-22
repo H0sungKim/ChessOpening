@@ -9,39 +9,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoveEditHeaderTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveEditHeaderTableViewCell" rowHeight="207" id="bV0-un-fC0" customClass="MoveEditHeaderTableViewCell" customModule="ChessOpening" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="570" height="207"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MoveEditHeaderTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveEditHeaderTableViewCell" rowHeight="274" id="bV0-un-fC0" customClass="MoveEditHeaderTableViewCell" customModule="ChessOpening" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="804" height="274"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bV0-un-fC0" id="mwg-aC-phG">
-                <rect key="frame" x="0.0" y="0.0" width="570" height="207"/>
+                <rect key="frame" x="0.0" y="0.0" width="804" height="274"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUe-VS-C7g">
-                        <rect key="frame" x="0.0" y="0.0" width="570" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="804" height="274"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오프닝 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibt-ef-cVC">
-                                <rect key="frame" x="20.000000000000004" y="8" width="55.333333333333343" height="14.333333333333336"/>
+                                <rect key="frame" x="20.000000000000004" y="8" width="55.333333333333343" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="JNQ-8V-y2x"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오프닝 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-co-Aqj">
-                                <rect key="frame" x="20.000000000000004" y="80.666666666666671" width="55.333333333333343" height="14.333333333333329"/>
+                                <rect key="frame" x="20.000000000000004" y="76" width="55.333333333333343" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="ZCx-tS-C2T"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFi-HS-33R">
-                                <rect key="frame" x="16" y="26.333333333333332" width="538" height="38.333333333333343"/>
+                                <rect key="frame" x="16" y="28" width="772" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="D8Z-lr-IAb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-yZ-SjF">
-                                <rect key="frame" x="16" y="99" width="538" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="538" placeholderIntrinsicHeight="100" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-yZ-SjF">
+                                <rect key="frame" x="16" y="96" width="772" height="170"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="EP0-Zw-lAq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="EP0-Zw-lAq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -74,7 +83,7 @@
                 <outlet property="tfTitle" destination="VFi-HS-33R" id="MTx-dB-end"/>
                 <outlet property="tvInfo" destination="IxH-yZ-SjF" id="ZFp-bk-dO5"/>
             </connections>
-            <point key="canvasLocation" x="323.66412213740455" y="75"/>
+            <point key="canvasLocation" x="502.29007633587787" y="98.591549295774655"/>
         </tableViewCell>
     </objects>
     <resources>
