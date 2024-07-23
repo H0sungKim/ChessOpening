@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelegate {
@@ -40,9 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelega
                 try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch let error as NSError {
-                print("Error : \(error), \(error.userInfo)")
+                NSLog("Error : \(error), \(error.userInfo)")
             }
         }
+        FirebaseApp.configure()
         return true
     }
     

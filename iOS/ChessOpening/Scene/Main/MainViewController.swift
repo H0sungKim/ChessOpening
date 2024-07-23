@@ -516,9 +516,7 @@
 //                 the game, provided both players have made at least one move.
 //                 This immediately ends the game.
 
-// TODO: audio
 // TODO: FEN read
-// TODO: Remote Config
 
 import UIKit
 import RxSwift

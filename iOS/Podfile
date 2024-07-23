@@ -7,7 +7,9 @@ target 'ChessOpening' do
 
 
   pod 'Moya/RxSwift'
-  
+  pod 'Firebase'
+  pod 'FirebaseCrashlytics'
+  pod 'FirebaseRemoteConfig'
 
   # Pods for ChessOpening
   # Add the Firebase pod for Google Analytics

@@ -61,6 +61,7 @@
 		96FAD3852C4CF72000470BE7 /* license.txt in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3842C4CF71F00470BE7 /* license.txt */; };
 		96FAD3872C4D394A00470BE7 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3862C4D394A00470BE7 /* check.png */; };
 		96FAD3892C4E464300470BE7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3882C4E464300470BE7 /* AudioManager.swift */; };
+		96FAD38D2C4FBBBF00470BE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */; };
 		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		96FAD3842C4CF71F00470BE7 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		96FAD3862C4D394A00470BE7 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		96FAD3882C4E464300470BE7 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
 		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				96FAD37D2C4BFE5300470BE7 /* res */,
 				9696047E2BFF0A6D00BBFC6C /* AppDelegate.swift */,
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
+				96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */,
 				96FAD3842C4CF71F00470BE7 /* license.txt */,
 				96FAD3882C4E464300470BE7 /* AudioManager.swift */,
 			);
@@ -520,6 +523,7 @@
 				96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */,
 				96FAD3872C4D394A00470BE7 /* check.png in Resources */,
 				96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */,
+				96FAD38D2C4FBBBF00470BE7 /* GoogleService-Info.plist in Resources */,
 				96FAD3832C4CF65400470BE7 /* move.mp3 in Resources */,
 				969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */,
 				96FAD3712C4BF14F00470BE7 /* icon.png in Resources */,

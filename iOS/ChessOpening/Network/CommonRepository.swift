@@ -34,9 +34,9 @@ class CommonRepository {
         return request(CommonRestAPI.getFiltered(key: key))
             .map(BoardEntity.self)
             .map { boardEntity -> BoardModel in
-//                print(boardEntity)
-//                print(boardEntity.convertResponseData())
-//                print(BoardModel(boardEntity: boardEntity.convertResponseData()))
+//                NSLog(boardEntity)
+//                NSLog(boardEntity.convertResponseData())
+//                NSLog(BoardModel(boardEntity: boardEntity.convertResponseData()))
                 return BoardModel(boardEntity: boardEntity.convertResponseData())
             }
             .observe(on: MainScheduler.instance)

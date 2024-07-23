@@ -18,7 +18,8 @@ enum CommonRestAPI {
 
 extension CommonRestAPI: TargetType {
     var baseURL: URL {
-        return URL(string: Configuration.shared.baseUrl)!
+        let baseURL: String = Configuration.shared.getBaseURL() ?? Configuration.shared.baseURL
+        return URL(string: baseURL)!
     }
     
     var path: String {
@@ -63,13 +64,13 @@ extension CommonRestAPI: TargetType {
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case let .setRaw(key, value):
             let boardEntity: BoardEntity.BoardResponseDataEntity = BoardEntity.BoardResponseDataEntity(boardModel: value)
-//            print(boardEntity)
+//            NSLog(boardEntity)
             guard let encoded = try? JSONEncoder().encode(boardEntity) else {
-//                print("JSON Encoding Error")
+//                NSLog("JSON Encoding Error")
                 return .requestParameters(parameters: [:], encoding: JSONEncoding.default)
             }
             let encodedStr = String(decoding: encoded, as: UTF8.self)
-//            print(encodedStr)
+//            NSLog(encodedStr)
             let params: [String: Any] = [
                 "key": key,
                 "value": encodedStr,
