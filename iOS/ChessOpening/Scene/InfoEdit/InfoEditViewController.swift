@@ -31,7 +31,9 @@ class InfoEditViewController: UIViewController {
         tbvInfoEdit.register(UINib(nibName: String(describing: MoveEditTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditTableViewCell.self))
         tbvInfoEdit.register(UINib(nibName: String(describing: MoveEditHeaderTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoveEditHeaderTableViewCell.self))
         tbvInfoEdit.dragInteractionEnabled = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification: )), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification: )), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -44,7 +46,6 @@ class InfoEditViewController: UIViewController {
         guard let userInfo = notification.userInfo, let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
             return
         }
-        
         tbvInfoEdit.contentInset.bottom = keyboardFrame.height
     }
     @objc func keyboardWillHide(notification: NSNotification) {

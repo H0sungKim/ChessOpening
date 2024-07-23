@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2. c4 Queen's Gambit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oek-11-nx8">
-                        <rect key="frame" x="82" y="4" width="483" height="16"/>
+                        <rect key="frame" x="82" y="8" width="483" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="jDB-gU-wU4"/>
                         </constraints>
@@ -32,8 +32,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="483" placeholderIntrinsicHeight="64" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trv-nb-Ewk">
-                        <rect key="frame" x="82" y="24" width="483" height="94"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="82" y="28" width="483" height="90"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -49,7 +49,7 @@
                     <constraint firstAttribute="bottom" secondItem="67N-8E-ia7" secondAttribute="bottom" priority="750" constant="16" id="av1-HJ-1xD"/>
                     <constraint firstItem="67N-8E-ia7" firstAttribute="centerY" secondItem="90d-S9-97v" secondAttribute="centerY" id="oEM-iR-uQI"/>
                     <constraint firstAttribute="trailing" secondItem="trv-nb-Ewk" secondAttribute="trailing" constant="16" id="to1-5o-VDk"/>
-                    <constraint firstItem="oek-11-nx8" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="4" id="vhs-hL-qK1"/>
+                    <constraint firstItem="oek-11-nx8" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="8" id="vhs-hL-qK1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

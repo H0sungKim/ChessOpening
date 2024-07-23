@@ -519,7 +519,6 @@
 // TODO: audio
 // TODO: FEN read
 // TODO: Remote Config
-// TODO: Keyboard hide textfield
 
 import UIKit
 import RxSwift
@@ -579,6 +578,14 @@ extension MainViewController: ChessBoardViewDelegate {
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
+        
+        if chessBoardView.engine.turn > 0 {
+            if chessBoardView.engine.pgn[chessBoardView.engine.turn-1].contains("x") {
+               AudioManager.shared.playCapture()
+           } else {
+               AudioManager.shared.playMove()
+           }
+        }
         
         if chessBoardView.engine.legalMoves.count == 0 {
             var boardModel = BoardModel()
