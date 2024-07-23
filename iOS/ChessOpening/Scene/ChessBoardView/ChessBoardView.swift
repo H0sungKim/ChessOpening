@@ -15,7 +15,7 @@ class ChessBoardView: UIView {
     weak var delegate: ChessBoardViewDelegate?
     
     var moves: [BoardModel.MoveModel] = []
-    var animationDrawFlag: Bool = false
+    private var activeAnimations: Set<UUID> = []
     
     private var selectedCell: (rank: Int, file: Int)? // select flag
     private var draggedPiece: (CGFloat, CGFloat)? // drag flag
@@ -65,15 +65,26 @@ class ChessBoardView: UIView {
     }
     
     private func startAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
-        animationDrawFlag = true
-        let hideLayer: CALayer = CALayer()
-        hideLayer.frame = .init(x: CGFloat(move.from.file)*cellSize, y: CGFloat(move.from.rank)*cellSize, width: cellSize, height: cellSize)
+        let animationID = UUID()
+        activeAnimations.insert(animationID)
+        setNeedsDisplay()
+        let fromHideLayer: CALayer = CALayer()
+        fromHideLayer.frame = .init(x: CGFloat(move.from.file)*cellSize, y: CGFloat(move.from.rank)*cellSize, width: cellSize, height: cellSize)
         if (move.from.rank + move.from.file) % 2 == 0 {
-            hideLayer.backgroundColor = lightBrown.cgColor
+            fromHideLayer.backgroundColor = lightBrown.cgColor
         } else {
-            hideLayer.backgroundColor = darkBrown.cgColor
+            fromHideLayer.backgroundColor = darkBrown.cgColor
         }
-        layer.insertSublayer(hideLayer, at: 0)
+        layer.insertSublayer(fromHideLayer, at: 0)
+        
+        let toHideLayer: CALayer = CALayer()
+        toHideLayer.frame = .init(x: CGFloat(move.to.file)*cellSize, y: CGFloat(move.to.rank)*cellSize, width: cellSize, height: cellSize)
+        if (move.to.rank + move.to.file) % 2 == 0 {
+            toHideLayer.backgroundColor = lightBrown.cgColor
+        } else {
+            toHideLayer.backgroundColor = darkBrown.cgColor
+        }
+        layer.insertSublayer(toHideLayer, at: 0)
         
         let shapeLayer = CAShapeLayer()
         
@@ -96,9 +107,10 @@ class ChessBoardView: UIView {
         CATransaction.begin()
         CATransaction.setCompletionBlock { [weak self] in
             shapeLayer.removeFromSuperlayer()
-            hideLayer.removeFromSuperlayer()
+            fromHideLayer.removeFromSuperlayer()
+            toHideLayer.removeFromSuperlayer()
+            self?.activeAnimations.remove(animationID)
             self?.setNeedsDisplay()
-            self?.animationDrawFlag = false
         }
         
         shapeLayer.add(animation, forKey: "position")
@@ -285,6 +297,9 @@ class ChessBoardView: UIView {
     }
     
     private func drawAllArrows() {
+        if !activeAnimations.isEmpty {
+            return
+        }
         for move in moves {
             guard let coordinate = engine.convertPGNtoCoordinate(pgn: move.pgn)?.move else {
                 continue

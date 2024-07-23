@@ -603,9 +603,7 @@ extension MainViewController: ChessBoardViewDelegate {
                 }
                 
                 self.chessBoardView.moves = boardModel.moves
-                if !self.chessBoardView.animationDrawFlag {
-                    self.chessBoardView.setNeedsDisplay()
-                }
+                self.chessBoardView.setNeedsDisplay()
                 
                 self.tabBarViewController?.infoViewController?.boardModel = boardModel
                 self.tabBarViewController?.infoViewController?.initializeView()
