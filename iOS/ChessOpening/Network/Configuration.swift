@@ -14,7 +14,27 @@ class Configuration {
     var baseURL: String = "http://218.148.101.148:8081"
     
     private init() {
+        let remoteConfig = RemoteConfig.remoteConfig()
         
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 12
+        remoteConfig.configSettings = settings
+        
+        remoteConfig.setDefaults([
+            "base_url": "http://218.148.101.148:8081" as NSObject
+        ])
+        
+        remoteConfig.fetch { [weak self] status, error in
+            if status == .success {
+                remoteConfig.activate { [weak self] _, _ in
+                    self?.baseURL = remoteConfig["base_url"].stringValue ?? "http://218.148.101.148:8081"
+                }
+            } else {
+                if let error = error {
+                    NSLog("Error fetching remote config: \(error)")
+                }
+            }
+        }
     }
     
     func getBaseURL() -> String? {

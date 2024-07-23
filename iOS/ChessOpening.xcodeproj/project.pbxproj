@@ -320,6 +320,7 @@
 		9696047D2BFF0A6D00BBFC6C /* ChessOpening */ = {
 			isa = PBXGroup;
 			children = (
+				96FAD38E2C4FCA9A00470BE7 /* Singleton */,
 				96FAD37F2C4BFE9300470BE7 /* Extension */,
 				96524D702C40DCCC00DD8A1D /* Network */,
 				96073D912C325E6100DDF159 /* Scene */,
@@ -329,7 +330,6 @@
 				9696048C2BFF0A6E00BBFC6C /* Info.plist */,
 				96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */,
 				96FAD3842C4CF71F00470BE7 /* license.txt */,
-				96FAD3882C4E464300470BE7 /* AudioManager.swift */,
 			);
 			path = ChessOpening;
 			sourceTree = "<group>";
@@ -388,6 +388,14 @@
 				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		96FAD38E2C4FCA9A00470BE7 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				96FAD3882C4E464300470BE7 /* AudioManager.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		EF73DA65CC95B09E091A42C5 /* Pods */ = {

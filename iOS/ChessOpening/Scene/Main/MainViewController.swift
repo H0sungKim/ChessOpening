@@ -516,8 +516,6 @@
 //                 the game, provided both players have made at least one move.
 //                 This immediately ends the game.
 
-// TODO: FEN read
-
 import UIKit
 import RxSwift
 
@@ -545,6 +543,7 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
+        let _ = AudioManager.shared
     }
     
     override func viewDidLayoutSubviews() {

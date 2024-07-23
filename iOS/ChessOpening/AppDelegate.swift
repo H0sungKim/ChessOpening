@@ -35,14 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelega
             navigationController?.interactivePopGestureRecognizer?.delegate = self
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
-            
-            // Without this block, the music will stop when you play TTS.
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch let error as NSError {
-                NSLog("Error : \(error), \(error.userInfo)")
-            }
+        }
+        // Without this block, the music will stop when you play TTS.
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            NSLog("AppDelegate Error : \(error), \(error.userInfo)")
         }
         FirebaseApp.configure()
         return true

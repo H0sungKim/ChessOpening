@@ -292,11 +292,13 @@ class Engine {
         if !(castling.white.kingSide || castling.white.queenSide || castling.black.kingSide || castling.black.queenSide) {
             fen.append("-")
         }
+        fen.append(" ")
         if let enpassant = enpassant {
             fen.append("\(Util.shared.convertFileIntToString(file: enpassant))\(6-turn%2*3)")
         } else {
-            fen.append(" - ")
+            fen.append("-")
         }
+        fen.append(" ")
         fen.append("\(moveCount50) \(turn/2+1)")
         
         return fen
@@ -317,9 +319,40 @@ class Engine {
         return parts.joined(separator: " ")
     }
     func applyFEN(fen: String) {
-        // rnbqkbnr/ppp1p1pp/8/3pPp2/8/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 3
-        let fenArray = fen.split(separator: " ")
-        let fenBoard = fenArray[0].split(separator: "/")
+//        rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+//        (
+//            "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+//            "rnbqkbnr",
+//            "pppppppp",
+//            "8",
+//            "8",
+//            "4P3",
+//            "8",
+//            "PPPP1PPP",
+//            "RNBQKBNR",
+//            "b",
+//            "KQkq",
+//            "-",
+//            "0",
+//            "1"
+//        )
+        
+        let pgnRegex = /^([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8}) (w|b) (K?Q?k?q?|-) ([a-h][1-8]|-) (\d+) (\d+)$/
+        
+        guard let match = fen.wholeMatch(of: pgnRegex) else {
+            return
+        }
+        
+        let fenBoard = [
+            match.output.1,
+            match.output.2,
+            match.output.3,
+            match.output.4,
+            match.output.5,
+            match.output.6,
+            match.output.7,
+            match.output.8,
+        ]
         for r in 0..<8 {
             var rank: [Piece] = []
             for f in fenBoard[r] {
@@ -333,21 +366,23 @@ class Engine {
             }
             board[r] = rank
         }
-        if fenArray[2].contains("K") {
+        
+        if match.output.10.contains("K") {
             castling.white.kingSide = true
         }
-        if fenArray[2].contains("Q") {
+        if match.output.10.contains("Q") {
             castling.white.queenSide = true
         }
-        if fenArray[2].contains("k") {
+        if match.output.10.contains("k") {
             castling.black.kingSide = true
         }
-        if fenArray[2].contains("q") {
+        if match.output.10.contains("q") {
             castling.black.queenSide = true
         }
-        enpassant = Util.shared.convertFileStringToInt(file: String(fenArray[3].prefix(1)))
-        moveCount50 = Int(fenArray[4])!
-        turn = (fenArray[1] == "w" ? Int(fenArray[5])!*2-2 : Int(fenArray[5])!*2-1)
+        
+        enpassant = Util.shared.convertFileStringToInt(file: String(match.output.11.prefix(1)))
+        moveCount50 = Int(match.output.12)!
+        turn = (String(match.output.9) == "w" ? Int(match.output.13)!*2-2 : Int(match.output.13)!*2-1)
         
         legalMoves = getLegalMoves()
     }

@@ -18,8 +18,7 @@ enum CommonRestAPI {
 
 extension CommonRestAPI: TargetType {
     var baseURL: URL {
-        let baseURL: String = Configuration.shared.getBaseURL() ?? Configuration.shared.baseURL
-        return URL(string: baseURL)!
+        return URL(string: Configuration.shared.baseURL)!
     }
     
     var path: String {

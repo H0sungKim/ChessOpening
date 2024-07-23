@@ -21,28 +21,25 @@ class AudioManager: NSObject {
     private override init() {
         urlMove = Bundle.main.url(forResource: "move", withExtension: "mp3")!
         urlCapture = Bundle.main.url(forResource: "capture", withExtension: "mp3")!
+        // audio resource preload
+        let movePlayer = try! AVAudioPlayer(contentsOf: urlMove)
+        movePlayer.prepareToPlay()
+        let capturePlayer = try! AVAudioPlayer(contentsOf: urlCapture)
+        capturePlayer.prepareToPlay()
         super.init()
     }
     
     func playMove() {
-        do {
-            let movePlayer = try AVAudioPlayer(contentsOf: urlMove)
-            movePlayer.prepareToPlay()
-            movePlayers.append(movePlayer)
-            movePlayer.play()
-        } catch let error {
-            NSLog("\(error)")
-        }
+        let movePlayer = try! AVAudioPlayer(contentsOf: urlMove)
+        movePlayer.prepareToPlay()
+        movePlayers.append(movePlayer)
+        movePlayer.play()
     }
     func playCapture() {
-        do {
-            let capturePlayer = try AVAudioPlayer(contentsOf: urlCapture)
-            capturePlayer.prepareToPlay()
-            capturePlayers.append(capturePlayer)
-            capturePlayer.play()
-        } catch let error {
-            NSLog("\(error)")
-        }
+        let capturePlayer = try! AVAudioPlayer(contentsOf: urlCapture)
+        capturePlayer.prepareToPlay()
+        capturePlayers.append(capturePlayer)
+        capturePlayer.play()
     }
 }
 
