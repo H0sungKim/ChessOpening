@@ -31,13 +31,18 @@ class MoveEditTableViewCell: UITableViewCell {
         
         tfTitle.delegate = self
         tfTitle.textDropDelegate = self
+        
         tvInfo.delegate = self
         tvInfo.textDropDelegate = self
         tvInfo.isEditable = true
         
+        tfTitle.layer.borderColor = UIColor.separator.cgColor
+        tfTitle.layer.backgroundColor = UIColor.systemBackground.cgColor
+        
         tvInfo.layer.cornerRadius = 5
         tvInfo.layer.borderWidth = 0.5
         tvInfo.layer.borderColor = UIColor.separator.cgColor
+        tvInfo.layer.backgroundColor = UIColor.systemBackground.cgColor
         
         btnImage.showsMenuAsPrimaryAction = true
     }

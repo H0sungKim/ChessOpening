@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIGestureRecognizerDelega
             try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch let error as NSError {
-            NSLog("AppDelegate Error : \(error), \(error.userInfo)")
+            NSLog("Hosung.Kim : AppDelegate Error \(error), \(error.userInfo)")
         }
         FirebaseApp.configure()
         return true

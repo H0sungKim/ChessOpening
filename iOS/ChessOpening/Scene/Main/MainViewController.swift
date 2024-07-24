@@ -531,8 +531,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSLog("Build : 2024.07.20 22:36")
+//        fatalError()
+        NSLog("Hosung.Kim : Build 2024.07.20 22:36")
         
         chessBoardView.delegate = self
         self.hideKeyboardWhenTappedAround()
@@ -543,26 +543,29 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
-        let _ = AudioManager.shared
+//        let _ = AudioManager.shared
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         chessBoardView.caculateCellSize()
-        
         tabBarViewController?.infoViewController?.sheetHeight = containerView.bounds.height
         tabBarViewController?.infoViewController?.delegate = self
         tabBarViewController?.historyViewController?.delegate = self
-        
-        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate(alongsideTransition: { [weak self] _ in
-            self?.chessBoardView.caculateCellSize()
+            self?.chessBoardView?.caculateCellSize()
         })
     }
     

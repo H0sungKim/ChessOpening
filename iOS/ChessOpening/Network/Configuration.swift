@@ -31,7 +31,7 @@ class Configuration {
                 }
             } else {
                 if let error = error {
-                    NSLog("Error fetching remote config: \(error)")
+                    NSLog("Hosung.Kim : Error fetching remote config: \(error)")
                 }
             }
         }
@@ -56,7 +56,7 @@ class Configuration {
                 }
             } else {
                 if let error = error {
-                    NSLog("Error fetching remote config: \(error)")
+                    NSLog("Hosung.Kim : Error fetching remote config: \(error)")
                 }
             }
         }

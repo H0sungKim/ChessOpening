@@ -58,7 +58,7 @@ class InfoViewController: UIViewController {
                 return self.sheetHeight
             }]
             sheet.prefersGrabberVisible = false
-            sheet.preferredCornerRadius = 0
+//            sheet.preferredCornerRadius = 0
             sheet.delegate = self
         }
         present(infoEditViewController!, animated: true)
