@@ -172,6 +172,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
         if destinationIndexPath.row == 0 {
             return
         }
+        HapticManager.shared.generate()
         let movedObject = moveModelsForEdit[sourceIndexPath.row-1]
         moveModelsForEdit.remove(at: sourceIndexPath.row-1)
         moveModelsForEdit.insert(movedObject, at: destinationIndexPath.row-1)
@@ -183,6 +184,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
         if indexPath.row == 0 {
             return []
         }
+        HapticManager.shared.generate()
         let item = self.moveModelsForEdit[indexPath.row - 1]
         let itemProvider = NSItemProvider(object: item.title as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
