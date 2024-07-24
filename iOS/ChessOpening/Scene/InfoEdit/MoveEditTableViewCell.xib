@@ -25,20 +25,23 @@
                     </imageView>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-hl-DsP">
                         <rect key="frame" x="351" y="42" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="49" id="5wh-aQ-LAi"/>
+                        </constraints>
                         <connections>
                             <action selector="valueChangedSwitch:" destination="1cw-qK-Aeb" eventType="valueChanged" id="tJ1-NE-q3D"/>
                         </connections>
                     </switch>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="222-HY-78z">
+                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="222-HY-78z">
                         <rect key="frame" x="82" y="0.0" width="253" height="32"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-cx-i2V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-cx-i2V">
                                 <rect key="frame" x="0.0" y="7.6666666666666679" width="35.333333333333336" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxE-bO-ssj">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="jxE-bO-ssj">
                                 <rect key="frame" x="39.333333333333329" y="4" width="213.66666666666669" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -77,6 +80,7 @@
                     <constraint firstItem="RVh-93-O7A" firstAttribute="trailing" secondItem="aeB-dC-oYf" secondAttribute="trailing" id="7U4-fc-Fql"/>
                     <constraint firstItem="222-HY-78z" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="trailing" constant="16" id="89K-XF-yRC"/>
                     <constraint firstItem="RBO-hl-DsP" firstAttribute="leading" secondItem="222-HY-78z" secondAttribute="trailing" constant="16" id="9vt-r5-fGB"/>
+                    <constraint firstItem="ZTh-OK-FMS" firstAttribute="width" secondItem="222-HY-78z" secondAttribute="width" id="AcR-u4-LDc"/>
                     <constraint firstItem="ZTh-OK-FMS" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="trailing" constant="16" id="EQ4-BI-lFt"/>
                     <constraint firstItem="aeB-dC-oYf" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="leading" id="FOr-ZG-EPx"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="top" secondItem="DkB-nK-t39" secondAttribute="top" priority="750" constant="16" id="GfV-Uj-k2N"/>
