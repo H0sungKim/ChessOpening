@@ -393,6 +393,21 @@ class Engine {
     
     func convertPGNtoCoordinate(pgn: String) -> (move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotion: Piece.Type?)? {
 //        e4 Re4 Rxe4 Rhe4 0-0-0 e8=Q
+        if pgn == "0-0" {
+            if turn%2 == Color.white.rawValue {
+                return (move: (from: (rank: 7, file: 4), to: (rank: 7, file: 6)), promotion: nil)
+            } else {
+                return (move: (from: (rank: 0, file: 4), to: (rank: 0, file: 6)), promotion: nil)
+            }
+        }
+        if pgn == "0-0-0" {
+            if turn%2 == Color.white.rawValue {
+                return (move: (from: (rank: 7, file: 4), to: (rank: 7, file: 2)), promotion: nil)
+            } else {
+                return (move: (from: (rank: 0, file: 4), to: (rank: 0, file: 2)), promotion: nil)
+            }
+        }
+        
         let pgnRegex = /^([KQRBN])?([a-h])?(x)?([a-h])([1-8])(=)?([QRBN])?([+#])?$/
         
         guard let match = pgn.wholeMatch(of: pgnRegex) else {
