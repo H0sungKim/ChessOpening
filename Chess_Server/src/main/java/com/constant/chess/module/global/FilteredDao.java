@@ -32,9 +32,10 @@ public class FilteredDao {
     private String status;
     private LocalDateTime createdDate;
 
-    public FilteredDao(String key, String value) {
+    public FilteredDao(String key, String value, String memo) {
         this.key = key;
         this.value = value;
+        this.memo = memo;
         this.createdDate = LocalDateTime.now();
     }
 }

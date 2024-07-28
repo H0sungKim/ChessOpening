@@ -28,6 +28,7 @@ public class ChessController {
     public static class DataSetRequestDto {
         private String key;
         private String value;
+        private String memo;
     }
 
     @Data
@@ -53,9 +54,10 @@ public class ChessController {
         if (rawDao == null) {
             rawRepository.save(
                     new RawDao(
-                            dataSetRequestDto.key, dataSetRequestDto.value));
+                            dataSetRequestDto.key, dataSetRequestDto.value, dataSetRequestDto.memo));
         } else {
             rawDao.setValue(dataSetRequestDto.value);
+            rawDao.setMemo(dataSetRequestDto.memo);
             rawRepository.save(rawDao);
         }
         return ResponseUtil.getInstance().getResponseEntity(HttpStatus.OK);
@@ -83,9 +85,10 @@ public class ChessController {
         if (filteredDao == null) {
             filteredRepository.save(
                     new FilteredDao(
-                            dataSetRequestDto.key, dataSetRequestDto.value));
+                            dataSetRequestDto.key, dataSetRequestDto.value, dataSetRequestDto.memo));
         } else {
             filteredDao.setValue(dataSetRequestDto.value);
+            filteredDao.setMemo(dataSetRequestDto.memo);
             filteredRepository.save(filteredDao);
         }
         return ResponseUtil.getInstance().getResponseEntity(HttpStatus.OK);

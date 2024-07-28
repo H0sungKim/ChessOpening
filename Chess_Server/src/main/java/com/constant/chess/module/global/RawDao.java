@@ -30,9 +30,10 @@ public class RawDao {
     private String status;
     private LocalDateTime createdDate;
 
-    public RawDao(String key, String value) {
+    public RawDao(String key, String value, String memo) {
         this.key = key;
         this.value = value;
+        this.memo = memo;
         this.createdDate = LocalDateTime.now();
     }
 }
