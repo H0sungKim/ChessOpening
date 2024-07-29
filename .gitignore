@@ -4,6 +4,8 @@
 
 *.DS_Store
 GoogleService-Info.plist
+Pods/
+*.xcworkspace
 
 ## User settings
 xcuserdata/
