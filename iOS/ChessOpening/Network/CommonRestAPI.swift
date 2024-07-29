@@ -13,7 +13,7 @@ enum CommonRestAPI {
     case getFiltered(key: String)
     case setFiltered(key: String, value: BoardModel)
     case getRaw(key: String)
-    case setRaw(key: String, value: BoardModel)
+    case setRaw(key: String, memo: String, value: BoardModel)
 }
 
 extension CommonRestAPI: TargetType {
@@ -61,7 +61,7 @@ extension CommonRestAPI: TargetType {
                 "key": key,
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-        case let .setRaw(key, value):
+        case let .setRaw(key, memo, value):
             let boardEntity: BoardEntity.BoardResponseDataEntity = BoardEntity.BoardResponseDataEntity(boardModel: value)
 //            NSLog(boardEntity)
             guard let encoded = try? JSONEncoder().encode(boardEntity) else {
@@ -72,6 +72,7 @@ extension CommonRestAPI: TargetType {
 //            NSLog(encodedStr)
             let params: [String: Any] = [
                 "key": key,
+                "memo": memo,
                 "value": encodedStr,
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)

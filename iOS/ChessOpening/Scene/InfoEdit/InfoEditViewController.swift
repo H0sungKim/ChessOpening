@@ -80,7 +80,8 @@ class InfoEditViewController: UIViewController {
             }
             boardModel.moves = moves
             
-            CommonRepository.shared.setRaw(key: self.key, value: boardModel)
+            let uuid = UUID().uuidString
+            CommonRepository.shared.setRaw(key: uuid, memo: self.key, value: boardModel)
                 .subscribe(onSuccess: { [weak self] in
                     let alertDismiss: UIAlertController = UIAlertController(title: "의견을 보내주셔서 감사합니다.", message: "관리자 검토 후 게시해 드리겠습니다.", preferredStyle: .alert)
                     let actionOk: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in

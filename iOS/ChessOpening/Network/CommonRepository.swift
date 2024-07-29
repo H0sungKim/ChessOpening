@@ -43,15 +43,15 @@ class CommonRepository {
     }
     
     func setFiltered(key: String, value: BoardModel) -> Single<Void> {
-        return request(CommonRestAPI.setRaw(key: key, value: value))
+        return request(CommonRestAPI.setFiltered(key: key, value: value))
             .map(VoidEntity.self)
             .map { _ -> Void in
                 return Void()
             }
     }
     
-    func setRaw(key: String, value: BoardModel) -> Single<Void> {
-        return request(CommonRestAPI.setRaw(key: key, value: value))
+    func setRaw(key: String, memo: String, value: BoardModel) -> Single<Void> {
+        return request(CommonRestAPI.setRaw(key: key, memo: memo, value: value))
             .map(VoidEntity.self)
             .map { _ -> Void in
                 return Void()
