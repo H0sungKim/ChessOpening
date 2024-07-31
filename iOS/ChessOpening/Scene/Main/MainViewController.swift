@@ -585,8 +585,6 @@ extension MainViewController: ChessBoardViewDelegate {
            } else {
                AudioManager.shared.playMove()
            }
-        } else {
-            AudioManager.shared.playMove()
         }
         
         if chessBoardView.engine.legalMoves.count == 0 {
