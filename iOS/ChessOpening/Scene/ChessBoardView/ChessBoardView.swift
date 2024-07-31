@@ -14,7 +14,7 @@ class ChessBoardView: UIView {
     
     weak var delegate: ChessBoardViewDelegate?
     
-    var moves: [BoardModel.MoveModel] = []
+    var moves: [OpeningModel.MoveModel] = []
     private var activeAnimations: Set<UUID> = []
     
     private var selectedCell: (rank: Int, file: Int)? // select flag

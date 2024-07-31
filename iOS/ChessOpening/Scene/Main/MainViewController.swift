@@ -543,6 +543,8 @@ class MainViewController: UIViewController {
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
 //        let _ = AudioManager.shared
+        
+        chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -573,7 +575,6 @@ class MainViewController: UIViewController {
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
-        tabBarViewController?.infoViewController?.key = simpleFen
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
@@ -584,31 +585,41 @@ extension MainViewController: ChessBoardViewDelegate {
            } else {
                AudioManager.shared.playMove()
            }
+        } else {
+            AudioManager.shared.playMove()
         }
         
         if chessBoardView.engine.legalMoves.count == 0 {
-            var boardModel = BoardModel()
+            var integratedOpeningModel = IntegratedOpeningModel(openingModel: nil, lichessModel: nil, fen: simpleFen)
             if chessBoardView.engine.isCheck(board: chessBoardView.engine.board, kingColor: Engine.Color(rawValue: chessBoardView.engine.turn%2)!) {
-                boardModel.title = "Checkmate"
+                integratedOpeningModel.title = "Checkmate"
             } else {
-                boardModel.title = "Stalemate"
+                integratedOpeningModel.title = "Stalemate"
             }
-            self.tabBarViewController?.infoViewController?.boardModel = boardModel
+            self.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
             self.tabBarViewController?.infoViewController?.initializeView()
             return
         }
         
-        CommonRepository.shared.getFiltered(key: simpleFen)
-            .subscribe(onSuccess: { [weak self] boardModel in
-                guard let self = self else {
-                    return
-                }
-                
-                self.chessBoardView.moves = boardModel.moves
-                self.chessBoardView.setNeedsDisplay()
-                
-                self.tabBarViewController?.infoViewController?.boardModel = boardModel
-                self.tabBarViewController?.infoViewController?.initializeView()
+        var openingModelForIntegrate: OptionalOpeningModel?
+        var lichessModelForIntegrate: LichessModel?
+        OpeningCommonRepository.shared.getFiltered(key: simpleFen)
+            .flatMap { [weak self] optionalOpeningModel -> Single<LichessModel> in
+                openingModelForIntegrate = optionalOpeningModel
+                let openingModel = OpeningModel(optionalOpeningModel: optionalOpeningModel)
+                self?.chessBoardView?.moves = openingModel.moves
+                self?.chessBoardView?.setNeedsDisplay()
+                return LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
+            }
+            .subscribe(onSuccess: { [weak self] lichessModel in
+                lichessModelForIntegrate = lichessModel
+                let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen)
+                self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
+                self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
+                self?.tabBarViewController?.infoViewController?.initializeView()
+//                NSLog("Hosung.Kim : \(integratedOpeningModel)")
+//                NSLog("Hosung.Kim : \(openingModelForIntegrate)")
+//                NSLog("Hosung.Kim : \(lichessModelForIntegrate)")
             })
             .disposed(by: disposeBag)
     }

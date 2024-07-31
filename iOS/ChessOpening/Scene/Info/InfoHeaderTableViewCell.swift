@@ -9,6 +9,7 @@ import UIKit
 
 class InfoHeaderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var winRateChartView: WinRateChartView!
     @IBOutlet weak var lbInfo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +21,4 @@ class InfoHeaderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

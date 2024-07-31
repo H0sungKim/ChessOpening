@@ -61,7 +61,7 @@
                         </constraints>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="226" placeholderIntrinsicHeight="45" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZTh-OK-FMS">
-                        <rect key="frame" x="82" y="32" width="253" height="79"/>
+                        <rect key="frame" x="82" y="32" width="253" height="51"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="k4X-T4-5Pl"/>
@@ -75,6 +75,13 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBP-tF-OoD" customClass="WinRateChartView" customModule="ChessOpening" customModuleProvider="target">
+                        <rect key="frame" x="82" y="91" width="253" height="20"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="m3K-ec-KbK"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="trailing" secondItem="aeB-dC-oYf" secondAttribute="trailing" id="7U4-fc-Fql"/>
@@ -87,10 +94,13 @@
                     <constraint firstItem="aeB-dC-oYf" firstAttribute="top" secondItem="RVh-93-O7A" secondAttribute="top" id="T58-Xh-7AI"/>
                     <constraint firstAttribute="trailing" secondItem="RBO-hl-DsP" secondAttribute="trailing" constant="16" id="Wwr-xR-QKi"/>
                     <constraint firstAttribute="bottom" secondItem="RVh-93-O7A" secondAttribute="bottom" priority="750" constant="16" id="X7O-OM-hyf"/>
+                    <constraint firstAttribute="bottom" secondItem="SBP-tF-OoD" secondAttribute="bottom" constant="4" id="YT4-Eh-1ph"/>
                     <constraint firstItem="RBO-hl-DsP" firstAttribute="centerY" secondItem="DkB-nK-t39" secondAttribute="centerY" id="fBb-4M-Okb"/>
-                    <constraint firstAttribute="bottom" secondItem="ZTh-OK-FMS" secondAttribute="bottom" constant="4" id="fGt-2h-SsY"/>
+                    <constraint firstItem="SBP-tF-OoD" firstAttribute="top" secondItem="ZTh-OK-FMS" secondAttribute="bottom" constant="8" id="fGt-2h-SsY"/>
                     <constraint firstItem="222-HY-78z" firstAttribute="top" secondItem="DkB-nK-t39" secondAttribute="top" id="hiX-k6-ZIT"/>
+                    <constraint firstItem="SBP-tF-OoD" firstAttribute="leading" secondItem="RVh-93-O7A" secondAttribute="trailing" constant="16" id="li4-u9-lWa"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="bottom" secondItem="aeB-dC-oYf" secondAttribute="bottom" id="nbY-Bj-v0b"/>
+                    <constraint firstItem="RBO-hl-DsP" firstAttribute="leading" secondItem="SBP-tF-OoD" secondAttribute="trailing" constant="16" id="nqh-lM-QSP"/>
                     <constraint firstItem="ZTh-OK-FMS" firstAttribute="top" secondItem="222-HY-78z" secondAttribute="bottom" id="o3X-5z-tmg"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="centerY" secondItem="DkB-nK-t39" secondAttribute="centerY" id="sqQ-Xj-dAF"/>
                     <constraint firstItem="RVh-93-O7A" firstAttribute="leading" secondItem="DkB-nK-t39" secondAttribute="leading" constant="16" id="wBH-9B-Cfd"/>
@@ -104,6 +114,7 @@
                 <outlet property="swValid" destination="RBO-hl-DsP" id="Xas-4N-HAD"/>
                 <outlet property="tfTitle" destination="jxE-bO-ssj" id="q9w-XO-8xo"/>
                 <outlet property="tvInfo" destination="ZTh-OK-FMS" id="NJl-Qk-abh"/>
+                <outlet property="winRateChartView" destination="SBP-tF-OoD" id="WZo-zB-1Xv"/>
             </connections>
             <point key="canvasLocation" x="303.81679389312978" y="67.957746478873247"/>
         </tableViewCell>

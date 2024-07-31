@@ -52,6 +52,22 @@ class Engine {
         legalMoves = getLegalMoves()
     }
     
+    init(engine: Engine) {
+        self.pgn = engine.pgn
+        self.fen = engine.fen
+        self.turn = engine.turn
+        self.moveCount50 = engine.moveCount50
+        self.castling = engine.castling
+        self.enpassant = engine.enpassant
+        self.board = engine.board
+        self.legalMoves = engine.legalMoves
+    }
+    
+    init(fen: String) {
+        applyFEN(fen: fen)
+        self.fen.append(fen)
+    }
+    
     func getKingCoordinate(board: [[Piece]], color: Color) -> (rank: Int, file: Int)? {
         for r in 0..<8 {
             for f in 0..<8 {
@@ -106,6 +122,33 @@ class Engine {
             pgn.append("=\(promotionPiece.getString(color: .white))")
         }
         return pgn
+    }
+    
+    func getLegalMovesPGN() -> [String] {
+        var pgns: [String] = []
+        
+        for legalMove in legalMoves {
+            if board[legalMove.from.rank][legalMove.from.file] is Pawn && legalMove.to.rank == turn%2*7 {
+                for promotionPiece in [Queen.self, Rook.self, Bishop.self, Knight.self] {
+                    var pgn = getPGNWithoutCheck(move: legalMove, promotionPiece: promotionPiece as? any Piece.Type)
+                    let tempEngine = Engine(engine: self)
+                    tempEngine.applyMove(move: legalMove, promotionPiece: promotionPiece as? any Piece.Type)
+                    if tempEngine.isCheck(board: tempEngine.board, kingColor: Color(rawValue: tempEngine.turn%2)!) {
+                        tempEngine.legalMoves.isEmpty ? pgn.append("#") : pgn.append("+")
+                    }
+                    pgns.append(pgn)
+                }
+            } else {
+                var pgn = getPGNWithoutCheck(move: legalMove)
+                let tempEngine = Engine(engine: self)
+                tempEngine.applyMove(move: legalMove)
+                if tempEngine.isCheck(board: tempEngine.board, kingColor: Color(rawValue: tempEngine.turn%2)!) {
+                    tempEngine.legalMoves.isEmpty ? pgn.append("#") : pgn.append("+")
+                }
+                pgns.append(pgn)
+            }
+        }
+        return pgns
     }
     
     func applyMove(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotionPiece: Piece.Type? = nil) {
@@ -337,12 +380,12 @@ class Engine {
 //            "1"
 //        )
         
-        let pgnRegex = /^([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8}) (w|b) (K?Q?k?q?|-) ([a-h][1-8]|-) (\d+) (\d+)$/
+        let pgnRegex = /^([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8})\/([KQRBNPkqrbnp1-8]{1, 8}) (w|b) (K?Q?k?q?|-) ([a-h][1-8]|-) ?(\d+)? ?(\d+)?$/
         
         guard let match = fen.wholeMatch(of: pgnRegex) else {
             return
         }
-        
+        board = []
         let fenBoard = [
             match.output.1,
             match.output.2,
@@ -364,7 +407,7 @@ class Engine {
                     rank.append(Util.shared.charToPiece(char: f))
                 }
             }
-            board[r] = rank
+            board.append(rank)
         }
         
         if match.output.10.contains("K") {
@@ -381,8 +424,14 @@ class Engine {
         }
         
         enpassant = Util.shared.convertFileStringToInt(file: String(match.output.11.prefix(1)))
-        moveCount50 = Int(match.output.12)!
-        turn = (String(match.output.9) == "w" ? Int(match.output.13)!*2-2 : Int(match.output.13)!*2-1)
+        if let temp = match.output.12 {
+            moveCount50 = Int(temp)!
+        }
+        if let temp = match.output.13 {
+            turn = (String(match.output.9) == "w" ? Int(temp)!*2-2 : Int(temp)!*2-1)
+        } else {
+            turn = (String(match.output.9) == "w" ? 0 : 1)
+        }
         
         legalMoves = getLegalMoves()
     }

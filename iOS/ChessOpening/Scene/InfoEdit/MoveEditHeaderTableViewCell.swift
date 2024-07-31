@@ -11,6 +11,7 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tvInfo: UITextView!
+    @IBOutlet weak var winRateChartView: WinRateChartView!
     
     var titleValueChanged: ((_ newTitle: String) -> Void)?
     var infoValueChanged: (() -> Void)?
@@ -34,9 +35,10 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
         tvInfo.layer.backgroundColor = UIColor.systemBackground.cgColor
     }
     
-    func initializeCell(boardModel: BoardModel) {
-        tfTitle.text = boardModel.title
-        tvInfo.text = boardModel.info
+    func initializeCell(integratedOpeningModel: IntegratedOpeningModel) {
+        tfTitle.text = integratedOpeningModel.title
+        tvInfo.text = integratedOpeningModel.info
+        winRateChartView.drawChart(rate: integratedOpeningModel.rate)
     }
 }
 

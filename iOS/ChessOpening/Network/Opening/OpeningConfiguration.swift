@@ -8,8 +8,8 @@
 import Foundation
 import Firebase
 
-class Configuration {
-    public static let shared = Configuration()
+class OpeningConfiguration {
+    public static let shared = OpeningConfiguration()
     
     var baseURL: String = "http://218.148.101.148:8081"
     

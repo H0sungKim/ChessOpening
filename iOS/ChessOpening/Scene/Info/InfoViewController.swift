@@ -9,9 +9,9 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    var boardModel: BoardModel = BoardModel()
+    var integratedOpeningModel: IntegratedOpeningModel!
+    var openingModel: OpeningModel = OpeningModel()
     var turn: String = ""
-    var key: String = ""
     var sheetHeight: CGFloat!
     weak var delegate: InfoDelegate?
     private var infoEditViewController: UIViewController?
@@ -36,22 +36,9 @@ class InfoViewController: UIViewController {
     }
     @IBAction func postOnClick(_ sender: Any) {
         infoEditViewController = UIViewController.getViewController(viewControllerEnum: .infoedit)
-        var moveModelsForEdit: [MoveModelForEdit] = boardModel.moves.map { MoveModelForEdit(moveModel: $0) }
-        if let legalMovesPGN = delegate?.getLegalMovePGN() {
-            for legalMovePGN in legalMovesPGN {
-                if !moveModelsForEdit.contains(where: { $0.pgn == legalMovePGN }) {
-                    moveModelsForEdit.append(MoveModelForEdit(pgn: legalMovePGN))
-                }
-            }
-        }
         if let infoEditViewController = infoEditViewController as? InfoEditViewController {
-            infoEditViewController.boardModel = boardModel
-            if infoEditViewController.boardModel.title == "정보가 없습니다." {
-                infoEditViewController.boardModel.title = ""
-            }
-            infoEditViewController.moveModelsForEdit = moveModelsForEdit
+            infoEditViewController.integratedOpeningModel = integratedOpeningModel
             infoEditViewController.turn = turn
-            infoEditViewController.key = key
         }
         if let sheet = infoEditViewController?.sheetPresentationController {
             sheet.detents = [.custom { context in
@@ -65,14 +52,17 @@ class InfoViewController: UIViewController {
     }
     
     func initializeView() {
-        lbTitle.text = boardModel.title
+        lbTitle.text = openingModel.title
+        if openingModel.title == "" {
+            lbTitle.text = "정보가 없습니다."
+        }
         tbvInfo.reloadData()
     }
 }
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return boardModel.moves.count+1
+        return openingModel.moves.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,8 +75,8 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
                 let objectArray = Bundle.main.loadNibNamed(String(describing: InfoHeaderTableViewCell.self), owner: nil, options: nil)
                 cell = objectArray![0] as! InfoHeaderTableViewCell
             }
-            cell.lbInfo.text = boardModel.info
-            
+            cell.lbInfo.text = openingModel.info
+            cell.winRateChartView.drawChart(rate: openingModel.rate)
             return cell
         } else {
             let cell: MoveTableViewCell
@@ -97,7 +87,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
                 let objectArray = Bundle.main.loadNibNamed(String(describing: MoveTableViewCell.self), owner: nil, options: nil)
                 cell = objectArray![0] as! MoveTableViewCell
             }
-            cell.initializeCell(moveModel: boardModel.moves[indexPath.row-1], turn: turn)
+            cell.initializeCell(moveModel: openingModel.moves[indexPath.row-1], turn: turn)
             
             return cell
         }
@@ -116,7 +106,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.applyMove(pgn: boardModel.moves[indexPath.row-1].pgn)
+        delegate?.applyMove(pgn: openingModel.moves[indexPath.row-1].pgn)
     }
 }
 

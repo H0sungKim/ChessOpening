@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct BoardEntity: Codable {
+struct OpeningEntity: Codable {
     var responseCode: Int?
     var responseMessage: String?
     var responseData: String?
     
-    struct BoardResponseDataEntity: Codable {
+    struct OpeningResponseDataEntity: Codable {
         var title: String?
         var info: String?
         var moves: [MoveEntity]?
@@ -22,32 +22,35 @@ struct BoardEntity: Codable {
             var type: Int?
             var title: String?
             var info: String?
-            init(moveModel: BoardModel.MoveModel) {
+            
+            init(moveModel: OpeningModel.MoveModel) {
                 self.pgn = moveModel.pgn
                 self.type = moveModel.type.rawValue
                 self.title = moveModel.title
                 self.info = moveModel.info
             }
         }
-        init(boardModel: BoardModel) {
-            self.title = boardModel.title
-            self.info = boardModel.info
-            self.moves = boardModel.moves.map { MoveEntity(moveModel: $0) } 
+        
+        init(openingModel: OpeningModel) {
+            self.title = openingModel.title
+            self.info = openingModel.info
+            self.moves = openingModel.moves.map { MoveEntity(moveModel: $0) }
         }
+        
         init() {
             
         }
     }
     
-    func convertResponseData() -> BoardResponseDataEntity {
+    func convertResponseData() -> OpeningResponseDataEntity {
         guard let responseData = responseData,
               let data = responseData.data(using: .utf8)
         else {
-            return BoardResponseDataEntity()
+            return OpeningResponseDataEntity()
         }
-        guard let boardResponseDataEntity = try? JSONDecoder().decode(BoardResponseDataEntity.self, from: data) else {
-            return BoardResponseDataEntity()
+        guard let openingResponseDataEntity = try? JSONDecoder().decode(OpeningResponseDataEntity.self, from: data) else {
+            return OpeningResponseDataEntity()
         }
-        return boardResponseDataEntity
+        return openingResponseDataEntity
     }
 }

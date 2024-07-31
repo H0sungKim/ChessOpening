@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,21 +33,31 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="483" placeholderIntrinsicHeight="64" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trv-nb-Ewk">
-                        <rect key="frame" x="82" y="28" width="483" height="90"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="82" y="28" width="483" height="62"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-dg-XCm" customClass="WinRateChartView" customModule="ChessOpening" customModuleProvider="target">
+                        <rect key="frame" x="82" y="98" width="483" height="20"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="rzR-fS-elE"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="67N-8E-ia7" firstAttribute="leading" secondItem="90d-S9-97v" secondAttribute="leading" constant="16" id="2pQ-DJ-KS2"/>
                     <constraint firstItem="trv-nb-Ewk" firstAttribute="leading" secondItem="67N-8E-ia7" secondAttribute="trailing" constant="16" id="4f6-ec-VuA"/>
                     <constraint firstItem="67N-8E-ia7" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" priority="750" constant="16" id="8eH-69-GnM"/>
                     <constraint firstAttribute="trailing" secondItem="oek-11-nx8" secondAttribute="trailing" constant="16" id="8l0-3b-AUJ"/>
-                    <constraint firstAttribute="bottom" secondItem="trv-nb-Ewk" secondAttribute="bottom" constant="4" id="Idj-xM-73m"/>
+                    <constraint firstItem="NRh-dg-XCm" firstAttribute="top" secondItem="trv-nb-Ewk" secondAttribute="bottom" constant="8" id="Idj-xM-73m"/>
+                    <constraint firstAttribute="bottom" secondItem="NRh-dg-XCm" secondAttribute="bottom" constant="4" id="JGn-Mv-Sue"/>
                     <constraint firstItem="trv-nb-Ewk" firstAttribute="top" secondItem="oek-11-nx8" secondAttribute="bottom" constant="4" id="SmR-B7-hLm"/>
                     <constraint firstItem="oek-11-nx8" firstAttribute="leading" secondItem="67N-8E-ia7" secondAttribute="trailing" constant="16" id="TD7-CR-yRD"/>
                     <constraint firstAttribute="bottom" secondItem="67N-8E-ia7" secondAttribute="bottom" priority="750" constant="16" id="av1-HJ-1xD"/>
+                    <constraint firstAttribute="trailing" secondItem="NRh-dg-XCm" secondAttribute="trailing" constant="16" id="guH-s0-EGU"/>
+                    <constraint firstItem="NRh-dg-XCm" firstAttribute="leading" secondItem="67N-8E-ia7" secondAttribute="trailing" constant="16" id="jDX-d7-3yk"/>
                     <constraint firstItem="67N-8E-ia7" firstAttribute="centerY" secondItem="90d-S9-97v" secondAttribute="centerY" id="oEM-iR-uQI"/>
                     <constraint firstAttribute="trailing" secondItem="trv-nb-Ewk" secondAttribute="trailing" constant="16" id="to1-5o-VDk"/>
                     <constraint firstItem="oek-11-nx8" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="8" id="vhs-hL-qK1"/>
@@ -56,8 +67,14 @@
                 <outlet property="ivType" destination="67N-8E-ia7" id="gyF-Eu-m9h"/>
                 <outlet property="lbInfo" destination="trv-nb-Ewk" id="SP9-R8-2n8"/>
                 <outlet property="lbTitle" destination="oek-11-nx8" id="9ft-UE-z3s"/>
+                <outlet property="winRateChartView" destination="NRh-dg-XCm" id="TvO-co-Wbm"/>
             </connections>
             <point key="canvasLocation" x="440.45801526717554" y="94.366197183098592"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

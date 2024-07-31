@@ -13,6 +13,14 @@
 		96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96073D942C32A13000DDF159 /* InfoEditViewController.swift */; };
 		96073D972C32A13F00DDF159 /* InfoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96073D962C32A13F00DDF159 /* InfoEdit.storyboard */; };
 		96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96073DA22C3D4CEA00DDF159 /* Util.swift */; };
+		96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */; };
+		96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */; };
+		96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D432C5769D900E821E3 /* LichessConfiguration.swift */; };
+		96152D482C5778AC00E821E3 /* LichessEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D472C5778AC00E821E3 /* LichessEntity.swift */; };
+		96152D4C2C57857000E821E3 /* IntegratedOpeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */; };
+		96152D4F2C58F42F00E821E3 /* OptionalOpeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */; };
+		96152D522C58FF2500E821E3 /* LichessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D512C58FF2500E821E3 /* LichessModel.swift */; };
+		961715EE2C5A61B0007383FE /* WinRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961715ED2C5A61B0007383FE /* WinRateChartView.swift */; };
 		961A11262C319AF2005E903C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A11252C319AF2005E903C /* TabBar.storyboard */; };
 		961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A11292C319DB3005E903C /* TabBarViewController.swift */; };
 		961A112E2C31A119005E903C /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A112D2C31A119005E903C /* Info.storyboard */; };
@@ -20,11 +28,11 @@
 		96361ABE2C50E17B00815DE0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96361ABD2C50E17B00815DE0 /* HapticManager.swift */; };
 		96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D602C3E66B300DD8A1D /* HistoryCollectionViewCell.swift */; };
 		96524D632C3E670300DD8A1D /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96524D622C3E670300DD8A1D /* HistoryCollectionViewCell.xib */; };
-		96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */; };
-		96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D752C410F5B00DD8A1D /* CommonRepository.swift */; };
-		96524D782C4651C400DD8A1D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D772C4651C400DD8A1D /* Configuration.swift */; };
-		96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */; };
-		96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* BoardModel.swift */; };
+		96524D722C40EE8500DD8A1D /* OpeningCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D712C40EE8500DD8A1D /* OpeningCommonRestAPI.swift */; };
+		96524D762C410F5B00DD8A1D /* OpeningCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D752C410F5B00DD8A1D /* OpeningCommonRepository.swift */; };
+		96524D782C4651C400DD8A1D /* OpeningConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D772C4651C400DD8A1D /* OpeningConfiguration.swift */; };
+		96524D7E2C4794CD00DD8A1D /* OpeningEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7D2C4794CD00DD8A1D /* OpeningEntity.swift */; };
+		96524D802C4798EE00DD8A1D /* OpeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D7F2C4798EE00DD8A1D /* OpeningModel.swift */; };
 		96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */; };
 		96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D8F2C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift */; };
 		966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 966356A52C2FCAA700158265 /* MoveTableViewCell.xib */; };
@@ -92,6 +100,14 @@
 		96073D942C32A13000DDF159 /* InfoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEditViewController.swift; sourceTree = "<group>"; };
 		96073D962C32A13F00DDF159 /* InfoEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoEdit.storyboard; sourceTree = "<group>"; };
 		96073DA22C3D4CEA00DDF159 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRestAPI.swift; sourceTree = "<group>"; };
+		96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRepository.swift; sourceTree = "<group>"; };
+		96152D432C5769D900E821E3 /* LichessConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessConfiguration.swift; sourceTree = "<group>"; };
+		96152D472C5778AC00E821E3 /* LichessEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessEntity.swift; sourceTree = "<group>"; };
+		96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegratedOpeningModel.swift; sourceTree = "<group>"; };
+		96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalOpeningModel.swift; sourceTree = "<group>"; };
+		96152D512C58FF2500E821E3 /* LichessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessModel.swift; sourceTree = "<group>"; };
+		961715ED2C5A61B0007383FE /* WinRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinRateChartView.swift; sourceTree = "<group>"; };
 		961A11252C319AF2005E903C /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		961A11292C319DB3005E903C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		961A112D2C31A119005E903C /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
@@ -99,11 +115,11 @@
 		96361ABD2C50E17B00815DE0 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		96524D602C3E66B300DD8A1D /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		96524D622C3E670300DD8A1D /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRestAPI.swift; sourceTree = "<group>"; };
-		96524D752C410F5B00DD8A1D /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
-		96524D772C4651C400DD8A1D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntity.swift; sourceTree = "<group>"; };
-		96524D7F2C4798EE00DD8A1D /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
+		96524D712C40EE8500DD8A1D /* OpeningCommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCommonRestAPI.swift; sourceTree = "<group>"; };
+		96524D752C410F5B00DD8A1D /* OpeningCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCommonRepository.swift; sourceTree = "<group>"; };
+		96524D772C4651C400DD8A1D /* OpeningConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningConfiguration.swift; sourceTree = "<group>"; };
+		96524D7D2C4794CD00DD8A1D /* OpeningEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningEntity.swift; sourceTree = "<group>"; };
+		96524D7F2C4798EE00DD8A1D /* OpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningModel.swift; sourceTree = "<group>"; };
 		96524D852C4944A200DD8A1D /* MoveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTableViewCell.swift; sourceTree = "<group>"; };
 		96524D8F2C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEditTableViewCell.swift; sourceTree = "<group>"; };
 		966356A52C2FCAA700158265 /* MoveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,18 +217,65 @@
 				96524D8C2C4A551600DD8A1D /* Info */,
 				96524D8D2C4A552800DD8A1D /* History */,
 				96524D8E2C4A554F00DD8A1D /* InfoEdit */,
+				961715EC2C5A6195007383FE /* WinRateChart */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		96152D3D2C5768D900E821E3 /* Opening */ = {
+			isa = PBXGroup;
+			children = (
+				96524D7B2C47939800DD8A1D /* Entity */,
+				96524D7C2C4793A200DD8A1D /* Model */,
+				96524D712C40EE8500DD8A1D /* OpeningCommonRestAPI.swift */,
+				96524D752C410F5B00DD8A1D /* OpeningCommonRepository.swift */,
+				96524D772C4651C400DD8A1D /* OpeningConfiguration.swift */,
+			);
+			path = Opening;
+			sourceTree = "<group>";
+		};
+		96152D3E2C57693700E821E3 /* Lichess */ = {
+			isa = PBXGroup;
+			children = (
+				96152D452C57788B00E821E3 /* Entity */,
+				96152D502C58FF1100E821E3 /* Model */,
+				96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */,
+				96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */,
+				96152D432C5769D900E821E3 /* LichessConfiguration.swift */,
+			);
+			path = Lichess;
+			sourceTree = "<group>";
+		};
+		96152D452C57788B00E821E3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				96152D472C5778AC00E821E3 /* LichessEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		96152D502C58FF1100E821E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96152D512C58FF2500E821E3 /* LichessModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		961715EC2C5A6195007383FE /* WinRateChart */ = {
+			isa = PBXGroup;
+			children = (
+				961715ED2C5A61B0007383FE /* WinRateChartView.swift */,
+			);
+			path = WinRateChart;
 			sourceTree = "<group>";
 		};
 		96524D702C40DCCC00DD8A1D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				96524D7B2C47939800DD8A1D /* Entity */,
-				96524D7C2C4793A200DD8A1D /* Model */,
-				96524D712C40EE8500DD8A1D /* CommonRestAPI.swift */,
-				96524D752C410F5B00DD8A1D /* CommonRepository.swift */,
-				96524D772C4651C400DD8A1D /* Configuration.swift */,
+				96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */,
+				96152D3D2C5768D900E821E3 /* Opening */,
+				96152D3E2C57693700E821E3 /* Lichess */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -220,7 +283,7 @@
 		96524D7B2C47939800DD8A1D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				96524D7D2C4794CD00DD8A1D /* BoardEntity.swift */,
+				96524D7D2C4794CD00DD8A1D /* OpeningEntity.swift */,
 				96FAD3672C4B99CD00470BE7 /* VoidEntity.swift */,
 			);
 			path = Entity;
@@ -229,7 +292,8 @@
 		96524D7C2C4793A200DD8A1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				96524D7F2C4798EE00DD8A1D /* BoardModel.swift */,
+				96524D7F2C4798EE00DD8A1D /* OpeningModel.swift */,
+				96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -689,35 +753,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961715EE2C5A61B0007383FE /* WinRateChartView.swift in Sources */,
 				969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */,
 				96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */,
 				96361ABE2C50E17B00815DE0 /* HapticManager.swift in Sources */,
+				96152D4C2C57857000E821E3 /* IntegratedOpeningModel.swift in Sources */,
 				96FAD3682C4B99CD00470BE7 /* VoidEntity.swift in Sources */,
 				96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
+				96152D482C5778AC00E821E3 /* LichessEntity.swift in Sources */,
 				96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */,
 				96FAD3892C4E464300470BE7 /* AudioManager.swift in Sources */,
-				96524D762C410F5B00DD8A1D /* CommonRepository.swift in Sources */,
+				96524D762C410F5B00DD8A1D /* OpeningCommonRepository.swift in Sources */,
 				96073D932C32A0FD00DDF159 /* UIViewController+Ext.swift in Sources */,
 				96BDF90A2C096B310032523E /* Piece.swift in Sources */,
 				969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */,
 				961A11302C31A12B005E903C /* InfoViewController.swift in Sources */,
-				96524D7E2C4794CD00DD8A1D /* BoardEntity.swift in Sources */,
+				96524D7E2C4794CD00DD8A1D /* OpeningEntity.swift in Sources */,
+				96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */,
 				961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */,
 				96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */,
+				96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */,
+				96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */,
 				96BDF9122C096B850032523E /* Knight.swift in Sources */,
 				96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */,
-				96524D802C4798EE00DD8A1D /* BoardModel.swift in Sources */,
-				96524D722C40EE8500DD8A1D /* CommonRestAPI.swift in Sources */,
+				96524D802C4798EE00DD8A1D /* OpeningModel.swift in Sources */,
+				96524D722C40EE8500DD8A1D /* OpeningCommonRestAPI.swift in Sources */,
 				96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */,
 				96BDF90E2C096B730032523E /* Queen.swift in Sources */,
 				96BDF9102C096B7C0032523E /* Bishop.swift in Sources */,
+				96152D522C58FF2500E821E3 /* LichessModel.swift in Sources */,
 				96FAD3602C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift in Sources */,
 				96BDF9162C096C0C0032523E /* Pawn.swift in Sources */,
+				96152D4F2C58F42F00E821E3 /* OptionalOpeningModel.swift in Sources */,
 				9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */,
 				96BDF9142C096BDD0032523E /* Rook.swift in Sources */,
 				96FAD3852C4CF72000470BE7 /* license.txt in Sources */,
-				96524D782C4651C400DD8A1D /* Configuration.swift in Sources */,
+				96524D782C4651C400DD8A1D /* OpeningConfiguration.swift in Sources */,
 				96BDF90C2C096B5D0032523E /* Empty.swift in Sources */,
 				96BDF9082C0968220032523E /* King.swift in Sources */,
 				96FAD3662C4B629700470BE7 /* MoveEditHeaderTableViewCell.swift in Sources */,
