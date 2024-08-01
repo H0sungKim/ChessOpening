@@ -85,7 +85,7 @@ struct IntegratedOpeningModel {
         }
     }
     
-    init(openingModel: OptionalOpeningModel?, lichessModel: LichessModel?, fen: String) {
+    init(openingModel: OptionalOpeningModel?, lichessModel: LichessModel?, fen: String, engine: Engine?) {
         self.fen = fen
         self.title = openingModel?.title ?? lichessModel?.opening?.name ?? ""
         self.info = openingModel?.info ?? ""
@@ -104,10 +104,11 @@ struct IntegratedOpeningModel {
                 }
             }
         }
-        let engine = Engine(fen: fen)
-        for pgn in engine.getLegalMovesPGN() {
-            if !(self.moves.contains(where: { $0.pgn == pgn })) {
-                self.moves.append(MoveModel(pgn: pgn))
+        if let engine = engine {
+            for pgn in engine.getLegalMovesPGN() {
+                if !(self.moves.contains(where: { $0.pgn == pgn })) {
+                    self.moves.append(MoveModel(pgn: pgn))
+                }
             }
         }
         self.rate = lichessModel?.rate

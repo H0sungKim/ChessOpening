@@ -568,27 +568,21 @@ class MainViewController: UIViewController {
         coordinator.animate(alongsideTransition: { [weak self] _ in
             self?.chessBoardView?.caculateCellSize()
         })
+        self.tabBarViewController?.infoViewController?.initializeView()
     }
     
 }
 
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
+        chessBoardView.resetFlags()
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
         
-        if chessBoardView.engine.turn > 0 {
-            if chessBoardView.engine.pgn[chessBoardView.engine.turn-1].contains("x") {
-               AudioManager.shared.playCapture()
-           } else {
-               AudioManager.shared.playMove()
-           }
-        }
-        
         if chessBoardView.engine.legalMoves.count == 0 {
-            var integratedOpeningModel = IntegratedOpeningModel(openingModel: nil, lichessModel: nil, fen: simpleFen)
+            var integratedOpeningModel = IntegratedOpeningModel(openingModel: nil, lichessModel: nil, fen: simpleFen, engine: nil)
             if chessBoardView.engine.isCheck(board: chessBoardView.engine.board, kingColor: Engine.Color(rawValue: chessBoardView.engine.turn%2)!) {
                 integratedOpeningModel.title = "Checkmate"
             } else {
@@ -601,25 +595,50 @@ extension MainViewController: ChessBoardViewDelegate {
         
         var openingModelForIntegrate: OptionalOpeningModel?
         var lichessModelForIntegrate: LichessModel?
+        
+//        var dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm:ss:SSS"
+//        NSLog("Hosung.Kim : \(dateFormatter.string(from: Date()))")
+        LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
+            .subscribe(onSuccess: { [weak self] lichessModel in
+//                NSLog("Hosung.Kim : lichess \(dateFormatter.string(from: Date()))")
+                lichessModelForIntegrate = lichessModel
+                if let openingModelForIntegrate = openingModelForIntegrate {
+//                    NSLog("Hosung.Kim : lichess in \(dateFormatter.string(from: Date()))")
+                    let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
+                    self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
+                    self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
+                    self?.tabBarViewController?.infoViewController?.initializeView()
+//                    NSLog("Hosung.Kim : lichess in \(dateFormatter.string(from: Date()))")
+                }
+            })
+            .disposed(by: disposeBag)
+        
         OpeningCommonRepository.shared.getFiltered(key: simpleFen)
-            .flatMap { [weak self] optionalOpeningModel -> Single<LichessModel> in
+            .subscribe(onSuccess: { [weak self] optionalOpeningModel in
+//                NSLog("Hosung.Kim : opening \(dateFormatter.string(from: Date()))")
                 openingModelForIntegrate = optionalOpeningModel
                 let openingModel = OpeningModel(optionalOpeningModel: optionalOpeningModel)
                 self?.chessBoardView?.moves = openingModel.moves
                 self?.chessBoardView?.setNeedsDisplay()
-                return LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
-            }
-            .subscribe(onSuccess: { [weak self] lichessModel in
-                lichessModelForIntegrate = lichessModel
-                let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen)
-                self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
-                self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
-                self?.tabBarViewController?.infoViewController?.initializeView()
-//                NSLog("Hosung.Kim : \(integratedOpeningModel)")
-//                NSLog("Hosung.Kim : \(openingModelForIntegrate)")
-//                NSLog("Hosung.Kim : \(lichessModelForIntegrate)")
+                if let lichessModelForIntegrate = lichessModelForIntegrate {
+//                    NSLog("Hosung.Kim : opening in \(dateFormatter.string(from: Date()))")
+                    let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
+                    self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
+                    self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
+                    self?.tabBarViewController?.infoViewController?.initializeView()
+//                    NSLog("Hosung.Kim : opening in \(dateFormatter.string(from: Date()))")
+                }
             })
             .disposed(by: disposeBag)
+        
+        if chessBoardView.engine.turn > 0 {
+            if chessBoardView.engine.pgn[chessBoardView.engine.turn-1].contains("x") {
+               AudioManager.shared.playCapture()
+           } else {
+               AudioManager.shared.playMove()
+           }
+        }
     }
 }
 
@@ -628,8 +647,7 @@ extension MainViewController: InfoDelegate {
         if chessBoardView.engine.turn-1 < 0 {
             return
         }
-        let tempEngine = Engine()
-        tempEngine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn-1])
+        let tempEngine = Engine(fen: chessBoardView.engine.fen[chessBoardView.engine.turn-1])
         chessBoardView.moveAnimationFromBoard(old: chessBoardView.engine.board, new: tempEngine.board)
         chessBoardView.engine.turn = chessBoardView.engine.turn-1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])
@@ -639,8 +657,7 @@ extension MainViewController: InfoDelegate {
         if chessBoardView.engine.turn+1 > chessBoardView.engine.pgn.count {
             return
         }
-        let tempEngine = Engine()
-        tempEngine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn+1])
+        let tempEngine = Engine(fen: chessBoardView.engine.fen[chessBoardView.engine.turn+1])
         chessBoardView.moveAnimationFromBoard(old: chessBoardView.engine.board, new: tempEngine.board)
         chessBoardView.engine.turn = chessBoardView.engine.turn+1
         chessBoardView.engine.applyFEN(fen: chessBoardView.engine.fen[chessBoardView.engine.turn])

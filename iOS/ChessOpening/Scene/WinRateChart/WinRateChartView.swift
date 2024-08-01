@@ -12,7 +12,7 @@ class WinRateChartView: UIView {
     private var rate: (white: Int, draws: Int, black: Int)?
     
     private let whiteColor: UIColor = .white
-    private let drawsColor: UIColor = .separator
+    private let drawsColor: UIColor = .gray
     private let blackColor: UIColor = .black
     private let backGroundColor: UIColor = .systemBackground
     private let labelColor: UIColor = .label
@@ -21,7 +21,7 @@ class WinRateChartView: UIView {
         super.init(frame: frame)
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.masksToBounds = true
     }
     
@@ -29,7 +29,7 @@ class WinRateChartView: UIView {
         super.init(coder: coder)
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.masksToBounds = true
     }
     

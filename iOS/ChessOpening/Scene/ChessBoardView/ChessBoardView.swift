@@ -119,6 +119,12 @@ class ChessBoardView: UIView {
         CATransaction.commit()
     }
     
+    func resetFlags() {
+        selectedCell = nil
+        draggedPiece = nil
+        promotionMove = nil
+    }
+    
     private func moveAnimation(move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))) {
         if engine.board[move.from.rank][move.from.file] is King {
             if move.to.file-move.from.file == 2 {
