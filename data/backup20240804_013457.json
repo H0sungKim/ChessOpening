@@ -1,0 +1,986 @@
+{
+    "data": [
+        {
+            "FILTERED_ID": 1,
+            "createdDate": "2024-07-21 22:30:02",
+            "_key": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+            "memo": "0. Start Position",
+            "status": null,
+            "value": {
+                "info": " 오프닝에서는 기물의 전개, 중앙 차지, 킹의 안전, 좋은 폰 구조 등을 목표로 해야 한다.",
+                "title": "Chess Opening Book",
+                "moves": [
+                    {
+                        "type": 0,
+                        "pgn": "e4",
+                        "info": "e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.",
+                        "title": "King's Pawn Game"
+                    },
+                    {
+                        "info": "d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.",
+                        "type": 0,
+                        "pgn": "d4",
+                        "title": "Queen's Pawn Game"
+                    },
+                    {
+                        "info": "",
+                        "pgn": "Nf3",
+                        "type": 1,
+                        "title": ""
+                    },
+                    {
+                        "info": "",
+                        "pgn": "c4",
+                        "title": "",
+                        "type": 1
+                    },
+                    {
+                        "pgn": "g3",
+                        "type": 1,
+                        "title": "",
+                        "info": ""
+                    },
+                    {
+                        "title": "",
+                        "pgn": "b3",
+                        "type": 1,
+                        "info": ""
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 2,
+            "createdDate": "2024-07-22 21:45:48",
+            "_key": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+            "memo": "1. King's Pawn Game",
+            "status": null,
+            "value": {
+                "info": " e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다. 나중에 퀸의 보호를 받고 있는 d폰으로 d4를 시도하여 강하게 중앙을 강하게 장악하거나 중앙을 열 수 있다. 그러나 e4폰이 보호받지 않고 있고 d4와 f4 지점이 약해진다는 약점을 갖게 된다.",
+                "moves": [
+                    {
+                        "type": 0,
+                        "info": " c5폰으로 d4칸을 컨트롤하여 백의 d4 전진을 억제한다. c5는 전개수가 아니기 때문에 전개가 느리지만, 온전한 중앙 2폰을 활용할 수 있다.",
+                        "pgn": "c5",
+                        "title": "Sicilian Defense"
+                    },
+                    {
+                        "type": 0,
+                        "pgn": "e5",
+                        "info": " 흑도 똑같이 e폰 전진을 한다. e5폰을 통해 중앙을 컨트롤하고 퀸과 어두운 비숍의 길을 연다. 백의 추가적인 중앙 장악 d4를 억제하고 e5 전진을 막는다.",
+                        "title": "Open Game"
+                    },
+                    {
+                        "pgn": "e6",
+                        "info": " d5를 통한 중앙싸움을 준비하는 수이다. 이후 c5, Nc6로 빠르게 백의 중앙을 압박할 수 있지만, e6폰이 밝은 비숍의 전개를 막는다는 단점이 있다.",
+                        "title": "French Defense",
+                        "type": 0
+                    },
+                    {
+                        "pgn": "c6",
+                        "title": "Caro-Kann Defense",
+                        "type": 0,
+                        "info": " d5를 통한 중앙싸움을 준비하는 수이다. 백에게 초반 주도권을 어느정도 내주지만, 안정적인 폰 구조를 바탕으로 견고하게 진행할 수 있다."
+                    },
+                    {
+                        "pgn": "d6",
+                        "type": 1,
+                        "info": "",
+                        "title": "Pirc Defense"
+                    },
+                    {
+                        "info": "",
+                        "title": "Modern Defense",
+                        "type": 1,
+                        "pgn": "g6"
+                    },
+                    {
+                        "info": " 백의 e4폰을 흑이 바로 d5로 카운터한다. 백은 exd5가 강제된다. 이후 흑은 폰을 회수하는 과정에서 템포 손해를 보게 된다.",
+                        "pgn": "d5",
+                        "title": "Scandinavian Defense",
+                        "type": 1
+                    },
+                    {
+                        "title": "",
+                        "pgn": "Nf6",
+                        "info": "",
+                        "type": 1
+                    },
+                    {
+                        "pgn": "b6",
+                        "title": "",
+                        "info": "",
+                        "type": 1
+                    }
+                ],
+                "title": "King's Pawn Game"
+            }
+        },
+        {
+            "FILTERED_ID": 11,
+            "createdDate": "2024-07-22 22:18:08",
+            "_key": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+            "memo": "1. Queen's Pawn Game",
+            "status": null,
+            "value": {
+                "title": "Queen’s Pawn Opening",
+                "info": " d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다. e5칸을 장악하여 흑의 e5를 막는다.",
+                "moves": [
+                    {
+                        "info": " 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다. 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다.",
+                        "pgn": "Nf6",
+                        "title": "Indian Defense",
+                        "type": 0
+                    },
+                    {
+                        "type": 0,
+                        "pgn": "d5",
+                        "title": "Closed Game",
+                        "info": " 흑도 똑같이 d폰 전진을 한다. d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다. 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다."
+                    },
+                    {
+                        "type": 2,
+                        "title": "Englund Gambit",
+                        "pgn": "e5",
+                        "info": " 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다."
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 4,
+            "createdDate": "2024-07-21 21:18:12",
+            "_key": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+            "memo": "2. Caro-Kann Defense",
+            "status": null,
+            "value": {
+                "title": "Caro-Kann Defense",
+                "info": " d4까지 허용하여 백에게 강한 중앙을 내주지만 c6폰의 도움으로 d5를 통해 바로 중앙을 반격한다. 안정적인 폰 구조를 바탕으로 견고하게 진행할 수 있다. 하지만 첫수 c6가 전개수가 아니므로 백이 전개 우위를 갖는다.",
+                "moves": [
+                    {
+                        "info": " 백이 중앙을 강력하게 장악한다. 흑은 c6폰의 도움으로 d5를 통해 바로 중앙을 반격한다.",
+                        "title": "",
+                        "type": 0,
+                        "pgn": "d4"
+                    },
+                    {
+                        "info": " 나이트를 전개하여 중앙 장악을 강화한다.",
+                        "type": 0,
+                        "title": "",
+                        "pgn": "Nf3"
+                    },
+                    {
+                        "title": "",
+                        "info": " 나이트를 전개하여 e4폰을 수비한다.",
+                        "pgn": "Nc3",
+                        "type": 0
+                    },
+                    {
+                        "title": "Caro-Kann Defense: Accelerated Panov Attack",
+                        "info": " c4를 통해 d5칸을 더 강하게 컨트롤하여 흑의 d5를 저지한다.",
+                        "pgn": "c4",
+                        "type": 0
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 13,
+            "createdDate": "2024-07-25 23:30:18",
+            "_key": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+            "memo": "2. Closed Game",
+            "status": null,
+            "value": {
+                "info": " 흑도 똑같이 d폰 전진을 한다. d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다. 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다. e폰을 활용한 폰브레이크가 어렵기 때문에 중앙이 고착화되는 경우가 많다.",
+                "moves": [
+                    {
+                        "title": "Queen’s Gambit",
+                        "pgn": "c4",
+                        "info": " c4로 상대의 d5폰을 공격한다. 공짜로 c4폰을 내주는 것처럼 보이지만 흑도 c4폰을 지킬 수 없기 때문에 이후 쉽게 회수할 수 있다.",
+                        "type": 0
+                    },
+                    {
+                        "pgn": "Bf4",
+                        "title": "Accelerated London System",
+                        "info": "",
+                        "type": 0
+                    },
+                    {
+                        "info": "",
+                        "type": 0,
+                        "title": "",
+                        "pgn": "Nf3"
+                    }
+                ],
+                "title": "Closed Game"
+            }
+        },
+        {
+            "FILTERED_ID": 16,
+            "createdDate": "2024-07-26 00:22:08",
+            "_key": "rnbqkbnr/pppp1ppp/8/4p3/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+            "memo": "2. Englund Gambit",
+            "status": null,
+            "value": {
+                "info": " 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다. 트랩 라인만 조심하면 백에게 유리하다.",
+                "title": "Englund Gambit",
+                "moves": [
+                    {
+                        "title": "",
+                        "pgn": "dxe5",
+                        "type": 0,
+                        "info": " e5폰을 잡으며 갬빗을 수락한다. 백에게 최선의 수다."
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 12,
+            "createdDate": "2024-07-25 00:37:28",
+            "_key": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+            "memo": "2. Indian Defense",
+            "status": null,
+            "value": {
+                "title": "Indian Defense",
+                "info": " 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다. 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다. 백에게 가장 선호되는 Queen’s Gambit Declined: Exchange Variation을 회피할 수 있다.",
+                "moves": [
+                    {
+                        "title": "Indian Defense: Normal Variation",
+                        "type": 0,
+                        "pgn": "c4",
+                        "info": " c4로 중앙 장악력을 높인다."
+                    },
+                    {
+                        "title": "",
+                        "type": 0,
+                        "pgn": "Nf3",
+                        "info": ""
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 3,
+            "createdDate": "2024-07-24 21:26:40",
+            "_key": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+            "memo": "2. Open Game",
+            "status": null,
+            "value": {
+                "title": "Open Game",
+                "info": " 흑도 똑같이 e폰 전진을 한다. e5폰을 통해 중앙을 컨트롤하고 퀸과 어두운 비숍의 길을 연다. 백의 추가적인 중앙 장악 d4를 억제하고 e5 전진을 막는다. 이후 퀸의 도움으로 d4 폰브레이크를 비교적 쉽게 시도할 수 있다.",
+                "moves": [
+                    {
+                        "title": "King’s Knight Opening",
+                        "info": " e5폰을 공격하고, 센터 힘을 강화하고, 캐슬링을 준비한다.",
+                        "type": 0,
+                        "pgn": "Nf3"
+                    },
+                    {
+                        "title": "Bishop’s Opening",
+                        "type": 1,
+                        "pgn": "Bc4",
+                        "info": ""
+                    },
+                    {
+                        "info": "",
+                        "pgn": "Nc3",
+                        "type": 1,
+                        "title": "Vienna Game"
+                    },
+                    {
+                        "type": 2,
+                        "info": "",
+                        "pgn": "f4",
+                        "title": "King’s Gambit"
+                    },
+                    {
+                        "type": 4,
+                        "pgn": "Ke2",
+                        "info": " 킹을 공격에 노출시키고, 캐슬링을 포기하고, 비숍과 퀸의 길을 막는다.",
+                        "title": "Bongcloud Attack"
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 10,
+            "createdDate": "2024-07-22 21:21:00",
+            "_key": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+            "memo": "2. Scandinavian Defense",
+            "status": null,
+            "value": {
+                "title": "Scandinavian Defense",
+                "moves": [
+                    {
+                        "title": "",
+                        "pgn": "exd5",
+                        "info": " 백이 이점을 얻을 수 있는 유일한 수이다.",
+                        "type": 0
+                    },
+                    {
+                        "title": "Dunst Opening: Main Line",
+                        "type": 4,
+                        "pgn": "Nc3",
+                        "info": " 나이트를 전개해서 e4폰을 지킨다. 그러나 2…d4로 흑이 공간을 확보하고 템포를 벌 수 있기 때문에 좋지 않다."
+                    }
+                ],
+                "info": " 백의 e4폰을 흑이 바로 d5로 카운터한다. 백은 exd5가 강제된다. 이후 흑은 폰을 회수하는 과정에서 템포 손해를 보게 된다."
+            }
+        },
+        {
+            "FILTERED_ID": 23,
+            "createdDate": "2024-08-01 14:43:00",
+            "_key": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+            "memo": "2. Sicilian Defense",
+            "status": null,
+            "value": {
+                "title": "Sicilian Defense",
+                "moves": [
+                    {
+                        "title": "",
+                        "info": " d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.",
+                        "type": 0,
+                        "pgn": "Nf3"
+                    },
+                    {
+                        "type": 1,
+                        "title": "Closed Sicilian",
+                        "pgn": "Nc3",
+                        "info": " 나이트를 전개하여 e4폰을 수비하고 흑의 d5전진을 막는다. 중앙이 닫힌 게임으로 자주 진행된다."
+                    },
+                    {
+                        "type": 1,
+                        "pgn": "c3",
+                        "info": " d4를 통한 중앙 장악을 준비하는 수이다. c3는 전개수가 아니므로 백의 선수 이점이 약해진다.",
+                        "title": "Sicilian Defense: Alapin Variation"
+                    },
+                    {
+                        "info": "",
+                        "title": "Sicilian Defense: Smith-Morra Gambit",
+                        "pgn": "d4",
+                        "type": 2
+                    }
+                ],
+                "info": " c5폰으로 d4칸을 컨트롤하여 백의 d4 전진을 억제한다. c5는 전개수가 아니기 때문에 전개가 느리지만, 온전한 중앙 2폰을 활용할 수 있다."
+            }
+        },
+        {
+            "FILTERED_ID": 14,
+            "createdDate": "2024-07-25 23:56:00",
+            "_key": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+            "memo": "3. Indian Defense: Normal Variation",
+            "status": null,
+            "value": {
+                "info": " 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.",
+                "title": "Indian Defense: Normal Variation",
+                "moves": [
+                    {
+                        "info": " 어두운 비숍길을 연다. 백의 d5전진은 막고 자신의 d5는 준비한다. 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.",
+                        "pgn": "e6",
+                        "type": 0,
+                        "title": ""
+                    },
+                    {
+                        "title": "",
+                        "pgn": "g6",
+                        "type": 0,
+                        "info": ""
+                    },
+                    {
+                        "pgn": "c5",
+                        "type": 0,
+                        "title": "",
+                        "info": ""
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 5,
+            "createdDate": "2024-07-24 21:44:01",
+            "_key": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+            "memo": "3. King's Knight Opening",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "pgn": "Nc6",
+                        "info": " 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.",
+                        "title": "King’s Knight Opening: Main Line",
+                        "type": 0
+                    },
+                    {
+                        "type": 1,
+                        "pgn": "Nf6",
+                        "title": "Petrov’s Defense",
+                        "info": " e5폰을 지키지 않고 흑도 똑같이 백의 e4폰을 공격한다."
+                    },
+                    {
+                        "title": "Philidor Defense",
+                        "pgn": "d6",
+                        "type": 1,
+                        "info": " e5폰을 d열 폰을 올려 방어한다. 어두운 비숍길이 막힌다는 단점이 있다."
+                    }
+                ],
+                "title": "King’s Knight Opening",
+                "info": " 상대 폰을 공격하고, 센터 힘을 강화하고, 캐슬링을 준비한다."
+            }
+        },
+        {
+            "FILTERED_ID": 26,
+            "createdDate": "2024-08-02 23:14:36",
+            "_key": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+            "memo": "3. Queen's Gambit",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "title": "Queen’s Gambit Declined",
+                        "info": " 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다. 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.",
+                        "type": 0,
+                        "pgn": "e6"
+                    },
+                    {
+                        "title": "Slav Defense",
+                        "pgn": "c6",
+                        "type": 0,
+                        "info": " 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다."
+                    },
+                    {
+                        "pgn": "dxc4",
+                        "info": " c4폰을 공짜로 잡지만 흑도 c4폰을 지킬 수 없기 때문에 결과적으로는 백의 c폰과 흑의 d폰이 교환된다.",
+                        "type": 0,
+                        "title": "Queen’s Gambit Accepted"
+                    }
+                ],
+                "title": "Queen's Gambit",
+                "info": " c4로 상대의 d5폰을 공격한다. 공짜로 c4폰을 내주는 것처럼 보이지만 흑도 c4폰을 지킬 수 없기 때문에 이후 쉽게 회수할 수 있다."
+            }
+        },
+        {
+            "FILTERED_ID": 25,
+            "createdDate": "2024-08-02 15:28:35",
+            "_key": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+            "memo": "3. Sicilian Defense",
+            "status": null,
+            "value": {
+                "info": " 나이트가 d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.",
+                "title": "Sicilian Defense",
+                "moves": [
+                    {
+                        "type": 0,
+                        "title": "Sicilian Defense: Modern Variations",
+                        "info": " e5칸을 컨트롤하여 Nf6를 준비하고 c폰을 수비하고 밝은 비숍의 길을 연다.",
+                        "pgn": "d6"
+                    },
+                    {
+                        "pgn": "Nc6",
+                        "type": 0,
+                        "title": "Sicilian Defense: Old Sicilian",
+                        "info": " e5칸을 컨트롤하여 Nf6를 준비한다."
+                    },
+                    {
+                        "type": 0,
+                        "title": "Sicilian Defense: French Variation",
+                        "pgn": "e6",
+                        "info": " 어두운 비숍의 길을 열고 d5칸을 컨트롤한다."
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 15,
+            "createdDate": "2024-07-26 00:13:13",
+            "_key": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+            "memo": "4. Indian Defense: Normal Variation",
+            "status": null,
+            "value": {
+                "title": "Indian Defense: Normal Variation",
+                "info": " 어두운 비숍길을 연다. 백의 d5전진은 막고 자신의 d5는 준비한다. 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.",
+                "moves": [
+                    {
+                        "title": "Anti-Nimzo-Indian",
+                        "pgn": "Nf3",
+                        "type": 0,
+                        "info": " 킹사이드 나이트를 전개한다. d4와 e5 지점에 대한 컨트롤을 강화한다. Nimzo-Indian Defense를 회피할 수 있다."
+                    },
+                    {
+                        "pgn": "Nc3",
+                        "title": "",
+                        "type": 0,
+                        "info": " 나이트를 전개하여 중앙 장악력을 높이고 e4를 준비한다. 흑의 위력적인 Bb4 핀을 허용한다."
+                    },
+                    {
+                        "pgn": "g3",
+                        "title": "Catalan Opening",
+                        "info": " 비숍 피앙케토를 준비한다.",
+                        "type": 0
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 6,
+            "createdDate": "2024-07-22 13:09:22",
+            "_key": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+            "memo": "4. King's Knight Opening: Main Line",
+            "status": null,
+            "value": {
+                "title": "King’s Knight Opening: Main Line",
+                "info": " 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.",
+                "moves": [
+                    {
+                        "pgn": "Bb5",
+                        "info": " e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.",
+                        "type": 0,
+                        "title": "Ruy Lopez"
+                    },
+                    {
+                        "info": " 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다.",
+                        "pgn": "Bc4",
+                        "type": 0,
+                        "title": "Italian Game"
+                    },
+                    {
+                        "type": 0,
+                        "title": "Three Knights Opening",
+                        "pgn": "Nc3",
+                        "info": " 조용하게 나이트 전개를 한다."
+                    },
+                    {
+                        "title": "Scotch Game",
+                        "pgn": "d4",
+                        "info": " 빠르게 d4로 중앙 싸움을 시작한다. 중앙이 빠르게 열리게 된다.",
+                        "type": 0
+                    },
+                    {
+                        "pgn": "c3",
+                        "type": 1,
+                        "info": "d4를 활용하는 중앙 싸움을 준비하는 수이다.",
+                        "title": "Ponziani Opening"
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 28,
+            "createdDate": "2024-08-03 17:11:32",
+            "_key": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+            "memo": "4. Queen's Gambit Accepted",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "info": " 나이트를 전개하여 e5칸의 컨트롤을 강화한다. e3 Old Variation에서 나올 수 있는 흑의 빠른 e5역습을 차단한다.",
+                        "title": "Queen’s Gambit Accepted: Normal Variation",
+                        "type": 0,
+                        "pgn": "Nf3"
+                    },
+                    {
+                        "type": 0,
+                        "title": "Queen’s Gambit Accepted: Saduleto Variation",
+                        "pgn": "e4",
+                        "info": " 중앙을 강하게 가져가면서 밝은 비숍의 길을 열어 c4폰 회수를 노린다."
+                    },
+                    {
+                        "info": " 중앙을 차지하고 밝은 비숍의 길을 열어 c4폰 회수를 노린다.",
+                        "type": 0,
+                        "pgn": "e3",
+                        "title": "Queen’s Gambit Accepted: Old Variation"
+                    }
+                ],
+                "info": " 흑이 c4폰을 공짜로 잡지만 흑도 c4폰을 지킬 수 없기 때문에 결과적으로는 백의 c폰과 흑의 d폰이 교환된다.",
+                "title": "Queen's Gambit Accepted"
+            }
+        },
+        {
+            "FILTERED_ID": 30,
+            "createdDate": "2024-08-03 17:50:59",
+            "_key": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+            "memo": "4. Queen's Gambit Declined",
+            "status": null,
+            "value": {
+                "title": "Queen's Gambit Declined",
+                "info": " 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다. 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.",
+                "moves": [
+                    {
+                        "type": 0,
+                        "info": " 나이트를 전개해서 d5폰에 강한 압박을 준다. 이후 있을 e4폰 브레이크를 준비한다.",
+                        "pgn": "Nc3",
+                        "title": "Queen's Gambit Declined: Queen’s Knight Variation"
+                    },
+                    {
+                        "type": 1,
+                        "title": "",
+                        "info": "",
+                        "pgn": "Nf3"
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 27,
+            "createdDate": "2024-08-03 14:58:58",
+            "_key": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+            "memo": "4. Slav Defense",
+            "status": null,
+            "value": {
+                "info": " 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다.",
+                "title": "Slav Defense",
+                "moves": [
+                    {
+                        "pgn": "Nf3",
+                        "type": 0,
+                        "info": " 나이트를 전개해서 e5칸 컨트롤을 강화한다.",
+                        "title": "Slav Defense: Modern Line"
+                    },
+                    {
+                        "title": "",
+                        "type": 0,
+                        "pgn": "Nc3",
+                        "info": " 나이트를 전개해서 d5폰에 강한 압박을 건다. 흑은 밝은 비숍의 길이 열려있지만 전개를 할 수 없다."
+                    },
+                    {
+                        "info": " 폰 교환 이후 c열이 열리게 된다.",
+                        "title": "Slav Defense: Exchange Variation",
+                        "pgn": "cxd5",
+                        "type": 0
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 17,
+            "createdDate": "2024-07-26 00:46:04",
+            "_key": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -",
+            "memo": "5. Indian Defense: Normal Variation",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "info": " 비숍을 활동적인 b4칸에 전개하고 c3나이트에 핀에 걸어 위협함으로써 백의 e4 컨트롤을 무효화한다. 흑이 킹사이드 기물을 전부 빼내어 전개우위를 갖고 있고 이후 폰을 활용해 중앙을 반격할 수 있다.",
+                        "pgn": "Bb4",
+                        "type": 0,
+                        "title": "Nimzo-Indian Defense"
+                    },
+                    {
+                        "title": "Queen’s Gambit Declined",
+                        "type": 0,
+                        "info": "",
+                        "pgn": "d5"
+                    }
+                ],
+                "title": "Indian Defense: Normal Variation",
+                "info": " 나이트를 전개하여 중앙 장악력을 높이고 e4를 준비한다. 흑의 위력적인 Bb4 핀을 허용한다."
+            }
+        },
+        {
+            "FILTERED_ID": 9,
+            "createdDate": "2024-07-26 15:03:28",
+            "_key": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+            "memo": "5. Italian Game",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "type": 0,
+                        "info": " 흑도 똑같이 비숍을 가장 활발한 위치로 전개한다. 이후 백은 d4를 활용하는 중앙 반격을 노리게 된다. 비교적 조용하게 진행되는 경우가 많다.",
+                        "pgn": "Bc5",
+                        "title": "Italian Game: Giuoco Piano"
+                    },
+                    {
+                        "title": "Italian Game: Two Knights Defence",
+                        "pgn": "Nf6",
+                        "type": 0,
+                        "info": " 나이트를 전개해서 e4폰을 공격한다."
+                    }
+                ],
+                "title": "Italian Game",
+                "info": " 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다."
+            }
+        },
+        {
+            "FILTERED_ID": 29,
+            "createdDate": "2024-08-03 17:32:50",
+            "_key": "rnbqkbnr/ppp1pppp/8/8/2pP4/4P3/PP3PPP/RNBQKBNR b KQkq -",
+            "memo": "5. Queen's Gambit Accepted: Old Variation",
+            "status": null,
+            "value": {
+                "title": "Queen's Gambit Accepted: Old Variation",
+                "moves": [
+                    {
+                        "info": " ",
+                        "pgn": "Nf6",
+                        "type": 0,
+                        "title": ""
+                    },
+                    {
+                        "info": "",
+                        "pgn": "e5",
+                        "title": "",
+                        "type": 0
+                    },
+                    {
+                        "pgn": "e6",
+                        "title": "",
+                        "type": 0,
+                        "info": ""
+                    },
+                    {
+                        "pgn": "b5",
+                        "info": " 무리하게 c폰을 지키려고 할 경우에는 포지션이 망가지고 기물 손해가 생긴다.",
+                        "title": "",
+                        "type": 4
+                    }
+                ],
+                "info": " 중앙을 차지하고 밝은 비숍의 길을 열어 c4폰 회수를 노린다."
+            }
+        },
+        {
+            "FILTERED_ID": 31,
+            "createdDate": "2024-08-04 01:30:59",
+            "_key": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+            "memo": "5. Ruy Lopez",
+            "status": null,
+            "value": {
+                "moves": [
+                    {
+                        "title": "Ruy Lopez: Morphy Defense",
+                        "pgn": "a6",
+                        "type": 0,
+                        "info": ""
+                    },
+                    {
+                        "type": 0,
+                        "title": "Ruy Lopez: Berlin Defense",
+                        "pgn": "Nf6",
+                        "info": ""
+                    },
+                    {
+                        "pgn": "f5",
+                        "title": "Ruy Lopez: Schliemann Defense",
+                        "type": 1,
+                        "info": ""
+                    },
+                    {
+                        "title": "Rum Lopez: Fianchetto Defense",
+                        "pgn": "g6",
+                        "type": 1,
+                        "info": ""
+                    },
+                    {
+                        "pgn": "Nge7",
+                        "info": "",
+                        "type": 1,
+                        "title": "Ruy Lopez: Cozio Defense"
+                    },
+                    {
+                        "info": "",
+                        "title": "Ruy Lopez: Classical Defense",
+                        "pgn": "Bc5",
+                        "type": 1
+                    },
+                    {
+                        "info": "",
+                        "title": "Ruy Lopez: Bird Variation",
+                        "pgn": "Nd4",
+                        "type": 1
+                    },
+                    {
+                        "info": "",
+                        "pgn": "d6",
+                        "title": "Ruy Lopez: Steinitz Defense",
+                        "type": 1
+                    }
+                ],
+                "info": " e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.",
+                "title": "Ruy Lopez"
+            }
+        },
+        {
+            "FILTERED_ID": 18,
+            "createdDate": "2024-07-26 15:23:17",
+            "_key": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+            "memo": "6. Italian Game: Giuoco Piano",
+            "status": null,
+            "value": {
+                "title": "Italian Game: Giuoco Piano",
+                "info": " 흑도 똑같이 비숍을 가장 활발한 위치로 전개한다. 이후 백은 d4를 활용하는 중앙 공격을 노리게 된다. 비교적 조용하게 진행되는 경우가 많다.",
+                "moves": [
+                    {
+                        "info": " d4를 통한 중앙공격을 준비한다.",
+                        "type": 0,
+                        "title": "Italian Game: Giuoco Piano Classical Variation",
+                        "pgn": "c3"
+                    },
+                    {
+                        "title": "Italian Game: Giuoco Pianissimo",
+                        "info": " d4로 바로 중앙을 공격하는 대신 조용한 전개수를 두며 천천히 d4 공격을 준비한다.",
+                        "pgn": "d3",
+                        "type": 0
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 24,
+            "createdDate": "2024-08-01 17:25:43",
+            "_key": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+            "memo": "6. Italian Game: Two Knights Defense",
+            "status": null,
+            "value": {
+                "info": " 나이트를 전개해서 e4폰을 공격한다.",
+                "moves": [
+                    {
+                        "title": "Italian Game: Two Knights Defense Modern Bishop’s Opening",
+                        "pgn": "d3",
+                        "info": " 공격당한 e4폰을 방어한다.",
+                        "type": 0
+                    },
+                    {
+                        "title": "Italian Game: Two Knights Defense Knight Attack",
+                        "type": 1,
+                        "pgn": "Ng5",
+                        "info": " f7폰을 비숍과 나이트 두 기물로 공격하여 포크 위협을 건다."
+                    },
+                    {
+                        "title": "",
+                        "type": 1,
+                        "pgn": "d4",
+                        "info": ""
+                    },
+                    {
+                        "info": " 나이트를 전개해서 e4폰을 지키는 듯이 보이지만, Nxe4가 가능하다. 4…Nxe4 5.Nxe4 d5로 비숍 나이트 포크를 통해 기물 회수를 할 수 있어서 1폰 다운이 된다.",
+                        "title": "",
+                        "pgn": "Nc3",
+                        "type": 4
+                    }
+                ],
+                "title": "Italian Game: Two Knights Defense"
+            }
+        },
+        {
+            "FILTERED_ID": 19,
+            "createdDate": "2024-07-26 19:26:58",
+            "_key": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
+            "memo": "6. Nimzo-Indian Defense",
+            "status": null,
+            "value": {
+                "info": " 비숍을 활동적인 b4칸에 전개하고 c3나이트에 핀에 걸어 위협함으로써 백의 e4 컨트롤을 무효화한다. 흑이 킹사이드 기물을 전부 빼내어 전개우위를 갖고 있고 이후 폰을 활용해 중앙을 반격할 수 있다.",
+                "moves": [
+                    {
+                        "pgn": "e3",
+                        "type": 0,
+                        "info": " d4폰을 강화하고 밝은 비숍의 길을 연다.",
+                        "title": "Nimzo-Indian Defense: Rubinstein Variation"
+                    },
+                    {
+                        "type": 0,
+                        "title": "Nimzo-Indian Defense: Classical Variation",
+                        "info": " 나이트를 수비하여 더블폰 발생을 예방하고, e4칸 컨트롤을 하여 곧바로 e4 전진을 가능하게 한다.",
+                        "pgn": "Qc2"
+                    },
+                    {
+                        "type": 0,
+                        "info": " e4를 준비하는 수이다.",
+                        "pgn": "f3",
+                        "title": "Nimzo-Indian Defense: Kmoch Variation"
+                    },
+                    {
+                        "type": 0,
+                        "info": "",
+                        "title": "",
+                        "pgn": "Nf3"
+                    },
+                    {
+                        "title": "",
+                        "pgn": "Bg5",
+                        "info": "",
+                        "type": 0
+                    },
+                    {
+                        "title": "",
+                        "pgn": "g3",
+                        "info": "",
+                        "type": 0
+                    },
+                    {
+                        "info": " a3로 나이트를 핀에 걸고 있는 비숍을 공격한다. 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.",
+                        "type": 1,
+                        "title": "Nimzo-Indian Defense: Sämisch Variation",
+                        "pgn": "a3"
+                    },
+                    {
+                        "type": 0,
+                        "title": "",
+                        "info": "",
+                        "pgn": "Bd2"
+                    },
+                    {
+                        "type": 0,
+                        "title": "",
+                        "info": "",
+                        "pgn": "Qb3"
+                    }
+                ],
+                "title": "Nimzo-Indian Defense"
+            }
+        },
+        {
+            "FILTERED_ID": 20,
+            "createdDate": "2024-07-26 19:34:02",
+            "_key": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/P1N5/1P2PPPP/R1BQKBNR b KQkq -",
+            "memo": "7. Nimzo-Indian Defense: Sämisch Variation",
+            "status": null,
+            "value": {
+                "info": " a3로 나이트를 핀에 걸고 있는 비숍을 공격한다. 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.",
+                "moves": [
+                    {
+                        "pgn": "Bxc3",
+                        "info": " 백에게 비숍 쌍을 내주지만 c열의 더블폰을 공략하며 게임을 괜찮게 진행할 수 있다. 이 수 외에 비숍이 피하는 수들은 백의 e4를 허용하므로 좋지 않다.",
+                        "title": "",
+                        "type": 0
+                    },
+                    {
+                        "info": " 핀을 유지하려고 a5로 피한다면 비숍이 트래핑을 당한다.",
+                        "title": "",
+                        "pgn": "Ba5",
+                        "type": 4
+                    }
+                ],
+                "title": "Nimzo-Indian Defense: Sämisch Variation"
+            }
+        },
+        {
+            "FILTERED_ID": 21,
+            "createdDate": "2024-07-26 19:48:51",
+            "_key": "rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1b5/1P2PPPP/R1BQKBNR w KQkq -",
+            "memo": "8. Nimzo-Indian Defense: Sämisch Variation",
+            "status": null,
+            "value": {
+                "title": "Nimzo-Indian Defense: Sämisch Variation",
+                "info": " 백은 비숍 쌍, 중앙 이점을 갖게 되지만 c열에 더블폰 약점이 생긴다.",
+                "moves": [
+                    {
+                        "type": 0,
+                        "pgn": "bxc3",
+                        "title": "",
+                        "info": ""
+                    }
+                ]
+            }
+        },
+        {
+            "FILTERED_ID": 22,
+            "createdDate": "2024-07-26 19:50:22",
+            "_key": "rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1P5/4PPPP/R1BQKBNR b KQkq -",
+            "memo": "9. Nimzo-Indian Defense: Sämisch Variation Accelerated",
+            "status": null,
+            "value": {
+                "info": " 백에게 비숍 쌍, 중앙 이점이 있지만 흑도 c열 더블폰을 공략하며 게임을 괜찮게 풀어갈 수 있다.",
+                "moves": [],
+                "title": "Nimzo-Indian Defense: Sämisch Variation Accelerated"
+            }
+        }
+    ]
+}

@@ -44,23 +44,23 @@
                                     <constraint firstAttribute="height" constant="32" id="D8Z-lr-IAb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQt-e2-unM" customClass="WinRateChartView" customModule="ChessOpening" customModuleProvider="target">
-                                <rect key="frame" x="16" y="250" width="772" height="20"/>
+                                <rect key="frame" x="16" y="246" width="772" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Gxa-Uu-GOc"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="538" placeholderIntrinsicHeight="100" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-yZ-SjF">
-                                <rect key="frame" x="16" y="96" width="772" height="146"/>
+                                <rect key="frame" x="16" y="96" width="772" height="142"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="EP0-Zw-lAq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,7 +75,7 @@
                             <constraint firstItem="ZTD-co-Aqj" firstAttribute="top" secondItem="VFi-HS-33R" secondAttribute="bottom" constant="16" id="Vjq-lF-1k6"/>
                             <constraint firstItem="VFi-HS-33R" firstAttribute="top" secondItem="ibt-ef-cVC" secondAttribute="bottom" constant="4" id="db9-Rr-rF8"/>
                             <constraint firstAttribute="trailing" secondItem="aQt-e2-unM" secondAttribute="trailing" constant="16" id="g6t-eY-isS"/>
-                            <constraint firstAttribute="bottom" secondItem="aQt-e2-unM" secondAttribute="bottom" constant="4" id="hey-Eg-BnP"/>
+                            <constraint firstAttribute="bottom" secondItem="aQt-e2-unM" secondAttribute="bottom" constant="8" id="hey-Eg-BnP"/>
                             <constraint firstAttribute="trailing" secondItem="VFi-HS-33R" secondAttribute="trailing" constant="16" id="iQN-cz-yic"/>
                             <constraint firstItem="IxH-yZ-SjF" firstAttribute="top" secondItem="ZTD-co-Aqj" secondAttribute="bottom" constant="4" id="lfz-yc-WGL"/>
                             <constraint firstItem="ibt-ef-cVC" firstAttribute="leading" secondItem="BUe-VS-C7g" secondAttribute="leading" constant="20" id="vmT-Jt-Thn"/>
