@@ -10,6 +10,7 @@ target 'ChessOpening' do
   pod 'Firebase'
   pod 'FirebaseCrashlytics'
   pod 'FirebaseRemoteConfig'
+  pod 'SkeletonView'
 
   # Pods for ChessOpening
   # Add the Firebase pod for Google Analytics

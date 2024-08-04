@@ -32,6 +32,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvh-cz-vMh">
                                         <rect key="frame" x="345" y="8" width="32" height="32"/>
@@ -90,10 +96,16 @@
                                     <constraint firstItem="BLx-nm-AM9" firstAttribute="top" secondItem="afK-QG-3Ug" secondAttribute="top" constant="8" id="um0-LN-5GL"/>
                                     <constraint firstItem="yvh-cz-vMh" firstAttribute="leading" secondItem="ctJ-tG-k2V" secondAttribute="trailing" constant="16" id="v7t-ua-Noc"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-kL-yaN">
                                 <rect key="frame" x="0.0" y="107" width="393" height="661"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kXJ-1i-YSS"/>
@@ -110,6 +122,9 @@
                             <constraint firstItem="kXJ-1i-YSS" firstAttribute="bottom" secondItem="9aL-KJ-T5G" secondAttribute="bottom" id="wwA-v9-zr7"/>
                             <constraint firstItem="9aL-KJ-T5G" firstAttribute="leading" secondItem="kXJ-1i-YSS" secondAttribute="leading" id="zcj-aj-ey5"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="menubook" id="Y5D-gE-Pzq">
                         <color key="badgeColor" systemColor="labelColor"/>
@@ -139,7 +154,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemFillColor">
-            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

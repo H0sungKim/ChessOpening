@@ -16,7 +16,6 @@ class MoveTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func initializeCell(moveModel: OpeningModel.MoveModel, turn: String) {

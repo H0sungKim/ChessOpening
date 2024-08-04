@@ -134,12 +134,14 @@ PODS:
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
   - RxSwift (6.7.1)
+  - SkeletonView (1.30.4)
 
 DEPENDENCIES:
   - Firebase
   - FirebaseCrashlytics
   - FirebaseRemoteConfig
   - Moya/RxSwift
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
@@ -164,6 +166,7 @@ SPEC REPOS:
     - PromisesObjC
     - PromisesSwift
     - RxSwift
+    - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
@@ -187,7 +190,8 @@ SPEC CHECKSUMS:
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: 6b4868d04cb4c8077fbe3878b5611e1c6b7b36ef
+PODFILE CHECKSUM: 0959807a2b7816368f4837ba5773d3b0e1960b5c
 
 COCOAPODS: 1.14.3

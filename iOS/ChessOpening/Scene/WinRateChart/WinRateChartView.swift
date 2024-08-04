@@ -33,7 +33,6 @@ class WinRateChartView: UIView {
         self.layer.masksToBounds = true
     }
     
-    
     func drawChart(rate: (white: Int, draws: Int, black: Int)?) {
         self.rate = rate
         setNeedsDisplay()

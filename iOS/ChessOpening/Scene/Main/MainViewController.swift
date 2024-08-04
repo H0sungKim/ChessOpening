@@ -576,6 +576,7 @@ class MainViewController: UIViewController {
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
         chessBoardView.resetFlags()
+        tabBarViewController?.infoViewController?.showSkeletons()
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn

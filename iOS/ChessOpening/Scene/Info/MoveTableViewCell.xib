@@ -22,6 +22,12 @@
                             <constraint firstAttribute="width" constant="50" id="83m-ox-qjH"/>
                             <constraint firstAttribute="width" secondItem="67N-8E-ia7" secondAttribute="height" multiplier="1:1" id="U1i-lR-xsS"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2. c4 Queen's Gambit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oek-11-nx8">
                         <rect key="frame" x="82" y="8" width="483" height="16"/>
@@ -31,12 +37,24 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="483" placeholderIntrinsicHeight="64" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trv-nb-Ewk">
                         <rect key="frame" x="82" y="28" width="483" height="62"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-dg-XCm" customClass="WinRateChartView" customModule="ChessOpening" customModuleProvider="target">
                         <rect key="frame" x="82" y="98" width="483" height="20"/>
@@ -44,6 +62,10 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="rzR-fS-elE"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -62,7 +84,13 @@
                     <constraint firstAttribute="trailing" secondItem="trv-nb-Ewk" secondAttribute="trailing" constant="16" id="to1-5o-VDk"/>
                     <constraint firstItem="oek-11-nx8" firstAttribute="top" secondItem="90d-S9-97v" secondAttribute="top" constant="8" id="vhs-hL-qK1"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="ivType" destination="67N-8E-ia7" id="gyF-Eu-m9h"/>
                 <outlet property="lbInfo" destination="trv-nb-Ewk" id="SP9-R8-2n8"/>
