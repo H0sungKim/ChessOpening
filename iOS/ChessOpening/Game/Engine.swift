@@ -410,18 +410,10 @@ class Engine {
             board.append(rank)
         }
         
-        if match.output.10.contains("K") {
-            castling.white.kingSide = true
-        }
-        if match.output.10.contains("Q") {
-            castling.white.queenSide = true
-        }
-        if match.output.10.contains("k") {
-            castling.black.kingSide = true
-        }
-        if match.output.10.contains("q") {
-            castling.black.queenSide = true
-        }
+        castling.white.kingSide = match.output.10.contains("K")
+        castling.white.queenSide = match.output.10.contains("Q")
+        castling.black.kingSide = match.output.10.contains("k")
+        castling.black.queenSide = match.output.10.contains("q")
         
         enpassant = Util.shared.convertFileStringToInt(file: String(match.output.11.prefix(1)))
         if let temp = match.output.12 {
@@ -442,14 +434,14 @@ class Engine {
     
     func convertPGNtoCoordinate(pgn: String) -> (move: (from: (rank: Int, file: Int), to: (rank: Int, file: Int)), promotion: Piece.Type?)? {
 //        e4 Re4 Rxe4 Rhe4 0-0-0 e8=Q
-        if pgn == "0-0" {
+        if pgn == "0-0" || pgn == "O-O" {
             if turn%2 == Color.white.rawValue {
                 return (move: (from: (rank: 7, file: 4), to: (rank: 7, file: 6)), promotion: nil)
             } else {
                 return (move: (from: (rank: 0, file: 4), to: (rank: 0, file: 6)), promotion: nil)
             }
         }
-        if pgn == "0-0-0" {
+        if pgn == "0-0-0" || pgn == "O-O-O" {
             if turn%2 == Color.white.rawValue {
                 return (move: (from: (rank: 7, file: 4), to: (rank: 7, file: 2)), promotion: nil)
             } else {

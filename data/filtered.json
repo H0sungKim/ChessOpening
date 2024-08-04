@@ -183,7 +183,7 @@
 			"_key": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
 			"memo": "5. Ruy Lopez",
 			"status": null,
-			"value": "{\"moves\":[{\"title\":\"Ruy Lopez: Morphy Defense\",\"pgn\":\"a6\",\"type\":0,\"info\":\"\"},{\"type\":0,\"title\":\"Ruy Lopez: Berlin Defense\",\"pgn\":\"Nf6\",\"info\":\"\"},{\"pgn\":\"f5\",\"title\":\"Ruy Lopez: Schliemann Defense\",\"type\":1,\"info\":\"\"},{\"title\":\"Rum Lopez: Fianchetto Defense\",\"pgn\":\"g6\",\"type\":1,\"info\":\"\"},{\"pgn\":\"Nge7\",\"info\":\"\",\"type\":1,\"title\":\"Ruy Lopez: Cozio Defense\"},{\"info\":\"\",\"title\":\"Ruy Lopez: Classical Defense\",\"pgn\":\"Bc5\",\"type\":1},{\"info\":\"\",\"title\":\"Ruy Lopez: Bird Variation\",\"pgn\":\"Nd4\",\"type\":1},{\"info\":\"\",\"pgn\":\"d6\",\"title\":\"Ruy Lopez: Steinitz Defense\",\"type\":1}],\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"title\":\"Ruy Lopez\"}"
+			"value": "{\"title\":\"Ruy Lopez\",\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"moves\":[{\"info\":\" 비숍을 공격해서 백의 선택을 강요한다.\",\"pgn\":\"a6\",\"type\":0,\"title\":\"Ruy Lopez: Morphy Defense\"},{\"title\":\"Ruy Lopez: Berlin Defense\",\"pgn\":\"Nf6\",\"info\":\" 백의 위협을 무시하고 나이트를 전개하며 역으로 e4폰을 공격한다.\n 마스터 레벨에서는 무승부가 자주 나온다.\",\"type\":0},{\"pgn\":\"f5\",\"info\":\"\",\"type\":1,\"title\":\"Ruy Lopez: Schliemann Defense\"},{\"pgn\":\"g6\",\"info\":\"\",\"title\":\"Rum Lopez: Fianchetto Defense\",\"type\":1},{\"title\":\"Ruy Lopez: Cozio Defense\",\"pgn\":\"Nge7\",\"type\":1,\"info\":\"\"},{\"info\":\"\",\"type\":1,\"title\":\"Ruy Lopez: Classical Defense\",\"pgn\":\"Bc5\"},{\"info\":\"\",\"pgn\":\"Nd4\",\"title\":\"Ruy Lopez: Bird Variation\",\"type\":1},{\"info\":\"\",\"title\":\"Ruy Lopez: Steinitz Defense\",\"type\":1,\"pgn\":\"d6\"}]}"
 		},
 		{
 			"FILTERED_ID": 18,
@@ -210,6 +210,14 @@
 			"value": "{\"info\":\" 비숍을 활동적인 b4칸에 전개하고 c3나이트에 핀에 걸어 위협함으로써 백의 e4 컨트롤을 무효화한다.\n 흑이 킹사이드 기물을 전부 빼내어 전개우위를 갖고 있고 이후 폰을 활용해 중앙을 반격할 수 있다.\",\"moves\":[{\"pgn\":\"e3\",\"type\":0,\"info\":\" d4폰을 강화하고 밝은 비숍의 길을 연다.\",\"title\":\"Nimzo-Indian Defense: Rubinstein Variation\"},{\"type\":0,\"title\":\"Nimzo-Indian Defense: Classical Variation\",\"info\":\" 나이트를 수비하여 더블폰 발생을 예방하고, e4칸 컨트롤을 하여 곧바로 e4 전진을 가능하게 한다.\",\"pgn\":\"Qc2\"},{\"type\":0,\"info\":\" e4를 준비하는 수이다.\",\"pgn\":\"f3\",\"title\":\"Nimzo-Indian Defense: Kmoch Variation\"},{\"type\":0,\"info\":\"\",\"title\":\"\",\"pgn\":\"Nf3\"},{\"title\":\"\",\"pgn\":\"Bg5\",\"info\":\"\",\"type\":0},{\"title\":\"\",\"pgn\":\"g3\",\"info\":\"\",\"type\":0},{\"info\":\" a3로 나이트를 핀에 걸고 있는 비숍을 공격한다.\n 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.\",\"type\":1,\"title\":\"Nimzo-Indian Defense: Sämisch Variation\",\"pgn\":\"a3\"},{\"type\":0,\"title\":\"\",\"info\":\"\",\"pgn\":\"Bd2\"},{\"type\":0,\"title\":\"\",\"info\":\"\",\"pgn\":\"Qb3\"}],\"title\":\"Nimzo-Indian Defense\"}"
 		},
 		{
+			"FILTERED_ID": 33,
+			"createdDate": "2024-08-04 14:59:42",
+			"_key": "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+			"memo": "6. Ruy Lopez: Morphy Defense",
+			"status": null,
+			"value": "{\"info\":\" 비숍을 공격해서 백의 선택을 강요한다.\",\"title\":\"Ruy Lopez: Morphy Defense\",\"moves\":[{\"info\":\" 나이트에 대한 압박을 유지하면서 비숍을 피한다.\",\"pgn\":\"Ba4\",\"type\":0,\"title\":\"\"},{\"pgn\":\"Bxc6\",\"type\":0,\"info\":\" 비숍과 나이트를 교환한다.\n 흑은 비숍 쌍을 얻는 대신 더블폰을 갖게 된다.\",\"title\":\"Ruy Lopez: Exchange Variation\"},{\"type\":4,\"info\":\" 흑에게 한 수를 내준 Italian Game으로 들어간다.\n 백의 선수 이점을 잃게 된다.\",\"title\":\"\",\"pgn\":\"Bc4\"}]}"
+		},
+		{
 			"FILTERED_ID": 20,
 			"createdDate": "2024-07-26 19:34:02",
 			"_key": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/P1N5/1P2PPPP/R1BQKBNR b KQkq -",
@@ -218,12 +226,28 @@
 			"value": "{\"info\":\" a3로 나이트를 핀에 걸고 있는 비숍을 공격한다.\n 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.\",\"moves\":[{\"pgn\":\"Bxc3\",\"info\":\" 백에게 비숍 쌍을 내주지만 c열의 더블폰을 공략하며 게임을 괜찮게 진행할 수 있다.\n 이 수 외에 비숍이 피하는 수들은 백의 e4를 허용하므로 좋지 않다.\",\"title\":\"\",\"type\":0},{\"info\":\" 핀을 유지하려고 a5로 피한다면 비숍이 트래핑을 당한다.\",\"title\":\"\",\"pgn\":\"Ba5\",\"type\":4}],\"title\":\"Nimzo-Indian Defense: Sämisch Variation\"}"
 		},
 		{
+			"FILTERED_ID": 34,
+			"createdDate": "2024-08-04 15:20:34",
+			"_key": "r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+			"memo": "7. Ruy Lopez: Exchange Variation",
+			"status": null,
+			"value": "{\"info\":\" 백이 비숍과 나이트 교환을 선택했다.\n 흑은 비숍 쌍을 얻는 대신 더블폰을 갖게 된다.\",\"moves\":[{\"title\":\"\",\"info\":\" d폰으로 비숍을 되잡는다.\n 밝은 비숍과 퀸의 길이 열린다.\n 백은 이후 d폰 e폰을 교환하고 킹사이드 지나친 폰을 이용한 엔드게임을 노린다.\",\"pgn\":\"dxc6\",\"type\":0},{\"pgn\":\"bxc6\",\"title\":\"\",\"type\":4,\"info\":\" a폰이 고립되어 약점이 되고 전개의 템포가 dxc6에 비해 느리고 백의 빠른 d4를 허용한다.\"}],\"title\":\"Ruy Lopez: Exchange Variation\"}"
+		},
+		{
 			"FILTERED_ID": 21,
 			"createdDate": "2024-07-26 19:48:51",
 			"_key": "rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1b5/1P2PPPP/R1BQKBNR w KQkq -",
 			"memo": "8. Nimzo-Indian Defense: Sämisch Variation",
 			"status": null,
 			"value": "{\"title\":\"Nimzo-Indian Defense: Sämisch Variation\",\"info\":\" 백은 비숍 쌍, 중앙 이점을 갖게 되지만 c열에 더블폰 약점이 생긴다.\",\"moves\":[{\"type\":0,\"pgn\":\"bxc3\",\"title\":\"\",\"info\":\"\"}]}"
+		},
+		{
+			"FILTERED_ID": 35,
+			"createdDate": "2024-08-04 16:02:02",
+			"_key": "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+			"memo": "8. Ruy Lopez: Exchange Variation",
+			"status": null,
+			"value": "{\"title\":\"Ruy Lopez: Exchange Variation\",\"moves\":[{\"pgn\":\"O-O\",\"title\":\"Ruy Lopez: Barendregt Variation\",\"type\":0,\"info\":\" Nxe5를 실질적인 위협으로 만든다.\n 흑이 Qd4로 나이트와 e4폰 포크를 통해 e4폰을 회수한다면 이제는 Ra1으로 핀을 걸어서 백이 크게 앞설 수 있다.\"},{\"title\":\"\",\"type\":4,\"pgn\":\"Nxe5\",\"info\":\" 나이트로 e5를 잡을 수 있을듯 보이지만 흑도 Qd4로 나이트와 e4폰 포크를 통해 회수가 가능하다.\"}],\"info\":\" 비숍 나이트 교환으로 흑은 비숍 쌍을 얻은 대신 더블폰을 갖게 됐다.\n 백은 이후 d폰 e폰을 교환하고 킹사이드 지나친 폰을 이용한 엔드게임을 노린다.\n 흑은 비숍 쌍 이점을 활용하여 미들게임에서 유리함을 살려야 한다.\"}"
 		},
 		{
 			"FILTERED_ID": 22,

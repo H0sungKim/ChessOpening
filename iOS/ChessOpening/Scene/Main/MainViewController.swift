@@ -601,33 +601,27 @@ extension MainViewController: ChessBoardViewDelegate {
 //        NSLog("Hosung.Kim : \(dateFormatter.string(from: Date()))")
         LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
             .subscribe(onSuccess: { [weak self] lichessModel in
-//                NSLog("Hosung.Kim : lichess \(dateFormatter.string(from: Date()))")
                 lichessModelForIntegrate = lichessModel
                 if let openingModelForIntegrate = openingModelForIntegrate {
-//                    NSLog("Hosung.Kim : lichess in \(dateFormatter.string(from: Date()))")
                     let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
                     self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
                     self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
                     self?.tabBarViewController?.infoViewController?.initializeView()
-//                    NSLog("Hosung.Kim : lichess in \(dateFormatter.string(from: Date()))")
                 }
             })
             .disposed(by: disposeBag)
         
         OpeningCommonRepository.shared.getFiltered(key: simpleFen)
             .subscribe(onSuccess: { [weak self] optionalOpeningModel in
-//                NSLog("Hosung.Kim : opening \(dateFormatter.string(from: Date()))")
                 openingModelForIntegrate = optionalOpeningModel
                 let openingModel = OpeningModel(optionalOpeningModel: optionalOpeningModel)
                 self?.chessBoardView?.moves = openingModel.moves
                 self?.chessBoardView?.setNeedsDisplay()
                 if let lichessModelForIntegrate = lichessModelForIntegrate {
-//                    NSLog("Hosung.Kim : opening in \(dateFormatter.string(from: Date()))")
                     let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
                     self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
                     self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
                     self?.tabBarViewController?.infoViewController?.initializeView()
-//                    NSLog("Hosung.Kim : opening in \(dateFormatter.string(from: Date()))")
                 }
             })
             .disposed(by: disposeBag)
