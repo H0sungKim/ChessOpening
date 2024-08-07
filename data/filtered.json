@@ -234,6 +234,14 @@
 			"value": "{\"info\":\" 백이 비숍과 나이트 교환을 선택했다.\n 흑은 비숍 쌍을 얻는 대신 더블폰을 갖게 된다.\",\"moves\":[{\"title\":\"\",\"info\":\" d폰으로 비숍을 되잡는다.\n 밝은 비숍과 퀸의 길이 열린다.\n 백은 이후 d폰 e폰을 교환하고 킹사이드 지나친 폰을 이용한 엔드게임을 노린다.\",\"pgn\":\"dxc6\",\"type\":0},{\"pgn\":\"bxc6\",\"title\":\"\",\"type\":4,\"info\":\" a폰이 고립되어 약점이 되고 전개의 템포가 dxc6에 비해 느리고 백의 빠른 d4를 허용한다.\"}],\"title\":\"Ruy Lopez: Exchange Variation\"}"
 		},
 		{
+			"FILTERED_ID": 36,
+			"createdDate": "2024-08-04 16:32:19",
+			"_key": "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+			"memo": "7. Ruy Lopez: Morphy Defense",
+			"status": null,
+			"value": "{\"title\":\"Ruy Lopez: Morphy Defense\",\"info\":\" 나이트에 대한 압박을 유지하면서 비숍을 피한다.\n 흑은 이후 b5를 통해 비숍 나이트 교환을 막을 수 있다.\",\"moves\":[{\"title\":\"\",\"pgn\":\"Nf6\",\"type\":0,\"info\":\"\"},{\"pgn\":\"d6\",\"title\":\"\",\"info\":\"\",\"type\":1},{\"info\":\"\",\"title\":\"\",\"type\":1,\"pgn\":\"Nge7\"},{\"info\":\"\",\"pgn\":\"b5\",\"title\":\"\",\"type\":1},{\"title\":\"\",\"pgn\":\"g6\",\"type\":1,\"info\":\"\"},{\"title\":\"\",\"pgn\":\"Bc5\",\"type\":1,\"info\":\"\"},{\"pgn\":\"f5\",\"type\":1,\"info\":\"\",\"title\":\"\"}]}"
+		},
+		{
 			"FILTERED_ID": 21,
 			"createdDate": "2024-07-26 19:48:51",
 			"_key": "rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1b5/1P2PPPP/R1BQKBNR w KQkq -",
