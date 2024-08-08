@@ -108,6 +108,8 @@
 		96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalOpeningModel.swift; sourceTree = "<group>"; };
 		96152D512C58FF2500E821E3 /* LichessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessModel.swift; sourceTree = "<group>"; };
 		961715ED2C5A61B0007383FE /* WinRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinRateChartView.swift; sourceTree = "<group>"; };
+		961715EF2C649C58007383FE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		961715F02C649C58007383FE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		961A11252C319AF2005E903C /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		961A11292C319DB3005E903C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		961A112D2C31A119005E903C /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
@@ -565,11 +567,11 @@
 			};
 			buildConfigurationList = 969604762BFF0A6D00BBFC6C /* Build configuration list for PBXProject "ChessOpening" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ko,
 			);
 			mainGroup = 969604722BFF0A6D00BBFC6C;
 			productRefGroup = 9696047C2BFF0A6D00BBFC6C /* Products */;
@@ -833,6 +835,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				969604852BFF0A6D00BBFC6C /* Base */,
+				961715F02C649C58007383FE /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9696048A2BFF0A6E00BBFC6C /* Base */,
+				961715EF2C649C58007383FE /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -853,6 +857,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -916,6 +921,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
