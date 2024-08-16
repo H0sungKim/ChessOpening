@@ -90,9 +90,9 @@ class Engine {
         var pgn = ""
         if board[move.from.rank][move.from.file] is King {
             if move.to.file-move.from.file == 2 {
-                return "0-0"
+                return "O-O"
             } else if move.to.file-move.from.file == -2 {
-                return "0-0-0"
+                return "O-O-O"
             }
         }
         switch type(of: board[move.from.rank][move.from.file]) {

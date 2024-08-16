@@ -50,6 +50,14 @@
 			"value": "{\"info\":\" 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다.\n 트랩 라인만 조심하면 백에게 유리하다.\",\"title\":\"Englund Gambit\",\"moves\":[{\"title\":\"\",\"pgn\":\"dxe5\",\"type\":0,\"info\":\" e5폰을 잡으며 갬빗을 수락한다.\n 백에게 최선의 수다.\"}]}"
 		},
 		{
+			"FILTERED_ID": 59,
+			"createdDate": "2024-08-13 20:06:12",
+			"_key": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+			"memo": "02. French Defense",
+			"status": null,
+			"value": "{\"info\":\" d5를 통한 중앙싸움을 준비하는 수이다.\n 이후 c5, Nc6로 빠르게 백의 중앙을 압박할 수 있지만, e6폰이 밝은 비숍의 전개를 막는다는 단점이 있다.\",\"title\":\"French Defense\",\"moves\":[{\"pgn\":\"d4\",\"type\":0,\"title\":\"French Defense: Normal Variation\",\"info\":\" 중앙을 강하게 차지한다.\"}]}"
+		},
+		{
 			"FILTERED_ID": 12,
 			"createdDate": "2024-07-25 00:37:28",
 			"_key": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
@@ -127,7 +135,7 @@
 			"_key": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
 			"memo": "04. King's Knight Opening: Main Line",
 			"status": null,
-			"value": "{\"title\":\"King’s Knight Opening: Main Line\",\"info\":\" 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.\",\"moves\":[{\"pgn\":\"Bb5\",\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"type\":0,\"title\":\"Ruy Lopez\"},{\"info\":\" 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다.\",\"pgn\":\"Bc4\",\"type\":0,\"title\":\"Italian Game\"},{\"type\":0,\"title\":\"Three Knights Opening\",\"pgn\":\"Nc3\",\"info\":\" 조용하게 나이트 전개를 한다.\"},{\"title\":\"Scotch Game\",\"pgn\":\"d4\",\"info\":\" 빠르게 d4로 중앙 싸움을 시작한다.\n 중앙이 빠르게 열리게 된다.\",\"type\":0},{\"pgn\":\"c3\",\"type\":1,\"info\":\"d4를 활용하는 중앙 싸움을 준비하는 수이다.\",\"title\":\"Ponziani Opening\"}]}"
+			"value": "{\"title\":\"King’s Knight Opening: Main Line\",\"info\":\" 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.\n 백은 흑과 달리 c폰을 중앙싸움에 활용할 수 있다는 작은 이점이 있다.\",\"moves\":[{\"pgn\":\"Bb5\",\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"type\":0,\"title\":\"Ruy Lopez\"},{\"info\":\" 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다.\",\"pgn\":\"Bc4\",\"type\":0,\"title\":\"Italian Game\"},{\"type\":0,\"title\":\"Three Knights Opening\",\"pgn\":\"Nc3\",\"info\":\" 조용하게 나이트 전개를 한다.\"},{\"title\":\"Scotch Game\",\"pgn\":\"d4\",\"info\":\" 빠르게 d4로 중앙 싸움을 시작한다.\n 중앙이 빠르게 열리게 된다.\",\"type\":0},{\"pgn\":\"c3\",\"type\":1,\"info\":\"d4를 활용하는 중앙 싸움을 준비하는 수이다.\",\"title\":\"Ponziani Opening\"}]}"
 		},
 		{
 			"FILTERED_ID": 28,
@@ -295,7 +303,7 @@
 			"_key": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2BPP3/2P2N2/PP3PPP/RNBQK2R b KQkq -",
 			"memo": "09. Giuoco Piano: Center Attack",
 			"status": null,
-			"value": "{\"moves\":[{\"pgn\":\"exd4\",\"info\":\"\",\"type\":0,\"title\":\"\"},{\"info\":\"\",\"type\":4,\"title\":\"\",\"pgn\":\"Bb6\"}],\"title\":\"Giuoco Piano: Center Attack\",\"info\":\" e4폰에 대한 공격을 무시하고 바로 d4로 중앙공격을 한다.\n 흑의 유일한 좋은 수는 exd4뿐이다.\"}"
+			"value": "{\"title\":\"Giuoco Piano: Center Attack\",\"info\":\" e4폰에 대한 공격을 무시하고 바로 중앙으로 치고 나오며 비숍과 e5폰을 공격한다.\",\"moves\":[{\"pgn\":\"exd4\",\"type\":0,\"title\":\"\",\"info\":\" 흑의 유일한 좋은 수이다.\"},{\"pgn\":\"Bb6\",\"type\":4,\"info\":\" 비숍을 피하는 것은 좋지 않다.\n 폰을 공짜로 내주고 나이트도 쫓겨난다.\",\"title\":\"\"}]}"
 		},
 		{
 			"FILTERED_ID": 22,
@@ -311,15 +319,135 @@
 			"_key": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/2P2N2/PP3PPP/RNBQK2R w KQkq -",
 			"memo": "10. Giuoco Piano: Center Attack",
 			"status": null,
-			"value": "{\"moves\":[{\"info\":\"\",\"type\":0,\"pgn\":\"e5\",\"title\":\"\"},{\"pgn\":\"cxd4\",\"title\":\"\",\"type\":0,\"info\":\"\"}],\"title\":\"Giuoco Piano: Center Attack\",\"info\":\"\"}"
+			"value": "{\"info\":\"\",\"moves\":[{\"info\":\" 폰을 바로 회수하지 않고 e5 전진으로 나이트를 위협한다.\",\"type\":0,\"pgn\":\"e5\",\"title\":\"\"},{\"type\":0,\"pgn\":\"cxd4\",\"title\":\"Giuoco Piano: Center Attack Traditional Line\",\"info\":\" 폰을 바로 회수하며 비숍을 공격한다.\n 백이 중앙을 아주 강하게 장악한다.\"}],\"title\":\"Giuoco Piano: Center Attack\"}"
+		},
+		{
+			"FILTERED_ID": 44,
+			"createdDate": "2024-08-12 21:46:27",
+			"_key": "r1bqk2r/pppp1ppp/1bn2n2/4p3/2BPP3/2P2N2/PP3PPP/RNBQK2R w KQkq -",
+			"memo": "10. Giuoco Piano: Center Attack",
+			"status": null,
+			"value": "{\"moves\":[{\"type\":0,\"title\":\"\",\"pgn\":\"dxe5\",\"info\":\" 폰을 공짜로 잡고 나이트를 쫓아낸다.\"}],\"info\":\" 비숍을 피하는 것은 좋지 않다.\n 폰을 공짜로 내주고 나이트도 쫓겨난다.\",\"title\":\"Giuoco Piano: Center Attack\"}"
+		},
+		{
+			"FILTERED_ID": 45,
+			"createdDate": "2024-08-12 21:51:50",
+			"_key": "r1bqk2r/pppp1ppp/1bn2n2/4P3/2B1P3/2P2N2/PP3PPP/RNBQK2R b KQkq -",
+			"memo": "11. Giuoco Piano: Center Attack",
+			"status": null,
+			"value": "{\"info\":\"\",\"moves\":[{\"title\":\"\",\"type\":0,\"pgn\":\"Ng4\",\"info\":\"\"},{\"pgn\":\"Nxe4\",\"title\":\"\",\"type\":4,\"info\":\"\"}],\"title\":\"Giuoco Piano: Center Attack\"}"
 		},
 		{
 			"FILTERED_ID": 43,
 			"createdDate": "2024-08-12 15:09:02",
 			"_key": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BPP3/5N2/PP3PPP/RNBQK2R b KQkq -",
-			"memo": "11. Giuoco Piano: Center Attack",
+			"memo": "11. Giuoco Piano: Center Attack Traditional Line",
 			"status": null,
-			"value": "{\"title\":\"Giuoco Piano: Center Attack\",\"info\":\"\",\"moves\":[{\"title\":\"\",\"type\":0,\"info\":\"\",\"pgn\":\"Bb4+\"},{\"title\":\"\",\"pgn\":\"Bb6\",\"type\":4,\"info\":\"\"}]}"
+			"value": "{\"info\":\" 폰을 바로 회수하며 비숍을 공격한다.\n 백이 중앙을 아주 강하게 장악한다.\",\"title\":\"Giuoco Piano: Center Attack Traditional Line\",\"moves\":[{\"info\":\" 비숍을 피하면서 체크를 한다.\",\"type\":0,\"pgn\":\"Bb4+\",\"title\":\"\"},{\"info\":\" 비숍을 피하면 백의 e5나 d5전진을 허용하여 나이트가 쫓겨나게 된다.\n 백은 영역 우위와 전개 우위를 동시에 갖게 된다.\",\"type\":4,\"title\":\"\",\"pgn\":\"Bb6\"}]}"
+		},
+		{
+			"FILTERED_ID": 46,
+			"createdDate": "2024-08-12 21:56:15",
+			"_key": "r1bqk2r/pppp1ppp/1bn5/4P3/2B1n3/2P2N2/PP3PPP/RNBQK2R w KQkq -",
+			"memo": "12. Giuoco Piano: Center Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Center Attack\",\"moves\":[{\"pgn\":\"Qd5\",\"info\":\" 체크메이트 위협과 나이트에 대한 공격을 동시에 한다.\",\"type\":3,\"title\":\"\"}],\"info\":\"\"}"
+		},
+		{
+			"FILTERED_ID": 47,
+			"createdDate": "2024-08-12 22:26:04",
+			"_key": "r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/5N2/PP3PPP/RNBQK2R w KQkq -",
+			"memo": "12. Giuoco Piano: Center Attack Traditional Line",
+			"status": null,
+			"value": "{\"info\":\" 비숍을 피하면서 체크를 한다.\",\"moves\":[{\"info\":\"\",\"type\":0,\"title\":\"\",\"pgn\":\"Bd2\"},{\"type\":2,\"info\":\" 나이트를 전개하며 체크를 막는다.\n e4폰을 희생한다.\",\"title\":\"Giuoco Piano: Greco's Attack\",\"pgn\":\"Nc3\"},{\"title\":\"\",\"pgn\":\"Nbd2\",\"info\":\"\",\"type\":0}],\"title\":\"Giuoco Piano: Center Attack Traditional Line\"}"
+		},
+		{
+			"FILTERED_ID": 48,
+			"createdDate": "2024-08-12 22:34:54",
+			"_key": "r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/2N2N2/PP3PPP/R1BQK2R b KQkq -",
+			"memo": "13. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"info\":\" 나이트를 전개하며 체크를 막는다.\n e4폰을 희생한다.\",\"moves\":[{\"type\":0,\"title\":\"\",\"pgn\":\"Nxe4\",\"info\":\" e4폰을 잡으며 c3 나이트에 큰 압박을 넣는다.\"},{\"info\":\" 중앙 반격을 하고 밝은 비숍의 길을 연다.\",\"type\":1,\"title\":\"\",\"pgn\":\"d5\"}],\"title\":\"Giuoco Piano: Greco's Attack\"}"
+		},
+		{
+			"FILTERED_ID": 49,
+			"createdDate": "2024-08-13 19:12:31",
+			"_key": "r1bqk2r/ppp2ppp/2n2n2/3p4/1bBPP3/2N2N2/PP3PPP/R1BQK2R w KQkq -",
+			"memo": "14. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"title\":\"\",\"type\":0,\"pgn\":\"exd5\",\"info\":\"\"}],\"info\":\" 중앙 반격을 하고 밝은 비숍의 길을 연다.\"}"
+		},
+		{
+			"FILTERED_ID": 61,
+			"createdDate": "2024-08-13 19:45:55",
+			"_key": "r1bqk2r/pppp1ppp/2n5/8/1bBPn3/2N2N2/PP3PPP/R1BQK2R w KQkq -",
+			"memo": "14. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"info\":\"\",\"moves\":[{\"title\":\"\",\"type\":0,\"info\":\"\",\"pgn\":\"O-O\"}],\"title\":\"Giuoco Piano: Greco's Attack\"}"
+		},
+		{
+			"FILTERED_ID": 50,
+			"createdDate": "2024-08-13 19:13:32",
+			"_key": "r1bqk2r/ppp2ppp/2n2n2/3P4/1bBP4/2N2N2/PP3PPP/R1BQK2R b KQkq -",
+			"memo": "15. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"pgn\":\"Nxd5\",\"title\":\"\",\"type\":0,\"info\":\"\"}],\"info\":\"\"}"
+		},
+		{
+			"FILTERED_ID": 60,
+			"createdDate": "2024-08-13 19:48:55",
+			"_key": "r1bqk2r/pppp1ppp/2n5/8/1bBPn3/2N2N2/PP3PPP/R1BQ1RK1 b kq -",
+			"memo": "15. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"info\":\"\",\"title\":\"\",\"pgn\":\"Bxc3\",\"type\":0},{\"pgn\":\"Nxc3\",\"title\":\"\",\"type\":0,\"info\":\"\"}],\"info\":\"\"}"
+		},
+		{
+			"FILTERED_ID": 51,
+			"createdDate": "2024-08-13 19:14:42",
+			"_key": "r1bqk2r/ppp2ppp/2n5/3n4/1bBP4/2N2N2/PP3PPP/R1BQK2R w KQkq -",
+			"memo": "16. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Greco's Attack\",\"info\":\"\",\"moves\":[{\"type\":0,\"title\":\"\",\"info\":\"\",\"pgn\":\"O-O\"}]}"
+		},
+		{
+			"FILTERED_ID": 52,
+			"createdDate": "2024-08-13 19:21:42",
+			"_key": "r1bqk2r/ppp2ppp/2n5/3n4/1bBP4/2N2N2/PP3PPP/R1BQ1RK1 b kq -",
+			"memo": "17. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"moves\":[{\"info\":\"\",\"pgn\":\"Nxc3\",\"title\":\"\",\"type\":0},{\"title\":\"\",\"type\":0,\"info\":\"\",\"pgn\":\"Be6\"},{\"title\":\"\",\"pgn\":\"Bxc3\",\"info\":\"\",\"type\":0}],\"info\":\"\",\"title\":\"Giuoco Piano: Greco's Attack\"}"
+		},
+		{
+			"FILTERED_ID": 53,
+			"createdDate": "2024-08-13 19:22:43",
+			"_key": "r1bqk2r/ppp2ppp/2n5/8/1bBP4/2n2N2/PP3PPP/R1BQ1RK1 w kq -",
+			"memo": "18. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"info\":\"\",\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"pgn\":\"bxc3\",\"type\":0,\"info\":\"\",\"title\":\"\"}]}"
+		},
+		{
+			"FILTERED_ID": 54,
+			"createdDate": "2024-08-13 19:25:13",
+			"_key": "r1bqk2r/ppp2ppp/2n5/8/1bBP4/2P2N2/P4PPP/R1BQ1RK1 b kq -",
+			"memo": "19. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"info\":\"\",\"moves\":[{\"type\":4,\"title\":\"\",\"info\":\"\",\"pgn\":\"Bxc3\"}],\"title\":\"Giuoco Piano: Greco's Attack\"}"
+		},
+		{
+			"FILTERED_ID": 55,
+			"createdDate": "2024-08-13 19:27:52",
+			"_key": "r1bqk2r/ppp2ppp/2n5/8/2BP4/2b2N2/P4PPP/R1BQ1RK1 w kq -",
+			"memo": "20. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"type\":3,\"pgn\":\"Qb3\",\"info\":\" f7칸에 대한 압박과 비숍에 대한 공격을 동시에 한다.\",\"title\":\"\"}],\"info\":\"\"}"
+		},
+		{
+			"FILTERED_ID": 56,
+			"createdDate": "2024-08-13 19:30:03",
+			"_key": "r1bqk2r/ppp2ppp/2n5/8/2BP4/1Qb2N2/P4PPP/R1B2RK1 b kq -",
+			"memo": "21. Giuoco Piano: Greco's Attack",
+			"status": null,
+			"value": "{\"info\":\"\",\"title\":\"Giuoco Piano: Greco's Attack\",\"moves\":[{\"info\":\"\",\"pgn\":\"Bxa1\",\"title\":\"\",\"type\":4}]}"
 		}
 	]
 }
