@@ -1,60 +1,37 @@
 {
-	"title": "King's Pawn Game",
-	"info": " e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.\n 나중에 퀸의 보호를 받고 있는 d폰으로 d4를 시도하여 강하게 중앙을 강하게 장악하거나 중앙을 열 수 있다.\n 그러나 e4폰이 보호받지 않고 있고 d4와 f4 지점이 약해진다는 약점을 갖게 된다.",
-	"moves": [
+	"data":
+	[
 		{
-			"type": 0,
-			"title": "Sicilian Defense",
-			"info": " c5폰으로 d4칸을 컨트롤하여 백의 d4 전진을 억제한다.\n c5는 전개수가 아니기 때문에 전개가 느리지만, 온전한 중앙 2폰을 활용할 수 있다.",
-			"pgn": "c5"
+			"RAW_ID": 156,
+			"createdDate": "2024-09-08 00:03:12",
+			"_key": "DF984203-C502-42C9-9F25-9BED9C153F0C",
+			"memo": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+			"status": null,
+			"value": "{\"title\":\"Queen’s Pawn Opening\",\"moves\":[{\"info\":\" 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다.\n 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다.\",\"pgn\":\"Nf6\",\"type\":0,\"title\":\"Indian Defense\"},{\"type\":0,\"info\":\" 흑도 똑같이 d폰 전진을 한다.\n d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다.\n 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다.\",\"pgn\":\"d5\",\"title\":\"Closed Game\"},{\"type\":2,\"title\":\"Englund Gambit\",\"pgn\":\"e5\",\"info\":\" 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다.\"}],\"info\":\" d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\n e5칸을 장악하여 흑의 e5를 막는다.\"}"
 		},
 		{
-			"type": 0,
-			"title": "Open Game",
-			"pgn": "e5",
-			"info": " 흑도 똑같이 e폰 전진을 한다.\n e5폰을 통해 중앙을 컨트롤하고 퀸과 어두운 비숍의 길을 연다.\n 백의 추가적인 중앙 장악 d4를 억제하고 e5 전진을 막는다."
+			"RAW_ID": 155,
+			"createdDate": "2024-09-08 00:02:12",
+			"_key": "A1EBBE9D-92A3-42AA-876D-FFF674266233",
+			"memo": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+			"status": null,
+			"value": "{\"info\":\" 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.\",\"moves\":[{\"type\":0,\"pgn\":\"e6\",\"info\":\" 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.\",\"title\":\"\"},{\"pgn\":\"g6\",\"title\":\"\",\"type\":0,\"info\":\"\"},{\"pgn\":\"c5\",\"type\":0,\"title\":\"\",\"info\":\"\"}],\"title\":\"Indian Defense: Normal Variation\"}"
 		},
 		{
-			"title": "French Defense",
-			"info": " d5를 통한 중앙싸움을 준비하는 수이다.\n 이후 c5, Nc6로 빠르게 백의 중앙을 압박할 수 있지만, e6폰이 밝은 비숍의 전개를 막는다는 단점이 있다.",
-			"pgn": "e6",
-			"type": 0
+			"RAW_ID": 154,
+			"createdDate": "2024-09-08 00:00:45",
+			"_key": "53F98EAC-6142-431E-9FF2-7F69A3E4C9C5",
+			"memo": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+			"status": null,
+			"value": "{\"title\":\"Indian Defense: Normal Variation\",\"moves\":[{\"type\":0,\"pgn\":\"e6\",\"title\":\"\",\"info\":\" 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.\"},{\"type\":0,\"pgn\":\"g6\",\"info\":\"\",\"title\":\"\"},{\"type\":0,\"title\":\"\",\"info\":\"\",\"pgn\":\"c5\"}],\"info\":\" 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.\"}"
 		},
 		{
-			"type": 0,
-			"pgn": "c6",
-			"title": "Caro-Kann Defense",
-			"info": " d5를 통한 중앙싸움을 준비하는 수이다.\n 백에게 초반 주도권을 어느정도 내주지만, 안정적인 폰 구조를 바탕으로 견고하게 진행할 수 있다."
-		},
-		{
-			"info": "",
-			"title": "Pirc Defense",
-			"type": 1,
-			"pgn": "d6"
-		},
-		{
-			"pgn": "g6",
-			"info": "",
-			"type": 1,
-			"title": "Modern Defense"
-		},
-		{
-			"title": "Scandinavian Defense",
-			"pgn": "d5",
-			"info": " 백의 e4폰을 흑이 바로 d5로 카운터한다.\n 백은 exd5가 강제된다.\n 이후 흑은 폰을 회수하는 과정에서 템포 손해를 보게 된다.",
-			"type": 1
-		},
-		{
-			"type": 1,
-			"pgn": "Nf6",
-			"info": "",
-			"title": ""
-		},
-		{
-			"info": "",
-			"type": 1,
-			"pgn": "b6",
-			"title": ""
+			"RAW_ID": 153,
+			"createdDate": "2024-09-07 23:58:40",
+			"_key": "49092479-284A-449D-95F7-8E4757D811A9",
+			"memo": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+			"status": null,
+			"value": "{\"title\":\"Chess Opening Book\",\"info\":\" 오프닝에서는 기물의 전개, 중앙 차지, 킹의 안전, 좋은 폰 구조 등을 목표로 해야 한다.\",\"moves\":[{\"type\":0,\"pgn\":\"e4\",\"info\":\"e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.\",\"title\":\"King's Pawn Game\"},{\"pgn\":\"d4\",\"info\":\"d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\",\"title\":\"Queen's Pawn Game\",\"type\":0},{\"info\":\"\",\"type\":1,\"pgn\":\"Nf3\",\"title\":\"Zukertort Opening\"},{\"type\":1,\"info\":\"\",\"title\":\"English Opening\",\"pgn\":\"c4\"},{\"title\":\"Hungarian Opening\",\"info\":\"\",\"type\":1,\"pgn\":\"g3\"},{\"info\":\"\",\"pgn\":\"b3\",\"title\":\"Nimzo-Larsen Attack\",\"type\":1}]}"
 		}
 	]
 }

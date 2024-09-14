@@ -1,42 +1,24 @@
 {
+    "title": "Queen’s Pawn Opening",
     "moves": [
         {
-            "title": "King's Pawn Game",
-            "info": "e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.",
+            "info": " 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다.\n 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다.",
+            "pgn": "Nf6",
             "type": 0,
-            "pgn": "e4"
+            "title": "Indian Defense"
         },
         {
-            "info": "d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.",
-            "pgn": "d4",
-            "title": "Queen's Pawn Game",
-            "type": 0
+            "type": 0,
+            "info": " 흑도 똑같이 d폰 전진을 한다.\n d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다.\n 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다.",
+            "pgn": "d5",
+            "title": "Closed Game"
         },
         {
-            "type": 1,
-            "title": "",
-            "info": "",
-            "pgn": "Nf3"
-        },
-        {
-            "type": 1,
-            "title": "",
-            "pgn": "c4",
-            "info": ""
-        },
-        {
-            "pgn": "g3",
-            "type": 1,
-            "info": "",
-            "title": ""
-        },
-        {
-            "type": 1,
-            "title": "",
-            "info": "",
-            "pgn": "b3"
+            "type": 2,
+            "title": "Englund Gambit",
+            "pgn": "e5",
+            "info": " 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다."
         }
     ],
-    "title": "Chess Opening Book",
-    "info": " 오프닝에서는 기물의 전개, 중앙 차지, 킹의 안전, 좋은 폰 구조 등을 목표로 해야 한다."
+    "info": " d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\n e5칸을 장악하여 흑의 e5를 막는다."
 }

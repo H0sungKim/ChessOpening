@@ -87,7 +87,7 @@
 			"_key": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
 			"memo": "02. Sicilian Defense",
 			"status": null,
-			"value": "{\"title\":\"Sicilian Defense\",\"moves\":[{\"title\":\"Open Sicilian\",\"info\":\" d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.\",\"type\":0,\"pgn\":\"Nf3\"},{\"type\":1,\"title\":\"Closed Sicilian\",\"pgn\":\"Nc3\",\"info\":\" 나이트를 전개하여 e4폰을 수비하고 흑의 d5전진을 막는다.\n 중앙이 닫힌 게임으로 자주 진행된다.\"},{\"type\":1,\"pgn\":\"c3\",\"info\":\" d4를 통한 중앙 장악을 준비하는 수이다.\n c3는 전개수가 아니므로 백의 선수 이점이 약해진다.\",\"title\":\"Sicilian Defense: Alapin Variation\"},{\"info\":\"\",\"title\":\"Sicilian Defense: Smith-Morra Gambit\",\"pgn\":\"d4\",\"type\":2}],\"info\":\" c5폰으로 d4칸을 컨트롤하여 백의 d4 전진을 억제한다.\n c5는 전개수가 아니기 때문에 전개가 느리지만, 온전한 중앙 2폰을 활용할 수 있다.\"}"
+			"value": "{\"title\":\"Sicilian Defense\",\"info\":\" c5폰으로 d4칸을 컨트롤하여 백의 d4 전진을 억제한다.\n c5는 전개수가 아니기 때문에 전개가 느리지만, 온전한 중앙 2폰을 활용할 수 있다.\",\"moves\":[{\"info\":\" d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.\",\"type\":0,\"title\":\"\",\"pgn\":\"Nf3\"},{\"title\":\"Closed Sicilian\",\"info\":\" 나이트를 전개하여 e4폰을 수비하고 흑의 d5전진을 막는다.\n 중앙이 닫힌 게임으로 자주 진행된다.\",\"pgn\":\"Nc3\",\"type\":1},{\"type\":1,\"title\":\"Sicilian Defense: Alapin Variation\",\"info\":\" d4를 통한 중앙 장악을 준비하는 수이다.\n c3는 전개수가 아니므로 백의 선수 이점이 약해진다.\",\"pgn\":\"c3\"},{\"info\":\" d4로 바로 중앙을 공격한다.\n 흑이 d4폰을 잡으면 c3까지 하여 한번 더 잡게 하고 나이트를 전개하면서 폰을 회수한다.\n 백은 폰 하나를 희생하고 전개 우위를 갖는다.\",\"title\":\"Sicilian Defense: Smith-Morra Gambit\",\"pgn\":\"d4\",\"type\":2}]}"
 		},
 		{
 			"FILTERED_ID": 65,
@@ -114,20 +114,28 @@
 			"value": "{\"title\":\"King’s Knight Opening\",\"moves\":[{\"type\":0,\"pgn\":\"Nc6\",\"info\":\" 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.\",\"title\":\"King’s Knight Opening: Main Line\"},{\"title\":\"Petrov’s Defense\",\"type\":1,\"info\":\" e5폰을 지키지 않고 흑도 똑같이 나이트를 전개하여 백의 e4폰을 공격한다.\",\"pgn\":\"Nf6\"},{\"title\":\"Philidor Defense\",\"pgn\":\"d6\",\"type\":1,\"info\":\" e5폰을 d열 폰을 올려 방어한다.\n 어두운 비숍길이 막힌다는 단점이 있다.\"},{\"info\":\" e5폰을 수비해주는 듯이 보이지만 Nxe5가 가능하다.\n f폰을 밀었기 때문에 킹이 위험해진다.\",\"title\":\"Damiano Defense\",\"pgn\":\"f6\",\"type\":4}],\"info\":\" 나이트를 전개하여 e5폰을 공격하고, 센터 힘을 강화하고, 캐슬링을 준비한다.\"}"
 		},
 		{
-			"FILTERED_ID": 25,
-			"createdDate": "2024-08-02 15:28:35",
-			"_key": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
-			"memo": "03. Open Sicilian",
-			"status": null,
-			"value": "{\"info\":\" 나이트가 d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.\",\"title\":\"Open Sicilian\",\"moves\":[{\"type\":0,\"title\":\"\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비하고 c폰을 수비하고 밝은 비숍의 길을 연다.\",\"pgn\":\"d6\"},{\"pgn\":\"Nc6\",\"type\":0,\"title\":\"Old Sicilian\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비한다.\"},{\"type\":0,\"title\":\"Sicilian Defense: French Variation\",\"pgn\":\"e6\",\"info\":\" 어두운 비숍의 길을 열고 d5칸을 컨트롤한다.\"}]}"
-		},
-		{
 			"FILTERED_ID": 26,
 			"createdDate": "2024-08-02 23:14:36",
 			"_key": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
 			"memo": "03. Queen's Gambit",
 			"status": null,
 			"value": "{\"moves\":[{\"title\":\"Queen’s Gambit Declined\",\"info\":\" 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다.\n 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.\",\"type\":0,\"pgn\":\"e6\"},{\"title\":\"Slav Defense\",\"pgn\":\"c6\",\"type\":0,\"info\":\" 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다.\"},{\"pgn\":\"dxc4\",\"info\":\" c4폰을 공짜로 잡지만 흑도 c4폰을 지킬 수 없기 때문에 결과적으로는 백의 c폰과 흑의 d폰이 교환된다.\",\"type\":0,\"title\":\"Queen’s Gambit Accepted\"}],\"title\":\"Queen's Gambit\",\"info\":\" c4로 상대의 d5폰을 공격한다.\n 공짜로 c4폰을 내주는 것처럼 보이지만 흑도 c4폰을 지킬 수 없기 때문에 이후 쉽게 회수할 수 있다.\"}"
+		},
+		{
+			"FILTERED_ID": 25,
+			"createdDate": "2024-08-02 15:28:35",
+			"_key": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+			"memo": "03. Sicilian Defense",
+			"status": null,
+			"value": "{\"info\":\" 나이트가 d4 컨트롤을 강화해서 d4를 통한 중앙 싸움을 준비한다.\",\"title\":\"Sicilian Defense\",\"moves\":[{\"type\":0,\"title\":\"\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비하고 c폰을 수비하고 밝은 비숍의 길을 연다.\",\"pgn\":\"d6\"},{\"pgn\":\"Nc6\",\"type\":0,\"title\":\"Sicilian Defense: Old Sicilian\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비한다.\"},{\"type\":0,\"title\":\"Sicilian Defense: French Variation\",\"pgn\":\"e6\",\"info\":\" 어두운 비숍의 길을 열고 d5칸을 컨트롤한다.\"}]}"
+		},
+		{
+			"FILTERED_ID": 79,
+			"createdDate": "2024-08-28 14:01:51",
+			"_key": "rnbqkbnr/pppp1ppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR b KQkq -",
+			"memo": "03. Wayward Queen Attack",
+			"status": null,
+			"value": "{\"info\":\" 퀸으로 e5폰을 공격하고 f7칸에 압박을 넣는다.\n 퀸이 도망다니면서 템포를 빼앗긴다는 단점이 있다.\",\"moves\":[{\"pgn\":\"Nc6\",\"info\":\" 나이트를 전개하여 e5폰을 수비한다.\",\"type\":0,\"title\":\"\"}],\"title\":\"Wayward Queen Attack\"}"
 		},
 		{
 			"FILTERED_ID": 64,
@@ -162,14 +170,6 @@
 			"value": "{\"title\":\"King’s Knight Opening: Main Line\",\"info\":\" 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.\n 백은 흑과 달리 c폰을 중앙싸움에 활용할 수 있다는 작은 이점이 있다.\",\"moves\":[{\"pgn\":\"Bb5\",\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"type\":0,\"title\":\"Ruy Lopez\"},{\"info\":\" 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다.\",\"pgn\":\"Bc4\",\"type\":0,\"title\":\"Italian Game\"},{\"type\":0,\"title\":\"Three Knights Opening\",\"pgn\":\"Nc3\",\"info\":\" 조용하게 나이트 전개를 한다.\"},{\"title\":\"Scotch Game\",\"pgn\":\"d4\",\"info\":\" 빠르게 d4로 중앙 싸움을 시작한다.\n 중앙이 빠르게 열리게 된다.\",\"type\":0},{\"pgn\":\"c3\",\"type\":1,\"info\":\"d4를 활용하는 중앙 싸움을 준비하는 수이다.\",\"title\":\"Ponziani Opening\"}]}"
 		},
 		{
-			"FILTERED_ID": 69,
-			"createdDate": "2024-08-24 17:42:19",
-			"_key": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
-			"memo": "04. Open Sicilian",
-			"status": null,
-			"value": "{\"title\":\"Open Sicilian\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비하고 c폰을 수비하고 밝은 비숍의 길을 연다.\",\"moves\":[{\"pgn\":\"d4\",\"type\":0,\"title\":\"\",\"info\":\" 원래 자신의 계획대로 d4로 중앙싸움을 한다.\"},{\"info\":\"\",\"pgn\":\"Bb5+\",\"type\":1,\"title\":\"Sicilian Defense: Moscow Variation\"}]}"
-		},
-		{
 			"FILTERED_ID": 71,
 			"createdDate": "2024-08-24 20:02:39",
 			"_key": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
@@ -194,12 +194,28 @@
 			"value": "{\"title\":\"Queen's Gambit Declined\",\"info\":\" 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다.\n 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.\",\"moves\":[{\"type\":0,\"info\":\" 나이트를 전개해서 d5폰에 강한 압박을 준다.\n 이후 있을 e4폰 브레이크를 준비한다.\",\"pgn\":\"Nc3\",\"title\":\"Queen's Gambit Declined: Queen’s Knight Variation\"},{\"type\":1,\"title\":\"\",\"info\":\"\",\"pgn\":\"Nf3\"}]}"
 		},
 		{
+			"FILTERED_ID": 69,
+			"createdDate": "2024-08-24 17:42:19",
+			"_key": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+			"memo": "04. Sicilian Defense",
+			"status": null,
+			"value": "{\"title\":\"Sicilian Defense\",\"info\":\" e5칸을 컨트롤하여 Nf6를 준비하고 c폰을 수비하고 밝은 비숍의 길을 연다.\",\"moves\":[{\"pgn\":\"d4\",\"type\":0,\"title\":\"\",\"info\":\" 원래 자신의 계획대로 d4로 중앙싸움을 한다.\"},{\"info\":\"\",\"pgn\":\"Bb5+\",\"type\":1,\"title\":\"Sicilian Defense: Moscow Variation\"}]}"
+		},
+		{
 			"FILTERED_ID": 27,
 			"createdDate": "2024-08-03 14:58:58",
 			"_key": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
 			"memo": "04. Slav Defense",
 			"status": null,
 			"value": "{\"info\":\" 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다.\",\"title\":\"Slav Defense\",\"moves\":[{\"pgn\":\"Nf3\",\"type\":0,\"info\":\" 나이트를 전개해서 e5칸 컨트롤을 강화한다.\",\"title\":\"Slav Defense: Modern Line\"},{\"title\":\"\",\"type\":0,\"pgn\":\"Nc3\",\"info\":\" 나이트를 전개해서 d5폰에 강한 압박을 건다.\n 흑은 밝은 비숍의 길이 열려있지만 전개를 할 수 없다.\"},{\"info\":\" 폰 교환 이후 c열이 열리게 된다.\",\"title\":\"Slav Defense: Exchange Variation\",\"pgn\":\"cxd5\",\"type\":0}]}"
+		},
+		{
+			"FILTERED_ID": 80,
+			"createdDate": "2024-08-28 14:05:52",
+			"_key": "r1bqkbnr/pppp1ppp/2n5/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQkq -",
+			"memo": "04. Wayward Queen Attack",
+			"status": null,
+			"value": "{\"info\":\" 나이트를 전개하여 e5폰을 수비한다.\",\"moves\":[{\"pgn\":\"Bc4\",\"title\":\"\",\"info\":\" 비숍을 전개하여 스콜라 메이트 위협을 건다.\",\"type\":0}],\"title\":\"Wayward Queen Attack\"}"
 		},
 		{
 			"FILTERED_ID": 63,
@@ -226,14 +242,6 @@
 			"value": "{\"moves\":[{\"type\":0,\"info\":\" 흑도 똑같이 비숍을 가장 활발한 위치로 전개한다.\n 이후 백은 d4를 활용하는 중앙 반격을 노리게 된다.\n 비교적 조용하게 진행되는 경우가 많다.\",\"pgn\":\"Bc5\",\"title\":\"Italian Game: Giuoco Piano\"},{\"title\":\"Italian Game: Two Knights Defence\",\"pgn\":\"Nf6\",\"type\":0,\"info\":\" 나이트를 전개해서 e4폰을 공격한다.\"}],\"title\":\"Italian Game\",\"info\":\" 좋은 대각선에 비숍을 전개하여 중앙을 컨트롤하고 약한 f7폰을 노린다.\"}"
 		},
 		{
-			"FILTERED_ID": 70,
-			"createdDate": "2024-08-24 19:27:18",
-			"_key": "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq -",
-			"memo": "05. Open Sicilian",
-			"status": null,
-			"value": "{\"title\":\"Open Sicilian\",\"info\":\" 원래 자신의 계획대로 d4로 중앙싸움을 한다.\n 이후 폰이 교환되며 백은 전개 우위, 흑은 중앙폰 우세를 갖게 된다.\",\"moves\":[{\"info\":\"\",\"pgn\":\"cxd4\",\"title\":\"\",\"type\":0}]}"
-		},
-		{
 			"FILTERED_ID": 29,
 			"createdDate": "2024-08-03 17:32:50",
 			"_key": "rnbqkbnr/ppp1pppp/8/8/2pP4/4P3/PP3PPP/RNBQKBNR b KQkq -",
@@ -256,6 +264,14 @@
 			"memo": "05. Ruy Lopez",
 			"status": null,
 			"value": "{\"title\":\"Ruy Lopez\",\"info\":\" e5폰을 지키고 있는 나이트에게 압박을 줌으로써 간접적으로 흑의 e5폰을 위협한다.\",\"moves\":[{\"info\":\" 비숍을 공격해서 백의 선택을 강요한다.\",\"pgn\":\"a6\",\"type\":0,\"title\":\"Ruy Lopez: Morphy Defense\"},{\"title\":\"Ruy Lopez: Berlin Defense\",\"pgn\":\"Nf6\",\"info\":\" 백의 위협을 무시하고 나이트를 전개하며 역으로 e4폰을 공격한다.\n 마스터 레벨에서는 무승부가 자주 나온다.\",\"type\":0},{\"pgn\":\"f5\",\"info\":\"\",\"type\":1,\"title\":\"Ruy Lopez: Schliemann Defense\"},{\"pgn\":\"g6\",\"info\":\"\",\"title\":\"Rum Lopez: Fianchetto Defense\",\"type\":1},{\"title\":\"Ruy Lopez: Cozio Defense\",\"pgn\":\"Nge7\",\"type\":1,\"info\":\"\"},{\"info\":\"\",\"type\":1,\"title\":\"Ruy Lopez: Classical Defense\",\"pgn\":\"Bc5\"},{\"info\":\"\",\"pgn\":\"Nd4\",\"title\":\"Ruy Lopez: Bird Variation\",\"type\":1},{\"info\":\"\",\"title\":\"Ruy Lopez: Steinitz Defense\",\"type\":1,\"pgn\":\"d6\"}]}"
+		},
+		{
+			"FILTERED_ID": 70,
+			"createdDate": "2024-08-24 19:27:18",
+			"_key": "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq -",
+			"memo": "05. Sicilian Defense",
+			"status": null,
+			"value": "{\"title\":\"Sicilian Defense\",\"info\":\" 원래 자신의 계획대로 d4로 중앙싸움을 한다.\n 이후 폰이 교환되며 백은 전개 우위, 흑은 중앙폰 우세를 갖게 된다.\",\"moves\":[{\"info\":\" 폰을 교환한다.\",\"pgn\":\"cxd4\",\"title\":\"\",\"type\":0}]}"
 		},
 		{
 			"FILTERED_ID": 66,
@@ -290,6 +306,14 @@
 			"value": "{\"info\":\" 비숍을 활동적인 b4칸에 전개하고 c3나이트에 핀에 걸어 위협함으로써 백의 e4 컨트롤을 무효화한다.\n 흑이 킹사이드 기물을 전부 빼내어 전개우위를 갖고 있고 이후 폰을 활용해 중앙을 반격할 수 있다.\",\"moves\":[{\"pgn\":\"e3\",\"type\":0,\"title\":\"Nimzo-Indian Defense: Rubinstein Variation\",\"info\":\" d4폰을 강화하고 밝은 비숍의 길을 연다.\"},{\"info\":\" 나이트를 수비하여 더블폰 발생을 예방하고, e4칸 컨트롤을 하여 곧바로 e4 전진을 가능하게 한다.\",\"type\":0,\"title\":\"Nimzo-Indian Defense: Classical Variation\",\"pgn\":\"Qc2\"},{\"info\":\" e4를 준비하는 수이다.\",\"title\":\"Nimzo-Indian Defense: Kmoch Variation\",\"type\":1,\"pgn\":\"f3\"},{\"title\":\"\",\"info\":\"\",\"type\":1,\"pgn\":\"Nf3\"},{\"pgn\":\"Bg5\",\"type\":1,\"title\":\"\",\"info\":\"\"},{\"info\":\"\",\"pgn\":\"g3\",\"title\":\"\",\"type\":1},{\"info\":\" a3로 나이트를 핀에 걸고 있는 비숍을 공격한다.\n 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.\",\"type\":1,\"title\":\"Nimzo-Indian Defense: Sämisch Variation\",\"pgn\":\"a3\"},{\"type\":1,\"pgn\":\"Bd2\",\"title\":\"\",\"info\":\"\"},{\"title\":\"\",\"pgn\":\"Qb3\",\"info\":\"\",\"type\":1}],\"title\":\"Nimzo-Indian Defense\"}"
 		},
 		{
+			"FILTERED_ID": 77,
+			"createdDate": "2024-08-26 16:02:22",
+			"_key": "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
+			"memo": "06. Queen's Gambit Declined: Normal Defense",
+			"status": null,
+			"value": "{\"moves\":[{\"pgn\":\"cxd5\",\"title\":\"Queen's Gambit Declined: Exchange Variation\",\"type\":0,\"info\":\" 폰을 교환한다.\"}],\"title\":\"Queen's Gambit Declined: Normal Defense\",\"info\":\" 흑도 나이트를 전개해서 d5폰을 추가로 수비하고 백의 e4를 저지한다.\"}"
+		},
+		{
 			"FILTERED_ID": 37,
 			"createdDate": "2024-08-08 16:12:04",
 			"_key": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
@@ -304,6 +328,14 @@
 			"memo": "06. Ruy Lopez: Morphy Defense",
 			"status": null,
 			"value": "{\"info\":\" 비숍을 공격해서 백의 선택을 강요한다.\",\"title\":\"Ruy Lopez: Morphy Defense\",\"moves\":[{\"info\":\" 나이트에 대한 압박을 유지하면서 비숍을 피한다.\",\"pgn\":\"Ba4\",\"type\":0,\"title\":\"\"},{\"pgn\":\"Bxc6\",\"type\":0,\"info\":\" 비숍과 나이트를 교환한다.\n 흑은 비숍 쌍을 얻는 대신 더블폰을 갖게 된다.\",\"title\":\"Ruy Lopez: Exchange Variation\"},{\"type\":4,\"info\":\" 흑에게 한 수를 내준 Italian Game으로 들어간다.\n 백의 선수 이점을 잃게 된다.\",\"title\":\"\",\"pgn\":\"Bc4\"}]}"
+		},
+		{
+			"FILTERED_ID": 73,
+			"createdDate": "2024-08-26 15:20:58",
+			"_key": "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -",
+			"memo": "06. Sicilian Defense",
+			"status": null,
+			"value": "{\"moves\":[{\"title\":\"Sicilian Defense: Open Variation\",\"type\":0,\"pgn\":\"Nxd4\",\"info\":\" 폰을 회수하며 나이트를 중앙에 위치시킨다.\"}],\"title\":\"Sicilian Defense\",\"info\":\" 폰을 교환한다.\"}"
 		},
 		{
 			"FILTERED_ID": 68,
@@ -338,6 +370,14 @@
 			"value": "{\"info\":\" a3로 나이트를 핀에 걸고 있는 비숍을 공격한다.\n 흑이 교환을 선택하면 백은 비숍 쌍을 이점과 더블폰 약점을 갖는다.\",\"moves\":[{\"pgn\":\"Bxc3\",\"info\":\" 백에게 비숍 쌍을 내주지만 c열의 더블폰을 공략하며 게임을 괜찮게 진행할 수 있다.\n 이 수 외에 비숍이 피하는 수들은 백의 e4를 허용하므로 좋지 않다.\",\"title\":\"\",\"type\":0},{\"info\":\" 핀을 유지하려고 a5로 피한다면 비숍이 트래핑을 당한다.\",\"title\":\"\",\"pgn\":\"Ba5\",\"type\":4}],\"title\":\"Nimzo-Indian Defense: Sämisch Variation\"}"
 		},
 		{
+			"FILTERED_ID": 78,
+			"createdDate": "2024-08-26 16:04:38",
+			"_key": "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq -",
+			"memo": "07. Queen's Gambit Declined: Exchange Variation",
+			"status": null,
+			"value": "{\"moves\":[{\"title\":\"\",\"type\":0,\"pgn\":\"exd5\",\"info\":\"폰을 회수한다.\"}],\"info\":\" 폰을 교환한다.\",\"title\":\"Queen's Gambit Declined: Exchange Variation\"}"
+		},
+		{
 			"FILTERED_ID": 34,
 			"createdDate": "2024-08-04 15:20:34",
 			"_key": "r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
@@ -351,7 +391,15 @@
 			"_key": "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
 			"memo": "07. Ruy Lopez: Morphy Defense",
 			"status": null,
-			"value": "{\"title\":\"Ruy Lopez: Morphy Defense\",\"info\":\" 나이트에 대한 압박을 유지하면서 비숍을 피한다.\n 흑은 이후 b5를 통해 비숍 나이트 교환을 막을 수 있다.\",\"moves\":[{\"title\":\"\",\"pgn\":\"Nf6\",\"type\":0,\"info\":\"\"},{\"pgn\":\"d6\",\"title\":\"\",\"info\":\"\",\"type\":1},{\"info\":\"\",\"title\":\"\",\"type\":1,\"pgn\":\"Nge7\"},{\"info\":\"\",\"pgn\":\"b5\",\"title\":\"\",\"type\":1},{\"title\":\"\",\"pgn\":\"g6\",\"type\":1,\"info\":\"\"},{\"title\":\"\",\"pgn\":\"Bc5\",\"type\":1,\"info\":\"\"},{\"pgn\":\"f5\",\"type\":1,\"info\":\"\",\"title\":\"\"}]}"
+			"value": "{\"title\":\"Ruy Lopez: Morphy Defense\",\"info\":\" 나이트에 대한 압박을 유지하면서 비숍을 피한다.\n 흑은 이후 b5를 통해 비숍 나이트 교환을 막을 수 있다.\",\"moves\":[{\"title\":\"\",\"pgn\":\"Nf6\",\"type\":0,\"info\":\"\"},{\"pgn\":\"d6\",\"title\":\"Ruy Lopez: Modern Steinitz Defense\",\"info\":\"\",\"type\":1},{\"info\":\"\",\"title\":\"\",\"type\":1,\"pgn\":\"Nge7\"},{\"info\":\"\",\"pgn\":\"b5\",\"title\":\"\",\"type\":1},{\"title\":\"\",\"pgn\":\"g6\",\"type\":1,\"info\":\"\"},{\"title\":\"\",\"pgn\":\"Bc5\",\"type\":1,\"info\":\"\"},{\"pgn\":\"f5\",\"type\":1,\"info\":\"\",\"title\":\"\"}]}"
+		},
+		{
+			"FILTERED_ID": 74,
+			"createdDate": "2024-08-26 15:23:56",
+			"_key": "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -",
+			"memo": "07. Sicilian Defense: Open Variation",
+			"status": null,
+			"value": "{\"info\":\" 폰을 회수하며 나이트를 중앙에 위치시킨다.\n 백은 전개우위를, 흑은 중앙폰 우세를 갖는다.\",\"title\":\"Sicilian Defense: Open Variation\",\"moves\":[{\"title\":\"\",\"info\":\" 나이트를 전개하며 e4폰을 공격한다.\n 백의 Nc3를 유도하여 이후 c폰 활용을 어렵게 한다.\",\"pgn\":\"Nf6\",\"type\":0}]}"
 		},
 		{
 			"FILTERED_ID": 40,
@@ -394,6 +442,22 @@
 			"value": "{\"title\":\"Ruy Lopez: Exchange Variation\",\"moves\":[{\"pgn\":\"O-O\",\"title\":\"Ruy Lopez: Barendregt Variation\",\"type\":0,\"info\":\" Nxe5를 실질적인 위협으로 만든다.\n 흑이 Qd4로 나이트와 e4폰 포크를 통해 e4폰을 회수한다면 이제는 Ra1으로 핀을 걸어서 백이 크게 앞설 수 있다.\"},{\"title\":\"\",\"type\":4,\"pgn\":\"Nxe5\",\"info\":\" 나이트로 e5를 잡을 수 있을듯 보이지만 흑도 Qd4로 나이트와 e4폰 포크를 통해 회수가 가능하다.\"}],\"info\":\" 비숍 나이트 교환으로 흑은 비숍 쌍을 얻은 대신 더블폰을 갖게 됐다.\n 백은 이후 d폰 e폰을 교환하고 킹사이드 지나친 폰을 이용한 엔드게임을 노린다.\n 흑은 비숍 쌍 이점을 활용하여 미들게임에서 유리함을 살려야 한다.\"}"
 		},
 		{
+			"FILTERED_ID": 81,
+			"createdDate": "2024-08-28 15:35:25",
+			"_key": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+			"memo": "08. Ruy Lopez: Morphy Defense",
+			"status": null,
+			"value": "{\"moves\":[{\"title\":\"\",\"type\":0,\"pgn\":\"O-O\",\"info\":\"\"},{\"type\":1,\"title\":\"Ruy Lopez: Anderssen Variation\",\"info\":\"\",\"pgn\":\"d3\"},{\"info\":\"\",\"title\":\"Ruy Lopez: Wormald Attack\",\"pgn\":\"Qe2\",\"type\":1},{\"info\":\"\",\"pgn\":\"d4\",\"type\":1,\"title\":\"Ruy Lopez: Mackenzie Variation\"},{\"title\":\"Ruy Lopez: Bayreuth Variation\",\"pgn\":\"Bxc6\",\"type\":1,\"info\":\"\"},{\"title\":\"Ruy Lopez: Tarrasch Variation\",\"pgn\":\"Nc3\",\"info\":\"\",\"type\":1}],\"info\":\"\",\"title\":\"Ruy Lopez: Morphy Defense\"}"
+		},
+		{
+			"FILTERED_ID": 75,
+			"createdDate": "2024-08-26 15:28:55",
+			"_key": "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -",
+			"memo": "08. Sicilian Defense: Open Variation",
+			"status": null,
+			"value": "{\"title\":\"Sicilian Defense: Open Variation\",\"moves\":[{\"title\":\"\",\"info\":\" 나이트를 전개하며 e4폰을 지킨다.\",\"pgn\":\"Nc3\",\"type\":0}],\"info\":\" 나이트를 전개하며 e4폰을 공격한다.\n 백의 Nc3를 유도하여 이후 c폰 활용을 어렵게 한다.\"}"
+		},
+		{
 			"FILTERED_ID": 41,
 			"createdDate": "2024-08-12 14:54:59",
 			"_key": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2BPP3/2P2N2/PP3PPP/RNBQK2R b KQkq -",
@@ -408,6 +472,14 @@
 			"memo": "09. Nimzo-Indian Defense: Sämisch Variation Accelerated",
 			"status": null,
 			"value": "{\"info\":\" 백에게 비숍 쌍, 중앙 이점이 있지만 흑도 c열 더블폰을 공략하며 게임을 괜찮게 풀어갈 수 있다.\",\"moves\":[],\"title\":\"Nimzo-Indian Defense: Sämisch Variation Accelerated\"}"
+		},
+		{
+			"FILTERED_ID": 76,
+			"createdDate": "2024-08-26 15:32:06",
+			"_key": "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+			"memo": "09. Sicilian Defense: Open Variation",
+			"status": null,
+			"value": "{\"title\":\"Sicilian Defense: Open Variation\",\"moves\":[{\"info\":\"\",\"pgn\":\"a6\",\"type\":0,\"title\":\"Sicilian Defense: Najdorf Variation\"},{\"pgn\":\"Nc6\",\"info\":\"\",\"type\":0,\"title\":\"Sicilian Defense: Classical Variation\"},{\"type\":0,\"title\":\"Sicilian Defense: Dragon Variation\",\"pgn\":\"g6\",\"info\":\" d6폰이 어두운 비숍의 길을 막고 있기 때문에 피앙케토할 준비를 한다.\n 피앙케토된 비숍은 매우 강력하고 긴 대각선을 장악하게 된다.\"},{\"type\":0,\"pgn\":\"e6\",\"title\":\"Sicilian Defense: Scheveningen Variation\",\"info\":\"\"}],\"info\":\" 나이트를 전개하며 e4폰을 지킨다.\"}"
 		},
 		{
 			"FILTERED_ID": 42,

@@ -42,10 +42,13 @@ class WinRateChartView: UIView {
         let width = rect.width
         let height = rect.height
         
-        guard let rate = rate else {
-            return
+        let sum: CGFloat
+        
+        if let rate = rate {
+            sum = CGFloat(rate.white + rate.draws + rate.black)
+        } else {
+            sum = 0
         }
-        let sum: CGFloat = CGFloat(rate.white + rate.draws + rate.black)
         if sum == 0 {
             let backGroundRect = CGRect(x: 0, y: 0, width: width, height: height)
             let backGroundPath = UIBezierPath(rect: backGroundRect)
@@ -63,6 +66,9 @@ class WinRateChartView: UIView {
                 let textRect = CGRect(x: 0, y: (height - textSize.height) / 2, width: width, height: textSize.height)
                 "정보가 없습니다.".draw(in: textRect, withAttributes: attributes)
             }
+            return
+        }
+        guard let rate = rate else {
             return
         }
         let whiteRect = CGRect(x: 0, y: 0, width: CGFloat(rate.white)/sum*width, height: height)
