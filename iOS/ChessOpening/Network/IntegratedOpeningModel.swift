@@ -30,6 +30,18 @@ enum MoveType: Int {
             return UIImage(named: "blunder")!
         }
     }
+    func getGrayImage() -> UIImage {
+        switch self {
+        case .mainbook, .sidebook:
+            return UIImage(named: "book_gray")!
+        case .gambit:
+            return UIImage(named: "gambit_gray")!
+        case .brilliant:
+            return UIImage(named: "brilliant_gray")!
+        case .blunder:
+            return UIImage(named: "blunder_gray")!
+        }
+    }
     func toString() -> String {
         switch self {
         case .mainbook:

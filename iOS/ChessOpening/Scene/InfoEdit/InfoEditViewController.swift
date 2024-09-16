@@ -129,6 +129,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             }
             cell.onClickSwitch = { [weak self] sender in
                 self?.integratedOpeningModel.moves[indexPath.row-1].valid = sender.isOn
+                tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             cell.onClickMainBookMenu = { [weak self] _ in
                 self?.integratedOpeningModel.moves[indexPath.row-1].type = .mainbook

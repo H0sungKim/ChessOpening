@@ -51,7 +51,7 @@ class MoveEditTableViewCell: UITableViewCell {
         onClickSwitch?(sender)
     }
     func initializeCell(integratedMoveModel: IntegratedOpeningModel.MoveModel, turn: String) {
-        ivType.image = integratedMoveModel.type.getImage()
+        ivType.image = integratedMoveModel.valid ? integratedMoveModel.type.getImage() : integratedMoveModel.type.getGrayImage()
         tfTitle.text = integratedMoveModel.title
         lbPGN.text = "\(turn) \(integratedMoveModel.pgn)"
         tvInfo.text = integratedMoveModel.info
