@@ -21,6 +21,19 @@ class HistoryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: String(describing: HistoryCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: HistoryCollectionViewCell.self))
     }
+    
+    func scrollToBottom() {
+        guard let collectionView = collectionView else {
+            return
+        }
+        let lastSectionIndex = collectionView.numberOfSections - 1
+        let lastItemIndex = collectionView.numberOfItems(inSection: lastSectionIndex) - 1
+        
+        if lastItemIndex >= 0 {
+            let indexPath = IndexPath(item: lastItemIndex, section: lastSectionIndex)
+            collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+    }
 }
 
 extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

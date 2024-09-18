@@ -106,12 +106,31 @@ class Engine {
             }
         default:
             pgn.append(type(of: board[move.from.rank][move.from.file]).getString(color: .white))
-            if legalMoves.contains(where: {
-                $0.to == move.to &&
-                type(of: board[move.from.rank][move.from.file]) == type(of: board[$0.from.rank][$0.from.file]) &&
-                $0.from != move.from
-            }) {
-                pgn.append(Util.shared.convertFileIntToString(file: move.from.file))
+            var containOverlap = false
+            var isFileOverlap = false
+            var isRankOverlap = false
+            for legalMove in legalMoves {
+                if legalMove.to == move.to &&
+                    type(of: board[move.from.rank][move.from.file]) == type(of: board[legalMove.from.rank][legalMove.from.file]) &&
+                    legalMove.from != move.from {
+                    containOverlap = true
+                    if legalMove.from.file == move.from.file {
+                        isFileOverlap = true
+                    }
+                    if legalMove.from.rank == move.from.rank {
+                        isRankOverlap = true
+                    }
+                }
+            }
+            if containOverlap {
+                if isFileOverlap {
+                    if isRankOverlap {
+                        pgn.append(Util.shared.convertFileIntToString(file: move.from.file))
+                    }
+                    pgn.append(String(8-move.from.rank))
+                } else {
+                    pgn.append(Util.shared.convertFileIntToString(file: move.from.file))
+                }
             }
             if !(board[move.to.rank][move.to.file] is Empty) {
                 pgn.append("x")
