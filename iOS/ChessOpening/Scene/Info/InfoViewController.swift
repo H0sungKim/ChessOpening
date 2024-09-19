@@ -73,6 +73,13 @@ class InfoViewController: UIViewController {
     func hideSkeletons() {
         view.hideSkeleton(transition: .crossDissolve(0))
     }
+    
+    func scrollToTop() {
+        guard let tbvInfo = tbvInfo else {
+            return
+        }
+        tbvInfo.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+    }
 }
 
 extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {

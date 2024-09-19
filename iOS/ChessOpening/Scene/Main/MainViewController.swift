@@ -578,6 +578,7 @@ extension MainViewController: ChessBoardViewDelegate {
         chessBoardView.resetFlags()
         tabBarViewController?.infoViewController?.showSkeletons()
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
+        tabBarViewController?.infoViewController?.scrollToTop()
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
         tabBarViewController?.historyViewController?.scrollToBottom()
