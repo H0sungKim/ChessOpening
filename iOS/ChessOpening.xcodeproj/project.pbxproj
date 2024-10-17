@@ -3,16 +3,59 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BAE5E2AD8776A7F6602EC3F /* Pods_ChessOpeningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */; };
-		7F919831D47DF461BD2B3166 /* Pods_ChessOpening.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 260A7624CDBED51CC5363351 /* Pods_ChessOpening.framework */; };
 		96073D932C32A0FD00DDF159 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */; };
 		96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96073D942C32A13000DDF159 /* InfoEditViewController.swift */; };
 		96073D972C32A13F00DDF159 /* InfoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96073D962C32A13F00DDF159 /* InfoEdit.storyboard */; };
 		96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96073DA22C3D4CEA00DDF159 /* Util.swift */; };
+		960C9D162CC129C700A7C078 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 960C9D152CC129C700A7C078 /* CombineMoya */; };
+		960C9D182CC129C700A7C078 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 960C9D172CC129C700A7C078 /* Moya */; };
+		960C9D1A2CC129C700A7C078 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 960C9D192CC129C700A7C078 /* ReactiveMoya */; };
+		960C9D1C2CC129C700A7C078 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 960C9D1B2CC129C700A7C078 /* RxMoya */; };
+		960C9D832CC12C0500A7C078 /* evaluate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D502CC12C0500A7C078 /* evaluate.cpp */; };
+		960C9D842CC12C0500A7C078 /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D672CC12C0500A7C078 /* thread.cpp */; };
+		960C9D852CC12C0500A7C078 /* half_ka_v2_hm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D352CC12C0500A7C078 /* half_ka_v2_hm.cpp */; };
+		960C9D862CC12C0500A7C078 /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D4E2CC12C0500A7C078 /* engine.cpp */; };
+		960C9D872CC12C0500A7C078 /* tune.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D6E2CC12C0500A7C078 /* tune.cpp */; };
+		960C9D882CC12C0500A7C078 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D512CC12C0500A7C078 /* main.cpp */; };
+		960C9D892CC12C0500A7C078 /* misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D562CC12C0500A7C078 /* misc.cpp */; };
+		960C9D8A2CC12C0500A7C078 /* uci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D712CC12C0500A7C078 /* uci.cpp */; };
+		960C9D8B2CC12C0500A7C078 /* stockfish_wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D642CC12C0500A7C078 /* stockfish_wrapper.mm */; };
+		960C9D8C2CC12C0500A7C078 /* benchmark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D4A2CC12C0500A7C078 /* benchmark.cpp */; };
+		960C9D8D2CC12C0500A7C078 /* movegen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D582CC12C0500A7C078 /* movegen.cpp */; };
+		960C9D8E2CC12C0500A7C078 /* timeman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D6A2CC12C0500A7C078 /* timeman.cpp */; };
+		960C9D8F2CC12C0500A7C078 /* tbprobe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D472CC12C0500A7C078 /* tbprobe.cpp */; };
+		960C9D902CC12C0500A7C078 /* search.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D622CC12C0500A7C078 /* search.cpp */; };
+		960C9D912CC12C0500A7C078 /* network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D3E2CC12C0500A7C078 /* network.cpp */; };
+		960C9D922CC12C0500A7C078 /* tt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D6C2CC12C0500A7C078 /* tt.cpp */; };
+		960C9D932CC12C0500A7C078 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D542CC12C0500A7C078 /* memory.cpp */; };
+		960C9D942CC12C0500A7C078 /* nnue_misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D442CC12C0500A7C078 /* nnue_misc.cpp */; };
+		960C9D952CC12C0500A7C078 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D5E2CC12C0500A7C078 /* position.cpp */; };
+		960C9D962CC12C0500A7C078 /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D602CC12C0500A7C078 /* score.cpp */; };
+		960C9D972CC12C0500A7C078 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D522CC12C0500A7C078 /* Makefile */; };
+		960C9D982CC12C0500A7C078 /* bitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D4C2CC12C0500A7C078 /* bitboard.cpp */; };
+		960C9D992CC12C0500A7C078 /* movepick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D5A2CC12C0500A7C078 /* movepick.cpp */; };
+		960C9D9A2CC12C0500A7C078 /* ucioption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960C9D732CC12C0500A7C078 /* ucioption.cpp */; };
+		960C9D9B2CC12C0500A7C078 /* reprosearch.sh in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D772CC12C0500A7C078 /* reprosearch.sh */; };
+		960C9D9C2CC12C0500A7C078 /* instrumented.py in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D752CC12C0500A7C078 /* instrumented.py */; };
+		960C9D9D2CC12C0500A7C078 /* get_native_properties.sh in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D2E2CC12C0500A7C078 /* get_native_properties.sh */; };
+		960C9D9E2CC12C0500A7C078 /* perft.sh in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D762CC12C0500A7C078 /* perft.sh */; };
+		960C9D9F2CC12C0500A7C078 /* Copying.txt in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7F2CC12C0500A7C078 /* Copying.txt */; };
+		960C9DA02CC12C0500A7C078 /* UNLICENCE in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D322CC12C0500A7C078 /* UNLICENCE */; };
+		960C9DA12CC12C0500A7C078 /* Top CPU Contributors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */; };
+		960C9DA22CC12C0500A7C078 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D802CC12C0500A7C078 /* README.md */; };
+		960C9DA32CC12C0500A7C078 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7B2CC12C0500A7C078 /* .clang-format */; };
+		960C9DA42CC12C0500A7C078 /* signature.sh in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D782CC12C0500A7C078 /* signature.sh */; };
+		960C9DA52CC12C0500A7C078 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7E2CC12C0500A7C078 /* CONTRIBUTING.md */; };
+		960C9DA62CC12C0500A7C078 /* CITATION.cff in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7D2CC12C0500A7C078 /* CITATION.cff */; };
+		960C9DA72CC12C0500A7C078 /* net.sh in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D2F2CC12C0500A7C078 /* net.sh */; };
+		960C9DA82CC12C0500A7C078 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7C2CC12C0500A7C078 /* AUTHORS */; };
+		960C9DA92CC12C0500A7C078 /* testing.py in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D792CC12C0500A7C078 /* testing.py */; };
+		960C9DAC2CC12C6600A7C078 /* nn-37f18f62d772.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DAA2CC12C6600A7C078 /* nn-37f18f62d772.nnue */; };
+		960C9DAD2CC12C6600A7C078 /* nn-1111cefa1111.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */; };
 		96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */; };
 		96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */; };
 		96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D432C5769D900E821E3 /* LichessConfiguration.swift */; };
@@ -26,6 +69,19 @@
 		961A112E2C31A119005E903C /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A112D2C31A119005E903C /* Info.storyboard */; };
 		961A11302C31A12B005E903C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A112F2C31A12B005E903C /* InfoViewController.swift */; };
 		96361ABE2C50E17B00815DE0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96361ABD2C50E17B00815DE0 /* HapticManager.swift */; };
+		963BBCDB2CC0F39A007CD6CB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCDA2CC0F39A007CD6CB /* RxMoya */; };
+		963BBCDE2CC0F4B1007CD6CB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCDD2CC0F4B1007CD6CB /* FirebaseAnalytics */; };
+		963BBCE02CC0F4B1007CD6CB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCDF2CC0F4B1007CD6CB /* FirebaseCore */; };
+		963BBCE22CC0F4B1007CD6CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCE12CC0F4B1007CD6CB /* FirebaseCrashlytics */; };
+		963BBCE42CC0F4B1007CD6CB /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCE32CC0F4B1007CD6CB /* FirebaseRemoteConfig */; };
+		963BBCE72CC0F4CA007CD6CB /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCE62CC0F4CA007CD6CB /* SkeletonView */; };
+		963BBCEA2CC0F870007CD6CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCE92CC0F870007CD6CB /* RxSwift */; };
+		963BBCEC2CC0FA0D007CD6CB /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCEB2CC0FA0D007CD6CB /* ReactiveMoya */; };
+		963BBCEE2CC126DA007CD6CB /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCED2CC126DA007CD6CB /* CombineMoya */; };
+		963BBCF02CC12995007CD6CB /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCEF2CC12995007CD6CB /* CombineMoya */; };
+		963BBCF22CC12995007CD6CB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCF12CC12995007CD6CB /* Moya */; };
+		963BBCF42CC12995007CD6CB /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCF32CC12995007CD6CB /* ReactiveMoya */; };
+		963BBCF62CC12995007CD6CB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 963BBCF52CC12995007CD6CB /* RxMoya */; };
 		96524D612C3E66B300DD8A1D /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D602C3E66B300DD8A1D /* HistoryCollectionViewCell.swift */; };
 		96524D632C3E670300DD8A1D /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96524D622C3E670300DD8A1D /* HistoryCollectionViewCell.xib */; };
 		96524D722C40EE8500DD8A1D /* OpeningCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96524D712C40EE8500DD8A1D /* OpeningCommonRestAPI.swift */; };
@@ -42,9 +98,6 @@
 		969604862BFF0A6D00BBFC6C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 969604852BFF0A6D00BBFC6C /* Base */; };
 		969604882BFF0A6E00BBFC6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 969604872BFF0A6E00BBFC6C /* Assets.xcassets */; };
 		9696048B2BFF0A6E00BBFC6C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9696048A2BFF0A6E00BBFC6C /* Base */; };
-		969604962BFF0A6E00BBFC6C /* ChessOpeningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604952BFF0A6E00BBFC6C /* ChessOpeningTests.swift */; };
-		969604A02BFF0A6E00BBFC6C /* ChessOpeningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696049F2BFF0A6E00BBFC6C /* ChessOpeningUITests.swift */; };
-		969604A22BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */; };
 		969604AF2BFF0E6D00BBFC6C /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */; };
 		969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969604B02BFF1D7400BBFC6C /* Engine.swift */; };
 		96BD86C72C31AC0100465C31 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD86C62C31AC0100465C31 /* HistoryViewController.swift */; };
@@ -71,35 +124,91 @@
 		96FAD3872C4D394A00470BE7 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3862C4D394A00470BE7 /* check.png */; };
 		96FAD3892C4E464300470BE7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD3882C4E464300470BE7 /* AudioManager.swift */; };
 		96FAD38D2C4FBBBF00470BE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */; };
-		CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		969604922BFF0A6E00BBFC6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 969604732BFF0A6D00BBFC6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9696047A2BFF0A6D00BBFC6C;
-			remoteInfo = ChessOpening;
-		};
-		9696049C2BFF0A6E00BBFC6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 969604732BFF0A6D00BBFC6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9696047A2BFF0A6D00BBFC6C;
-			remoteInfo = ChessOpening;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		17C056BCB3BF9AD46BE536F6 /* Pods-ChessOpening.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.release.xcconfig"; sourceTree = "<group>"; };
-		260A7624CDBED51CC5363351 /* Pods_ChessOpening.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpening.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		468B9A6DD726206D88EBBBB8 /* Pods-ChessOpeningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpeningTests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpeningTests/Pods-ChessOpeningTests.release.xcconfig"; sourceTree = "<group>"; };
-		8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpening_ChessOpeningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		96073D942C32A13000DDF159 /* InfoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEditViewController.swift; sourceTree = "<group>"; };
 		96073D962C32A13F00DDF159 /* InfoEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoEdit.storyboard; sourceTree = "<group>"; };
 		96073DA22C3D4CEA00DDF159 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		960C9D2E2CC12C0500A7C078 /* get_native_properties.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = get_native_properties.sh; sourceTree = "<group>"; };
+		960C9D2F2CC12C0500A7C078 /* net.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = net.sh; sourceTree = "<group>"; };
+		960C9D312CC12C0500A7C078 /* incbin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = incbin.h; sourceTree = "<group>"; };
+		960C9D322CC12C0500A7C078 /* UNLICENCE */ = {isa = PBXFileReference; lastKnownFileType = text; path = UNLICENCE; sourceTree = "<group>"; };
+		960C9D342CC12C0500A7C078 /* half_ka_v2_hm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = half_ka_v2_hm.h; sourceTree = "<group>"; };
+		960C9D352CC12C0500A7C078 /* half_ka_v2_hm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = half_ka_v2_hm.cpp; sourceTree = "<group>"; };
+		960C9D372CC12C0500A7C078 /* affine_transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = affine_transform.h; sourceTree = "<group>"; };
+		960C9D382CC12C0500A7C078 /* affine_transform_sparse_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = affine_transform_sparse_input.h; sourceTree = "<group>"; };
+		960C9D392CC12C0500A7C078 /* clipped_relu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clipped_relu.h; sourceTree = "<group>"; };
+		960C9D3A2CC12C0500A7C078 /* simd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = simd.h; sourceTree = "<group>"; };
+		960C9D3B2CC12C0500A7C078 /* sqr_clipped_relu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqr_clipped_relu.h; sourceTree = "<group>"; };
+		960C9D3D2CC12C0500A7C078 /* network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = network.h; sourceTree = "<group>"; };
+		960C9D3E2CC12C0500A7C078 /* network.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = network.cpp; sourceTree = "<group>"; };
+		960C9D3F2CC12C0500A7C078 /* nnue_accumulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nnue_accumulator.h; sourceTree = "<group>"; };
+		960C9D402CC12C0500A7C078 /* nnue_architecture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nnue_architecture.h; sourceTree = "<group>"; };
+		960C9D412CC12C0500A7C078 /* nnue_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nnue_common.h; sourceTree = "<group>"; };
+		960C9D422CC12C0500A7C078 /* nnue_feature_transformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nnue_feature_transformer.h; sourceTree = "<group>"; };
+		960C9D432CC12C0500A7C078 /* nnue_misc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nnue_misc.h; sourceTree = "<group>"; };
+		960C9D442CC12C0500A7C078 /* nnue_misc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nnue_misc.cpp; sourceTree = "<group>"; };
+		960C9D462CC12C0500A7C078 /* tbprobe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tbprobe.h; sourceTree = "<group>"; };
+		960C9D472CC12C0500A7C078 /* tbprobe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tbprobe.cpp; sourceTree = "<group>"; };
+		960C9D492CC12C0500A7C078 /* benchmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
+		960C9D4A2CC12C0500A7C078 /* benchmark.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = benchmark.cpp; sourceTree = "<group>"; };
+		960C9D4B2CC12C0500A7C078 /* bitboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bitboard.h; sourceTree = "<group>"; };
+		960C9D4C2CC12C0500A7C078 /* bitboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bitboard.cpp; sourceTree = "<group>"; };
+		960C9D4D2CC12C0500A7C078 /* engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		960C9D4E2CC12C0500A7C078 /* engine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = engine.cpp; sourceTree = "<group>"; };
+		960C9D4F2CC12C0500A7C078 /* evaluate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = evaluate.h; sourceTree = "<group>"; };
+		960C9D502CC12C0500A7C078 /* evaluate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = evaluate.cpp; sourceTree = "<group>"; };
+		960C9D512CC12C0500A7C078 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		960C9D522CC12C0500A7C078 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		960C9D532CC12C0500A7C078 /* memory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
+		960C9D542CC12C0500A7C078 /* memory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = memory.cpp; sourceTree = "<group>"; };
+		960C9D552CC12C0500A7C078 /* misc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
+		960C9D562CC12C0500A7C078 /* misc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = misc.cpp; sourceTree = "<group>"; };
+		960C9D572CC12C0500A7C078 /* movegen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = movegen.h; sourceTree = "<group>"; };
+		960C9D582CC12C0500A7C078 /* movegen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = movegen.cpp; sourceTree = "<group>"; };
+		960C9D592CC12C0500A7C078 /* movepick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = movepick.h; sourceTree = "<group>"; };
+		960C9D5A2CC12C0500A7C078 /* movepick.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = movepick.cpp; sourceTree = "<group>"; };
+		960C9D5B2CC12C0500A7C078 /* numa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = numa.h; sourceTree = "<group>"; };
+		960C9D5C2CC12C0500A7C078 /* perft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perft.h; sourceTree = "<group>"; };
+		960C9D5D2CC12C0500A7C078 /* position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
+		960C9D5E2CC12C0500A7C078 /* position.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
+		960C9D5F2CC12C0500A7C078 /* score.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = score.h; sourceTree = "<group>"; };
+		960C9D602CC12C0500A7C078 /* score.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = score.cpp; sourceTree = "<group>"; };
+		960C9D612CC12C0500A7C078 /* search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = search.h; sourceTree = "<group>"; };
+		960C9D622CC12C0500A7C078 /* search.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = search.cpp; sourceTree = "<group>"; };
+		960C9D632CC12C0500A7C078 /* stockfish_bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stockfish_bridging_header.h; sourceTree = "<group>"; };
+		960C9D642CC12C0500A7C078 /* stockfish_wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = stockfish_wrapper.mm; sourceTree = "<group>"; };
+		960C9D652CC12C0500A7C078 /* StockfishWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StockfishWrapper.h; sourceTree = "<group>"; };
+		960C9D662CC12C0500A7C078 /* thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
+		960C9D672CC12C0500A7C078 /* thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
+		960C9D682CC12C0500A7C078 /* thread_win32_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread_win32_osx.h; sourceTree = "<group>"; };
+		960C9D692CC12C0500A7C078 /* timeman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timeman.h; sourceTree = "<group>"; };
+		960C9D6A2CC12C0500A7C078 /* timeman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = timeman.cpp; sourceTree = "<group>"; };
+		960C9D6B2CC12C0500A7C078 /* tt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tt.h; sourceTree = "<group>"; };
+		960C9D6C2CC12C0500A7C078 /* tt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tt.cpp; sourceTree = "<group>"; };
+		960C9D6D2CC12C0500A7C078 /* tune.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tune.h; sourceTree = "<group>"; };
+		960C9D6E2CC12C0500A7C078 /* tune.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tune.cpp; sourceTree = "<group>"; };
+		960C9D6F2CC12C0500A7C078 /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		960C9D702CC12C0500A7C078 /* uci.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uci.h; sourceTree = "<group>"; };
+		960C9D712CC12C0500A7C078 /* uci.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = uci.cpp; sourceTree = "<group>"; };
+		960C9D722CC12C0500A7C078 /* ucioption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ucioption.h; sourceTree = "<group>"; };
+		960C9D732CC12C0500A7C078 /* ucioption.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ucioption.cpp; sourceTree = "<group>"; };
+		960C9D752CC12C0500A7C078 /* instrumented.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = instrumented.py; sourceTree = "<group>"; };
+		960C9D762CC12C0500A7C078 /* perft.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = perft.sh; sourceTree = "<group>"; };
+		960C9D772CC12C0500A7C078 /* reprosearch.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reprosearch.sh; sourceTree = "<group>"; };
+		960C9D782CC12C0500A7C078 /* signature.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = signature.sh; sourceTree = "<group>"; };
+		960C9D792CC12C0500A7C078 /* testing.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = testing.py; sourceTree = "<group>"; };
+		960C9D7B2CC12C0500A7C078 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
+		960C9D7C2CC12C0500A7C078 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		960C9D7D2CC12C0500A7C078 /* CITATION.cff */ = {isa = PBXFileReference; lastKnownFileType = text; path = CITATION.cff; sourceTree = "<group>"; };
+		960C9D7E2CC12C0500A7C078 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		960C9D7F2CC12C0500A7C078 /* Copying.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Copying.txt; sourceTree = "<group>"; };
+		960C9D802CC12C0500A7C078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Top CPU Contributors.txt"; sourceTree = "<group>"; };
+		960C9DAA2CC12C6600A7C078 /* nn-37f18f62d772.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-37f18f62d772.nnue"; sourceTree = "<group>"; };
+		960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-1111cefa1111.nnue"; sourceTree = "<group>"; };
 		96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRestAPI.swift; sourceTree = "<group>"; };
 		96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRepository.swift; sourceTree = "<group>"; };
 		96152D432C5769D900E821E3 /* LichessConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessConfiguration.swift; sourceTree = "<group>"; };
@@ -133,11 +242,6 @@
 		969604872BFF0A6E00BBFC6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9696048A2BFF0A6E00BBFC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9696048C2BFF0A6E00BBFC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		969604912BFF0A6E00BBFC6C /* ChessOpeningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessOpeningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		969604952BFF0A6E00BBFC6C /* ChessOpeningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningTests.swift; sourceTree = "<group>"; };
-		9696049B2BFF0A6E00BBFC6C /* ChessOpeningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessOpeningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9696049F2BFF0A6E00BBFC6C /* ChessOpeningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningUITests.swift; sourceTree = "<group>"; };
-		969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessOpeningUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		969604AE2BFF0E6D00BBFC6C /* ChessBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardView.swift; sourceTree = "<group>"; };
 		969604B02BFF1D7400BBFC6C /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		96BD86C62C31AC0100465C31 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -164,51 +268,44 @@
 		96FAD3862C4D394A00470BE7 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		96FAD3882C4E464300470BE7 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		96FAD38C2C4FBBBF00470BE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessOpeningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening/Pods-ChessOpening.debug.xcconfig"; sourceTree = "<group>"; };
-		DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E72AA1EA0CD48CC6DB2E23B3 /* Pods-ChessOpening-ChessOpeningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpening-ChessOpeningUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EE5543EBF9A854FDE049CA7C /* Pods-ChessOpeningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessOpeningTests.debug.xcconfig"; path = "Target Support Files/Pods-ChessOpeningTests/Pods-ChessOpeningTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		963BBCD02CC0ED3A007CD6CB /* Engine */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Engine;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		969604782BFF0A6D00BBFC6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F919831D47DF461BD2B3166 /* Pods_ChessOpening.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9696048E2BFF0A6E00BBFC6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BAE5E2AD8776A7F6602EC3F /* Pods_ChessOpeningTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		969604982BFF0A6E00BBFC6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC43ED92C4E6564D11CD3522 /* Pods_ChessOpening_ChessOpeningUITests.framework in Frameworks */,
+				963BBCF62CC12995007CD6CB /* RxMoya in Frameworks */,
+				963BBCDE2CC0F4B1007CD6CB /* FirebaseAnalytics in Frameworks */,
+				963BBCE22CC0F4B1007CD6CB /* FirebaseCrashlytics in Frameworks */,
+				963BBCEE2CC126DA007CD6CB /* CombineMoya in Frameworks */,
+				963BBCE02CC0F4B1007CD6CB /* FirebaseCore in Frameworks */,
+				960C9D1A2CC129C700A7C078 /* ReactiveMoya in Frameworks */,
+				963BBCDB2CC0F39A007CD6CB /* RxMoya in Frameworks */,
+				963BBCF42CC12995007CD6CB /* ReactiveMoya in Frameworks */,
+				963BBCF22CC12995007CD6CB /* Moya in Frameworks */,
+				960C9D182CC129C700A7C078 /* Moya in Frameworks */,
+				963BBCE72CC0F4CA007CD6CB /* SkeletonView in Frameworks */,
+				963BBCEC2CC0FA0D007CD6CB /* ReactiveMoya in Frameworks */,
+				960C9D1C2CC129C700A7C078 /* RxMoya in Frameworks */,
+				960C9D162CC129C700A7C078 /* CombineMoya in Frameworks */,
+				963BBCE42CC0F4B1007CD6CB /* FirebaseRemoteConfig in Frameworks */,
+				963BBCF02CC12995007CD6CB /* CombineMoya in Frameworks */,
+				963BBCEA2CC0F870007CD6CB /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AEDE83959868409E9BFA3E6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				260A7624CDBED51CC5363351 /* Pods_ChessOpening.framework */,
-				8F9117A52D724237E21141A0 /* Pods_ChessOpening_ChessOpeningUITests.framework */,
-				D4C84A62F431C52600493999 /* Pods_ChessOpeningTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		96073D912C325E6100DDF159 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +319,153 @@
 				961715EC2C5A6195007383FE /* WinRateChart */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		960C9D302CC12C0500A7C078 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D2E2CC12C0500A7C078 /* get_native_properties.sh */,
+				960C9D2F2CC12C0500A7C078 /* net.sh */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		960C9D332CC12C0500A7C078 /* incbin */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D312CC12C0500A7C078 /* incbin.h */,
+				960C9D322CC12C0500A7C078 /* UNLICENCE */,
+			);
+			path = incbin;
+			sourceTree = "<group>";
+		};
+		960C9D362CC12C0500A7C078 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D342CC12C0500A7C078 /* half_ka_v2_hm.h */,
+				960C9D352CC12C0500A7C078 /* half_ka_v2_hm.cpp */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		960C9D3C2CC12C0500A7C078 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D372CC12C0500A7C078 /* affine_transform.h */,
+				960C9D382CC12C0500A7C078 /* affine_transform_sparse_input.h */,
+				960C9D392CC12C0500A7C078 /* clipped_relu.h */,
+				960C9D3A2CC12C0500A7C078 /* simd.h */,
+				960C9D3B2CC12C0500A7C078 /* sqr_clipped_relu.h */,
+			);
+			path = layers;
+			sourceTree = "<group>";
+		};
+		960C9D452CC12C0500A7C078 /* nnue */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D362CC12C0500A7C078 /* features */,
+				960C9D3C2CC12C0500A7C078 /* layers */,
+				960C9D3D2CC12C0500A7C078 /* network.h */,
+				960C9D3E2CC12C0500A7C078 /* network.cpp */,
+				960C9D3F2CC12C0500A7C078 /* nnue_accumulator.h */,
+				960C9D402CC12C0500A7C078 /* nnue_architecture.h */,
+				960C9D412CC12C0500A7C078 /* nnue_common.h */,
+				960C9D422CC12C0500A7C078 /* nnue_feature_transformer.h */,
+				960C9D432CC12C0500A7C078 /* nnue_misc.h */,
+				960C9D442CC12C0500A7C078 /* nnue_misc.cpp */,
+			);
+			path = nnue;
+			sourceTree = "<group>";
+		};
+		960C9D482CC12C0500A7C078 /* syzygy */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D462CC12C0500A7C078 /* tbprobe.h */,
+				960C9D472CC12C0500A7C078 /* tbprobe.cpp */,
+			);
+			path = syzygy;
+			sourceTree = "<group>";
+		};
+		960C9D742CC12C0500A7C078 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D332CC12C0500A7C078 /* incbin */,
+				960C9D452CC12C0500A7C078 /* nnue */,
+				960C9D482CC12C0500A7C078 /* syzygy */,
+				960C9D492CC12C0500A7C078 /* benchmark.h */,
+				960C9D4A2CC12C0500A7C078 /* benchmark.cpp */,
+				960C9D4B2CC12C0500A7C078 /* bitboard.h */,
+				960C9D4C2CC12C0500A7C078 /* bitboard.cpp */,
+				960C9D4D2CC12C0500A7C078 /* engine.h */,
+				960C9D4E2CC12C0500A7C078 /* engine.cpp */,
+				960C9D4F2CC12C0500A7C078 /* evaluate.h */,
+				960C9D502CC12C0500A7C078 /* evaluate.cpp */,
+				960C9D512CC12C0500A7C078 /* main.cpp */,
+				960C9D522CC12C0500A7C078 /* Makefile */,
+				960C9D532CC12C0500A7C078 /* memory.h */,
+				960C9D542CC12C0500A7C078 /* memory.cpp */,
+				960C9D552CC12C0500A7C078 /* misc.h */,
+				960C9D562CC12C0500A7C078 /* misc.cpp */,
+				960C9D572CC12C0500A7C078 /* movegen.h */,
+				960C9D582CC12C0500A7C078 /* movegen.cpp */,
+				960C9D592CC12C0500A7C078 /* movepick.h */,
+				960C9D5A2CC12C0500A7C078 /* movepick.cpp */,
+				960C9D5B2CC12C0500A7C078 /* numa.h */,
+				960C9D5C2CC12C0500A7C078 /* perft.h */,
+				960C9D5D2CC12C0500A7C078 /* position.h */,
+				960C9D5E2CC12C0500A7C078 /* position.cpp */,
+				960C9D5F2CC12C0500A7C078 /* score.h */,
+				960C9D602CC12C0500A7C078 /* score.cpp */,
+				960C9D612CC12C0500A7C078 /* search.h */,
+				960C9D622CC12C0500A7C078 /* search.cpp */,
+				960C9D632CC12C0500A7C078 /* stockfish_bridging_header.h */,
+				960C9D642CC12C0500A7C078 /* stockfish_wrapper.mm */,
+				960C9D652CC12C0500A7C078 /* StockfishWrapper.h */,
+				960C9D662CC12C0500A7C078 /* thread.h */,
+				960C9D672CC12C0500A7C078 /* thread.cpp */,
+				960C9D682CC12C0500A7C078 /* thread_win32_osx.h */,
+				960C9D692CC12C0500A7C078 /* timeman.h */,
+				960C9D6A2CC12C0500A7C078 /* timeman.cpp */,
+				960C9D6B2CC12C0500A7C078 /* tt.h */,
+				960C9D6C2CC12C0500A7C078 /* tt.cpp */,
+				960C9D6D2CC12C0500A7C078 /* tune.h */,
+				960C9D6E2CC12C0500A7C078 /* tune.cpp */,
+				960C9D6F2CC12C0500A7C078 /* types.h */,
+				960C9D702CC12C0500A7C078 /* uci.h */,
+				960C9D712CC12C0500A7C078 /* uci.cpp */,
+				960C9D722CC12C0500A7C078 /* ucioption.h */,
+				960C9D732CC12C0500A7C078 /* ucioption.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		960C9D7A2CC12C0500A7C078 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D752CC12C0500A7C078 /* instrumented.py */,
+				960C9D762CC12C0500A7C078 /* perft.sh */,
+				960C9D772CC12C0500A7C078 /* reprosearch.sh */,
+				960C9D782CC12C0500A7C078 /* signature.sh */,
+				960C9D792CC12C0500A7C078 /* testing.py */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		960C9D822CC12C0500A7C078 /* Stockfish */ = {
+			isa = PBXGroup;
+			children = (
+				960C9D302CC12C0500A7C078 /* scripts */,
+				960C9D742CC12C0500A7C078 /* src */,
+				960C9D7A2CC12C0500A7C078 /* tests */,
+				960C9D7B2CC12C0500A7C078 /* .clang-format */,
+				960C9D7C2CC12C0500A7C078 /* AUTHORS */,
+				960C9D7D2CC12C0500A7C078 /* CITATION.cff */,
+				960C9D7E2CC12C0500A7C078 /* CONTRIBUTING.md */,
+				960C9D7F2CC12C0500A7C078 /* Copying.txt */,
+				960C9D802CC12C0500A7C078 /* README.md */,
+				960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */,
+			);
+			path = Stockfish;
 			sourceTree = "<group>";
 		};
 		96152D3D2C5768D900E821E3 /* Opening */ = {
@@ -366,12 +610,11 @@
 		969604722BFF0A6D00BBFC6C = {
 			isa = PBXGroup;
 			children = (
+				960C9DAA2CC12C6600A7C078 /* nn-37f18f62d772.nnue */,
+				960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */,
+				960C9D822CC12C0500A7C078 /* Stockfish */,
 				9696047D2BFF0A6D00BBFC6C /* ChessOpening */,
-				969604942BFF0A6E00BBFC6C /* ChessOpeningTests */,
-				9696049E2BFF0A6E00BBFC6C /* ChessOpeningUITests */,
 				9696047C2BFF0A6D00BBFC6C /* Products */,
-				EF73DA65CC95B09E091A42C5 /* Pods */,
-				1AEDE83959868409E9BFA3E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,8 +622,6 @@
 			isa = PBXGroup;
 			children = (
 				9696047B2BFF0A6D00BBFC6C /* ChessOpening.app */,
-				969604912BFF0A6E00BBFC6C /* ChessOpeningTests.xctest */,
-				9696049B2BFF0A6E00BBFC6C /* ChessOpeningUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,6 +629,7 @@
 		9696047D2BFF0A6D00BBFC6C /* ChessOpening */ = {
 			isa = PBXGroup;
 			children = (
+				963BBCD02CC0ED3A007CD6CB /* Engine */,
 				96FAD38E2C4FCA9A00470BE7 /* Singleton */,
 				96FAD37F2C4BFE9300470BE7 /* Extension */,
 				96524D702C40DCCC00DD8A1D /* Network */,
@@ -400,23 +642,6 @@
 				96FAD3842C4CF71F00470BE7 /* license.txt */,
 			);
 			path = ChessOpening;
-			sourceTree = "<group>";
-		};
-		969604942BFF0A6E00BBFC6C /* ChessOpeningTests */ = {
-			isa = PBXGroup;
-			children = (
-				969604952BFF0A6E00BBFC6C /* ChessOpeningTests.swift */,
-			);
-			path = ChessOpeningTests;
-			sourceTree = "<group>";
-		};
-		9696049E2BFF0A6E00BBFC6C /* ChessOpeningUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9696049F2BFF0A6E00BBFC6C /* ChessOpeningUITests.swift */,
-				969604A12BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift */,
-			);
-			path = ChessOpeningUITests;
 			sourceTree = "<group>";
 		};
 		96BDF9172C0972620032523E /* Game */ = {
@@ -467,19 +692,6 @@
 			path = Singleton;
 			sourceTree = "<group>";
 		};
-		EF73DA65CC95B09E091A42C5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */,
-				17C056BCB3BF9AD46BE536F6 /* Pods-ChessOpening.release.xcconfig */,
-				E72AA1EA0CD48CC6DB2E23B3 /* Pods-ChessOpening-ChessOpeningUITests.debug.xcconfig */,
-				DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */,
-				EE5543EBF9A854FDE049CA7C /* Pods-ChessOpeningTests.debug.xcconfig */,
-				468B9A6DD726206D88EBBBB8 /* Pods-ChessOpeningTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -487,60 +699,22 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 969604A52BFF0A6E00BBFC6C /* Build configuration list for PBXNativeTarget "ChessOpening" */;
 			buildPhases = (
-				74D6E8C8A750D6500925044B /* [CP] Check Pods Manifest.lock */,
 				969604772BFF0A6D00BBFC6C /* Sources */,
 				969604782BFF0A6D00BBFC6C /* Frameworks */,
 				969604792BFF0A6D00BBFC6C /* Resources */,
-				7E27937D41820392520B7A80 /* [CP] Embed Pods Frameworks */,
 				96361ABC2C50DE7000815DE0 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				963BBCD02CC0ED3A007CD6CB /* Engine */,
+			);
 			name = ChessOpening;
 			productName = ChessOpening;
 			productReference = 9696047B2BFF0A6D00BBFC6C /* ChessOpening.app */;
 			productType = "com.apple.product-type.application";
-		};
-		969604902BFF0A6E00BBFC6C /* ChessOpeningTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 969604A82BFF0A6E00BBFC6C /* Build configuration list for PBXNativeTarget "ChessOpeningTests" */;
-			buildPhases = (
-				236476728EF3A75F3E5145B9 /* [CP] Check Pods Manifest.lock */,
-				9696048D2BFF0A6E00BBFC6C /* Sources */,
-				9696048E2BFF0A6E00BBFC6C /* Frameworks */,
-				9696048F2BFF0A6E00BBFC6C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				969604932BFF0A6E00BBFC6C /* PBXTargetDependency */,
-			);
-			name = ChessOpeningTests;
-			productName = ChessOpeningTests;
-			productReference = 969604912BFF0A6E00BBFC6C /* ChessOpeningTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9696049A2BFF0A6E00BBFC6C /* ChessOpeningUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 969604AB2BFF0A6E00BBFC6C /* Build configuration list for PBXNativeTarget "ChessOpeningUITests" */;
-			buildPhases = (
-				67A211E9DD18504DAE431DDC /* [CP] Check Pods Manifest.lock */,
-				969604972BFF0A6E00BBFC6C /* Sources */,
-				969604982BFF0A6E00BBFC6C /* Frameworks */,
-				969604992BFF0A6E00BBFC6C /* Resources */,
-				CAA720C72A6F5513ECC6CF5D /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9696049D2BFF0A6E00BBFC6C /* PBXTargetDependency */,
-			);
-			name = ChessOpeningUITests;
-			productName = ChessOpeningUITests;
-			productReference = 9696049B2BFF0A6E00BBFC6C /* ChessOpeningUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -550,23 +724,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					9696047A2BFF0A6D00BBFC6C = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					969604902BFF0A6E00BBFC6C = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 9696047A2BFF0A6D00BBFC6C;
-					};
-					9696049A2BFF0A6E00BBFC6C = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 9696047A2BFF0A6D00BBFC6C;
-					};
 				};
 			};
 			buildConfigurationList = 969604762BFF0A6D00BBFC6C /* Build configuration list for PBXProject "ChessOpening" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -574,13 +739,18 @@
 				ko,
 			);
 			mainGroup = 969604722BFF0A6D00BBFC6C;
+			packageReferences = (
+				963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				963BBCE52CC0F4CA007CD6CB /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				963BBCE82CC0F870007CD6CB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 9696047C2BFF0A6D00BBFC6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9696047A2BFF0A6D00BBFC6C /* ChessOpening */,
-				969604902BFF0A6E00BBFC6C /* ChessOpeningTests */,
-				9696049A2BFF0A6E00BBFC6C /* ChessOpeningUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -599,6 +769,23 @@
 				961A11262C319AF2005E903C /* TabBar.storyboard in Resources */,
 				96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */,
 				96FAD37C2C4BF53C00470BE7 /* launch.png in Resources */,
+				960C9D9B2CC12C0500A7C078 /* reprosearch.sh in Resources */,
+				960C9D9C2CC12C0500A7C078 /* instrumented.py in Resources */,
+				960C9D9D2CC12C0500A7C078 /* get_native_properties.sh in Resources */,
+				960C9D9E2CC12C0500A7C078 /* perft.sh in Resources */,
+				960C9D9F2CC12C0500A7C078 /* Copying.txt in Resources */,
+				960C9DA02CC12C0500A7C078 /* UNLICENCE in Resources */,
+				960C9DA12CC12C0500A7C078 /* Top CPU Contributors.txt in Resources */,
+				960C9DA22CC12C0500A7C078 /* README.md in Resources */,
+				960C9DA32CC12C0500A7C078 /* .clang-format in Resources */,
+				960C9DAC2CC12C6600A7C078 /* nn-37f18f62d772.nnue in Resources */,
+				960C9DAD2CC12C6600A7C078 /* nn-1111cefa1111.nnue in Resources */,
+				960C9DA42CC12C0500A7C078 /* signature.sh in Resources */,
+				960C9DA52CC12C0500A7C078 /* CONTRIBUTING.md in Resources */,
+				960C9DA62CC12C0500A7C078 /* CITATION.cff in Resources */,
+				960C9DA72CC12C0500A7C078 /* net.sh in Resources */,
+				960C9DA82CC12C0500A7C078 /* AUTHORS in Resources */,
+				960C9DA92CC12C0500A7C078 /* testing.py in Resources */,
 				96FAD3872C4D394A00470BE7 /* check.png in Resources */,
 				96FAD3822C4CF65400470BE7 /* capture.mp3 in Resources */,
 				96FAD38D2C4FBBBF00470BE7 /* GoogleService-Info.plist in Resources */,
@@ -612,143 +799,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9696048F2BFF0A6E00BBFC6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		969604992BFF0A6E00BBFC6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		236476728EF3A75F3E5145B9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChessOpeningTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		67A211E9DD18504DAE431DDC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChessOpening-ChessOpeningUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74D6E8C8A750D6500925044B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChessOpening-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7E27937D41820392520B7A80 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChessOpening/Pods-ChessOpening-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChessOpening/Pods-ChessOpening-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChessOpening/Pods-ChessOpening-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96361ABC2C50DE7000815DE0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		CAA720C72A6F5513ECC6CF5D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChessOpening-ChessOpeningUITests/Pods-ChessOpening-ChessOpeningUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		969604772BFF0A6D00BBFC6C /* Sources */ = {
@@ -756,6 +807,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				961715EE2C5A61B0007383FE /* WinRateChartView.swift in Sources */,
+				960C9D832CC12C0500A7C078 /* evaluate.cpp in Sources */,
+				960C9D842CC12C0500A7C078 /* thread.cpp in Sources */,
+				960C9D852CC12C0500A7C078 /* half_ka_v2_hm.cpp in Sources */,
+				960C9D862CC12C0500A7C078 /* engine.cpp in Sources */,
+				960C9D872CC12C0500A7C078 /* tune.cpp in Sources */,
+				960C9D882CC12C0500A7C078 /* main.cpp in Sources */,
+				960C9D892CC12C0500A7C078 /* misc.cpp in Sources */,
+				960C9D8A2CC12C0500A7C078 /* uci.cpp in Sources */,
+				960C9D8B2CC12C0500A7C078 /* stockfish_wrapper.mm in Sources */,
+				960C9D8C2CC12C0500A7C078 /* benchmark.cpp in Sources */,
+				960C9D8D2CC12C0500A7C078 /* movegen.cpp in Sources */,
+				960C9D8E2CC12C0500A7C078 /* timeman.cpp in Sources */,
+				960C9D8F2CC12C0500A7C078 /* tbprobe.cpp in Sources */,
+				960C9D902CC12C0500A7C078 /* search.cpp in Sources */,
+				960C9D912CC12C0500A7C078 /* network.cpp in Sources */,
+				960C9D922CC12C0500A7C078 /* tt.cpp in Sources */,
+				960C9D932CC12C0500A7C078 /* memory.cpp in Sources */,
+				960C9D942CC12C0500A7C078 /* nnue_misc.cpp in Sources */,
+				960C9D952CC12C0500A7C078 /* position.cpp in Sources */,
+				960C9D962CC12C0500A7C078 /* score.cpp in Sources */,
+				960C9D972CC12C0500A7C078 /* Makefile in Sources */,
+				960C9D982CC12C0500A7C078 /* bitboard.cpp in Sources */,
+				960C9D992CC12C0500A7C078 /* movepick.cpp in Sources */,
+				960C9D9A2CC12C0500A7C078 /* ucioption.cpp in Sources */,
 				969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */,
 				96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */,
 				96361ABE2C50E17B00815DE0 /* HapticManager.swift in Sources */,
@@ -798,37 +873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9696048D2BFF0A6E00BBFC6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				969604962BFF0A6E00BBFC6C /* ChessOpeningTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		969604972BFF0A6E00BBFC6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				969604A22BFF0A6E00BBFC6C /* ChessOpeningUITestsLaunchTests.swift in Sources */,
-				969604A02BFF0A6E00BBFC6C /* ChessOpeningUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		969604932BFF0A6E00BBFC6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9696047A2BFF0A6D00BBFC6C /* ChessOpening */;
-			targetProxy = 969604922BFF0A6E00BBFC6C /* PBXContainerItemProxy */;
-		};
-		9696049D2BFF0A6E00BBFC6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9696047A2BFF0A6D00BBFC6C /* ChessOpening */;
-			targetProxy = 9696049C2BFF0A6E00BBFC6C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		969604842BFF0A6D00BBFC6C /* Main.storyboard */ = {
@@ -912,6 +957,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = Stockfish/src/stockfish_bridging_header.h;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -969,13 +1016,14 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = Stockfish/src/stockfish_bridging_header.h;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		969604A62BFF0A6E00BBFC6C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9ED4E708E7146A931A560DF /* Pods-ChessOpening.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -994,10 +1042,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00.05;
+				MARKETING_VERSION = 1.00.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Stockfish/src/stockfish_bridging_header.h;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1005,7 +1055,6 @@
 		};
 		969604A72BFF0A6E00BBFC6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17C056BCB3BF9AD46BE536F6 /* Pods-ChessOpening.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1023,92 +1072,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00.05;
+				MARKETING_VERSION = 1.00.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Stockfish/src/stockfish_bridging_header.h;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		969604A92BFF0A6E00BBFC6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE5543EBF9A854FDE049CA7C /* Pods-ChessOpeningTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpeningTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChessOpening.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChessOpening";
-			};
-			name = Debug;
-		};
-		969604AA2BFF0A6E00BBFC6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 468B9A6DD726206D88EBBBB8 /* Pods-ChessOpeningTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpeningTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChessOpening.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChessOpening";
-			};
-			name = Release;
-		};
-		969604AC2BFF0A6E00BBFC6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E72AA1EA0CD48CC6DB2E23B3 /* Pods-ChessOpening-ChessOpeningUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpeningUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ChessOpening;
-			};
-			name = Debug;
-		};
-		969604AD2BFF0A6E00BBFC6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD71DE6C98E09D85BB3C311A /* Pods-ChessOpening-ChessOpeningUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6G4QV27Y5P;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.constant.ChessOpeningUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ChessOpening;
 			};
 			name = Release;
 		};
@@ -1133,25 +1104,138 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		969604A82BFF0A6E00BBFC6C /* Build configuration list for PBXNativeTarget "ChessOpeningTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				969604A92BFF0A6E00BBFC6C /* Debug */,
-				969604AA2BFF0A6E00BBFC6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		969604AB2BFF0A6E00BBFC6C /* Build configuration list for PBXNativeTarget "ChessOpeningUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				969604AC2BFF0A6E00BBFC6C /* Debug */,
-				969604AD2BFF0A6E00BBFC6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+		963BBCE52CC0F4CA007CD6CB /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
+		963BBCE82CC0F870007CD6CB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		960C9D152CC129C700A7C078 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		960C9D172CC129C700A7C078 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		960C9D192CC129C700A7C078 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		960C9D1B2CC129C700A7C078 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960C9D142CC129C700A7C078 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		963BBCDA2CC0F39A007CD6CB /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		963BBCDD2CC0F4B1007CD6CB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		963BBCDF2CC0F4B1007CD6CB /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		963BBCE12CC0F4B1007CD6CB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		963BBCE32CC0F4B1007CD6CB /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCDC2CC0F4B1007CD6CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		963BBCE62CC0F4CA007CD6CB /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCE52CC0F4CA007CD6CB /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		963BBCE92CC0F870007CD6CB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCE82CC0F870007CD6CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		963BBCEB2CC0FA0D007CD6CB /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		963BBCED2CC126DA007CD6CB /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		963BBCEF2CC12995007CD6CB /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		963BBCF12CC12995007CD6CB /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		963BBCF32CC12995007CD6CB /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		963BBCF52CC12995007CD6CB /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 963BBCD92CC0F39A007CD6CB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 969604732BFF0A6D00BBFC6C /* Project object */;
 }

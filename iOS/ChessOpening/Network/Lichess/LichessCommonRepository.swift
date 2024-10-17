@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import Moya
+import RxMoya
 
 class LichessCommonRepository {
     

@@ -57,7 +57,8 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
         if indexPath.row%3 == 0 {
             cell.label.text = "\(indexPath.row/3+1)"
         } else {
-            cell.label.text = "\(history[indexPath.row/3*2 + indexPath.row%3-1])"
+            let index = indexPath.row/3*2 + indexPath.row%3-1
+            cell.label.text = "\(history[index])"
             if let turn = turn {
                 if turn == indexPath.row/3*2 + indexPath.row%3 {
                     cell.backGroundView.backgroundColor = .systemFill

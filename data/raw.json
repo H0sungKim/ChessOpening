@@ -1,37 +1,36 @@
 {
-	"data":
-	[
+	"title": "Queen's Gambit",
+	"moves": [
 		{
-			"RAW_ID": 156,
-			"createdDate": "2024-09-08 00:03:12",
-			"_key": "DF984203-C502-42C9-9F25-9BED9C153F0C",
-			"memo": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
-			"status": null,
-			"value": "{\"title\":\"Queen’s Pawn Opening\",\"moves\":[{\"info\":\" 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다.\n 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다.\",\"pgn\":\"Nf6\",\"type\":0,\"title\":\"Indian Defense\"},{\"type\":0,\"info\":\" 흑도 똑같이 d폰 전진을 한다.\n d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다.\n 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다.\",\"pgn\":\"d5\",\"title\":\"Closed Game\"},{\"type\":2,\"title\":\"Englund Gambit\",\"pgn\":\"e5\",\"info\":\" 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다.\"}],\"info\":\" d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\n e5칸을 장악하여 흑의 e5를 막는다.\"}"
+			"type": 0,
+			"info": " 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다.\n 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.",
+			"title": "Queen’s Gambit Declined",
+			"pgn": "e6"
 		},
 		{
-			"RAW_ID": 155,
-			"createdDate": "2024-09-08 00:02:12",
-			"_key": "A1EBBE9D-92A3-42AA-876D-FFF674266233",
-			"memo": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
-			"status": null,
-			"value": "{\"info\":\" 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.\",\"moves\":[{\"type\":0,\"pgn\":\"e6\",\"info\":\" 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.\",\"title\":\"\"},{\"pgn\":\"g6\",\"title\":\"\",\"type\":0,\"info\":\"\"},{\"pgn\":\"c5\",\"type\":0,\"title\":\"\",\"info\":\"\"}],\"title\":\"Indian Defense: Normal Variation\"}"
+			"title": "Slav Defense",
+			"pgn": "c6",
+			"type": 0,
+			"info": " 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다."
 		},
 		{
-			"RAW_ID": 154,
-			"createdDate": "2024-09-08 00:00:45",
-			"_key": "53F98EAC-6142-431E-9FF2-7F69A3E4C9C5",
-			"memo": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
-			"status": null,
-			"value": "{\"title\":\"Indian Defense: Normal Variation\",\"moves\":[{\"type\":0,\"pgn\":\"e6\",\"title\":\"\",\"info\":\" 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.\"},{\"type\":0,\"pgn\":\"g6\",\"info\":\"\",\"title\":\"\"},{\"type\":0,\"title\":\"\",\"info\":\"\",\"pgn\":\"c5\"}],\"info\":\" 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.\"}"
+			"title": "Queen’s Gambit Accepted",
+			"pgn": "dxc4",
+			"type": 0,
+			"info": " c4폰을 공짜로 잡지만 흑도 c4폰을 지킬 수 없기 때문에 결과적으로는 백의 c폰과 흑의 d폰이 교환된다."
 		},
 		{
-			"RAW_ID": 153,
-			"createdDate": "2024-09-07 23:58:40",
-			"_key": "49092479-284A-449D-95F7-8E4757D811A9",
-			"memo": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
-			"status": null,
-			"value": "{\"title\":\"Chess Opening Book\",\"info\":\" 오프닝에서는 기물의 전개, 중앙 차지, 킹의 안전, 좋은 폰 구조 등을 목표로 해야 한다.\",\"moves\":[{\"type\":0,\"pgn\":\"e4\",\"info\":\"e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.\",\"title\":\"King's Pawn Game\"},{\"pgn\":\"d4\",\"info\":\"d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\",\"title\":\"Queen's Pawn Game\",\"type\":0},{\"info\":\"\",\"type\":1,\"pgn\":\"Nf3\",\"title\":\"Zukertort Opening\"},{\"type\":1,\"info\":\"\",\"title\":\"English Opening\",\"pgn\":\"c4\"},{\"title\":\"Hungarian Opening\",\"info\":\"\",\"type\":1,\"pgn\":\"g3\"},{\"info\":\"\",\"pgn\":\"b3\",\"title\":\"Nimzo-Larsen Attack\",\"type\":1}]}"
+			"title": "",
+			"type": 2,
+			"pgn": "f5",
+			"info": ""
+		},
+		{
+			"type": 0,
+			"pgn": "h5",
+			"info": "",
+			"title": ""
 		}
-	]
+	],
+	"info": " c4로 상대의 d5폰을 공격한다.\n 공짜로 c4폰을 내주는 것처럼 보이지만 흑도 c4폰을 지킬 수 없기 때문에 이후 쉽게 회수할 수 있다."
 }
