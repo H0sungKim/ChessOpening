@@ -10,15 +10,18 @@ import Combine
 
 class StockfishEngine {
     private let wrapper: StockfishWrapper
-    var onResponse: (() -> Void)?
+    var onResponse: ((Float) -> Void)?
     
     init() {
         wrapper = StockfishWrapper()
         wrapper.startEngine()
         wrapper.onResponse = { [weak self] output in
             guard let self = self else { return }
-            self.onResponse?()
-            NSLog("\(output*100)")
+            guard let output = output else { return }
+            
+            if let eval = self.extractCpValue(output: output) {
+                self.onResponse?(eval)
+            }
         }
         sendInitCommand()
     }
@@ -36,7 +39,17 @@ class StockfishEngine {
     
     func getEval(fen: String) {
         Task {
-            await sendCommand("position fen \(fen);eval")
+            await sendCommand("stop;position fen \(fen);go depth 25")
         }
+    }
+    private func extractCpValue(output: String) -> Float? {
+        if let range = output.range(of: "cp") {
+            let substring = output[range.upperBound...].trimmingCharacters(in: .whitespaces)
+            
+            if let firstWord = substring.split(separator: " ").first, let cpValue = Float(firstWord) {
+                return cpValue
+            }
+        }
+        return nil
     }
 }

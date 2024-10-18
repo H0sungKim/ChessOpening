@@ -1,24 +1,24 @@
 {
-    "title": "Queen’s Pawn Opening",
+    "title": "Indian Defense: Normal Variation",
+    "info": " 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.",
     "moves": [
         {
-            "info": " 나이트를 통해 간접적으로 중앙을 장악해서 백의 e4를 막는다.\n 흑은 폰을 움직이지 않았기 때문에 이후 유연하게 대처가 가능하다.",
-            "pgn": "Nf6",
-            "type": 0,
-            "title": "Indian Defense"
+            "title": "",
+            "pgn": "e6",
+            "info": " 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.",
+            "type": 0
         },
         {
+            "title": "",
+            "pgn": "g6",
             "type": 0,
-            "info": " 흑도 똑같이 d폰 전진을 한다.\n d5폰을 통해 중앙을 컨트롤하고 밝은 비숍의 길을 연다.\n 백의 추가적인 중앙 장악 e4를 억제하고 d5 전진을 막는다.",
-            "pgn": "d5",
-            "title": "Closed Game"
+            "info": ""
         },
         {
-            "type": 2,
-            "title": "Englund Gambit",
-            "pgn": "e5",
-            "info": " 흑이 폰을 하나 내준다. 하지만 폰을 내준 것에 걸맞는 이득을 얻기 힘들다."
+            "info": "",
+            "title": "",
+            "pgn": "c5",
+            "type": 0
         }
-    ],
-    "info": " d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.\n e5칸을 장악하여 흑의 e5를 막는다."
+    ]
 }

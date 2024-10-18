@@ -101,29 +101,12 @@
             NSString *output = [NSString stringWithUTF8String:buffer];
 //            NSLog(@"In objc @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 //            NSLog(@"%@", output);
-            if ([output containsString:@"Hosung.Kim"] && self.onResponse) {
-                self.onResponse([self processOutput:output]);
+            if ([output containsString:@"Essence"] && self.onResponse) {
+                NSLog(@"%@", output);
+                self.onResponse([output copy]);
             }
-            
-//            self.onResponse([self processOutput:output]);
         }
     }
-}
-
-- (float)processOutput:(NSString *)output {
-//    NSLog(@"%@", output);
-    NSRange colonRange = [output rangeOfString:@":"];
-    if (colonRange.location != NSNotFound) {
-//        NSLog(@"ok");
-        // " : " 이후 부분을 잘라냄
-        NSString *numberString = [output substringFromIndex:colonRange.location + 1];
-//        NSLog(@"%@", numberString);
-        // 공백을 제거하고 double로 변환
-        numberString = [numberString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//        NSLog(@"%f", [numberString floatValue]+1);
-        return [numberString floatValue];
-    }
-    return 0.0; // ":"가 없을 경우 기본값 0.0 반환
 }
 
 @end

@@ -14,7 +14,7 @@
 - (void)startEngine;
 - (void)sendCommand:(NSString *)command;
 - (void)resetEngine;
-@property (nonatomic, strong) void (^onResponse)(float);
+@property (nonatomic, strong) void (^onResponse)(NSString *);
 
 @end
 

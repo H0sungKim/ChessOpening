@@ -1,36 +1,30 @@
 {
-	"title": "Queen's Gambit",
 	"moves": [
 		{
+			"pgn": "Nc6",
 			"type": 0,
-			"info": " 공격받은 d5폰을 수비하고 퀸과 어두운 비숍의 길을 연다.\n 밝은 비숍의 전개가 불편해지지만 e5나 c5로 중앙 카운터 공격을 할 수 있다.",
-			"title": "Queen’s Gambit Declined",
-			"pgn": "e6"
+			"info": " 나이트를 전개하여 e5폰을 지키고 센터 힘을 강화한다.",
+			"title": "King’s Knight Opening: Main Line"
 		},
 		{
-			"title": "Slav Defense",
-			"pgn": "c6",
-			"type": 0,
-			"info": " 밝은 비숍의 길을 막지 않으면서 d5폰을 수비한다."
+			"info": " e5폰을 지키지 않고 흑도 똑같이 나이트를 전개하여 백의 e4폰을 공격한다.",
+			"type": 1,
+			"title": "Petrov’s Defense",
+			"pgn": "Nf6"
 		},
 		{
-			"title": "Queen’s Gambit Accepted",
-			"pgn": "dxc4",
-			"type": 0,
-			"info": " c4폰을 공짜로 잡지만 흑도 c4폰을 지킬 수 없기 때문에 결과적으로는 백의 c폰과 흑의 d폰이 교환된다."
+			"pgn": "d6",
+			"type": 1,
+			"title": "Philidor Defense",
+			"info": " e5폰을 d열 폰을 올려 방어한다.\n 어두운 비숍길이 막힌다는 단점이 있다."
 		},
 		{
-			"title": "",
-			"type": 2,
-			"pgn": "f5",
-			"info": ""
-		},
-		{
-			"type": 0,
-			"pgn": "h5",
-			"info": "",
-			"title": ""
+			"type": 4,
+			"info": " e5폰을 수비해주는 듯이 보이지만 Nxe5가 가능하다.\n f폰을 밀었기 때문에 킹이 위험해지고 나이트의 가장 좋은 전개위치가 막힌다.",
+			"title": "Damiano Defense",
+			"pgn": "f6"
 		}
 	],
-	"info": " c4로 상대의 d5폰을 공격한다.\n 공짜로 c4폰을 내주는 것처럼 보이지만 흑도 c4폰을 지킬 수 없기 때문에 이후 쉽게 회수할 수 있다."
+	"info": " 나이트를 전개하여 e5폰을 공격하고, 센터 힘을 강화하고, 캐슬링을 준비한다.",
+	"title": "King’s Knight Opening"
 }

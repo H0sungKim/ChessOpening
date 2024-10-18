@@ -641,7 +641,10 @@ void UCIEngine::on_update_full(const Engine::InfoFull& info, bool showWDL) {
        << " hashfull " << info.hashfull  //
        << " tbhits " << info.tbHits      //
        << " time " << info.timeMs        //
-       << " pv " << info.pv;             //
+       << " pv " << info.pv             //
+       << "\n";
+    // Hosung.Kim
+    ss << "Essence :" << format_score(info.score) << "\n";
 
     sync_cout << ss.str() << sync_endl;
 }

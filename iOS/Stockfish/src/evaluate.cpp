@@ -102,22 +102,23 @@ std::string Eval::trace(Position& pos, const Eval::NNUE::Networks& networks) {
     auto caches = std::make_unique<Eval::NNUE::AccumulatorCaches>(networks);
 
     std::stringstream ss;
-//    ss << std::showpoint << std::noshowpos << std::fixed << std::setprecision(2);
-//    ss << '\n' << NNUE::trace(pos, networks, *caches) << '\n';
+    ss << std::showpoint << std::noshowpos << std::fixed << std::setprecision(2);
+    ss << '\n' << NNUE::trace(pos, networks, *caches) << '\n';
 
-//    ss << std::showpoint << std::showpos << std::fixed << std::setprecision(2) << std::setw(15);
+    ss << std::showpoint << std::showpos << std::fixed << std::setprecision(2) << std::setw(15);
 
     auto [psqt, positional] = networks.big.evaluate(pos, &caches->big);
     Value v                 = psqt + positional;
     v                       = pos.side_to_move() == WHITE ? v : -v;
-//    ss << "NNUE evaluation        " << 0.01 * UCIEngine::to_cp(v, pos) << " (white side)\n";
+    ss << "NNUE evaluation        " << 0.01 * UCIEngine::to_cp(v, pos) << " (white side)\n";
 
     v = evaluate(networks, pos, *caches, VALUE_ZERO);
     v = pos.side_to_move() == WHITE ? v : -v;
-//    ss << "Final evaluation       " << 0.01 * UCIEngine::to_cp(v, pos) << " (white side)";
-//    ss << " [with scaled NNUE, ...]";
-//    ss << "\n";
-    ss << "Hosung.Kim :" <<0.01 * UCIEngine::to_cp(v, pos) << "\n";
+    ss << "Final evaluation       " << 0.01 * UCIEngine::to_cp(v, pos) << " (white side)";
+    ss << " [with scaled NNUE, ...]";
+    ss << "\n";
+    // Hosung.Kim
+    ss << "Essence :" <<0.01 * UCIEngine::to_cp(v, pos) << "\n";
 
     return ss.str();
 }

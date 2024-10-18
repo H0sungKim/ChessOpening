@@ -522,6 +522,8 @@ class MainViewController: UIViewController {
     
     private var disposeBag = DisposeBag()
     
+    private let stockfishEngine: StockfishEngine = StockfishEngine()
+    
     @IBOutlet weak var chessBoardView: ChessBoardView!
     @IBOutlet weak var containerView: UIView!
     
@@ -532,6 +534,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 //        fatalError()
         NSLog("Hosung.Kim : Build 2024.07.20 22:36")
+        
+        stockfishEngine.onResponse = { [weak self] response in
+            guard let self = self else { return }
+            
+            let turn = 1 - self.chessBoardView.engine.turn%2 * 2
+            let eval = response * Float(turn) / 100
+            
+            NSLog("Hosung.Kim : \(eval)")
+        }
         
         chessBoardView.delegate = self
         self.hideKeyboardWhenTappedAround()
@@ -575,6 +586,9 @@ class MainViewController: UIViewController {
 
 extension MainViewController: ChessBoardViewDelegate {
     func chessBoardDidUpdate(simpleFen: String) {
+        
+        stockfishEngine.getEval(fen: simpleFen)
+        
         chessBoardView.resetFlags()
         tabBarViewController?.infoViewController?.showSkeletons()
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()

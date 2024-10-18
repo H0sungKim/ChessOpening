@@ -1,41 +1,23 @@
 {
-    "info": " 오프닝에서는 기물의 전개, 중앙 차지, 킹의 안전, 좋은 폰 구조 등을 목표로 해야 한다.",
-    "title": "Chess Opening Book",
+    "info": " 백이 d4, c4를 통해 중앙을 장악하고 있고, 흑은 나이트를 통해 간접적으로 중앙을 잡고 있다.",
+    "title": "Indian Defense: Normal Variation",
     "moves": [
         {
+            "info": " 어두운 비숍길을 연다.\n 백의 d5전진은 막고 자신의 d5는 준비한다.\n 밝은 비숍이 갇힌다는 약점이 있지만 사소하다.",
+            "pgn": "e6",
             "type": 0,
-            "pgn": "e4",
-            "info": "e4폰을 통해 중앙을 컨트롤하고 퀸과 밝은 비숍의 길을 연다.",
-            "title": "King's Pawn Game"
-        },
-        {
-            "info": "d4폰을 통해 중앙을 컨트롤하고 어두운 비숍의 길을 연다.",
-            "type": 0,
-            "pgn": "d4",
-            "title": "Queen's Pawn Game"
-        },
-        {
-            "info": "",
-            "pgn": "Nf3",
-            "type": 1,
             "title": ""
         },
         {
-            "info": "",
-            "pgn": "c4",
             "title": "",
-            "type": 1
-        },
-        {
-            "pgn": "g3",
-            "type": 1,
-            "title": "",
+            "pgn": "g6",
+            "type": 0,
             "info": ""
         },
         {
+            "pgn": "c5",
+            "type": 0,
             "title": "",
-            "pgn": "b3",
-            "type": 1,
             "info": ""
         }
     ]
