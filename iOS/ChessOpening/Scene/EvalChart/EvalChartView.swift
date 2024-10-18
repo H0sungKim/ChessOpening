@@ -8,70 +8,84 @@
 import UIKit
 
 class EvalChartView: UIView {
-    private var eval: Float?
+    
+    private var eval: Float = 0.0
     
     private let whiteColor: UIColor = .white
     private let blackColor: UIColor = .black
     
+    private let blackView: UIView = UIView()
+    private let lbWhite: UILabel = UILabel()
+    private let lbBlack: UILabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        drawChart(eval: 0.0)
+        initialize()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        drawChart(eval: 0.0)
+        initialize()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        drawChart(eval: eval)
+    }
+    
+    func initialize() {
+        self.addSubview(blackView)
+        self.addSubview(lbWhite)
+        self.addSubview(lbBlack)
+        
+        blackView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height*0.5)
+        blackView.backgroundColor = blackColor
+        
+        backgroundColor = whiteColor
+        
+        lbWhite.font = UIFont.systemFont(ofSize: 8, weight: .bold)
+        lbWhite.textColor = blackColor
+        lbWhite.textAlignment = .center
+        
+        lbBlack.font = UIFont.systemFont(ofSize: 8, weight: .bold)
+        lbBlack.textColor = whiteColor
+        lbBlack.textAlignment = .center
+        
+        drawChart(eval: eval)
     }
     
     private func sigmoid(num: Float) -> Float {
         return 1 / (1 + exp(-0.5*num))
     }
     
-    func drawChart(eval: Float?) {
-        self.eval = eval
-        setNeedsDisplay()
-    }
-    
-    override func draw(_ rect: CGRect) {
-        let width = rect.width
-        let height = rect.height
+    func drawChart(eval newEval: Float?) {
         
-        guard let eval = eval else { return }
+        if let newEval {
+            eval = newEval
+        }
         
-        let sigmoidEval = sigmoid(num: eval)
+        let width = self.frame.width
+        let height = self.frame.height
         
-        let whiteRect = CGRect(x: 0, y: height*CGFloat(1-sigmoidEval), width: width, height: height*CGFloat(sigmoidEval))
-        let whitePath = UIBezierPath(rect: whiteRect)
-        whiteColor.setFill()
-        whitePath.fill()
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self = self else { return }
+            self.blackView.frame = CGRect(x: 0, y: 0, width: width, height: height*CGFloat(1-self.sigmoid(num: newEval ?? self.eval)))
+        }
         
-        let blackRect = CGRect(x: 0, y: 0, width: width, height: height*CGFloat(1-sigmoidEval))
-        let blackPath = UIBezierPath(rect: blackRect)
-        blackColor.setFill()
-        blackPath.fill()
+        let textSize = String(abs(eval)).size(withAttributes: [
+            .font: UIFont.systemFont(ofSize: 8, weight: .bold)
+        ])
         
         if eval >= 0 {
-            let whiteParagraphStyle = NSMutableParagraphStyle()
-            whiteParagraphStyle.alignment = .center
-            let whiteAttributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 8, weight: .bold),
-                .paragraphStyle: whiteParagraphStyle,
-                .foregroundColor: blackColor
-            ]
-            let whiteTextSize = String(eval).size(withAttributes: whiteAttributes)
-            let whiteTextRect = CGRect(x: 0, y: height - whiteTextSize.height - 8, width: whiteRect.width, height: whiteTextSize.height)
-            String(eval).draw(in: whiteTextRect, withAttributes: whiteAttributes)
+            lbWhite.isHidden = false
+            lbBlack.isHidden = true
+            lbWhite.frame = CGRect(x: 0, y: height - textSize.height - 8, width: width, height: textSize.height)
+            lbWhite.text = "\(abs(eval))"
         } else {
-            let blackParagraphStyle = NSMutableParagraphStyle()
-            blackParagraphStyle.alignment = .center
-            let blackAttributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 8, weight: .bold),
-                .paragraphStyle: blackParagraphStyle,
-                .foregroundColor: whiteColor
-            ]
-            let blackTextSize = String(eval).size(withAttributes: blackAttributes)
-            let blackTextRect = CGRect(x: 0, y: 8, width: blackRect.width, height: blackTextSize.height)
-            String(-eval).draw(in: blackTextRect, withAttributes: blackAttributes)
+            lbBlack.isHidden = false
+            lbWhite.isHidden = true
+            lbBlack.frame = CGRect(x: 0, y: 8, width: width, height: textSize.height)
+            lbBlack.text = "\(abs(eval))"
         }
     }
 }

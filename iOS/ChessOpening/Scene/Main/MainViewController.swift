@@ -584,6 +584,7 @@ class MainViewController: UIViewController {
             self?.chessBoardView?.caculateCellSize()
         })
         self.tabBarViewController?.infoViewController?.initializeView()
+        self.evalChartView.drawChart(eval: nil)
     }
     
 }
