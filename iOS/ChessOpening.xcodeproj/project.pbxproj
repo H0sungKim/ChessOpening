@@ -56,6 +56,7 @@
 		960C9DA92CC12C0500A7C078 /* testing.py in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D792CC12C0500A7C078 /* testing.py */; };
 		960C9DAD2CC12C6600A7C078 /* nn-1111cefa1111.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */; };
 		960C9DB12CC139AE00A7C078 /* nn-37f18f62d772 2.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DB02CC139AE00A7C078 /* nn-37f18f62d772 2.nnue */; };
+		960C9DE42CC2509C00A7C078 /* EvalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C9DE32CC2509C00A7C078 /* EvalChartView.swift */; };
 		96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */; };
 		96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */; };
 		96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D432C5769D900E821E3 /* LichessConfiguration.swift */; };
@@ -209,6 +210,7 @@
 		960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Top CPU Contributors.txt"; sourceTree = "<group>"; };
 		960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-1111cefa1111.nnue"; sourceTree = "<group>"; };
 		960C9DB02CC139AE00A7C078 /* nn-37f18f62d772 2.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-37f18f62d772 2.nnue"; sourceTree = "<group>"; };
+		960C9DE32CC2509C00A7C078 /* EvalChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvalChartView.swift; sourceTree = "<group>"; };
 		96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRestAPI.swift; sourceTree = "<group>"; };
 		96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRepository.swift; sourceTree = "<group>"; };
 		96152D432C5769D900E821E3 /* LichessConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessConfiguration.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				96524D8D2C4A552800DD8A1D /* History */,
 				96524D8E2C4A554F00DD8A1D /* InfoEdit */,
 				961715EC2C5A6195007383FE /* WinRateChart */,
+				960C9DE12CC2507700A7C078 /* EvalChart */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -466,6 +469,14 @@
 				960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */,
 			);
 			path = Stockfish;
+			sourceTree = "<group>";
+		};
+		960C9DE12CC2507700A7C078 /* EvalChart */ = {
+			isa = PBXGroup;
+			children = (
+				960C9DE32CC2509C00A7C078 /* EvalChartView.swift */,
+			);
+			path = EvalChart;
 			sourceTree = "<group>";
 		};
 		96152D3D2C5768D900E821E3 /* Opening */ = {
@@ -849,6 +860,7 @@
 				96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */,
 				961A112A2C319DB3005E903C /* TabBarViewController.swift in Sources */,
 				96524D862C4944A200DD8A1D /* MoveTableViewCell.swift in Sources */,
+				960C9DE42CC2509C00A7C078 /* EvalChartView.swift in Sources */,
 				96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */,
 				96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */,
 				96BDF9122C096B850032523E /* Knight.swift in Sources */,

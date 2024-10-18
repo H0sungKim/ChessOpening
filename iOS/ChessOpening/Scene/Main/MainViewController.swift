@@ -524,6 +524,7 @@ class MainViewController: UIViewController {
     
     private let stockfishEngine: StockfishEngine = StockfishEngine()
     
+    @IBOutlet weak var evalChartView: EvalChartView!
     @IBOutlet weak var chessBoardView: ChessBoardView!
     @IBOutlet weak var containerView: UIView!
     
@@ -532,7 +533,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fatalError()
         NSLog("Hosung.Kim : Build 2024.07.20 22:36")
         
         stockfishEngine.onResponse = { [weak self] response in
@@ -541,6 +541,10 @@ class MainViewController: UIViewController {
             let turn = 1 - self.chessBoardView.engine.turn%2 * 2
             let eval = response * Float(turn) / 100
             
+            DispatchQueue.main.async {
+                self.evalChartView.drawChart(eval: eval)
+            }
+
             NSLog("Hosung.Kim : \(eval)")
         }
         
