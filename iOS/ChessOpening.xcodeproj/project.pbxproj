@@ -55,7 +55,7 @@
 		960C9DA82CC12C0500A7C078 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D7C2CC12C0500A7C078 /* AUTHORS */; };
 		960C9DA92CC12C0500A7C078 /* testing.py in Resources */ = {isa = PBXBuildFile; fileRef = 960C9D792CC12C0500A7C078 /* testing.py */; };
 		960C9DAD2CC12C6600A7C078 /* nn-1111cefa1111.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */; };
-		960C9DB12CC139AE00A7C078 /* nn-37f18f62d772 2.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DB02CC139AE00A7C078 /* nn-37f18f62d772 2.nnue */; };
+		960C9DB12CC139AE00A7C078 /* nn-37f18f62d772.nnue in Resources */ = {isa = PBXBuildFile; fileRef = 960C9DB02CC139AE00A7C078 /* nn-37f18f62d772.nnue */; };
 		960C9DE42CC2509C00A7C078 /* EvalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C9DE32CC2509C00A7C078 /* EvalChartView.swift */; };
 		96152D402C57699500E821E3 /* LichessCommonRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */; };
 		96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */; };
@@ -209,7 +209,7 @@
 		960C9D802CC12C0500A7C078 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960C9D812CC12C0500A7C078 /* Top CPU Contributors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Top CPU Contributors.txt"; sourceTree = "<group>"; };
 		960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-1111cefa1111.nnue"; sourceTree = "<group>"; };
-		960C9DB02CC139AE00A7C078 /* nn-37f18f62d772 2.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-37f18f62d772 2.nnue"; sourceTree = "<group>"; };
+		960C9DB02CC139AE00A7C078 /* nn-37f18f62d772.nnue */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nn-37f18f62d772.nnue"; sourceTree = "<group>"; };
 		960C9DE32CC2509C00A7C078 /* EvalChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvalChartView.swift; sourceTree = "<group>"; };
 		96152D3F2C57699500E821E3 /* LichessCommonRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRestAPI.swift; sourceTree = "<group>"; };
 		96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRepository.swift; sourceTree = "<group>"; };
@@ -621,7 +621,7 @@
 		969604722BFF0A6D00BBFC6C = {
 			isa = PBXGroup;
 			children = (
-				960C9DB02CC139AE00A7C078 /* nn-37f18f62d772 2.nnue */,
+				960C9DB02CC139AE00A7C078 /* nn-37f18f62d772.nnue */,
 				960C9DAB2CC12C6600A7C078 /* nn-1111cefa1111.nnue */,
 				960C9D822CC12C0500A7C078 /* Stockfish */,
 				9696047D2BFF0A6D00BBFC6C /* ChessOpening */,
@@ -770,7 +770,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960C9DB12CC139AE00A7C078 /* nn-37f18f62d772 2.nnue in Resources */,
+				960C9DB12CC139AE00A7C078 /* nn-37f18f62d772.nnue in Resources */,
 				961A112E2C31A119005E903C /* Info.storyboard in Resources */,
 				96524D632C3E670300DD8A1D /* HistoryCollectionViewCell.xib in Resources */,
 				966356A62C2FCAA700158265 /* MoveTableViewCell.xib in Resources */,
@@ -1039,7 +1039,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = JU27F4BHH8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1070,7 +1070,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JU27F4BHH8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
