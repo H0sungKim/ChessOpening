@@ -618,9 +618,6 @@ extension MainViewController: ChessBoardViewDelegate {
         var openingModelForIntegrate: OptionalOpeningModel?
         var lichessModelForIntegrate: LichessModel?
         
-//        var dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "HH:mm:ss:SSS"
-//        NSLog("Hosung.Kim : \(dateFormatter.string(from: Date()))")
         LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
             .subscribe(onSuccess: { [weak self] lichessModel in
                 lichessModelForIntegrate = lichessModel
