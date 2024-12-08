@@ -35,10 +35,10 @@ class MoveEditHeaderTableViewCell: UITableViewCell {
         tvInfo.layer.backgroundColor = UIColor.systemBackground.cgColor
     }
     
-    func initializeCell(integratedOpeningModel: IntegratedOpeningModel) {
-        tfTitle.text = integratedOpeningModel.title
-        tvInfo.text = integratedOpeningModel.info
-        winRateChartView.drawChart(rate: integratedOpeningModel.rate)
+    func initializeCell(openingModel: OpeningModel) {
+        tfTitle.text = openingModel.title
+        tvInfo.text = openingModel.info
+        winRateChartView.drawChart(rate: openingModel.rate)
     }
 }
 

@@ -50,21 +50,21 @@ class MoveEditTableViewCell: UITableViewCell {
     @IBAction func valueChangedSwitch(_ sender: UISwitch) {
         onClickSwitch?(sender)
     }
-    func initializeCell(integratedMoveModel: IntegratedOpeningModel.MoveModel, turn: String) {
-        ivType.image = integratedMoveModel.valid ? integratedMoveModel.type.getImage() : integratedMoveModel.type.getGrayImage()
-        tfTitle.text = integratedMoveModel.title
-        lbPGN.text = "\(turn) \(integratedMoveModel.pgn)"
-        tvInfo.text = integratedMoveModel.info
-        swValid.isOn = integratedMoveModel.valid
+    func initializeCell(moveModel: OpeningModel.MoveModel, turn: String) {
+        ivType.image = moveModel.valid ? moveModel.type.getImage() : moveModel.type.getGrayImage()
+        tfTitle.text = moveModel.title
+        lbPGN.text = "\(turn) \(moveModel.pgn)"
+        tvInfo.text = moveModel.info
+        swValid.isOn = moveModel.valid
         
         btnImage.menu = UIMenu(title: "Icon을 골라주세요.", identifier: nil, options: .displayInline, children: [
-            UIAction(title: MoveType.mainbook.toString(), image: MoveType.mainbook.getImage(), state: integratedMoveModel.type == .mainbook ? .on : .off, handler: onClickMainBookMenu ?? {_ in}),
-            UIAction(title: MoveType.sidebook.toString(), image: MoveType.sidebook.getImage(), state: integratedMoveModel.type == .sidebook ? .on : .off, handler: onClickSideBookMenu ?? {_ in}),
-            UIAction(title: MoveType.gambit.toString(), image: MoveType.gambit.getImage(), state: integratedMoveModel.type == .gambit ? .on : .off, handler: onClickGambitMenu ?? {_ in}),
-            UIAction(title: MoveType.brilliant.toString(), image: MoveType.brilliant.getImage(), state: integratedMoveModel.type == .brilliant ? .on : .off, handler: onClickBrilliantMenu ?? {_ in}),
-            UIAction(title: MoveType.blunder.toString(), image: MoveType.blunder.getImage(), state: integratedMoveModel.type == .blunder ? .on : .off, handler: onClickBlunderMenu ?? {_ in}),
+            UIAction(title: MoveType.mainbook.toString(), image: MoveType.mainbook.getImage(), state: moveModel.type == .mainbook ? .on : .off, handler: onClickMainBookMenu ?? {_ in}),
+            UIAction(title: MoveType.sidebook.toString(), image: MoveType.sidebook.getImage(), state: moveModel.type == .sidebook ? .on : .off, handler: onClickSideBookMenu ?? {_ in}),
+            UIAction(title: MoveType.gambit.toString(), image: MoveType.gambit.getImage(), state: moveModel.type == .gambit ? .on : .off, handler: onClickGambitMenu ?? {_ in}),
+            UIAction(title: MoveType.brilliant.toString(), image: MoveType.brilliant.getImage(), state: moveModel.type == .brilliant ? .on : .off, handler: onClickBrilliantMenu ?? {_ in}),
+            UIAction(title: MoveType.blunder.toString(), image: MoveType.blunder.getImage(), state: moveModel.type == .blunder ? .on : .off, handler: onClickBlunderMenu ?? {_ in}),
         ])
-        winRateChartView.drawChart(rate: integratedMoveModel.rate)
+        winRateChartView.drawChart(rate: moveModel.rate)
     }
 }
 

@@ -61,8 +61,6 @@
 		96152D422C5769CC00E821E3 /* LichessCommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */; };
 		96152D442C5769D900E821E3 /* LichessConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D432C5769D900E821E3 /* LichessConfiguration.swift */; };
 		96152D482C5778AC00E821E3 /* LichessEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D472C5778AC00E821E3 /* LichessEntity.swift */; };
-		96152D4C2C57857000E821E3 /* IntegratedOpeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */; };
-		96152D4F2C58F42F00E821E3 /* OptionalOpeningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */; };
 		96152D522C58FF2500E821E3 /* LichessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96152D512C58FF2500E821E3 /* LichessModel.swift */; };
 		961715EE2C5A61B0007383FE /* WinRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961715ED2C5A61B0007383FE /* WinRateChartView.swift */; };
 		961A11262C319AF2005E903C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961A11252C319AF2005E903C /* TabBar.storyboard */; };
@@ -111,6 +109,7 @@
 		96BDF9122C096B850032523E /* Knight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9112C096B850032523E /* Knight.swift */; };
 		96BDF9142C096BDD0032523E /* Rook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9132C096BDD0032523E /* Rook.swift */; };
 		96BDF9162C096C0C0032523E /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDF9152C096C0C0032523E /* Pawn.swift */; };
+		96C0FB102D02B5FB00A9DC21 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0FB0F2D02B5FB00A9DC21 /* UIColor+Ext.swift */; };
 		96FAD3602C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FAD35F2C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift */; };
 		96FAD3622C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3612C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib */; };
 		96FAD3642C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */; };
@@ -215,8 +214,6 @@
 		96152D412C5769CC00E821E3 /* LichessCommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessCommonRepository.swift; sourceTree = "<group>"; };
 		96152D432C5769D900E821E3 /* LichessConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessConfiguration.swift; sourceTree = "<group>"; };
 		96152D472C5778AC00E821E3 /* LichessEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessEntity.swift; sourceTree = "<group>"; };
-		96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegratedOpeningModel.swift; sourceTree = "<group>"; };
-		96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalOpeningModel.swift; sourceTree = "<group>"; };
 		96152D512C58FF2500E821E3 /* LichessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichessModel.swift; sourceTree = "<group>"; };
 		961715ED2C5A61B0007383FE /* WinRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinRateChartView.swift; sourceTree = "<group>"; };
 		961715EF2C649C58007383FE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -256,6 +253,7 @@
 		96BDF9112C096B850032523E /* Knight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knight.swift; sourceTree = "<group>"; };
 		96BDF9132C096BDD0032523E /* Rook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rook.swift; sourceTree = "<group>"; };
 		96BDF9152C096C0C0032523E /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
+		96C0FB0F2D02B5FB00A9DC21 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		96FAD35F2C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		96FAD3612C4AAB2000470BE7 /* InfoHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		96FAD3632C4B628200470BE7 /* MoveEditHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveEditHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -530,7 +528,6 @@
 		96524D702C40DCCC00DD8A1D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				96152D4B2C57857000E821E3 /* IntegratedOpeningModel.swift */,
 				96152D3D2C5768D900E821E3 /* Opening */,
 				96152D3E2C57693700E821E3 /* Lichess */,
 			);
@@ -550,7 +547,6 @@
 			isa = PBXGroup;
 			children = (
 				96524D7F2C4798EE00DD8A1D /* OpeningModel.swift */,
-				96152D4E2C58F42F00E821E3 /* OptionalOpeningModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -690,6 +686,7 @@
 			isa = PBXGroup;
 			children = (
 				96073D922C32A0FD00DDF159 /* UIViewController+Ext.swift */,
+				96C0FB0F2D02B5FB00A9DC21 /* UIColor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -844,10 +841,10 @@
 				969604B12BFF1D7400BBFC6C /* Engine.swift in Sources */,
 				96073DA32C3D4CEA00DDF159 /* Util.swift in Sources */,
 				96361ABE2C50E17B00815DE0 /* HapticManager.swift in Sources */,
-				96152D4C2C57857000E821E3 /* IntegratedOpeningModel.swift in Sources */,
 				96FAD3682C4B99CD00470BE7 /* VoidEntity.swift in Sources */,
 				96524D902C4A5E6C00DD8A1D /* MoveEditTableViewCell.swift in Sources */,
 				969604832BFF0A6D00BBFC6C /* MainViewController.swift in Sources */,
+				96C0FB102D02B5FB00A9DC21 /* UIColor+Ext.swift in Sources */,
 				96152D482C5778AC00E821E3 /* LichessEntity.swift in Sources */,
 				96073D952C32A13000DDF159 /* InfoEditViewController.swift in Sources */,
 				96FAD3892C4E464300470BE7 /* AudioManager.swift in Sources */,
@@ -873,7 +870,6 @@
 				96152D522C58FF2500E821E3 /* LichessModel.swift in Sources */,
 				96FAD3602C4AAB1000470BE7 /* InfoHeaderTableViewCell.swift in Sources */,
 				96BDF9162C096C0C0032523E /* Pawn.swift in Sources */,
-				96152D4F2C58F42F00E821E3 /* OptionalOpeningModel.swift in Sources */,
 				9696047F2BFF0A6D00BBFC6C /* AppDelegate.swift in Sources */,
 				96BDF9142C096BDD0032523E /* Rook.swift in Sources */,
 				96FAD3852C4CF72000470BE7 /* license.txt in Sources */,

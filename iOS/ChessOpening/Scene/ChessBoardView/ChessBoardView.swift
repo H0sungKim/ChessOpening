@@ -21,23 +21,12 @@ class ChessBoardView: UIView {
     private var draggedPiece: (CGFloat, CGFloat)? // drag flag
     private var promotionMove: (from: (rank: Int, file: Int), to: (rank: Int, file: Int))? = nil // promotion flag
     
-    private let lightBrown: UIColor = UIColor(red: 240/255, green: 217/255, blue: 181/255, alpha: 1)
-    private let darkBrown: UIColor = UIColor(red: 181/255, green: 136/255, blue: 99/255, alpha: 1)
-    private let selectedGreen: UIColor = UIColor(red: 24/255, green: 89/255, blue: 31/255, alpha: 0.5)
-    private let selectedBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-    private let promotionBlack: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
-    private let bookGreen: UIColor = UIColor(red: 125/255, green: 184/255, blue: 115/255, alpha: 0.5)
-    private let bookYellow: UIColor = UIColor(red: 202/255, green: 172/255, blue: 17/255, alpha: 0.5)
-    private let gambitOrange: UIColor = UIColor(red: 240/255, green: 146/255, blue: 94/255, alpha: 0.5)
-    private let brilliantMint: UIColor = UIColor(red: 53/255, green: 192/255, blue: 201/255, alpha: 0.5)
-    private let blunderRed: UIColor = UIColor(red: 192/255, green: 49/255, blue: 49/255, alpha: 0.5)
-    
     private var cellSize: CGFloat = 0.0
     
     private let imgCheck: UIImage = UIImage(named: "check.png")!
     
-    private let imgBKing: UIImage = UIImage(named: "bking")!
-    private let imgBQueen: UIImage = UIImage(named: "bqueen")!
+    private let imgBKing: UIImage = UIImage(resource: .bking)
+    private let imgBQueen: UIImage = UIImage(resource: .bqueen)
     private let imgBRook: UIImage = UIImage(named: "brook")!
     private let imgBBishop: UIImage = UIImage(named: "bbishop")!
     private let imgBKnight: UIImage = UIImage(named: "bknight")!
@@ -71,18 +60,18 @@ class ChessBoardView: UIView {
         let fromHideLayer: CALayer = CALayer()
         fromHideLayer.frame = .init(x: CGFloat(move.from.file)*cellSize, y: CGFloat(move.from.rank)*cellSize, width: cellSize, height: cellSize)
         if (move.from.rank + move.from.file) % 2 == 0 {
-            fromHideLayer.backgroundColor = lightBrown.cgColor
+            fromHideLayer.backgroundColor = UIColor.lightBrown.cgColor
         } else {
-            fromHideLayer.backgroundColor = darkBrown.cgColor
+            fromHideLayer.backgroundColor = UIColor.darkBrown.cgColor
         }
         layer.insertSublayer(fromHideLayer, at: 0)
         
         let toHideLayer: CALayer = CALayer()
         toHideLayer.frame = .init(x: CGFloat(move.to.file)*cellSize, y: CGFloat(move.to.rank)*cellSize, width: cellSize, height: cellSize)
         if (move.to.rank + move.to.file) % 2 == 0 {
-            toHideLayer.backgroundColor = lightBrown.cgColor
+            toHideLayer.backgroundColor = UIColor.lightBrown.cgColor
         } else {
-            toHideLayer.backgroundColor = darkBrown.cgColor
+            toHideLayer.backgroundColor = UIColor.darkBrown.cgColor
         }
         layer.insertSublayer(toHideLayer, at: 0)
         
@@ -176,7 +165,7 @@ class ChessBoardView: UIView {
             return
         }
         let path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: cellSize*8, height: cellSize*8))
-        promotionBlack.setFill()
+        UIColor.promotionBlack.setFill()
         path.fill()
         
         let direction = 1 - engine.turn%2*2
@@ -214,9 +203,9 @@ class ChessBoardView: UIView {
             for f in 0..<8 {
                 let path = UIBezierPath(rect: CGRect(x: CGFloat(f)*cellSize, y: CGFloat(r)*cellSize, width: cellSize, height: cellSize))
                 if (r+f)%2 == 0 {
-                    lightBrown.setFill()
+                    UIColor.lightBrown.setFill()
                 } else {
-                    darkBrown.setFill()
+                    UIColor.darkBrown.setFill()
                 }
                 path.fill()
             }
@@ -240,11 +229,9 @@ class ChessBoardView: UIView {
     }
     
     private func drawNowSelectedCell() {
-        guard let selectedCell = selectedCell else {
-            return
-        }
+        guard let selectedCell = selectedCell else { return }
         let selectedCellPath = UIBezierPath(rect: CGRect(x: CGFloat(selectedCell.file)*cellSize, y: CGFloat(selectedCell.rank)*cellSize, width: cellSize, height: cellSize))
-        selectedGreen.setFill()
+        UIColor.selectedGreen.setFill()
         selectedCellPath.fill()
         for legalMove in engine.legalMoves {
             if legalMove.from == selectedCell {
@@ -263,12 +250,10 @@ class ChessBoardView: UIView {
     }
     
     private func drawNowSelectedPiece() {
-        guard let selectedCell = selectedCell, let draggedPiece = draggedPiece else {
-            return
-        }
+        guard let selectedCell = selectedCell, let draggedPiece = draggedPiece else { return }
         let nowDraggedCell: (CGFloat, CGFloat) = (CGFloat(Int(draggedPiece.0/cellSize)), CGFloat(Int(draggedPiece.1/cellSize)))
         let path = UIBezierPath(arcCenter: CGPoint(x: nowDraggedCell.0*cellSize + cellSize/2, y: nowDraggedCell.1*cellSize + cellSize/2), radius: cellSize, startAngle: 0, endAngle: Double.pi*2, clockwise: true)
-        selectedBlack.setFill()
+        UIColor.selectedBlack.setFill()
         path.fill()
         
         drawPiece(piece: getImage(pieceType: type(of: engine.board[selectedCell.rank][selectedCell.file]), color: engine.board[selectedCell.rank][selectedCell.file].color), rank: 0, file: 0, dx: draggedPiece.0-cellSize, dy: draggedPiece.1-cellSize, rate: 2)
@@ -285,9 +270,9 @@ class ChessBoardView: UIView {
     private func drawCellBackGround(rank: Int, file: Int) {
         let path = UIBezierPath(rect: CGRect(x: CGFloat(file)*cellSize, y: CGFloat(rank)*cellSize, width: cellSize, height: cellSize))
         if (rank+file)%2 == 0 {
-            lightBrown.setFill()
+            UIColor.lightBrown.setFill()
         } else {
-            darkBrown.setFill()
+            UIColor.darkBrown.setFill()
         }
         path.fill()
     }
@@ -295,9 +280,9 @@ class ChessBoardView: UIView {
     private func drawCircleCellBackGround(rank: Int, file: Int) {
         let path = UIBezierPath(arcCenter: CGPoint(x: CGFloat(file)*cellSize + cellSize/2, y: CGFloat(rank)*cellSize + cellSize/2), radius: cellSize/2, startAngle: 0, endAngle: Double.pi*2, clockwise: true)
         if (rank+file)%2 == 0 {
-            lightBrown.setFill()
+            UIColor.lightBrown.setFill()
         } else {
-            darkBrown.setFill()
+            UIColor.darkBrown.setFill()
         }
         path.fill()
     }
@@ -312,15 +297,15 @@ class ChessBoardView: UIView {
             }
             switch move.type {
             case .mainbook:
-                drawArrow(arrow: coordinate, color: bookGreen)
+                drawArrow(arrow: coordinate, color: UIColor.bookGreen)
             case .sidebook:
-                drawArrow(arrow: coordinate, color: bookYellow)
+                drawArrow(arrow: coordinate, color: UIColor.bookYellow)
             case .gambit:
-                drawArrow(arrow: coordinate, color: gambitOrange)
+                drawArrow(arrow: coordinate, color: UIColor.gambitOrange)
             case .brilliant:
-                drawArrow(arrow: coordinate, color: brilliantMint)
+                drawArrow(arrow: coordinate, color: UIColor.brilliantMint)
             case .blunder:
-                drawArrow(arrow: coordinate, color: blunderRed)
+                drawArrow(arrow: coordinate, color: UIColor.blunderRed)
             }
         }
     }

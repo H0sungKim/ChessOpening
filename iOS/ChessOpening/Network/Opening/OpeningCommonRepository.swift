@@ -30,11 +30,11 @@ class OpeningCommonRepository {
             .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .default))
     }
     
-    func getFiltered(key: String) -> Single<OptionalOpeningModel> {
+    func getFiltered(key: String, lichessModel: LichessModel) -> Single<OpeningModel> {
         return request(OpeningCommonRestAPI.getFiltered(key: key))
             .map(OpeningEntity.self)
-            .map { openingEntity -> OptionalOpeningModel in
-                return OptionalOpeningModel(openingEntity: openingEntity.convertResponseData())
+            .map { openingEntity -> OpeningModel in
+                return OpeningModel(openingEntity: openingEntity.convertResponseData(), lichessModel: lichessModel)
             }
             .observe(on: MainScheduler.instance)
     }

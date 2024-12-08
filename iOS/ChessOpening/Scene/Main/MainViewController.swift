@@ -557,7 +557,6 @@ class MainViewController: UIViewController {
         containerView.addSubview(containerChildViewController.view)
         containerChildViewController.didMove(toParent: self)
         self.tabBarViewController = containerChildViewController as? TabBarViewController
-//        let _ = AudioManager.shared
         
         chessBoardDidUpdate(simpleFen: chessBoardView.engine.getSimpleFEN())
     }
@@ -597,6 +596,7 @@ extension MainViewController: ChessBoardViewDelegate {
         chessBoardView.resetFlags()
         tabBarViewController?.infoViewController?.showSkeletons()
         tabBarViewController?.infoViewController?.turn = chessBoardView.engine.getTurn()
+        tabBarViewController?.infoViewController?.fen = simpleFen
         tabBarViewController?.infoViewController?.scrollToTop()
         tabBarViewController?.historyViewController?.history = chessBoardView.engine.pgn
         tabBarViewController?.historyViewController?.turn = chessBoardView.engine.turn
@@ -604,44 +604,30 @@ extension MainViewController: ChessBoardViewDelegate {
         tabBarViewController?.historyViewController?.collectionView?.reloadData()
         
         if chessBoardView.engine.legalMoves.count == 0 {
-            var integratedOpeningModel = IntegratedOpeningModel(openingModel: nil, lichessModel: nil, fen: simpleFen, engine: nil)
+            var openingModel = OpeningModel()
             if chessBoardView.engine.isCheck(board: chessBoardView.engine.board, kingColor: Engine.Color(rawValue: chessBoardView.engine.turn%2)!) {
-                integratedOpeningModel.title = "Checkmate"
+                openingModel.title = "Checkmate"
             } else {
-                integratedOpeningModel.title = "Stalemate"
+                openingModel.title = "Stalemate"
             }
-            self.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
+            self.tabBarViewController?.infoViewController?.openingModel = openingModel
             self.tabBarViewController?.infoViewController?.initializeView()
             return
         }
         
-        var openingModelForIntegrate: OptionalOpeningModel?
-        var lichessModelForIntegrate: LichessModel?
-        
         LichessCommonRepository.shared.getMastersDatabase(fen: simpleFen)
-            .subscribe(onSuccess: { [weak self] lichessModel in
-                lichessModelForIntegrate = lichessModel
-                if let openingModelForIntegrate = openingModelForIntegrate {
-                    let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
-                    self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
-                    self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
-                    self?.tabBarViewController?.infoViewController?.initializeView()
-                }
+            .flatMap({ lichessModel in
+                return OpeningCommonRepository.shared.getFiltered(key: simpleFen, lichessModel: lichessModel)
             })
-            .disposed(by: disposeBag)
-        
-        OpeningCommonRepository.shared.getFiltered(key: simpleFen)
-            .subscribe(onSuccess: { [weak self] optionalOpeningModel in
-                openingModelForIntegrate = optionalOpeningModel
-                let openingModel = OpeningModel(optionalOpeningModel: optionalOpeningModel)
-                self?.chessBoardView?.moves = openingModel.moves
-                self?.chessBoardView?.setNeedsDisplay()
-                if let lichessModelForIntegrate = lichessModelForIntegrate {
-                    let integratedOpeningModel: IntegratedOpeningModel = IntegratedOpeningModel(openingModel: openingModelForIntegrate, lichessModel: lichessModelForIntegrate, fen: simpleFen, engine: self?.chessBoardView.engine)
-                    self?.tabBarViewController?.infoViewController?.integratedOpeningModel = integratedOpeningModel
-                    self?.tabBarViewController?.infoViewController?.openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: true)
-                    self?.tabBarViewController?.infoViewController?.initializeView()
-                }
+            .subscribe(onSuccess: { [weak self] openingModel in
+                guard let self = self else { return }
+                var openingModelWithAllMoves: OpeningModel = openingModel
+                openingModelWithAllMoves.appendMoves(engine: self.chessBoardView.engine)
+                self.chessBoardView?.moves = openingModelWithAllMoves.getValidMoves()
+                self.chessBoardView?.setNeedsDisplay()
+                
+                self.tabBarViewController?.infoViewController?.openingModel = openingModelWithAllMoves
+                self.tabBarViewController?.infoViewController?.initializeView()
             })
             .disposed(by: disposeBag)
         

@@ -6,6 +6,56 @@
 //
 
 import Foundation
+import UIKit
+
+enum MoveType: Int {
+    case mainbook
+    case sidebook
+    case gambit
+    case brilliant
+    case blunder
+    
+    func getImage() -> UIImage {
+        switch self {
+        case .mainbook:
+            return UIImage(named: "mainbook")!
+        case .sidebook:
+            return UIImage(named: "sidebook")!
+        case .gambit:
+            return UIImage(named: "gambit")!
+        case .brilliant:
+            return UIImage(named: "brilliant")!
+        case .blunder:
+            return UIImage(named: "blunder")!
+        }
+    }
+    func getGrayImage() -> UIImage {
+        switch self {
+        case .mainbook, .sidebook:
+            return UIImage(named: "book_gray")!
+        case .gambit:
+            return UIImage(named: "gambit_gray")!
+        case .brilliant:
+            return UIImage(named: "brilliant_gray")!
+        case .blunder:
+            return UIImage(named: "blunder_gray")!
+        }
+    }
+    func toString() -> String {
+        switch self {
+        case .mainbook:
+            return "Main Line"
+        case .sidebook:
+            return "Side Line"
+        case .gambit:
+            return "Gambit"
+        case .brilliant:
+            return "Brilliant"
+        case .blunder:
+            return "Blunder"
+        }
+    }
+}
 
 struct OpeningModel {
     var title: String
@@ -14,62 +64,76 @@ struct OpeningModel {
     var rate: (white: Int, draws: Int, black: Int)?
     
     struct MoveModel {
+        var valid: Bool
         var pgn: String
         var type: MoveType
         var title: String
         var info: String
         var rate: (white: Int, draws: Int, black: Int)?
+        
         init(moveEntity: OpeningEntity.OpeningResponseDataEntity.MoveEntity) {
+            self.valid = true
             self.pgn = moveEntity.pgn ?? ""
             self.type = MoveType(rawValue: moveEntity.type ?? 0) ?? .mainbook
             self.title = moveEntity.title ?? ""
             self.info = moveEntity.info ?? ""
         }
-        init(optionalMoveModel: OptionalOpeningModel.MoveModel) {
-            self.pgn = optionalMoveModel.pgn ?? ""
-            self.type = optionalMoveModel.type ?? .mainbook
-            self.title = optionalMoveModel.title ?? ""
-            self.info = optionalMoveModel.info ?? ""
-        }
-        init(integratedMoveModel: IntegratedOpeningModel.MoveModel, includeRate: Bool) {
-            self.pgn = integratedMoveModel.pgn
-            self.type = integratedMoveModel.type
-            self.title = integratedMoveModel.title
-            self.info = integratedMoveModel.info
-            if includeRate {
-                self.rate = integratedMoveModel.rate
-            }
+        init(lichessMoveModel: LichessModel.MoveModel) {
+            self.valid = false
+            self.pgn = lichessMoveModel.san ?? ""
+            self.type = .mainbook
+            self.title = ""
+            self.info = ""
+            self.rate = lichessMoveModel.rate
         }
         init(pgn: String) {
+            self.valid = false
             self.pgn = pgn
             self.type = .mainbook
             self.title = ""
             self.info = ""
         }
-        
     }
     
-    init(openingEntity: OpeningEntity.OpeningResponseDataEntity) {
-        self.title = openingEntity.title ?? ""
+    init(openingEntity: OpeningEntity.OpeningResponseDataEntity, lichessModel: LichessModel) {
+        self.title = openingEntity.title ?? lichessModel.opening?.name ?? ""
         self.info = openingEntity.info ?? ""
-        self.moves = openingEntity.moves?.map { MoveModel(moveEntity: $0) } ?? []
-    }
-    init(optionalOpeningModel: OptionalOpeningModel) {
-        self.title = optionalOpeningModel.title ?? ""
-        self.info = optionalOpeningModel.info ?? ""
-        self.moves = optionalOpeningModel.moves?.map { MoveModel(optionalMoveModel: $0) } ?? []
-    }
-    init(integratedOpeningModel: IntegratedOpeningModel, includeRate: Bool) {
-        self.title = integratedOpeningModel.title
-        self.info = integratedOpeningModel.info
-        self.moves = integratedOpeningModel.moves.filter({ $0.valid }).map({ MoveModel(integratedMoveModel: $0, includeRate: includeRate) })
-        if includeRate {
-            self.rate = integratedOpeningModel.rate
+        self.moves = []
+        if let moves = openingEntity.moves {
+            for move in moves {
+                self.moves.append(MoveModel(moveEntity: move))
+            }
         }
+        if let moves = lichessModel.moves {
+            for move in moves {
+                if let index = self.moves.firstIndex(where: { $0.pgn == move.san }) {
+                    self.moves[index].rate = move.rate
+                } else {
+                    self.moves.append(MoveModel(lichessMoveModel: move))
+                }
+            }
+        }
+        self.rate = lichessModel.rate
     }
     init() {
         self.title = ""
         self.info = ""
         self.moves = []
+    }
+    
+    func getValidMoves() -> [MoveModel] {
+        return moves.compactMap({ $0.valid ? $0 : nil})
+    }
+    
+    func getValidMovesCount() -> Int {
+        return moves.count(where: { $0.valid })
+    }
+    
+    mutating func appendMoves(engine: Engine) {
+        for pgn in engine.getLegalMovesPGN() {
+            if !(moves.contains(where: { $0.pgn == pgn })) {
+                moves.append(MoveModel(pgn: pgn))
+            }
+        }
     }
 }

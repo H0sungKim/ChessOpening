@@ -12,8 +12,9 @@ class InfoEditViewController: UIViewController {
     
     private var disposeBag = DisposeBag()
     
-    var integratedOpeningModel: IntegratedOpeningModel!
+    var openingModel: OpeningModel!
     var turn: String!
+    var fen: String!
     
     @IBOutlet weak var tbvInfoEdit: UITableView!
     
@@ -65,14 +66,10 @@ class InfoEditViewController: UIViewController {
         let actionCancel: UIAlertAction = UIAlertAction(title: "아니오", style: .default, handler: nil)
         let actionOk: UIAlertAction = UIAlertAction(title: "예", style: .default, handler: { [weak self] _ in
             
-            guard let self = self else {
-                return
-            }
-            
-            let openingModel = OpeningModel(integratedOpeningModel: integratedOpeningModel, includeRate: false)
+            guard let self = self else { return }
             
             let uuid = UUID().uuidString
-            OpeningCommonRepository.shared.setRaw(key: uuid, memo: integratedOpeningModel.fen, value: openingModel)
+            OpeningCommonRepository.shared.setRaw(key: uuid, memo: fen, value: openingModel)
                 .subscribe(onSuccess: { [weak self] in
                     let alertDismiss: UIAlertController = UIAlertController(title: "의견을 보내주셔서 감사합니다.", message: "관리자 검토 후 게시해 드리겠습니다.", preferredStyle: .alert)
                     let actionOk: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
@@ -91,7 +88,7 @@ class InfoEditViewController: UIViewController {
 
 extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return integratedOpeningModel.moves.count+1
+        return openingModel.moves.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,12 +102,12 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
                 cell = objectArray![0] as! MoveEditHeaderTableViewCell
             }
             cell.titleValueChanged = { [weak self] newTitle in
-                self?.integratedOpeningModel.title = newTitle
+                self?.openingModel.title = newTitle
             }
             cell.infoValueChanged = { [weak self] in
-                self?.integratedOpeningModel.info = cell.tvInfo.text
+                self?.openingModel.info = cell.tvInfo.text
             }
-            cell.initializeCell(integratedOpeningModel: integratedOpeningModel)
+            cell.initializeCell(openingModel: openingModel)
             return cell
         } else {
             let cell: MoveEditTableViewCell
@@ -122,36 +119,36 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
                 cell = objectArray![0] as! MoveEditTableViewCell
             }
             cell.titleValueChanged = { [weak self] newTitle in
-                self?.integratedOpeningModel.moves[indexPath.row-1].title = newTitle
+                self?.openingModel.moves[indexPath.row-1].title = newTitle
             }
             cell.infoValueChanged = { [weak self] in
-                self?.integratedOpeningModel.moves[indexPath.row-1].info = cell.tvInfo.text
+                self?.openingModel.moves[indexPath.row-1].info = cell.tvInfo.text
             }
             cell.onClickSwitch = { [weak self] sender in
-                self?.integratedOpeningModel.moves[indexPath.row-1].valid = sender.isOn
+                self?.openingModel.moves[indexPath.row-1].valid = sender.isOn
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             cell.onClickMainBookMenu = { [weak self] _ in
-                self?.integratedOpeningModel.moves[indexPath.row-1].type = .mainbook
+                self?.openingModel.moves[indexPath.row-1].type = .mainbook
                 self?.tbvInfoEdit.reloadData()
             }
             cell.onClickSideBookMenu = { [weak self] _ in
-                self?.integratedOpeningModel.moves[indexPath.row-1].type = .sidebook
+                self?.openingModel.moves[indexPath.row-1].type = .sidebook
                 self?.tbvInfoEdit.reloadData()
             }
             cell.onClickGambitMenu = { [weak self] _ in
-                self?.integratedOpeningModel.moves[indexPath.row-1].type = .gambit
+                self?.openingModel.moves[indexPath.row-1].type = .gambit
                 self?.tbvInfoEdit.reloadData()
             }
             cell.onClickBrilliantMenu = { [weak self] _ in
-                self?.integratedOpeningModel.moves[indexPath.row-1].type = .brilliant
+                self?.openingModel.moves[indexPath.row-1].type = .brilliant
                 self?.tbvInfoEdit.reloadData()
             }
             cell.onClickBlunderMenu = { [weak self] _ in
-                self?.integratedOpeningModel.moves[indexPath.row-1].type = .blunder
+                self?.openingModel.moves[indexPath.row-1].type = .blunder
                 self?.tbvInfoEdit.reloadData()
             }
-            cell.initializeCell(integratedMoveModel: integratedOpeningModel.moves[indexPath.row-1], turn: turn)
+            cell.initializeCell(moveModel: openingModel.moves[indexPath.row-1], turn: turn)
             return cell
         }
     }
@@ -166,9 +163,9 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             return
         }
         HapticManager.shared.generate()
-        let movedObject = integratedOpeningModel.moves[sourceIndexPath.row-1]
-        integratedOpeningModel.moves.remove(at: sourceIndexPath.row-1)
-        integratedOpeningModel.moves.insert(movedObject, at: destinationIndexPath.row-1)
+        let movedObject = openingModel.moves[sourceIndexPath.row-1]
+        openingModel.moves.remove(at: sourceIndexPath.row-1)
+        openingModel.moves.insert(movedObject, at: destinationIndexPath.row-1)
         
         tableView.reloadData()
     }
@@ -178,7 +175,7 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
             return []
         }
         HapticManager.shared.generate()
-        let item = self.integratedOpeningModel.moves[indexPath.row - 1]
+        let item = self.openingModel.moves[indexPath.row - 1]
         let itemProvider = NSItemProvider(object: item.title as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
@@ -194,9 +191,9 @@ extension InfoEditViewController: UITableViewDelegate, UITableViewDataSource, UI
         coordinator.items.forEach { dropItem in
             if let sourceIndexPath = dropItem.sourceIndexPath {
                 tableView.beginUpdates()
-                let movedObject = integratedOpeningModel.moves[sourceIndexPath.row - 1]
-                integratedOpeningModel.moves.remove(at: sourceIndexPath.row - 1)
-                integratedOpeningModel.moves.insert(movedObject, at: destinationIndexPath.row - 1)
+                let movedObject = openingModel.moves[sourceIndexPath.row - 1]
+                openingModel.moves.remove(at: sourceIndexPath.row - 1)
+                openingModel.moves.insert(movedObject, at: destinationIndexPath.row - 1)
                 tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
                 tableView.endUpdates()
             }

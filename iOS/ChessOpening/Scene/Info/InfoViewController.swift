@@ -9,10 +9,10 @@ import UIKit
 import SkeletonView
 
 class InfoViewController: UIViewController {
-
-    var integratedOpeningModel: IntegratedOpeningModel!
+    
     var openingModel: OpeningModel = OpeningModel()
-    var turn: String = ""
+    var turn: String!
+    var fen: String!
     var sheetHeight: CGFloat!
     weak var delegate: InfoDelegate?
     private var infoEditViewController: UIViewController?
@@ -43,8 +43,9 @@ class InfoViewController: UIViewController {
     @IBAction func postOnClick(_ sender: Any) {
         infoEditViewController = UIViewController.getViewController(viewControllerEnum: .infoedit)
         if let infoEditViewController = infoEditViewController as? InfoEditViewController {
-            infoEditViewController.integratedOpeningModel = integratedOpeningModel
+            infoEditViewController.openingModel = openingModel
             infoEditViewController.turn = turn
+            infoEditViewController.fen = fen
         }
         if let sheet = infoEditViewController?.sheetPresentationController {
             sheet.detents = [.custom { context in
@@ -75,16 +76,14 @@ class InfoViewController: UIViewController {
     }
     
     func scrollToTop() {
-        guard let tbvInfo = tbvInfo else {
-            return
-        }
+        guard let tbvInfo = tbvInfo else { return }
         tbvInfo.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 }
 
 extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return openingModel.moves.count+1
+        return openingModel.getValidMovesCount()+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,7 +108,7 @@ extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSo
                 let objectArray = Bundle.main.loadNibNamed(String(describing: MoveTableViewCell.self), owner: nil, options: nil)
                 cell = objectArray![0] as! MoveTableViewCell
             }
-            cell.initializeCell(moveModel: openingModel.moves[indexPath.row-1], turn: turn)
+            cell.initializeCell(moveModel: openingModel.getValidMoves()[indexPath.row-1], turn: turn)
             return cell
         }
     }
@@ -127,7 +126,7 @@ extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSo
             return
         }
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.applyMove(pgn: openingModel.moves[indexPath.row-1].pgn)
+        delegate?.applyMove(pgn: openingModel.getValidMoves()[indexPath.row-1].pgn)
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -137,7 +136,7 @@ extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSo
         
     }
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return openingModel.moves.count+1
+        return openingModel.getValidMovesCount()+1
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, skeletonCellForRowAt indexPath: IndexPath) -> UITableViewCell? {
@@ -162,7 +161,7 @@ extension InfoViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSo
                 let objectArray = Bundle.main.loadNibNamed(String(describing: MoveTableViewCell.self), owner: nil, options: nil)
                 cell = objectArray![0] as! MoveTableViewCell
             }
-            cell.initializeCell(moveModel: openingModel.moves[indexPath.row-1], turn: turn)
+            cell.initializeCell(moveModel: openingModel.getValidMoves()[indexPath.row-1], turn: turn)
             return cell
         }
     }

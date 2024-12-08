@@ -34,7 +34,9 @@ struct OpeningEntity: Codable {
         init(openingModel: OpeningModel) {
             self.title = openingModel.title
             self.info = openingModel.info
-            self.moves = openingModel.moves.map { MoveEntity(moveModel: $0) }
+            self.moves = openingModel.moves.compactMap({ move in
+                return move.valid ? MoveEntity(moveModel: move) : nil
+            })
         }
         
         init() {
