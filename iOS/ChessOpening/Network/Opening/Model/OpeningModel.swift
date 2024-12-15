@@ -14,31 +14,36 @@ enum MoveType: Int {
     case gambit
     case brilliant
     case blunder
+    case unknown
     
     func getImage() -> UIImage {
         switch self {
         case .mainbook:
-            return UIImage(named: "mainbook")!
+            return UIImage(resource: .mainbook)
         case .sidebook:
-            return UIImage(named: "sidebook")!
+            return UIImage(resource: .sidebook)
         case .gambit:
-            return UIImage(named: "gambit")!
+            return UIImage(resource: .gambit)
         case .brilliant:
-            return UIImage(named: "brilliant")!
+            return UIImage(resource: .brilliant)
         case .blunder:
-            return UIImage(named: "blunder")!
+            return UIImage(resource: .blunder)
+        case .unknown:
+            return UIImage(resource: .bookGray)
         }
     }
     func getGrayImage() -> UIImage {
         switch self {
         case .mainbook, .sidebook:
-            return UIImage(named: "book_gray")!
+            return UIImage(resource: .bookGray)
         case .gambit:
-            return UIImage(named: "gambit_gray")!
+            return UIImage(resource: .gambitGray)
         case .brilliant:
-            return UIImage(named: "brilliant_gray")!
+            return UIImage(resource: .brilliantGray)
         case .blunder:
-            return UIImage(named: "blunder_gray")!
+            return UIImage(resource: .blunderGray)
+        case .unknown:
+            return UIImage(resource: .bookGray)
         }
     }
     func toString() -> String {
@@ -53,6 +58,8 @@ enum MoveType: Int {
             return "Brilliant"
         case .blunder:
             return "Blunder"
+        case .unknown:
+            return "Unknown"
         }
     }
 }
@@ -74,14 +81,14 @@ struct OpeningModel {
         init(moveEntity: OpeningEntity.OpeningResponseDataEntity.MoveEntity) {
             self.valid = true
             self.pgn = moveEntity.pgn ?? ""
-            self.type = MoveType(rawValue: moveEntity.type ?? 0) ?? .mainbook
+            self.type = MoveType(rawValue: moveEntity.type ?? 0) ?? .unknown
             self.title = moveEntity.title ?? ""
             self.info = moveEntity.info ?? ""
         }
         init(lichessMoveModel: LichessModel.MoveModel) {
-            self.valid = false
+            self.valid = true
             self.pgn = lichessMoveModel.san ?? ""
-            self.type = .mainbook
+            self.type = .unknown
             self.title = ""
             self.info = ""
             self.rate = lichessMoveModel.rate
@@ -89,7 +96,7 @@ struct OpeningModel {
         init(pgn: String) {
             self.valid = false
             self.pgn = pgn
-            self.type = .mainbook
+            self.type = .unknown
             self.title = ""
             self.info = ""
         }

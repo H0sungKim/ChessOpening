@@ -27,17 +27,17 @@ class ChessBoardView: UIView {
     
     private let imgBKing: UIImage = UIImage(resource: .bking)
     private let imgBQueen: UIImage = UIImage(resource: .bqueen)
-    private let imgBRook: UIImage = UIImage(named: "brook")!
-    private let imgBBishop: UIImage = UIImage(named: "bbishop")!
-    private let imgBKnight: UIImage = UIImage(named: "bknight")!
-    private let imgBPawn: UIImage = UIImage(named: "bpawn")!
+    private let imgBRook: UIImage = UIImage(resource: .brook)
+    private let imgBBishop: UIImage = UIImage(resource: .bbishop)
+    private let imgBKnight: UIImage = UIImage(resource: .bknight)
+    private let imgBPawn: UIImage = UIImage(resource: .bpawn)
     
-    private let imgWKing: UIImage = UIImage(named: "wking")!
-    private let imgWQueen: UIImage = UIImage(named: "wqueen")!
-    private let imgWRook: UIImage = UIImage(named: "wrook")!
-    private let imgWBishop: UIImage = UIImage(named: "wbishop")!
-    private let imgWKnight: UIImage = UIImage(named: "wknight")!
-    private let imgWPawn: UIImage = UIImage(named: "wpawn")!
+    private let imgWKing: UIImage = UIImage(resource: .wking)
+    private let imgWQueen: UIImage = UIImage(resource: .wqueen)
+    private let imgWRook: UIImage = UIImage(resource: .wrook)
+    private let imgWBishop: UIImage = UIImage(resource: .wbishop)
+    private let imgWKnight: UIImage = UIImage(resource: .wknight)
+    private let imgWPawn: UIImage = UIImage(resource: .wpawn)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -306,6 +306,8 @@ class ChessBoardView: UIView {
                 drawArrow(arrow: coordinate, color: UIColor.brilliantMint)
             case .blunder:
                 drawArrow(arrow: coordinate, color: UIColor.blunderRed)
+            case .unknown:
+                break
             }
         }
     }
