@@ -1049,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00.08;
+				MARKETING_VERSION = 1.00.09;
 				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1079,7 +1079,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.00.08;
+				MARKETING_VERSION = 1.00.09;
 				PRODUCT_BUNDLE_IDENTIFIER = com.constant.chessopeningbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
